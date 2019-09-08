@@ -2,4 +2,5 @@
 
   def index
     @items = @items.where
+  end
 end
