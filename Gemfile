@@ -68,3 +68,7 @@ gem 'haml-rails'
 gem 'owlcarousel-rails'
 gem 'ancestry'
 gem 'wicked'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
