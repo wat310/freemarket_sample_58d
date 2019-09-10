@@ -7,7 +7,7 @@
 |password|string|null: false|
 ### Association
 - has_one :credit_card
-- has_one :plofiel
+- has_one :profile
 - has_many :items
 - has_many :comments
 - has_many :sns_credentials, dependent: :destroy
@@ -23,7 +23,7 @@
 ### Association
 - belongs_to :user
 
-## profielsテーブル
+## profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |family_name_kanji|string|null: false|
@@ -33,7 +33,7 @@
 |birth_year|date|null: false|
 |birth_month|date|null: false|
 |birth_day|date|null: false|
-|phone_number|integer|null: false, unique: true|
+|phone_number|string|null: false, unique: true|
 |message|text||
 |evaluation_good|integer|null: false|
 |evaluation_normal|integer|null: false|
@@ -43,7 +43,7 @@
 - belongs_to :user
 
 <!-- 発送元・配送先 -->
-## adressテーブル
+## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|integer|null: false|
@@ -62,7 +62,7 @@
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- has_many: adress
+- has_many: address
 
 <!-- Facebook等のSNS認証用 -->
 ## sns_credentialsテーブル
