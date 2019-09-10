@@ -37,7 +37,7 @@
 |message|text||
 |evaluation_good|integer|null: false|
 |evaluation_normal|integer|null: false|
-|evaluation_end|integer|null: false|
+|evaluation_bad|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
