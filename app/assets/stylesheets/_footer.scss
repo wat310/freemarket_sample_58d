@@ -1,0 +1,105 @@
+.footer{
+  padding: 0 20px 10px 20px;
+  background: #212121;
+  &__content{
+    width: 1100px;
+    margin: 0 auto;
+    &__box{
+      padding: 0 10px;
+      height:300px;
+      display: inline-block;
+      margin-top: 18px;
+      vertical-align: top;
+      &__title{
+        color: #fff;
+        font-size: 16px;
+        font-weight: 100;
+      }
+      &__cell
+{
+        list-style: none;
+        &__left{
+          vertical-align: top;
+          width: 50%;
+          float:left;
+          white-space: normal;
+          &__list{
+            margin: 16px 0 0;
+            opacity:0.7;
+            color: #fff;
+            font-size: 12px;
+            line-height: 1.5;
+          }
+        }
+        &__right{
+          vertical-align: top;
+          width: 50%;
+          float:left;
+          white-space: normal;
+          &__list{
+            margin: 16px 0 0;
+            opacity:0.7;
+            color: #fff;
+            font-size: 12px;
+            line-height: 1.5;
+          }
+        }
+        &__list{
+          margin: 16px 0 10px 0;
+          opacity:0.7;
+          color: #fff;
+          font-size: 12px;
+          line-height: 1.5;
+        }
+        &__icon{
+          font:30px FontAwesome;
+          color: #fff;
+          margin: 30px 15px;
+        }
+      }
+    }
+    &__bottom{
+      margin: 50px auto 0;
+      &__icon{
+        display: inline-block;
+        margin-right: 10px;
+        background: image-url("mercari-logo_white.png");
+        background-position: center;
+        background-size: cover;
+        height:31px;
+        width:124px;
+      }
+      &__copy-right{
+        color:#fff;
+        display: inline-block;
+        width: 745px;
+        margin: 8px 0 0;
+        text-align: center;
+        vertical-align: sub;
+        font-size:12px;
+        small{
+          text-align: center;
+        }
+      }
+    }
+  }
+  
+}
+.sell-btn{
+  bottom: 32px;
+  right: 32px;
+  width: 160px;
+  height: 160px;
+  font-size: 22px;
+  position: fixed;
+  border-radius: 50%;
+  background: #ea352d;
+  color: #fff;
+  text-align: center;
+  &__text {
+  margin: 14px 0 0;
+  }
+  &__icon{
+  font:80px FontAwesome;
+  }
+}
