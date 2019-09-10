@@ -1,0 +1,58 @@
+.footer
+  .footer__content
+    .footer__content__box
+      %h2.footer__content__box__title メルカリについて
+      %ul.footer__content__box__cell
+        =link_to "#" do
+          %li.footer__content__box__cell__list 会社概要（運営会社）
+          %li.footer__content__box__cell__list 採用情報
+          %li.footer__content__box__cell__list プレリリース
+          %li.footer__content__box__cell__list 公式ブログ
+          %li.footer__content__box__cell__list メルカリロゴ利用ガイドライン
+        %i.footer__content__box__cell__icon.fab.fa-twitter
+        %i.footer__content__box__cell__icon.fab.fa-facebook-square
+    .footer__content__box
+      %h2.footer__content__box__title ヘルプ＆ガイド
+      %ul.footer__content__box__cell
+        =link_to "#" do
+          %li.footer__content__box__cell__list メルカリガイド
+          %li.footer__content__box__cell__list らくらくメルカリ便
+          %li.footer__content__box__cell__list ゆうゆうメリカリ便
+          %li.footer__content__box__cell__list 大型メルカリ便
+          %li.footer__content__box__cell__list 車体取引ガイド
+          %li.footer__content__box__cell__list メルカリあんしん・あんぜん宣言！
+          %li.footer__content__box__cell__list 偽ブランド品撲滅への取り組み
+          %li.footer__content__box__cell__list メルカリボックス
+    .footer__content__box
+      %h2.footer__content__box__title プライバシーと利用規約
+      %ul.footer__content__box__cell
+        =link_to "#" do
+          .footer__content__box__cell__left
+            %li.footer__content__box__cell__left__list プライバシーポリシー
+            %li.footer__content__box__cell__left__list メルカリ利用規約
+            %li.footer__content__box__cell__left__list 
+              あんしんスマホサポート制度に
+              %br
+              関する利用特約
+            %li.footer__content__box__cell__left__list コンプライアンスポリシー
+          .footer__content__box__cell__right
+            %li.footer__content__box__cell__right__list 個人データの安全管理に係る基本方針
+            %li.footer__content__box__cell__right__list 特定商取引に関する表記
+            %li.footer__content__box__cell__right__list 資金決済法に基づく表示
+            %li.footer__content__box__cell__right__list 法令遵守と犯罪抑止のために
+            %li.footer__content__box__cell__right__list 返品・返金ポリシー
+    .footer__lower__content
+      %h2.footer__content__box__title 国
+      %ul.footer__content__box__cell
+        =link_to "#" do
+          %li.footer__content__box__cell__list 日本
+          %li.footer__content__box__cell__list United State
+    .footer__content__bottom
+      .footer__content__bottom__icon
+      -# = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?4069491723", size: "124x33", alt: "メルカリアイコン", class: "footer__content__bottom__icon"
+      %span.footer__content__bottom__copy-right
+        %small © 2019 Mercari
+        -# indexカメラマーク売却ボタン
+  =link_to '#', class:'sell-btn', method: :get do
+    .sell-btn__text 出品
+    %i.sell-btn__icon.fas.fa-camera
