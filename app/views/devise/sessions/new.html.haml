@@ -1,9 +1,39 @@
+!!! 5
+%html
+  %head
+.single-container
+  %header.single-header
+    %h1
+      %a{ href: "https://www.mercari.com/jp/" }
+        %img{ src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2482339763" ,alt: "mercari" }
 
-
-
-
-
-
+  %main.single-main
+    .login-panel
+      .login-no-account
+        %p アカウントをお持ちでない方はこちら
+        %a{ href: "https://www.mercari.com/jp/signup/?after_save_callback=%2Fjp%2F" }新規会員登録
+      
+      .login-form-inner
+        %button{id: "facebook-login", class: "btn-default btn-sns btn-sns-facebook" }
+          %i{class: "icon-facebook"}Facebookでログイン
+        %button{id: "google-login", class: "btn-default btn-sns btn-sns-google" }Googleでログイン
+      
+  %form{:action => "https://www.mercari.com/jp/login/", :method => "POST", :novalidate => "novalidate"}
+    .login-form-inner
+      .form-group
+        %input{type: "email", name: "email", placeholder: "メールアドレス", class: "login-input-text input-default"}
+      .form-group
+        %input{type: "password", name: "password", placeholder: "パスワード", class: "login-input-text input-default"}
+      .form-group
+        .g-recaptcha.login-captcha
+          %input.no-robot__left__checkbox{:type => "checkbox"}
+          %div(style='width: 304px; height: 78px;')
+            -# %p 私はロボットではあり</br>ません。
+            %div
+              %iframe(src="https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1566858990656&size=normal&cb=5g00cprq2rp" width="304" height="78" role="presentation" name="a-n3piekgusv8m" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox")
+            %textarea{id: "g-recaptcha-response", name: "g-recaptcha-response", class: "g-recaptcha-response", style:"width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;" }
+      %button{type: "submit", class: "login-submit btn-default btn-red" }ログイン
+      %input{type: "hidden", name: "login_callback", value: "/jp/"}
 
 
 
