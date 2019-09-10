@@ -68,7 +68,7 @@ gem 'owlcarousel-rails'
 gem 'ancestry'
 gem 'wicked'
 gem 'devise'
-gem 'font-awesome-rails'
+# gem 'font-awesome-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
