@@ -5,7 +5,7 @@
   %header.single-header
     %h1
       %a{ href: "https://www.mercari.com/jp/" }
-        %img{ src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2482339763" ,alt: "mercari" }
+        %img{ src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2482339763" ,alt: "mercari", width: 120 , height: 33}
 
   %main.single-main
     .login-panel
@@ -18,23 +18,59 @@
           %i{class: "icon-facebook"}Facebookでログイン
         %button{id: "google-login", class: "btn-default btn-sns btn-sns-google" }Googleでログイン
       
-  %form{:action => "https://www.mercari.com/jp/login/", :method => "POST", :novalidate => "novalidate"}
-    .login-form-inner
-      .form-group
-        %input{type: "email", name: "email", placeholder: "メールアドレス", class: "login-input-text input-default"}
-      .form-group
-        %input{type: "password", name: "password", placeholder: "パスワード", class: "login-input-text input-default"}
-      .form-group
-        .g-recaptcha.login-captcha
-          %input.no-robot__left__checkbox{:type => "checkbox"}
-          %div(style='width: 304px; height: 78px;')
-            -# %p 私はロボットではあり</br>ません。
-            %div
-              %iframe(src="https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1566858990656&size=normal&cb=5g00cprq2rp" width="304" height="78" role="presentation" name="a-n3piekgusv8m" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox")
-            %textarea{id: "g-recaptcha-response", name: "g-recaptcha-response", class: "g-recaptcha-response", style:"width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;" }
-      %button{type: "submit", class: "login-submit btn-default btn-red" }ログイン
-      %input{type: "hidden", name: "login_callback", value: "/jp/"}
+      %form{action: "https://www.mercari.com/jp/login/", method: "POST", novalidate: "novalidate"}
+        .login-form-inner
+          .form-group
+            %input{type: "email", name: "email", placeholder: "メールアドレス", class: "login-input-text input-default"}
+          .form-group
+            %input{type: "password", name: "password", placeholder: "パスワード", class: "login-input-text input-default"}
+          .form-group
+            .g-recaptcha.login-captcha
+              %input.no-robot__left__checkbox{type: "checkbox"}
+              %div(style='width: 304px; height: 78px;')
+                -# %p 私はロボットではあり</br>ません。
+                %div
+                  %iframe(src="https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1566858990656&size=normal&cb=5g00cprq2rp" width="304" height="78" role="presentation" name="a-n3piekgusv8m" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox")
+                %textarea{id: "g-recaptcha-response", name: "g-recaptcha-response", class: "g-recaptcha-response", style:"width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;" }
+          %button{type: "submit", class: "login-submit btn-default btn-red" }ログイン
+          %input{type: "hidden", name: "login_callback", value: "/jp/"}
+          %input{type: "hidden", name: "__csrf_value", value: "664e3912b7f684cc372db43cef311b0a95828e0f17f24fae1c3d8b6a5c4601df767bfbfec724e01eae9830e77c72e9d2dce80326b53eb5aa9c32fe623cc7c96c6"}
+          %a{ href: "https://www.mercari.com/jp/password/reset/start/" }パスワードをお忘れの方
 
+      %form{id: "login_form_facebook", action: "/jp/login/", method: "POST", novalidate: "novalidate"}
+        %input{type: "hidden", name: "__csrf_value", value: "664e3912b7f684cc372db43cef311b0a95828e0f17f24fae1c3d8b6a5c4601df767bfbfec724e01eae9830e77c72e9d2dce80326b53eb5aa9c32fe623cc7c96c6"}
+        %input{type: "hidden", name: "nickname", value: ""}
+        %input{type: "hidden", name: "email", value: ""}
+        %input{type: "hidden", name: "facebook_user_id", value: ""}
+        %input{type: "hidden", name: "facebook_access_token", value: ""}
+        %input{type: "hidden", name: "login_type", value: "facebook"}
+        %input{type: "hidden", name: "login_callback", value: "/jp/"}
+      
+      %form{id: "login_form_google", action: "/jp/login/", method: "POST", novalidate: "novalidate"}
+        %input{type: "hidden", name: "__csrf_value", value: "664e3912b7f684cc372db43cef311b0a95828e0f17f24fae1c3d8b6a5c4601df767bfbfec724e01eae9830e77c72e9d2dce80326b53eb5aa9c32fe623cc7c96c6"}
+        %input{type: "hidden", name: "nickname", value: ""}
+        %input{type: "hidden", name: "email", value: ""}
+        %input{type: "hidden", name: "google_user_id", value: ""}
+        %input{type: "hidden", name: "google_access_token", value: ""}
+        %input{type: "hidden", name: "login_type", value: "google"}
+        %input{type: "hidden", name: "login_callback", value: "/jp/"}
+      %input{type: "hidden", id: "google_client_id", value: "238694260676-l0gp5j3hs9p8l2hjmnt126q0b4iin34r.apps.googleusercontent.com"}
+      %input{type: "hidden", name: "facebook_app_id", value: "466308336793848"}
+  
+  %footer.single-footer
+    %nav
+      %ul.clearfix
+        %li
+          %a{ href: "https://www.mercari.com/jp/privacy/" }プライバシーポリシー
+        %li
+          %a{ href: "https://www.mercari.com/jp/tos/" }メルカリ利用規約
+        %li
+          %a{ href: "https://www.mercari.com/jp/tokutei/" }特定商取引に関する表記
+
+    %a{ href: "https://www.mercari.com/jp/", class: "single-footer-logo" }
+      %img{ src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2482339763" ,alt: "mercari", width: 80 , height: 65}
+    %p
+      %small © 2019 Mercari
 
 
 
