@@ -1,103 +1,267 @@
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+*, ::before, ::after {
+  border-style: solid;
+  border-width: 0;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit; 
+}
+
+::selection {
+  color: currentColor;
+  background-color: #b3d4fc;
+  color: #fff;
+  text-shadow: none;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+
+:root {
+  cursor: auto;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #000;
+  cursor: default;
+  font: 66.66667% sans-serif;
+}
+
+html {
+  height: 100%;
+  overflow-y: auto;
+}
+
+a {
+  color: #0099e8;
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}
+small {
+  font-size: 75%;
+}
+.btn-sns {
+  position: relative;
+}
+.btn-default {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  min-height: 1.5em;
+  -webkit-appearance: button;
+  overflow: visible;
+  touch-action: manipulation;
+}
+
+
+
 .single-container {
   padding:0 0 250px;
 
-  .single-header{
-    text-align: center;
- 
-   h1{
-    display: inline-block;
-    margin: 11px 0 12px;
-  }
-    a{
-    display: inline-block;
-    width: 120px;
-    height: 33px;
-    margin: 0 8px 0 0;
-    line-height: 33px;
-  }
-   img {
-    width: 120px;
-    height: 33px;
-  }
- }
-  main {
-    display: block;
-  }
+    .single-header{
+      text-align: center;
   
+    h1 {
+      display: inline-block;
+      margin: 11px 0 12px;
+    }
+    a {
+      display: inline-block;
+      width: 120px;
+      height: 33px;
+      margin: 0 8px 0 0;
+      line-height: 33px;
+    }
+    img {
+      width: 120px;
+      height: 33px;
+    }
+  }
+
+    main {
+      display: block;
+    }
+    
     .login-panel {
-        max-width: 456px;
-        margin: 0 auto;
-        background: #fff;
+      max-width: 456px;
+      margin: 0 auto;
+      background: #fff;
       .login-no-account {
         padding: 24px 32px;
         text-align: center;
-       p {
+        p {
           font-size: 14px;
-      }
-       a {
+        }
+        a {
         display: block;
         margin: 8px 0 0;
         border: 1px solid #0099e8;
         background: #0099e8;
         color: #fff;
         line-height: 40px;
-      }
-    }
-      }
-      .login-form-inner {
-        padding: 24px 32px;
-        border-top: 1px solid #eee;
-        .btn-sns-facebook:first-child {
-          margin: 0;
-       
-          .i[class^='icon-'], i[class*='icon-'] {
-            display: inline-block;
-            font-family: 'icon-font';
-            speak: none;
-            font-style: normal;
-            font-weight: 400;
-            font-variant: normal;
-            text-transform: none;
-            line-height: 1;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            .btn-sns i {
-              position: absolute;
-              top: 50%;
-              left: 16px;
-              -webkit-transform: translate(0, -50%);
-              transform: translate(0, -50%);
-          }
         }
-
       }
-
-      .btn-sns-google {
-        margin: 16px 0 0;
-        background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
-        border: #979797 solid 1px;
-        color: #333;
     }
+  .login-form-inner {
+    padding: 24px 32px;
+    border-top: 1px solid #eee;
 
-      }
+
+
 
     .form-group{
       .input-default {
         margin: 0;
         width: 100%;
-        margin: 8px 0 0;
+        magin: 8px 0 0;
       }
-
+  
       .login-form-inner:first-child {
         padding: 24px 32px;
-        border: 0;
-        
+        border: 0;          
         .form-group:first-child {
           margin: 0;
-        
-          
-
         }
       }
     }
+
+    &:first-child {
+      padding: 24px 32px;
+      border: 0;
+    }
+    .icon-facebook:before {
+      content: '\e014';
+    }
+    .btn-sns-facebook {
+      margin: 16px 0 0;
+      background: #385185;
+      color: #fff;
+  
+      &:first-child {
+      margin: 0;
+      }
+      
+
+      
+      .btn-sns i {
+          position: absolute;
+          top: 50%;
+          left: 16px;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+      }      
+    }
   }
+
+
+
+
+
+  
+  .single-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    height: 250px;
+    padding: 40px 0;
+    text-align: center;    
+    a {
+      display: block;
+      color: #333;
+    }
+    p {
+      margin: 8px 0 0;
+    }
+    li:first-child {
+      margin: 0;
+    }
+    li {
+      margin: 16px 0 0;
+      font-size: 12px;
+    }
+    ul {
+      font-size: 0;
+    }
+    small {
+      font-size: 13px;
+    }
+    &-logo {
+      width: 80px;
+      height: 65px;
+      margin: 40px auto 0;
+    }
+
+  }
+  
+  .clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.btn-sns-google {
+  margin: 16px 0 0;
+  background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
+  border: #979797 solid 1px;
+  color: #333;
+}
+
+
+}
+
+.fab.fa-facebook-square{
+  font-family: 'icon-font';
+  font-size: 26px;
+  color: white;
+  &:before {
+    content: '\e014';
+  }
+  
+}
+i[class^='icon-'], 
+i[class*='icon-'] {
+  display: inline-block;
+  font-family: 'icon-font';
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

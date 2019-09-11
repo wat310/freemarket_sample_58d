@@ -15,7 +15,10 @@
       
       .login-form-inner
         %button{id: "facebook-login", class: "btn-default btn-sns btn-sns-facebook" }
-          %i{class: "icon-facebook"}Facebookでログイン
+          = link_to' ', class: 'facebook' do
+            %i.fab.fa-facebook-square
+            .content-box Facebookでログイン
+
         %button{id: "google-login", class: "btn-default btn-sns btn-sns-google" }Googleでログイン
       
       %form{action: "https://www.mercari.com/jp/login/", method: "POST", novalidate: "novalidate"}
