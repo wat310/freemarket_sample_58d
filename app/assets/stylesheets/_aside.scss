@@ -1,0 +1,68 @@
+.aside{
+  background: image-url("background-image.jpg");
+  background-position: center;
+  background-size: cover;
+  &__banner{
+    width: 750px;
+    height: 260px;
+    margin: 0 auto;
+    color: #fff;
+    position: relative;
+    &__left{
+      position: absolute;
+      top: 20%;
+      left: 16px;
+      &__title{
+        font-size: 16px;
+      }
+      &__Advertising{
+        font-size: 24px;
+        margin: 10px 0 0;
+      }
+      &__icon{
+        margin: 20px 0 0;
+        line-height: 68px;
+        &__image{
+          background: image-url("mercari_icon.png");
+          background-position: center;
+          background-size: cover;
+          height:68px;
+          width:68px;
+          float: left;
+        }
+        &__link{
+          margin: 0 0 0 24px;
+          list-style: none;
+          float: left;
+          &__app{
+            float: left;
+            background: image-url("app-icon.png");
+            background-position: center;
+            background-size: cover;
+            height:40px;
+            width:133px;
+          }
+          &__google{
+            float: left;
+            margin: 0 0 0 16px;
+            background: image-url("google-icon.png");
+            background-position: center;
+            background-size: cover;
+            height:40px;
+            width:133px;
+          }
+        }
+      }
+    }
+    &__right{
+      float:right;
+      &__image{
+        background: image-url("download_content_pc.png");
+        background-position: center;
+        background-size: cover;
+        height: 260px;
+        width:300px;
+      }
+    }
+  }
+}
