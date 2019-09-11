@@ -16,8 +16,8 @@
       .login-form-inner
         %button{id: "facebook-login", class: "btn-default btn-sns btn-sns-facebook" }
           = link_to' ', class: 'facebook' do
-            %i.fab.fa-facebook-square
-            .content-box Facebookでログイン
+            %i.fab.fa-facebook-square 
+            Facebookでログイン
 
         %button{id: "google-login", class: "btn-default btn-sns btn-sns-google" }Googleでログイン
       
@@ -29,7 +29,7 @@
             %input{type: "password", name: "password", placeholder: "パスワード", class: "login-input-text input-default"}
           .form-group
             .g-recaptcha.login-captcha
-              %input.no-robot__left__checkbox{type: "checkbox"}
+              -# %input.no-robot__left__checkbox{type: "checkbox"}
               %div(style='width: 304px; height: 78px;')
                 -# %p 私はロボットではあり</br>ません。
                 %div
