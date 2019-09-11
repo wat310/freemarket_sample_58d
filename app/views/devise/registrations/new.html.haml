@@ -1,21 +1,64 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+!!! 5
+%html
+  %head
+.single-container
+  %header.single-header
+    %h1
+      %a{ href: "" }
+        %img{ src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2482339763" ,alt: "mercari", width: 120 , height: 33}
+
+  %main.single-main
+    %section.l-single-container
+      %h2.l-single-head.registration 新規会員登録
+      
+      .l-single-inner.registration-form
+        .l-single-content
+          %a{ class: "btn-default btn-mail", href: "https://www.mercari.com/jp/signup/registration/" }
+            %i.icon-mail
+            メールアドレスで登録する
+          %button{id: "facebook-login", class: "btn-default btn-sns btn-sns-facebook" }
+            = link_to' ', class: 'facebook' do
+              %i.fab.fa-facebook-square 
+              Facebookで登録する
+
+          %button{id: "google-login", class: "btn-default btn-sns btn-sns-google" }
+            Googleで登録する
+      
+      %form{action: "https://www.mercari.com/jp/login/", method: "POST", novalidate: "novalidate"}
+
+
+
+    %form{id: "login_form_facebook", action: "/jp/login/", method: "POST", novalidate: "novalidate"}
+      %input{type: "hidden", name: "__csrf_value", value: "664e3912b7f684cc372db43cef311b0a95828e0f17f24fae1c3d8b6a5c4601df767bfbfec724e01eae9830e77c72e9d2dce80326b53eb5aa9c32fe623cc7c96c6"}
+      %input{type: "hidden", name: "nickname", value: ""}
+      %input{type: "hidden", name: "email", value: ""}
+      %input{type: "hidden", name: "facebook_user_id", value: ""}
+      %input{type: "hidden", name: "facebook_access_token", value: ""}
+      %input{type: "hidden", name: "login_type", value: "facebook"}
+      %input{type: "hidden", name: "login_callback", value: "/jp/"}
+    
+    %form{id: "login_form_google", action: "/jp/login/", method: "POST", novalidate: "novalidate"}
+      %input{type: "hidden", name: "__csrf_value", value: "664e3912b7f684cc372db43cef311b0a95828e0f17f24fae1c3d8b6a5c4601df767bfbfec724e01eae9830e77c72e9d2dce80326b53eb5aa9c32fe623cc7c96c6"}
+      %input{type: "hidden", name: "nickname", value: ""}
+      %input{type: "hidden", name: "email", value: ""}
+      %input{type: "hidden", name: "google_user_id", value: ""}
+      %input{type: "hidden", name: "google_access_token", value: ""}
+      %input{type: "hidden", name: "login_type", value: "google"}
+      %input{type: "hidden", name: "login_callback", value: "/jp/"}
+    %input{type: "hidden", id: "google_client_id", value: "238694260676-l0gp5j3hs9p8l2hjmnt126q0b4iin34r.apps.googleusercontent.com"}
+    %input{type: "hidden", name: "facebook_app_id", value: "466308336793848"}
+  
+  %footer.single-footer
+    %nav
+      %ul.clearfix
+        %li
+          %a{ href: "" }プライバシーポリシー
+        %li
+          %a{ href: "" }メルカリ利用規約
+        %li
+          %a{ href: "" }特定商取引に関する表記
+
+    %a{ href: "", class: "single-footer-logo" }
+      %img{ src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2482339763" ,alt: "mercari", width: 80 , height: 65}
+    %p
+      %small © 2019 Mercari
