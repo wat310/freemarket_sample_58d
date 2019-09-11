@@ -1,0 +1,9 @@
+@mixin form-require() {
+  background-color: red;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  padding: 2px 4px;
+  margin-left: 8px;
+  border-radius: 2px;
+}
