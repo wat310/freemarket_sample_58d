@@ -1,117 +1,87 @@
 .wrapper
-  .main
-    .slider
-      .srider__box
-        .srider__box__content
-          %h2 スマホでかんたんフリマアプリ
-          %p メルカリはスマホカメラからすぐに出品できる
-          %p 購入時も安心な独自システムのアプリです
-    -# .carousel
-    -#   .carousel__image{id:'carousel'}
-    -#     = image_tag "banner.jpg"
-    -#     = image_tag "for_carousel.png"
+  .top
+    .main
+      .slider
+        .srider__box
+          .srider__box__content
+            %h2 スマホでかんたんフリマアプリ
+            %p メルカリはスマホカメラからすぐに出品できる
+            %p 購入時も安心な独自システムのアプリです
+
     .category
       .category__bar
         %h2.category__bar__title 人気のカテゴリー
+
     .pickup
       .pickup__item
-        %h3.pickup__item__category
-          =link_to "#" do
-            .pickup__item__category__title  レディース新着アイテム
-        -# - @ladies.each do |item|
-        -#   = render partial:"shared/item_index",locals: {item: item}
-        .pickup__item__category__all
-          =link_to "#" do
-            %p.pickup__item__category__all__link もっと見る ＞
+        %h3.pickup__item__head レディース新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
 
+    .pickup
       .pickup__item
-        %h3.pickup__item__category
-          =link_to "#" do
-            .pickup__item__category__title  メンズ新着アイテム
-        -# - @mens.each do |item|
-        -#   = render partial:"shared/item_index",locals: {item: item}
-        .pickup__item__category__all
-          =link_to "#" do
-            %p.pickup__item__category__all__link もっと見る ＞
+        %h3.pickup__item__head メンズ新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
 
+    .pickup
       .pickup__item
-        %h3.pickup__item__category
-          =link_to "#" do
-            .pickup__item__category__title  家電・スマホ・カメラ新着アイテム
-        -# - @home-electrics.each do |item|
-        -#   = render partial:"shared/item_index",locals: {item: item}
-        .pickup__item__category__all
-          =link_to "#" do
-            %p.pickup__item__category__all__link もっと見る ＞
+        %h3.pickup__item__head 家電・スマホ・カメラ新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
 
+    .pickup
       .pickup__item
-        %h3.pickup__item__category
-          =link_to "#" do
-            .pickup__item__category__title  おもちゃ・ホビー・グッズ 新着アイテム
-        -# - @hobbies.each do |item|
-        -#   = render partial:"shared/item_index",locals: {item: item}
-        .pickup__item__category__all
-          =link_to "#" do
-            %p.pickup__item__category__all__link もっと見る ＞
-
-
+        %h3.pickup__item__head おもちゃ・ホビー・グッズ新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
+      
     .category
       .category__bar
-      %h2.category__bar__title 人気のブランド
-      -# %li.category__bar__list
-      -# = link_to 'シャネル', '#'
-      -# = link_to 'ルイヴィトン', '#'
-      -# = link_to 'シュプリーム', '#'
-      -# = link_to 'ナイキ', '#'
+        %h2.category__bar__title 人気のブランド
+
     .pickup
       .pickup__item
-        %h3.pickup__item__category
-          =link_to "#" do
-            .pickup__item__category__title  シャネル新着アイテム
-        -# - @chanels.each do |item|
-        -#   = render partial:"shared/item_index",locals: {item: item}
-        .pickup__item__category__all
-          =link_to "#" do
-            %p.pickup__item__category__all__link もっと見る ＞
+        %h3.pickup__item__head シャネル新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
 
+    .pickup
       .pickup__item
-        %h3.pickup__item__category
-          =link_to "#" do
-            .pickup__item__category__title  ルイヴィトン 新着アイテム
-        -# - @louis.each do |item|
-        -#   = render partial:"shared/item_index",locals: {item: item}
-        .pickup__item__category__all
-          =link_to "#" do
-            %p.pickup__item__category__all__link もっと見る ＞
+        %h3.pickup__item__head ルイヴィトン新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
 
+    .pickup
       .pickup__item
-        %h3.pickup__item__category
-          =link_to "#" do
-            .pickup__item__category__title  シュプリーム 新着アイテム
-        -# - @supremes.each do |item|
-        -#   = render partial:"shared/item_index",locals: {item: item}
-        .pickup__item__category__all
-          =link_to "#" do
-            %p.pickup__item__category__all__link もっと見る ＞
+        %h3.pickup__item__head シュプリーム新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
 
+    .pickup
       .pickup__item
-        %h3.pickup__item__category
-          =link_to "#" do
-            .pickup__item__category__title  ナイキ 新着アイテム
-        -# - @nikes.each do |item|
-        -#   = render partial:"shared/item_index",locals: {item: item}
-        .pickup__item__category__all
-          =link_to "#" do
-            %p.pickup__item__category__all__link もっと見る ＞
+        %h3.pickup__item__head ナイキ新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
 
-  = render partial:"shared/aside"
-  = render partial:"shared/footer"
 
--#  %ul.upper__content
--#   .upper__content__title
--#     %h2 人気のカテゴリー
--#   %li.upper__content__list
--#   = link_to 'レディース', '#'
--#   = link_to 'メンズ', '#'
--#   = link_to '家電・スマホ・カメラ', '#'
--#   = link_to 'おもちゃ・ホビー・グッズ', '#'
+    = render partial:"shared/aside"
+    = render partial:"shared/footer"
+
+    -# = render partial: 'partial/pickup-item', locals: { items: @ladies_items, word: 'レディース' }
+    -# = render partial: 'partial/pickup-item', locals: { items: @mens_items, word: 'メンズ' }
+    -# = render partial: 'partial/pickup-item', locals: { items: @electorics_items, word: '家電・スマホ・カメラ' }
+    -# = render partial: 'partial/pickup-item', locals: { items: @hobby_items, word: 'おもちゃ・ホビー・グッズ' }
+
+    -# = render partial: 'partial/pickup-item', locals: { items: @chanel_items, word: 'シャネル' }
+    -# = render partial: 'partial/pickup-item', locals: { items: @louisvuitton_items, word: 'ルイ ヴィトン' }
+    -# = render partial: 'partial/pickup-item', locals: { items: @supreme_items, word: 'シュプリーム' }
+    -# = render partial: 'partial/pickup-item', locals: { items: @nike_items, word: 'ナイキ' }
