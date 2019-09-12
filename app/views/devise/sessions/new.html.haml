@@ -16,10 +16,11 @@
       .login-form-inner
         %button{id: "facebook-login", class: "btn-default btn-sns btn-sns-facebook" }
           = link_to' ', class: 'facebook' do
-            %i.fab.fa-facebook-square
-            .content-box Facebookでログイン
+            %i.fab.fa-facebook-square 
+            Facebookでログイン
 
-        %button{id: "google-login", class: "btn-default btn-sns btn-sns-google" }Googleでログイン
+        %button{id: "google-login", class: "btn-default btn-sns btn-sns-google" }
+          Googleでログイン
       
       %form{action: "https://www.mercari.com/jp/login/", method: "POST", novalidate: "novalidate"}
         .login-form-inner
@@ -29,7 +30,7 @@
             %input{type: "password", name: "password", placeholder: "パスワード", class: "login-input-text input-default"}
           .form-group
             .g-recaptcha.login-captcha
-              %input.no-robot__left__checkbox{type: "checkbox"}
+              -# %input.no-robot__left__checkbox{type: "checkbox"}
               %div(style='width: 304px; height: 78px;')
                 -# %p 私はロボットではあり</br>ません。
                 %div
@@ -74,38 +75,3 @@
       %img{ src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2482339763" ,alt: "mercari", width: 80 , height: 65}
     %p
       %small © 2019 Mercari
-
-
-
-
-
-
-
-
-
-
-
--# <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
--#   <div class="field">
--#     <%= f.label :email %><br />
--#     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
--#   </div>
-
--#   <div class="field">
--#     <%= f.label :password %><br />
--#     <%= f.password_field :password, autocomplete: "current-password" %>
--#   </div>
-
--#   <% if devise_mapping.rememberable? %>
--#     <div class="field">
--#       <%= f.check_box :remember_me %>
--#       <%= f.label :remember_me %>
--#     </div>
--#   <% end %>
-
--#   <div class="actions">
--#     <%= f.submit "ログイン" %>
--#   </div>
--# <% end %>
-
--# <%= render "devise/shared/links" %>

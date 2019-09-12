@@ -1,7 +1,7 @@
   class ItemsController < ApplicationController
 
   def index
-    @items = @items.where
+    # @items = @items.where
   end
 
   def new
