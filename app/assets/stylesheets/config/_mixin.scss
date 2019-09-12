@@ -3,7 +3,19 @@
   font-size: 12px;
   font-weight: bold;
   color: white;
-  padding: 2px 4px;
+  padding: 1px 4px;
   margin-left: 8px;
   border-radius: 2px;
+  vertical-align: top;
+}
+
+@mixin text-require-position() {
+  display: flex;
+  align-items: flex-end;
+}
+
+@mixin text-form() {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1em;
 }
