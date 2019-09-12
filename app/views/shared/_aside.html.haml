@@ -1,0 +1,17 @@
+.aside
+  .aside__banner
+    .aside__banner__left
+      %h2.aside__banner__left__title スマホでかんたんフリマアプリ
+      %p.aside__banner__left__Advertising 今すぐ無料ダウンロード
+      .aside__banner__left__icon
+        .aside__banner__left__icon__image
+          -# =image_tag "mercari_icon.png",size:"68x68"
+        %ul.aside__banner__left__icon__link
+          %li.aside__banner__left__icon__link__app
+            =link_to "#" do
+              -# =image_tag "app-icon.png",size:"133×40"
+          %li.aside__banner__left__icon__link__google
+            =link_to "#" do
+              -# =image_tag "google-icon.png",size:"133×40"
+    .aside__banner__right
+      .aside__banner__right__image

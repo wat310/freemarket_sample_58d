@@ -14,8 +14,8 @@ set :keep_releases, 5
 
  # Basic認証
 set :default_env, {
-  BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
-  BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
+  # BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
+  # BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
 }
 
 after 'deploy:publishing', 'deploy:restart'

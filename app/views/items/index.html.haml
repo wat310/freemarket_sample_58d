@@ -1,0 +1,87 @@
+.wrapper
+  .top
+    .main
+      .slider
+        .srider__box
+          .srider__box__content
+            %h2 スマホでかんたんフリマアプリ
+            %p メルカリはスマホカメラからすぐに出品できる
+            %p 購入時も安心な独自システムのアプリです
+
+    .category
+      .category__bar
+        %h2.category__bar__title 人気のカテゴリー
+
+    .pickup
+      .pickup__item
+        %h3.pickup__item__head レディース新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
+
+    .pickup
+      .pickup__item
+        %h3.pickup__item__head メンズ新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
+
+    .pickup
+      .pickup__item
+        %h3.pickup__item__head 家電・スマホ・カメラ新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
+
+    .pickup
+      .pickup__item
+        %h3.pickup__item__head おもちゃ・ホビー・グッズ新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
+      
+    .category
+      .category__bar
+        %h2.category__bar__title 人気のブランド
+
+    .pickup
+      .pickup__item
+        %h3.pickup__item__head シャネル新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
+
+    .pickup
+      .pickup__item
+        %h3.pickup__item__head ルイヴィトン新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
+
+    .pickup
+      .pickup__item
+        %h3.pickup__item__head シュプリーム新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
+
+    .pickup
+      .pickup__item
+        %h3.pickup__item__head ナイキ新着アイテム
+        .pickup__item__head--link
+        =link_to 'もっと見る ＞', "#"
+        .pickup__item__content picture
+
+
+    = render partial:"shared/aside"
+    = render partial:"shared/footer"
+
+    -# = render partial: 'partial/pickup-item', locals: { items: @ladies_items, word: 'レディース' }
+    -# = render partial: 'partial/pickup-item', locals: { items: @mens_items, word: 'メンズ' }
+    -# = render partial: 'partial/pickup-item', locals: { items: @electorics_items, word: '家電・スマホ・カメラ' }
+    -# = render partial: 'partial/pickup-item', locals: { items: @hobby_items, word: 'おもちゃ・ホビー・グッズ' }
+
+    -# = render partial: 'partial/pickup-item', locals: { items: @chanel_items, word: 'シャネル' }
+    -# = render partial: 'partial/pickup-item', locals: { items: @louisvuitton_items, word: 'ルイ ヴィトン' }
+    -# = render partial: 'partial/pickup-item', locals: { items: @supreme_items, word: 'シュプリーム' }
+    -# = render partial: 'partial/pickup-item', locals: { items: @nike_items, word: 'ナイキ' }
