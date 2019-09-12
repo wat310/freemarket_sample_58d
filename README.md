@@ -89,6 +89,7 @@
 |shipping_method|integer|null: false| <!-- 配送の方法 -->
 |region|integer|null: false| <!-- 発送元の地域 -->
 |shipping_date|integer|null: false| <!-- 発送までの日数 -->
+|business_status|integer|null: false| <!-- 取引の状態(販売中、売却済など) -->
 |buyer_id|references|foreign_key: true| <!-- 購入者 -->
 ### Association
 - belongs_to :user

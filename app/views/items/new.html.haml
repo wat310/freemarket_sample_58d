@@ -7,7 +7,6 @@
   %main.main
     %section.main__item-box
       %h2.main__item-box__head 商品の情報を入力
-      -# 下はサーバーサイド実装時に使う(下の%formと置き換え)
       = form_for @item do |f|
         .sell-upload-box
           %h3.sell-upload-head
@@ -28,7 +27,7 @@
             .text-require
               = f.label :商品の説明
               %span.form-require 必須
-            = f.text_area :explanation, class: 'input-explanation', placeholder: "商品の説明 (必須1,000文字以内) (色、素材、重さ、定価、注意点など) 例)<br>2010年頃に1万円で購入した"
+            = f.text_area :explanation, class: 'input-explanation', placeholder: "商品の説明 (必須1,000文字以内)　(色、素材、重さ、定価、注意点など)　例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: 5
 
 
   %footer.footer

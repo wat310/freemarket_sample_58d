@@ -19,3 +19,7 @@
   font-weight: bold;
   line-height: 1em;
 }
+
+@mixin input-field {
+  border: 1px solid #ccc;
+}
