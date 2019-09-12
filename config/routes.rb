@@ -7,3 +7,14 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :create, :edit, :update]
   resources :items
 end
+
+#新規登録ページ
+resources :signup do
+  collection do
+    get 'step1'
+    get 'step2'
+    get 'step3'
+    get 'step4' # ここで、入力の全て完了
+    get 'done' # 登録完了後のページ
+  end
+end
