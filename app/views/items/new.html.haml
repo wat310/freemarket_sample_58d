@@ -14,8 +14,9 @@
             %span.form-require 必須
           %p.picture-limit 最大10枚までアップロードできます
           .image-drop-box
-            %pre ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+            %pre.image-drop-text ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
 
+        -# 商品名と商品の説明
         .sell-content
           .sell-content__form
             .text-require
@@ -28,6 +29,72 @@
               = f.label :商品の説明
               %span.form-require 必須
             = f.text_area :explanation, class: 'input-explanation', placeholder: "商品の説明 (必須1,000文字以内)　(色、素材、重さ、定価、注意点など)　例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: 5
+
+        -# カテゴリー、ブランド、商品の状態
+        .sell-content.clearfix
+          %h3.sell-gray-text 商品の詳細
+          .sell-form-box
+            .form-group
+              = f.label :カテゴリー
+              %span.form-require 必須
+              %br
+              -# まだ修正必要(ブランド(テキストボックス)、サイズ等の追加必要)
+              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select-category"
+              -# =fa_icon 'angle-down'
+            .form-group{style: 'margin-top: 40px'}
+              =f.label :商品の状態
+              %span.form-require 必須
+              %br
+              = f.select :state, Item.states, { prompt: "---" }
+
+        -# 配送について
+        .sell-content.clearfix
+          %h3.sell-gray-text 配送について
+          .sell-form-box
+            .form-group
+              = f.label :発送料の負担
+              %span.form-require 必須
+              %br
+              = f.select :postage, Item.postages, { prompt: "---" }
+            .form-group{style: 'margin-top: 40px'}
+              =f.label :発送元の地域
+              %span.form-require 必須
+              %br
+              -# = f.select :region, Item.regions, { prompt: "---" }
+              -# セレクトボックス
+            .form-group{style: 'margin-top: 40px'}
+              =f.label :発送までの日数
+              %span.form-require 必須
+              %br
+              = f.select :shipping_date, Item.shipping_dates, { prompt: "---" }
+
+        -# 販売価格
+        .sell-content.clearfix
+          %h3.sell-gray-text 販売価格(300~9,999,999)
+          .sell-form-box
+            %ul
+              %li.price-form
+                .price-left
+                  = f.label :価格
+                  %span.form-require 必須
+                .price-right
+                  ¥
+                  = f.text_field :price, class: 'input-price', placeholder: "例) 300"
+              %li.fee-form
+                販売手数料 (10%)
+              %li.profit-form
+                販売利益
+
+        -# 出品ボタン
+        .sell-content.clearfix
+          .warning-box
+            %p 禁止されている出品、行為を必ずご確認ください。
+            %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+            %p また、出品をもちまして加盟店規約に同意したことになります。
+          = f.submit "出品する", class: "red-btn"
+          %figure.back-btn
+            = link_to "もどる", root_path, class: "btn-gray"
+
 
 
   %footer.footer

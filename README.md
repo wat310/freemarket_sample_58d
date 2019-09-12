@@ -96,6 +96,7 @@
 - belongs_to :category
 - belongs_to :brand
 - has_many :item_images
+- has_many :comments
 
 <!-- 1つのitemに対して複数のimageが設定できてしまうため -->
 ## item_imagesテーブル
