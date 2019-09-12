@@ -4,6 +4,7 @@
   &__content{
     width: 1100px;
     margin: 0 auto;
+    text-align: center;
     &__box{
       padding: 0 10px;
       height:300px;
@@ -14,10 +15,12 @@
         color: #fff;
         font-size: 16px;
         font-weight: 100;
+        text-align: left;
       }
-      &__cell
-{
+      &__cell{
         list-style: none;
+        text-align: left;
+        
         &__left{
           vertical-align: top;
           width: 50%;
@@ -61,7 +64,7 @@
     &__bottom{
       margin: 50px auto 0;
       &__icon{
-        display: inline-block;
+        // display: inline-block;
         margin-right: 10px;
         background: image-url("mercari-logo_white.png");
         background-position: center;
