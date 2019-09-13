@@ -84,31 +84,56 @@ button {
   overflow: visible;
   touch-action: manipulation;
 }
+.input-default {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+.login-captcha {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+.login-submit {
+  margin: 24px 0 0;
+  
+}
+.btn-red {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  margin-bottom: 40px;
+}
 
 
 
 .single-container {
   padding:0 0 250px;
-
-    .single-header{
+  
+   .single-header{
       text-align: center;
   
-    h1 {
-      display: inline-block;
-      margin: 11px 0 12px;
-    }
-    a {
-      display: inline-block;
-      width: 120px;
-      height: 33px;
-      margin: 0 8px 0 0;
-      line-height: 33px;
-    }
-    img {
-      width: 120px;
-      height: 33px;
-    }
-  }
+      h1 {
+        display: inline-block;
+        margin: 11px 0 12px;
+      }
+      a {
+        display: inline-block;
+        width: 120px;
+        height: 33px;
+        margin: 0 8px 0 0;
+        line-height: 33px;
+      }
+      img {
+        width: 120px;
+        height: 33px;
+      }
+   }
 
     main {
       display: block;
@@ -118,6 +143,7 @@ button {
       max-width: 456px;
       margin: 0 auto;
       background: #fff;
+      
       .login-no-account {
         padding: 24px 32px;
         text-align: center;
@@ -131,64 +157,67 @@ button {
         background: #0099e8;
         color: #fff;
         line-height: 40px;
+        
         }
       }
+
     }
+
+
   .login-form-inner {
     padding: 24px 32px;
     border-top: 1px solid #eee;
 
+    &:first-child {
+      padding: 24px 32px;
+      border: 0;          
+    }
 
-
+    .fab.fa-facebook-square{
+      font-family: 'icon-font';
+      font-size: 26px;
+      // color: white;
+      &:before {
+        content: '\e014';
+      }
+    }
+   .facebook{
+     color: white;
+   }
 
     .form-group{
+      margin: 24px 0 0;
+      
       .input-default {
         margin: 0;
         width: 100%;
         magin: 8px 0 0;
+        
       }
   
-      .login-form-inner:first-child {
-        padding: 24px 32px;
-        border: 0;          
-        .form-group:first-child {
-          margin: 0;
-        }
+
+      &.form-group:first-child {
+        margin: 0;
       }
     }
 
-    &:first-child {
-      padding: 24px 32px;
-      border: 0;
-    }
-    .icon-facebook:before {
-      content: '\e014';
-    }
     .btn-sns-facebook {
       margin: 16px 0 0;
       background: #385185;
-      color: #fff;
   
       &:first-child {
       margin: 0;
       }
       
-
-      
-      .btn-sns i {
-          position: absolute;
-          top: 50%;
-          left: 16px;
-          -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-      }      
     }
+    .btn-sns i {
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+    }    
   }
-
-
-
-
-
   
   .single-footer {
     position: absolute;
@@ -243,25 +272,4 @@ button {
 
 }
 
-.fab.fa-facebook-square{
-  font-family: 'icon-font';
-  font-size: 26px;
-  color: white;
-  &:before {
-    content: '\e014';
-  }
-  
-}
-i[class^='icon-'], 
-i[class*='icon-'] {
-  display: inline-block;
-  font-family: 'icon-font';
-  speak: none;
-  font-style: normal;
-  font-weight: 400;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+
