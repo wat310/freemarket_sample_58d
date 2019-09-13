@@ -17,13 +17,13 @@
         .sell-content
           .form-group-top
             .text-require
-              = f.label :商品名
+              = f.label  :商品名, class: "label"
               %span.form-require 必須
             = f.text_field :name, class: 'input-name', placeholder: "商品名 (必須40文字まで)"
 
           .form-group
             .text-require
-              = f.label :商品の説明
+              = f.label :商品の説明, class: "label"
               %span.form-require 必須
             = f.text_area :explanation, class: 'input-explanation', placeholder: "商品の説明 (必須1,000文字以内)　(色、素材、重さ、定価、注意点など)　例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: 5
 
@@ -32,29 +32,29 @@
           %h3.sell-gray-text 商品の詳細
           .sell-form-box
             .form-group-top
-              = f.label :カテゴリー
+              = f.label :カテゴリー, class: "label"
               %span.form-require 必須
               %br
               -# まだ修正必要(ブランド(テキストボックス)、サイズ等の追加必要)
-              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select-category"
-              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select-category"
-              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select-category"
+              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select"
+              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select"
+              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select"
               -# =fa_icon 'angle-down'
             .form-group
-              = f.label :ブランド
+              = f.label :ブランド, class: "label"
               %span.form-free 任意
               %br
               = f.text_field :brand, class: 'input-brand', placeholder: "例) シャネル"
             .form-group
-              = f.label :サイズ
+              = f.label :サイズ, class: "label"
               %span.form-require 必須
               %br
-              = f.select :size, Item.sizes_i18n.invert, { prompt: "---" }
+              = f.select :size, Item.sizes_i18n.invert, { prompt: "---" }, class: "select"
             .form-group
-              =f.label :商品の状態
+              =f.label :商品の状態, class: "label"
               %span.form-require 必須
               %br
-              = f.select :state, Item.states, { prompt: "---" }
+              = f.select :state, Item.states, { prompt: "---" }, class: "select"
 
         -# 配送について
         .sell-content.clearfix
@@ -62,21 +62,21 @@
           %figure.question ?
           .sell-form-box
             .form-group-top
-              = f.label :発送料の負担
+              = f.label :発送料の負担, class: "label"
               %span.form-require 必須
               %br
-              = f.select :postage, Item.postages_i18n.invert, { prompt: "---" }
+              = f.select :postage, Item.postages_i18n.invert, { prompt: "---" }, class: "select"
             .form-group
-              =f.label :発送元の地域
+              =f.label :発送元の地域, class: "label"
               %span.form-require 必須
               %br
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "---" }
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "---" }, class: "select"
               -# セレクトボックス
             .form-group
-              =f.label :発送までの日数
+              =f.label :発送までの日数, class: "label"
               %span.form-require 必須
               %br
-              = f.select :shipping_date, Item.shipping_dates_i18n.invert, { prompt: "---" }
+              = f.select :shipping_date, Item.shipping_dates_i18n.invert, { prompt: "---" }, class: "select"
 
         -# 販売価格
         .sell-content.clearfix
@@ -86,15 +86,21 @@
             %ul
               %li.price-form
                 .price-left
-                  = f.label :価格
+                  = f.label :価格, class: "label"
                   %span.form-require 必須
                 .price-right
                   ¥
                   = f.text_field :price, class: 'input-price', placeholder: "例) 300"
               %li.fee-form
-                販売手数料 (10%)
+                .fee-form__left
+                  販売手数料 (10%)
+                .fee-form__right
+                  %figure -
               %li.profit-form
-                販売利益
+                .profit-form__left
+                  販売利益
+                .profit-form__right
+                  %figure -
 
         -# 出品ボタン
         .sell-content.clearfix
@@ -107,4 +113,3 @@
             = link_to "もどる", root_path, class: "btn-gray"
 
   = render partial:"shared/item-user_footer"
-  -# =render partial:"devise/footer"

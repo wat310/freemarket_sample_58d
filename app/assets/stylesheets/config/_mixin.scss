@@ -25,6 +25,11 @@
   align-items: flex-end;
 }
 
+@mixin flexbox-edge {
+  display: flex;
+  justify-content: space-between;
+}
+
 @mixin text-form() {
   font-size: 14px;
   font-weight: bold;
