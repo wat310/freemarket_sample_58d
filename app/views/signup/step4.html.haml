@@ -1,0 +1,73 @@
+.single-container
+  = render partial:"devise/header"
+
+  %nav.progress-bar.signup-bar
+    %ol.clearfix
+      %li.through
+        会員登録
+        %div.progress-status
+      %li.through
+        電話番号認証
+        %div.progress-status
+      %li.active
+        お届け先住所入力
+        %div.progress-status
+      %li
+        支払い方法
+        %div.progress-status
+      %li
+        完了
+        %div.progress-status
+
+  %main.single-main
+    %section.l-single-container
+      %h2.l-single-head.registration 発送元・お届け先住所入力
+      %form{action: "https://www.mercari.com/jp/signup/sms_confirmation/?after_save_callback=/jp/", method: "POST", class:"l-single-inner registration-form", novalidate: "novalidate"}
+        %input{type: "hidden", name: "__csrf_value", value:"1e07299d9cc4685dd7d8fddc752091c92c45911326c730f8703e5ed95a7811cab7a365a8421cdd97d1d1c61169c41f13f84de4769787f09dd8e9832fc038c8ca6"}
+        
+        .l-single-content
+          .form-group
+            %label{for: "name"} お名前
+            %span.form-require 必須
+            %input{type: "string", name: "family_name_kanji", value:"", placeholder:"森田", class:"input-default"}
+            %input{type: "string", name: "first_name_kanji", value:"", placeholder:"大陽", class:"input-default"}
+
+            %label{for: "name"} お名前カナ
+            %span.form-require 必須
+            %input{type: "string", name: "family_name_kana", value:"", placeholder:"モリタ", class:"input-default"}
+            %input{type: "string", name: "first_name_kana", value:"", placeholder:"ヒロアキ", class:"input-default"}
+
+          .form-group
+            %label{for: "postal_code"} 郵便番号
+            %span.form-require 必須
+            %input{type: "integer", name: "postal_code", value:"", placeholder:"例)123-4567", class:"input-default"}
+  
+          .form-group
+            %label{for: "prefecture_id"} 都道府県
+            %span.form-require 必須
+            %input{type: "bigint", name: "prefecture_id", value:"", placeholder:"北海道", class:"input-default"}
+
+          .form-group
+            %label{for: "city"} 市区町村
+            %span.form-require 必須
+            %input{type: "string", name: "city", value:"", placeholder:"例)埼玉県久喜市", class:"input-default"}   
+
+          .form-group
+            %label{for: "house_number"} 番地
+            %span.form-require 必須
+            %input{type: "string", name: "house_number", value:"", placeholder:"例)青山1-1-1", class:"input-default"}   
+
+          .form-group
+            %label{for: "building"} 建物名
+            %span.form-require 任意
+            %input{type: "string", name: "building", value:"", placeholder:"例)森ビル3103", class:"input-default"}   
+
+          .form-group
+            %label{for: "phone_number"} 電話番号
+            %span.form-require 任意
+            %input{type: "string", name: "building", value:"", placeholder:"例)08012345678", class:"input-default"} 
+
+          %button{type: "submit", class: "btn-default btn-red" }次へ進む
+
+
+  = render partial:"devise/footer"

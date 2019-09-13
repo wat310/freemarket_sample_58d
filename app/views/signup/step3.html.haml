@@ -1,0 +1,65 @@
+.single-container
+  = render partial:"devise/header"
+
+  %nav.progress-bar.signup-bar
+    %ol.clearfix
+      %li.through
+        会員登録
+        %div.progress-status
+      %li.active
+        電話番号認証
+        %div.progress-status
+      %li
+        お届け先住所入力
+        %div.progress-status
+      %li
+        支払い方法
+        %div.progress-status
+      %li
+        完了
+        %div.progress-status
+
+  %main.single-main
+    %section.l-single-container
+      %h2.l-single-head.registration 電話番号認証
+      %form{action: "https://www.mercari.com/jp/signup/address/", method: "POST", class:"l-single-inner registration-form", novalidate: "novalidate"}
+        %input{type: "hidden", name: "after_save_callback", value:""}
+
+        .l-single-content
+          .form-group
+            %label{for: "captcha"} 認証番号
+            %input{type: "number", name: "captcha", value:"", placeholder:"認証番号を入力", class:"input-default"}
+          %p.l-single-text SMSで届いた認証番号を入力してください
+          %button{type: "submit", class: "btn-default btn-red"} 認証して完了
+          %input{type: "hidden", name: "__csrf_value", value:"c34b4a6a5af7ae6b1d1cdf22727e249595d8853628a855f63b5074d4a2fb632c59a3336d23ab939e7dec47363861fb2b299ac24addafd2f01ed2e0ee648ecbfea"}
+          %input{type: "hidden", name: "id", value:"580656643"}
+
+
+          .form-group.text-right
+          %i.icon-arrow-right
+          %input{type: "hidden", name: "__csrf_valuer", value:"c34b4a6a5af7ae6b1d1cdf22727e249595d8853628a855f63b5074d4a2fb632c59a3336d23ab939e7dec47363861fb2b299ac24addafd2f01ed2e0ee648ecbfea"}
+          %input{type: "hidden", name: "id", value:"580656643"}
+
+      %form{action: "https://www.mercari.com/jp/signup/sms_confirmation/phone/", method: "POST", class:"l-single-inner registration-form", novalidate: "novalidate"}
+        %input{type: "hidden", name: "after_save_callback", value:""}
+        
+        .l-single-content
+          %h3.l-chapter-sub-head 30秒たっても認証番号が届かない方へ
+          %p.l-single-text 電話で認証番号を聞くこともできます。
+          %button{type: "submit", class: "btn-default btn-red"} 電話で認証番号を聞く（通話無料）        
+        %input{type: "hidden", name: "__csrf_value", value:"c34b4a6a5af7ae6b1d1cdf22727e249595d8853628a855f63b5074d4a2fb632c59a3336d23ab939e7dec47363861fb2b299ac24addafd2f01ed2e0ee648ecbfea"}
+        %input{type: "hidden", name: "id", value:"580656643"}
+
+      .l-single-inner.registration-form
+        .l-single-content
+          %h3.l-chapter-sub-head 認証番号を再送することもできます。もう一度電話番号を入力して下さい。
+          %p
+            %a{ href: ""} 電話番号を再度入力する
+          %p.l-single-text
+          ※SMSが届かない場合は
+          %a{ href: "", target: "_blank"} SMS受信設定を確認して、もう一度電話番号を入力してください。
+
+
+
+
+  = render partial:"devise/footer"
