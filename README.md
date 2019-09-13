@@ -47,7 +47,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|integer|null: false|
-|prefecture_id|references|null: false, foreign_key: true|
+|prefecture_id|references|null: false, foreign_key: true| <!-- 都道府県、アクティブハッシュとの関連付け -->
 |city|string|null: false|
 |house_number|string|null: false|
 |building|string||
@@ -56,13 +56,14 @@
 - belongs_to :user
 - belongs_to :prefecture
 
-<!-- 都道府県 -->
-## prefecturesテーブル
+<!-- 都道府県 についてはアクティブハッシュで実装-->
+<!-- ## prefecturesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- has_many: address
+- has_many: addresses
+- has_many: items -->
 
 <!-- Facebook等のSNS認証用 -->
 ## sns_credentialsテーブル
@@ -87,7 +88,9 @@
 |state|integer|null: false| <!-- 商品の状態 -->
 |postage|integer|null: false| <!-- 配送料 -->
 |shipping_method|integer|null: false| <!-- 配送の方法 -->
-|region|integer|null: false| <!-- 発送元の地域 -->
+
+|prefecture_id|references|null: false, foreign_key: true | <!-- 発送元の地域(元region)、アクティブハッシュとの関連付け -->
+
 |shipping_date|integer|null: false| <!-- 発送までの日数 -->
 |business_status|integer|null: false| <!-- 取引の状態(販売中、売却済など) -->
 |buyer_id|references|foreign_key: true| <!-- 購入者 -->
