@@ -1,8 +1,5 @@
 .item-main
-  %header.item-header
-    %h1
-      =link_to "/" do
-        =image_tag 'mercari_logo2.png', alt: 'mercari', height: '49', width: '185', class: 'item-header-logo'
+  = render partial:"shared/item-header"
 
   %main.main
     %section.main__item-box
@@ -18,13 +15,13 @@
 
         -# 商品名と商品の説明
         .sell-content
-          .sell-content__form
+          .form-group-top
             .text-require
               = f.label :商品名
               %span.form-require 必須
             = f.text_field :name, class: 'input-name', placeholder: "商品名 (必須40文字まで)"
 
-          .sell-content__form{style: 'margin-top: 40px'}
+          .form-group
             .text-require
               = f.label :商品の説明
               %span.form-require 必須
@@ -34,14 +31,26 @@
         .sell-content.clearfix
           %h3.sell-gray-text 商品の詳細
           .sell-form-box
-            .form-group
+            .form-group-top
               = f.label :カテゴリー
               %span.form-require 必須
               %br
               -# まだ修正必要(ブランド(テキストボックス)、サイズ等の追加必要)
               = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select-category"
+              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select-category"
+              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select-category"
               -# =fa_icon 'angle-down'
-            .form-group{style: 'margin-top: 40px'}
+            .form-group
+              = f.label :ブランド
+              %span.form-free 任意
+              %br
+              = f.text_field :brand, class: 'input-brand', placeholder: "例) シャネル"
+            .form-group
+              = f.label :サイズ
+              %span.form-require 必須
+              %br
+              = f.select :size, Item.sizes_i18n.invert, { prompt: "---" }
+            .form-group
               =f.label :商品の状態
               %span.form-require 必須
               %br
@@ -50,27 +59,29 @@
         -# 配送について
         .sell-content.clearfix
           %h3.sell-gray-text 配送について
+          %figure.question ?
           .sell-form-box
-            .form-group
+            .form-group-top
               = f.label :発送料の負担
               %span.form-require 必須
               %br
-              = f.select :postage, Item.postages, { prompt: "---" }
-            .form-group{style: 'margin-top: 40px'}
+              = f.select :postage, Item.postages_i18n.invert, { prompt: "---" }
+            .form-group
               =f.label :発送元の地域
               %span.form-require 必須
               %br
-              -# = f.select :region, Item.regions, { prompt: "---" }
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "---" }
               -# セレクトボックス
-            .form-group{style: 'margin-top: 40px'}
+            .form-group
               =f.label :発送までの日数
               %span.form-require 必須
               %br
-              = f.select :shipping_date, Item.shipping_dates, { prompt: "---" }
+              = f.select :shipping_date, Item.shipping_dates_i18n.invert, { prompt: "---" }
 
         -# 販売価格
         .sell-content.clearfix
           %h3.sell-gray-text 販売価格(300~9,999,999)
+          %figure.question ?
           .sell-form-box
             %ul
               %li.price-form
@@ -95,6 +106,5 @@
           %figure.back-btn
             = link_to "もどる", root_path, class: "btn-gray"
 
-
-
-  %footer.footer
+  = render partial:"shared/item-user_footer"
+  -# =render partial:"devise/footer"

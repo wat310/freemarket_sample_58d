@@ -54,7 +54,7 @@
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :prefecture
+- belongs_to :prefecture  <!-- アクティブハッシュ専用の記述にする -->
 
 <!-- 都道府県 についてはアクティブハッシュで実装-->
 <!-- ## prefecturesテーブル

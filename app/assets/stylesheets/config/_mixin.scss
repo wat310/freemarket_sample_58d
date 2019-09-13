@@ -9,6 +9,17 @@
   vertical-align: top;
 }
 
+@mixin form-free() {
+  background-color: #CCCCCC;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  padding: 2px 4px;
+  margin-left: 8px;
+  border-radius: 2px;
+  vertical-align: top;
+}
+
 @mixin text-require-position() {
   display: flex;
   align-items: flex-end;
@@ -24,6 +35,11 @@
   border: $BoderGray;
   border-radius: 5px;
   background-color: white;
+  width: 100%;
+  height: 48px;
+  font-size: 16px;
+  padding: 10px 16px 8px;
+  margin-top: 8px;
 }
 
 @mixin sell-gray-text {
