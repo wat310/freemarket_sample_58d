@@ -12,6 +12,7 @@ resources :signup do
   collection do
     get 'step1'
     get 'step2'
+    get 'step2-1'
     get 'step3'
     get 'step4' # ここで、入力の全て完了
     get 'done' # 登録完了後のページ

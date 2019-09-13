@@ -1,0 +1,9 @@
+.progress-bar li.through .progress-status {
+  background: #ea352d;
+}
+.progress-bar li.active .progress-status:before {
+  background: #ea352d;
+}
+.progress-bar li.through .progress-status:before, .progress-bar li.through .progress-status:after {
+  background: #ea352d;
+}
