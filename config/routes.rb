@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   root "items#index"
   resources :users, only: [:index, :new, :create, :edit, :update]
   resources :items
-end
 
-#新規登録ページ
+  #新規登録ページ
 resources :signup do
   collection do
     get 'step1'
@@ -18,3 +17,5 @@ resources :signup do
     get 'done' # 登録完了後のページ
   end
 end
+end
+
