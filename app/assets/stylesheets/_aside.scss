@@ -37,6 +37,8 @@
           &__app{
             float: left;
             background: image-url("app-icon.png");
+            background-position: center;
+            background-size: cover;
             height:40px;
             width:133px;
           }
@@ -44,6 +46,8 @@
             float: left;
             margin: 0 0 0 16px;
             background: image-url("google-icon.png");
+            background-position: center;
+            background-size: cover;
             height:40px;
             width:133px;
           }
@@ -53,7 +57,7 @@
     &__right{
       float:right;
       &__image{
-        background: image-url("download_app_pc.png");
+        background: image-url("download_content_pc.png");
         background-position: center;
         background-size: cover;
         height: 260px;

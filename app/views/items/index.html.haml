@@ -1,21 +1,16 @@
 .wrapper
-  = render partial:"shared/header2"
   .top
     .main
       .slider
         .srider__box
-          = image_tag "//www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?2482339763", height:'350', width:'870'
           .srider__box__content
+            %h2 スマホでかんたんフリマアプリ
+            %p メルカリはスマホカメラからすぐに出品できる
+            %p 購入時も安心な独自システムのアプリです
 
     .category
       .category__bar
         %h2.category__bar__title 人気のカテゴリー
-      %ul.category__list
-        =link_to "#" do
-          %li.category__list__title レディース
-          %li.category__list__title メンズ
-          %li.category__list__title 家電・スマホ・カメラ
-          %li.category__list__title おもちゃ・ホビー・グッズ
 
     .pickup
       .pickup__item
@@ -48,12 +43,6 @@
     .category
       .category__bar
         %h2.category__bar__title 人気のブランド
-      %ul.category__list
-        =link_to "#" do
-          %li.category__list__title シャネル
-          %li.category__list__title ルイヴィトン
-          %li.category__list__title シュプリーム
-          %li.category__list__title ナイキ
 
     .pickup
       .pickup__item
