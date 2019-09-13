@@ -3,18 +3,24 @@
   margin:0 auto; 
   background-color: #f5f5f5; 
   .main{
-      background-color: burlywood;
-      display: flex;
+      width: 100%;
       align-items: center;
       position: relative;
       .slider{
-        height: 400px;
-        margin:0 auto;
+        height: 380px;
+        width: 870px;
+        position: relative;
+        margin: 0 auto;
+
         &__box{
+          width: 870px;
           background-image: image-url('index-slide.png');
           background-position: center;
           background-size: cover;
-          display: flex;
+          margin: 0 auto;
+
+          
+          
           &__content{
             font-size: 12px;
             padding: 50px 20px 80px 20px;
