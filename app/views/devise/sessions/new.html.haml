@@ -1,11 +1,6 @@
-!!! 5
-%html
-  %head
 .single-container
-  %header.single-header
-    %h1
-      %a{ href: "" }
-        %img{ src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2482339763" ,alt: "mercari", width: 120 , height: 33}
+
+  = render partial:"devise/header"
 
   %main.single-main
     .login-panel
@@ -61,17 +56,4 @@
     %input{type: "hidden", id: "google_client_id", value: "238694260676-l0gp5j3hs9p8l2hjmnt126q0b4iin34r.apps.googleusercontent.com"}
     %input{type: "hidden", name: "facebook_app_id", value: "466308336793848"}
   
-  %footer.single-footer
-    %nav
-      %ul.clearfix
-        %li
-          %a{ href: "" }プライバシーポリシー
-        %li
-          %a{ href: "" }メルカリ利用規約
-        %li
-          %a{ href: "" }特定商取引に関する表記
-
-    %a{ href: "", class: "single-footer-logo" }
-      %img{ src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2482339763" ,alt: "mercari", width: 80 , height: 65}
-    %p
-      %small © 2019 Mercari
+  = render partial:"devise/footer"
