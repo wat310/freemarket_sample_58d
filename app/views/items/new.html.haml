@@ -31,21 +31,20 @@
         .sell-content.clearfix
           %h3.sell-gray-text 商品の詳細
           .sell-form-box
-            .form-group-top
-              = f.label :カテゴリー, class: "label"
-              %span.form-require 必須
-              %br
-              -# まだ修正必要(ブランド(テキストボックス)、サイズ等の追加必要)
-              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select"
-              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select"
-              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select"
-              -# =fa_icon 'angle-down'
-            .form-group
+            .category-forms
+              .form-group-top
+                = f.label :カテゴリー, class: "label"
+                %span.form-require 必須
+                %br
+                //ここで記述しているのは親カテゴリのみ、子と孫のカテゴリはajaxで追加する。
+                = f.select :category, @category_parent_array, {}, {class: "select", id: "parent_category"}
+                -# = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select"
+            .form-group#brand
               = f.label :ブランド, class: "label"
               %span.form-free 任意
               %br
               = f.text_field :brand, class: 'input-brand', placeholder: "例) シャネル"
-            .form-group
+            .form-group#size
               = f.label :サイズ, class: "label"
               %span.form-require 必須
               %br

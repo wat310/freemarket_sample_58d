@@ -71,6 +71,7 @@ gem 'devise'
 gem 'font-awesome-rails', '4.7.0.5'
 gem 'active_hash'
 gem 'enum_help'
+gem 'jquery-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
