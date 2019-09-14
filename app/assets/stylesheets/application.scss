@@ -3,6 +3,10 @@
 @import "config/variable";
 @import "config/mixin";
 @import "items/new";
+@import "index";
+@import "aside";
+@import "footer";
+@import "items/header2";
 @import "sign_in";
 @import "sign_up";
 @import "step1";
@@ -10,3 +14,4 @@
 @import "step3";
 @import "step4";
 @import "step5";
+@import "item-user_footer";
