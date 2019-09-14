@@ -1,6 +1,0 @@
-class RenameRegionPrefectureToItems < ActiveRecord::Migration[5.2]
-  def change
-    rename_column :items, :region, :prefecture_id
-    change_column :items, :prefecture_id, :bigint, null: false, foreign_key: true
-  end
-end
