@@ -1,0 +1,48 @@
+.single-container
+  = render partial:"devise/header"
+
+  %nav.progress-bar.signup-bar
+    %ol.clearfix
+      %li.through
+        会員登録
+        %div.progress-status
+      %li.through
+        電話番号認証
+        %div.progress-status
+      %li.through
+        お届け先住所入力
+        %div.progress-status
+      %li.active
+        支払い方法
+        %div.progress-status
+      %li
+        完了
+        %div.progress-status
+
+  %main.single-main
+    %section.l-single-container
+      %h2.l-single-head.registration 支払い方法
+      %form{action: "https://www.mercari.com/jp/signup/sms_confirmation/?after_save_callback=/jp/", method: "POST", class:"l-single-inner registration-form", novalidate: "novalidate"}
+        %input{type: "hidden", name: "__csrf_value", value:"1e07299d9cc4685dd7d8fddc752091c92c45911326c730f8703e5ed95a7811cab7a365a8421cdd97d1d1c61169c41f13f84de4769787f09dd8e9832fc038c8ca6"}
+        
+        .l-single-content
+          .form-group
+            %label{for: "credit_cards"} カード番号
+            %span.form-require 必須
+            %input{type: "integer", name: "number", value:"", placeholder:"半角数字のみ", class:"input-default"}
+
+            %label{for: "credit_cards"} 有効期限
+            %span.form-require 必須
+
+            = form_with model: @profile, local: true do |f|
+              != sprintf(f.date_select(:expiration_date,with_css_classes:'XXXXX', order:[:month,:year,:day], use_month_numbers:true, discard_day:true, start_year:Time.now.year-2000, end_year:Time.now.year-2000+10, date_separator:'%s'),'月') + '年'
+
+            
+            %label{for: "security_code"} セキュリティコード
+            %span.form-require 必須
+            %input{type: "integer", name: "security_code", value:"", placeholder:"カードの背面4桁もしくは3桁の番号", class:"input-default"}
+
+          %button{type: "submit", class: "btn-default btn-red" }次へ進む
+
+
+  = render partial:"devise/footer"
