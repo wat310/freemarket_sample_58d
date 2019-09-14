@@ -70,8 +70,7 @@
               =f.label :発送元の地域, class: "label"
               %span.form-require 必須
               %br
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "---" }, class: "select"
-              -# セレクトボックス
+              -# = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "---" }, class: "select"
             .form-group
               =f.label :発送までの日数, class: "label"
               %span.form-require 必須
