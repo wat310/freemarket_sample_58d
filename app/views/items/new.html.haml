@@ -67,10 +67,15 @@
               %br
               = f.select :postage, Item.postages_i18n.invert, { prompt: "---" }, class: "select"
             .form-group
+              =f.label :配送の方法, class: "label"
+              %span.form-require 必須
+              %br
+              = f.select :shipping_method, Item.shipping_methods_i18n.invert, { prompt: "---" }, class: "select"
+            .form-group
               =f.label :発送元の地域, class: "label"
               %span.form-require 必須
               %br
-              -# = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "---" }, class: "select"
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "---" }, class: "select"
             .form-group
               =f.label :発送までの日数, class: "label"
               %span.form-require 必須

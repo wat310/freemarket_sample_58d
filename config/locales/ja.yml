@@ -12,6 +12,16 @@ ja:
       postage:
         seller: 送料込み(出品者負担)
         buyer: 着払い(購入者負担)
+      shipping_method:
+        no_method: 未定
+        mer: らくらくメルカリ便
+        yu_m: ゆうメール
+        letter: レターパック
+        normal: 普通郵便(定形、定形外)
+        yamato: クロネコヤマト
+        yu_pack: ゆうパック
+        c_post: クリックポスト
+        yu_packet: ゆうパケット
       shipping_date:
         one_two: 1~2日で発送
         two_three: 2~3日で発送
