@@ -48,13 +48,15 @@
             %p.l-single-text
             安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
           .form-group
-            %label お名前(全角)
-            %span.form-require 必須
-            %input{type: "text", name: "family_name_kanji", value:"", placeholder:"例) 佐藤", class:"input-default"}
-            %input{type: "text", name: "first_name_kanji", value:"", placeholder:"例) 航", class:"input-default"}
+            %div
+              %label お名前(全角)
+              %span.form-require 必須
+            %input{type: "text", name: "family_name_kanji", value:"", placeholder:"例) 佐藤", class:"input-default half"}
+            %input{type: "text", name: "first_name_kanji", value:"", placeholder:"例) 航", class:"input-default half"}
           .form-group
-            %label{for: "family_name_kanji"} お名前カナ(全角)
-            %span.form-require 必須
+            %div
+              %label{for: "family_name_kanji"} お名前カナ(全角)
+              %span.form-require 必須
             %input{type: "text", name: "family_name_kana", value:"", placeholder:"例) サトウ", class:"input-default half"}
             %input{type: "text", name: "first_name_kana", value:"", placeholder:"例) ワタル", class:"input-default half"}
           .form-group

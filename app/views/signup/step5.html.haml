@@ -31,18 +31,29 @@
             %span.form-require 必須
             %input{type: "integer", name: "number", value:"", placeholder:"半角数字のみ", class:"input-default"}
 
+              %a.card-box
+                =link_to root_path do
+                  =image_tag 'visa3.jpg', alt: 'visa-box', height: '20', width: '30', class: ''
+                  =image_tag 'img-credit_1.jpg', alt: 'master-card', height: '20', width: '30', class: ''
+                  =image_tag '1024px-Saison_card_logo.svg.png', alt: 'saison-card', height: '20', width: '30', class: ''
+                  =image_tag 'jcb-logomark-img-01.gif', alt: 'jcb-card', height: '20', width: '30', class: ''
+                  =image_tag 'amex-logomark-img-04.gif', alt: 'americanexpress-card', height: '20', width: '30', class: ''
+                  =image_tag 'diners-logomark-img-01.gif', alt: 'diners-card', height: '20', width: '30', class: ''
+                  =image_tag 'discover-logomark-img-08.gif', alt: 'discover-card', height: '20', width: '30', class: ''
+
+          .form-group.limit
             %label{for: "credit_cards"} 有効期限
             %span.form-require 必須
-
+          .form-group.limit-date
             = form_with model: @profile, local: true do |f|
               != sprintf(f.date_select(:expiration_date,with_css_classes:'XXXXX', order:[:month,:year,:day], use_month_numbers:true, discard_day:true, start_year:Time.now.year-2000, end_year:Time.now.year-2000+10, date_separator:'%s'),'月') + '年'
 
-            
+          .form-group.securty            
             %label{for: "security_code"} セキュリティコード
             %span.form-require 必須
             %input{type: "integer", name: "security_code", value:"", placeholder:"カードの背面4桁もしくは3桁の番号", class:"input-default"}
+            %a.securty{ href: "", target: "_blank"}カード裏面の番号とは？
 
           %button{type: "submit", class: "btn-default btn-red" }次へ進む
-
 
   = render partial:"devise/footer"

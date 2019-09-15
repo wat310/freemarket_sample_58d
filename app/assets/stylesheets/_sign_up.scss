@@ -47,9 +47,9 @@ html {
 }
 
 h2 {
-   font-size: 22px;
-   line-height: 1.4;
-   font-weight: bold;
+    font-size: 22px;
+    line-height: 1.4;
+    font-weight: bold;
 }
 
 a {
@@ -122,19 +122,19 @@ button {
   // color: #000;
 }
 
-.btn-mail .icon-mail {
-  // position: absolute;
-  // top: 50%;
-  // left: 16px;
-  // -webkit-transform: translate(0, -50%);
-  // transform: translate(0, -50%);
-  // color: #ccc;
-  // font-size: 16px;
+.btn-mail .fa-envelope {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  color: #ccc;
+  font-size: 16px;
   color: #fff;
 }
 
-.icon-mail:before {
-  content: '\e01d';
+.fa.fa-envelope:before {
+  color: white;
 }
 
 .btn-sns-facebook {
@@ -144,6 +144,17 @@ button {
 }
 .btn-sns {
   position: relative;
+
+  & i{
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+
+
+
 }
 .facebook{
   color: white;
@@ -181,7 +192,7 @@ button {
   }
   &.registration-form .l-single-content {
   max-width: 343px;
- }
+  }
 }
 
   .single-footer {
