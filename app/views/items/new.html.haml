@@ -39,16 +39,16 @@
                 //ここで記述しているのは親カテゴリのみ、子と孫のカテゴリはajaxで追加する。
                 = f.select :category, @category_parent_array, {}, {class: "select", id: "parent_category"}
                 -# = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select"
-            .form-group#brand
-              = f.label :ブランド, class: "label"
-              %span.form-free 任意
-              %br
-              = f.text_field :brand, class: 'input-brand', placeholder: "例) シャネル"
             .form-group#size
               = f.label :サイズ, class: "label"
               %span.form-require 必須
               %br
               = f.select :size, Item.sizes_i18n.invert, { prompt: "---" }, class: "select"
+            .form-group#brand
+              = f.label :ブランド, class: "label"
+              %span.form-free 任意
+              %br
+              = f.text_field :brand, class: 'input-brand', placeholder: "例) シャネル"
             .form-group
               =f.label :商品の状態, class: "label"
               %span.form-require 必須
