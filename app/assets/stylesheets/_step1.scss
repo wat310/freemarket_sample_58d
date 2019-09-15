@@ -1,3 +1,4 @@
+// 全体に反映させるための内容を記述
 * {
   background-repeat: no-repeat;
   margin: 0;
@@ -160,14 +161,8 @@ button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local
   line-height: 1.5;
   cursor: pointer;
 }
-.icon-arrow-bottom:before {
-  content: '\e001';
-}
 
-
-
-
-
+// ここから下はクラス毎の内容を記述
 .single-container {
   padding: 0 0 250px;
 
@@ -175,49 +170,41 @@ button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local
     text-align: center;
   }
 
-    h1 {
+  h1 {
     display: inline-block;
     margin: 11px 0 12px;
-    }
-
-    // a {
-    //   display: inline-block;
-    //   width: 120px;
-    //   height: 33px;
-    //   margin: 0 8px 0 0;
-    //   line-height: 33px;
-    // }
+  }
 
   .signup-bar.progress-bar {
     padding: 16px 0;
     border-top: 1px solid #eee;
   }
-  .progress-bar {
-    font-size: 0;
-    text-align: center;
+    .progress-bar {
+      font-size: 0;
+      text-align: center;
 
-    & li:last-child {
-      margin: 0;
-  }
-    ol {
-      margin: 0;
-    }
-    & li.active {
-      font-weight: 600;
-      color: #ea352d;
-    }
-    & li {
-      position: relative;
-      z-index: 1;
-      display: inline-block;
-      min-width: 40px;
-      margin: 0 5% 0 0;
-      font-size: 12px;
-      color: #888;
-    }
-    & li.active .progress-status {
-      background: #ea352d;
-  }
+        & li:last-child {
+          margin: 0;
+        }
+        ol {
+          margin: 0;
+        }
+        & li.active {
+          font-weight: 600;
+          color: #ea352d;
+        }
+        & li {
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          font-size: 12px;
+          color: #888;
+        }
+        & li.active .progress-status {
+          background: #ea352d;
+        }
   .progress-status {
     width: 12px;
     height: 12px;
@@ -240,33 +227,25 @@ button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local
     &:before {
       right: 50%;
     }
-
   }
-
-  
-.l-single-container {
-    background: #fff;
-}
-
-.l-single-head {
-  padding: 24px 8px;
-  font-size: 18px;
-  line-height: 1.5;
-  text-align: center;
-
-  &.registration, .l-chapter-head.registration {
-    padding: 16px;
+  .l-single-container {
+      background: #fff;
   }
+  .l-single-head {
+    padding: 24px 8px;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+
+    &.registration, .l-chapter-head.registration {
+      padding: 16px;
+    }
   }
 }
 
-.l-single-inner {
-  border-top: 1px solid #f5f5f5;
-  padding: 40px;
-
-    // &.registration-form .form-group:not(:first-of-type), .l-single-inner.registration-form .btn-red {
-    // margin: 24px 0 0;
-    // }
+  .l-single-inner {
+    border-top: 1px solid #f5f5f5;
+    padding: 40px;
 
     &.registration-form .l-single-content {
       max-width: 343px;
@@ -289,7 +268,7 @@ button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local
     &.registration-form {
       padding: 24px 16px 40px;
     }
-}
+  }
 
   .l-single-content {
     max-width: 320px;
@@ -306,21 +285,20 @@ button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local
     }
   }
 
-.form-group {
-  margin: 40px 0 0;
+  .form-group {
+    margin: 40px 0 0;
 
-  & .input-default.half{
-    width: calc(50% - 6px);
-  }
-
-    & .input-default {
-      width: 100%;
-      margin: 8px 0 0;
-      &.half:first-of-type {
-        margin-right: 8px;
+      & .input-default.half{
+        width: calc(50% - 6px);
       }
 
-    }
+      & .input-default {
+        width: 100%;
+        margin: 8px 0 0;
+        &.half:first-of-type {
+          margin-right: 8px;
+        }
+      }
       & label {
         font-weight: 600;
       }
@@ -345,7 +323,7 @@ button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local
       }
       .birthday-select-wrap .select-wrap .icon-arrow-bottom {
         right: 12px;
-    }
+      }
     .select-wrap {
       // position: relative;
       background: #fff;
@@ -364,20 +342,15 @@ button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local
       & select {
         width: 100%;
       }
-
+}
+    .l-chapter-sub-head {
+      font-size: 14px;
+    }
 
 }
-
-
-.l-chapter-sub-head {
-  font-size: 14px;
-}
-
-}
-
-.google-logo{
-  float: left;
-}
-.google{
-  margin: -30px;
-}
+    .google-logo{
+      float: left;
+    }
+    .google{
+      margin: -30px;
+    }
