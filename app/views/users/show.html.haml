@@ -1,0 +1,113 @@
+.wrapper
+  = render partial: 'shared/header2'
+  .body
+    -# %nav.bread-crumbs
+    .container
+      .content
+        .mypage-user__icon
+          =link_to "#", class: "mypage--user--icon__a" do
+            %figure.mypage-user__icon__a__figure
+              %img.mypage-user__icon__a__figure__img
+            %h2.bold--team 
+              current_user.nickname
+            .mypage-number
+              .mypage-number__review
+                評価
+                %span.bold__review 0
+              .mypage-number__listings
+                出品数
+                %span.bold--listings 0
+        %section.mypage-tab-container-notification-todo
+          %ul.mypage-tabs
+            %li.mypage-tabs__active
+              %h3.mypage-tabs__active__h3
+                =link_to "#", class: "mypage-tabs__active__h3__a" do
+                  お知らせ
+            %li.mypage-tabs__inactive
+              %h3.mypage-tabs__inactive__h3
+                =link_to "#", class: "mypage-tabs__inactive__h3__a" do
+                  やることリスト
+          .tab--content
+            %ul.mypage-item--ul
+              %li.mypage-item--ul__li
+                =link_to "#", class: "mypage-item--ul__li__a" do
+                  %figure.mypage-item--ul__li__a__figure
+                    %i.mypage-item--ul__li__a__figure__icon.fa.fa-history
+                  .mypage-item--body
+                    .mypage-item--text 事務局から個別通知メッセージ「ログイン通知」
+                    %time.mypage-item--body__time
+                      %i.mypage-item--body__time__icon.fas.fa-history
+                      %span 1 時間前
+                  %i.fa.fa-chevron-right
+              %li.mypage-item--ul__li
+                =link_to "#", class: "mypage-item--ul__li__a" do
+                  %figure.mypage-item--ul__li__a__figure
+                    %img
+                  .mypage-item__body
+                    .mypage-item--body__text 事務局から個別メッセージ「ログイン通知」
+                    %time.mypage-item--body__time
+                      %i.fa.fa-history
+                      %span 2 時間前
+                  %i.fa.fa-chevron-right
+              %li.mypage-item--ul__li
+                =link_to "#", class: "mypage-item--ul__li__a" do
+                  %figure.mypage-item--ul__li__a__figure
+                    %i.mypage-item--ul__li__a__figure__icon.fa.fa-history
+                  .mypage-item--body
+                    .mypage-item--text 事務局から個別通知メッセージ「ログイン通知」
+                    %time.mypage-item--body__time
+                      %i.mypage-item--body__time__icon.fas.fa-history
+                      %span 1 時間前
+                  %i.fa.fa-chevron-right 
+              %li.mypage-item--ul__li
+                =link_to "#", class: "mypage-item--ul__li__a" do
+                  %figure.mypage-item--ul__li__a__figure
+                    %i.mypage-item--ul__li__a__figure__icon.fa.fa-history
+                  .mypage-item--body
+                    .mypage-item--text 事務局から個別通知メッセージ「ログイン通知」
+                    %time.mypage-item--body__time
+                      %i.mypage-item--body__time__icon.fas.fa-history
+                      %span 1 時間前
+                  %i.fa.fa-chevron-right  
+              %li.mypage-item--ul__li
+                =link_to "#", class: "mypage-item--ul__li__a" do
+                  %figure.mypage-item--ul__li__a__figure
+                    %i.mypage-item--ul__li__a__figure__icon.fa.fa-history
+                  .mypage-item--body
+                    .mypage-item--text 事務局から個別通知メッセージ「ログイン通知」
+                    %time.mypage-item--body__time
+                      %i.mypage-item--body__time__icon.fas.fa-history
+                      %span 1 時間前
+                  %i.fa.fa-chevron-right 
+              %li.mypage--go--list
+                =link_to "#", class: "go" do
+                  一覧を見る
+          .mypage-tab__container
+            %h2.mypage-tab__head 購入した商品
+            %ul.mypage-tabs
+              %li.mypage-tabs__active
+                %h3.mypage-tabs__active__h3
+                  =link_to "#", class: "mypage-tabs__active__h3__a" do
+                    取引中
+              %li.mypage-tabs__inactive
+                %h3.mypage-tabs__inactive__h3
+                  =link_to "#", class: "mypage-tabs__inactive__h3__a" do
+                    過去の取引
+            .tab-content
+              %ul.mypage-item__list
+                %li.mypage-item__list__found 取引中の商品がありません
+              
+      = render partial:"shared/side"
+    
+    = render partial:"shared/aside"
+    = render partial:"shared/footer"    
+
+
+
+
+       
+
+
+      
+    
+
