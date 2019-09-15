@@ -16,7 +16,7 @@
 
         %button{id: "google-login", class: "btn-default btn-sns btn-sns-google" }
           = link_to' ', class: 'google' do
-            = fa_icon "google"
+            =image_tag '/google.svg', alt: '', height: '45', width: '60',class: "google-logo"
           Googleでログイン
 
       %form{action: "https://www.mercari.com/jp/login/", method: "POST", novalidate: "novalidate"}
@@ -37,25 +37,5 @@
           %input{type: "hidden", name: "login_callback", value: "/jp/"}
           %input{type: "hidden", name: "__csrf_value", value: "664e3912b7f684cc372db43cef311b0a95828e0f17f24fae1c3d8b6a5c4601df767bfbfec724e01eae9830e77c72e9d2dce80326b53eb5aa9c32fe623cc7c96c6"}
           %a{ href: "" }パスワードをお忘れの方
-
-    %form{id: "login_form_facebook", action: "/jp/login/", method: "POST", novalidate: "novalidate"}
-      %input{type: "hidden", name: "__csrf_value", value: "664e3912b7f684cc372db43cef311b0a95828e0f17f24fae1c3d8b6a5c4601df767bfbfec724e01eae9830e77c72e9d2dce80326b53eb5aa9c32fe623cc7c96c6"}
-      %input{type: "hidden", name: "nickname", value: ""}
-      %input{type: "hidden", name: "email", value: ""}
-      %input{type: "hidden", name: "facebook_user_id", value: ""}
-      %input{type: "hidden", name: "facebook_access_token", value: ""}
-      %input{type: "hidden", name: "login_type", value: "facebook"}
-      %input{type: "hidden", name: "login_callback", value: "/jp/"}
-    
-    %form{id: "login_form_google", action: "/jp/login/", method: "POST", novalidate: "novalidate"}
-      %input{type: "hidden", name: "__csrf_value", value: "664e3912b7f684cc372db43cef311b0a95828e0f17f24fae1c3d8b6a5c4601df767bfbfec724e01eae9830e77c72e9d2dce80326b53eb5aa9c32fe623cc7c96c6"}
-      %input{type: "hidden", name: "nickname", value: ""}
-      %input{type: "hidden", name: "email", value: ""}
-      %input{type: "hidden", name: "google_user_id", value: ""}
-      %input{type: "hidden", name: "google_access_token", value: ""}
-      %input{type: "hidden", name: "login_type", value: "google"}
-      %input{type: "hidden", name: "login_callback", value: "/jp/"}
-    %input{type: "hidden", id: "google_client_id", value: "238694260676-l0gp5j3hs9p8l2hjmnt126q0b4iin34r.apps.googleusercontent.com"}
-    %input{type: "hidden", name: "facebook_app_id", value: "466308336793848"}
   
   = render partial:"devise/footer"

@@ -116,7 +116,7 @@ button {
 .single-container {
   padding:0 0 250px;
   
-   .single-header{
+    .single-header{
       text-align: center;
   
       h1 {
@@ -134,7 +134,7 @@ button {
         width: 120px;
         height: 33px;
       }
-   }
+    }
 
     main {
       display: block;
@@ -185,6 +185,8 @@ button {
     .facebook{
       color: white;
     }
+
+
 
     .form-group{
       margin: 24px 0 0;
@@ -270,7 +272,8 @@ button {
   color: #333;
 }
 
-
 }
 
-
+.mercari-box{
+  margin-top: 20px;
+}

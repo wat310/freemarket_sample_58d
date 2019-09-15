@@ -19,8 +19,9 @@
 
           %button{id: "google-login", class: "btn-default btn-sns btn-sns-google" }
             = link_to' ', class: 'google' do
-              = fa_icon "google"
+              =image_tag '/google.svg', alt: '', height: '45', width: '60',class: "google-logo"
             Googleでログイン
+
       
       %form{action: "https://www.mercari.com/jp/login/", method: "POST", novalidate: "novalidate"}
   
