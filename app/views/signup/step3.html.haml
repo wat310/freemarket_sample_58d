@@ -53,9 +53,11 @@
         .l-single-content
           %h3.l-chapter-sub-head 認証番号を再送することもできます。もう一度電話番号を入力して下さい。
           %p
-            %a{ href: ""} 電話番号を再度入力する
+            = link_to'', class: '' do 
+              電話番号を再度入力する
           %p.l-single-text
           ※SMSが届かない場合は
-          %a{ href: "", target: "_blank"} SMS受信設定を確認して、もう一度電話番号を入力してください。
+          = link_to'', class: '',target:'_blank' do
+            SMS受信設定を確認して、もう一度電話番号を入力してください。
 
   = render partial:"devise/footer"

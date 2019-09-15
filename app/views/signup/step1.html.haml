@@ -83,12 +83,14 @@
                 %textarea{id: "g-recaptcha-response", name: "g-recaptcha-response", class: "g-recaptcha-response", style:"width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;" }
           .form-group
             %p.l-single-text.text-center 「次へ進む」のボタンを押すことにより、
-            %a{ href: "", target: "_blank"}利用規約
+            = link_to'', class: '',target:'_blank' do
+              利用規約
             に同意したものとみなします
           %button{type: "submit", class: "btn-default btn-red" }次へ進む
           .form-group.text-right
             %p
-            %a{ href: "", target: "_blank"}本人情報の登録について
+            = link_to'', class: '',target:'_blank' do
+              本人情報の登録について
             %i.icon-arrow-right
 
   = render partial:"devise/footer"
