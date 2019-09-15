@@ -1,0 +1,356 @@
+// 全体に反映させるための内容を記述
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+*, ::before, ::after {
+  border-style: solid;
+  border-width: 0;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+::before, ::after {
+  text-decoration: inherit;
+  vertical-align: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+div {
+  display: block;
+}
+body {
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+:root {
+  cursor: auto;
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #000;
+  cursor: default;
+  font: 66.66667% sans-serif;
+}
+html {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  color: -internal-root-color;
+}
+::selection {
+  color: currentColor;
+  background-color: #b3d4fc;
+  color: #fff;
+  text-shadow: none;
+}
+header {
+  display: block;
+}
+a {
+  color: #0099e8;
+  text-decoration: none;
+}
+img {
+  vertical-align: middle;
+}
+nav ol, nav ul {
+  list-style: none;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+h2 {
+  font-size: 22px;
+  line-height: 1.4;
+}
+h3 {
+  font-size: 22px;
+}
+input {
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  -webkit-appearance: textfield;
+  background-color: white;
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  margin: 0em;
+  font: 400 11px system-ui;
+  padding: 1px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: initial;
+  border-image: initial;
+}
+label {
+  display: inline-block;
+  touch-action: manipulation;
+  cursor: default;
+}
+.form-require {
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+.input-default {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local"], [type="email"], [type="month"], [type="number"], [type="password"], [type="reset"], [type="search"], [type="submit"], [type="tel"], [type="text"], [type="time"], [type="url"], [type="week"], select, textarea {
+  min-height: 1.5em;
+}
+.year {
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.month {
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.day {
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+// ここから下はクラス毎の内容を記述
+.single-container {
+  padding: 0 0 250px;
+
+  .single-header {
+    text-align: center;
+  }
+
+  h1 {
+    display: inline-block;
+    margin: 11px 0 12px;
+  }
+
+  .signup-bar.progress-bar {
+    padding: 16px 0;
+    border-top: 1px solid #eee;
+  }
+    .progress-bar {
+      font-size: 0;
+      text-align: center;
+
+        & li:last-child {
+          margin: 0;
+        }
+        ol {
+          margin: 0;
+        }
+        & li.active {
+          font-weight: 600;
+          color: #ea352d;
+        }
+        & li {
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          min-width: 40px;
+          margin: 0 5% 0 0;
+          font-size: 12px;
+          color: #888;
+        }
+        & li.active .progress-status {
+          background: #ea352d;
+        }
+  .progress-status {
+    width: 12px;
+    height: 12px;
+    margin: 8px auto 0;
+    background: #ccc;
+    border-radius: 50%;
+
+    &:before, &:after {
+      position: absolute;
+      bottom: 5px;
+      z-index: -1;
+      display: block;
+      content: '';
+      width: 120%;
+      height: 2px;
+    }
+    &:after {
+      left: 50%;
+    }
+    &:before {
+      right: 50%;
+    }
+  }
+  .l-single-container {
+      background: #fff;
+  }
+  .l-single-head {
+    padding: 24px 8px;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+
+    &.registration, .l-chapter-head.registration {
+      padding: 16px;
+    }
+  }
+}
+
+  .l-single-inner {
+    border-top: 1px solid #f5f5f5;
+    padding: 40px;
+
+    &.registration-form .l-single-content {
+      max-width: 343px;
+    }
+
+    & p {
+      margin: 8px 0 0;
+      line-height: 1.5;
+    }
+
+    &.registration-form .form-group:not(:first-of-type), 
+    &.registration-form .btn-red {
+      margin: 24px 0 0;
+    }
+
+    &.registration-form .l-single-content {
+      max-width: 343px;
+    }
+
+    &.registration-form {
+      padding: 24px 16px 40px;
+    }
+  }
+
+  .l-single-content {
+    max-width: 320px;
+    margin: 0 auto;
+
+    & p {
+      margin: 8px 0 0;
+      line-height: 1.5;
+    }
+
+    & p.l-single-text {
+      margin: 8px 0 0;
+      padding: 0;
+    }
+  }
+
+  .form-group {
+    margin: 40px 0 0;
+
+      & .input-default.half{
+        width: calc(50% - 6px);
+      }
+
+      & .input-default {
+        width: 100%;
+        margin: 8px 0 0;
+        &.half:first-of-type {
+          margin-right: 8px;
+        }
+      }
+      & label {
+        font-weight: 600;
+      }
+      &:first-child {
+        margin: 0;
+      }
+      & .select-wrap {
+        margin: 8px 0 0;
+      }
+
+      .birthday-select-wrap .select-wrap:first-of-type {
+        width: calc(34% - 17px);
+        display: flex;
+        width: auto;
+      }
+      .birthday-select-wrap .select-wrap .select-default {
+        padding: 0 10px;
+      }
+      .birthday-select-wrap .select-wrap {
+        display: inline-block;
+        width: calc(30% - 17px);
+      }
+      .birthday-select-wrap .select-wrap .icon-arrow-bottom {
+        right: 12px;
+      }
+    .select-wrap {
+      // position: relative;
+      background: #fff;
+
+      & .icon-arrow-bottom {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        z-index: 2;
+        color: #888;
+        font-size: 8px;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+      }
+    }
+      & select {
+        width: 100%;
+      }
+}
+    .l-chapter-sub-head {
+      font-size: 14px;
+    }
+
+}
+    .google-logo{
+      float: left;
+    }
+    .google{
+      margin: -30px;
+    }
