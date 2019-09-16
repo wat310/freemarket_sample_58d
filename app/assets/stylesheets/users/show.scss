@@ -79,11 +79,17 @@
         padding: 0px;
         margin: 0;
         background: #fff;
-        .mypage--tab--head{
-          padding: 0 16px;
+        .mypage-tab__head{
           background: #fafafa;
           font-size: 16px;
           line-height: 72px;
+          padding: 0 16px;
+          font-size: 100%;
+          font-weight: normal;
+          display: block;
+          margin-block-start: 0.83em;
+          margin-inline-start: 0px;
+          margin-inline-end: 0px;
           font-weight: bold;
         }
         .mypage-tabs{
@@ -134,11 +140,11 @@
         .tab-content{
           background-color: #fff;
           display: block;
-          height: 236px;
+          min-height: 236px;
           padding: 16px;
           color: #888;
           border-bottom: 1px solid #eee;
-          .mypage-item__list__found{
+          .list__found{
             list-style: none;
             padding: 160px 0 60px;
             text-align: center;
@@ -151,12 +157,7 @@
               right: 0px;
             }
           }
-          .mypage-item__body{
-            left: 10px;
-            &__text{
-              border:solid 1px white;
-              padding-left: 70px;
-            }
+        
             &__time{
               padding-left: 20px;
               width: 664px;
@@ -190,12 +191,18 @@
             }
           }
         }
-        .mypage-item--ul {
+        .mypage-item {
           position: relative;
           display: block;
-          &__li {
+          &__list {
             border-bottom: 1px solid #eee;
-            &__a {
+            &__body{
+              left: 10px;
+              &__text{
+                border:solid 1px white;
+                padding-left: 70px;
+              }
+              &__a {
               display: block;
               min-height: 10px;
               padding: 16px;
@@ -278,64 +285,6 @@
           margin-inline-end: 0px;
           font-weight: bold;
           }     
-        }
-      }
-    }
-    .side{
-      float: left;
-      width: 280px;
-      margin: 0 40px 0 0;
-      .mypage-nav{
-        &__ul{
-          list-style: none;
-          &__li{
-            border-top: 1px solid #eee;
-            &__item{
-              background: #eee;
-              font-weight: 600;
-              position: relative;
-              display: block;
-              padding: 16px;
-              font-size: 14px;
-              color: #333;
-              text-decoration: none;
-              touch-action: manipulation;
-              .fa-chevron-right{
-                color: #333;
-                position: absolute;
-                right: 16px;
-                top: 50%;
-                transform: translate(0, -50%);
-                transition: all ease-out .2s;
-              }
-            }
-          }
-          &__li {
-            border-top: 1px solid #eee;
-            &__item2{
-              position: relative;
-              display: block;
-              padding: 16px;
-              background: #fff;
-              font-size: 14px;
-              color: #333;
-              text-decoration: none;
-              touch-action: manipulation;
-              .fas.fa-chevron-right{
-                color: #ccc;
-                position: absolute;
-                right: 16px;
-                top: 50%;
-                transform: translate(0, -50%);
-                transition: all ease-out .2s;
-              }
-            }
-          }
-        }
-        .mypage-nav--head {
-          margin: 40px 0 0;
-          font-weight: bold;
-          font-size: 16px;
         }
       }
     }
