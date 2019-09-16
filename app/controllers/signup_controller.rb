@@ -4,10 +4,10 @@ class SignupController < ApplicationController
 # 許可するキーを設定
   def user_params
     params.require(:user).permit(
-      # :nickname, 
-      # :email, 
-      # :password, 
-      # :password_confirmation, 
+      :nickname, 
+      :email, 
+      :password, 
+      :password_confirmation, 
       :last_name, 
       :first_name, 
       :last_name_kana, 
