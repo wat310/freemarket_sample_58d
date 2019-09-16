@@ -1,0 +1,271 @@
+.wrapper{
+  background-color: #f5f5f5;
+  padding-top: 10px;
+  .container{
+    margin: 40px auto 50px;
+    width: 1020px;
+    height: 1500px;
+    .content{
+      float: right;
+      width: 700px;
+      height: 1292;
+      .mypage-user__icon {
+        height: 200px;
+        position: relative;
+        padding: 40px 20px 20px 20px;
+        background: image-url("mypage-images.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        &__a {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          transform: translate(0, -50%);
+          color: #333;
+          text-decoration: none;
+          touch-action: manipulation;
+          &__figure {
+            overflow: hidden;
+            margin: 0 auto;
+            &__img {
+              border-radius: 50%;
+              width: 60px;
+              height: 60px;
+              vertical-align: middle;
+              background: image-url("onpu.jpg") ;
+              background-size: contain;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              z-index: 1;
+              vertical-align: middle;
+            }
+          }
+          .mypage-number{
+            padding: 0 0 40px;
+            .bold--team{
+              font-weight: 600;
+              line-height: 1.4;
+              margin: 8px 0 0;
+              font-size: 14px;
+            }
+            &__review {
+              display: inline-block;
+              font-size: 14px;
+              .bold--review {
+                font-weight: 600;
+                margin: 0 0 0 8px;
+                font-size: 16px;
+              }
+            }
+            .mypage-number__listings {
+              display: inline-block;
+              font-size: 14px;
+              margin: 0 0 0 16px;
+              .bold--listings {
+                font-weight: 600;
+                margin: 0 0 0 8px;
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+      .mypage-tab-container-notification-todo {
+        padding: 0px;
+        margin: 0;
+        background: #fff;
+        .mypage-tab__head{
+          background: #fafafa;
+          font-size: 16px;
+          line-height: 72px;
+          padding: 0 16px;
+          font-size: 100%;
+          font-weight: normal;
+          display: block;
+          margin-block-start: 0.83em;
+          margin-inline-start: 0px;
+          margin-inline-end: 0px;
+          font-weight: bold;
+        }
+        .mypage-tabs{
+          border: 0;
+          background: #eee;
+          list-style: none;
+          &__active {
+            background: #fff;
+            width: 50%;
+            text-align: center;
+            vertical-align: top;
+            float: left;
+            &__h3 {
+              font-weight: bold;
+              font-size: 22px;
+              &__a {
+                border-top: 2px solid #ea352d;
+                position: relative;
+                display: block;
+                color: #333;
+                font-size: 16px;
+                line-height: 72px;
+                text-decoration: none;
+                touch-action: manipulation;
+              }
+            }
+          }
+          &__inactive {
+            width: 50%;
+            display: inline-block;
+            text-align: center;
+            vertical-align: top;
+            &__h3 {
+              font-weight: bold;
+              font-size: 22px;
+              &__a {
+                position: relative;
+                display: block;
+                color: #333;
+                font-size: 16px;
+                line-height: 72px;
+                text-decoration: none;
+                touch-action: manipulation;
+              }
+            }
+          }
+        }
+        .tab-content{
+          background-color: #fff;
+          display: block;
+          min-height: 236px;
+          padding: 16px;
+          color: #888;
+          border-bottom: 1px solid #eee;
+          .list__found{
+            list-style: none;
+            padding: 160px 0 60px;
+            text-align: center;
+            .mini{
+              float: left;
+              width: 50px;
+              height: 50px;
+            }
+            .list--icon2{
+              right: 0px;
+            }
+          }
+        
+            &__time{
+              padding-left: 20px;
+              width: 664px;
+              .listicon1{
+                color: gray;
+              }
+            }
+            .list--icon2{
+              color: gray;
+              float: right;
+            }
+          }
+        }
+        .mypage-item {
+          position: relative;
+          display: block;
+          &__list {
+            border-bottom: 1px solid #eee;
+            &__body{
+              left: 10px;
+              &__text{
+                border:solid 1px white;
+                padding-left: 70px;
+              }
+              &__a {
+              display: block;
+              min-height: 10px;
+              padding: 16px;
+              color: #333;
+              text-decoration: none;
+              touch-action: manipulation;
+              &__figure {
+                position: relative;
+                overflow: hidden;
+                float: left;
+                width: 48px;
+                height: 48px;
+                margin:0;
+                background: image-url("mercari_profile.png") ;
+                background-size: contain;
+              }
+              .mypage--item--body{
+                margin: 0 40px 0 68px;
+                &__text {
+                  overflow: hidden;
+                  max-height: 4.4em;
+                  text-overflow: ellipsis;
+                  line-height: 1.5;
+                }
+                &__time {
+                  display: inline-block;
+                  color: #888;
+                  &__i {
+                    margin: 0 8px 0 0;
+                    display: inline-block;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-variant: normal;
+                    text-transform: none;
+                    line-height: 1;
+                  }
+                  .span {
+                    vertical-align: middle;
+                  }
+                }
+              }
+              .fa-chevron-right{
+                position: absolute;
+                right: 16px;
+                transform: translate(0, -100%);
+              }
+            }
+          }
+          .mypage--go--list {
+            border: 0;
+            position: relative;
+            padding: 16px;
+            .go {
+              display: block;
+              height: 60px;
+              margin: 0 auto;
+              background: #eee;
+              color: #333;
+              line-height: 60px;
+              text-align: center;
+              text-decoration: none;
+              touch-action: manipulation;
+            }
+          }
+        }
+      }
+      .mypage-tab__container{
+        padding: 40px 0 0;
+        background: #f5f5f5;
+        .mypage-tab__head {
+          background: #fafafa;
+          font-size: 16px;
+          line-height: 72px;
+          padding: 0 16px;
+          font-size: 100%;
+          font-weight: normal;
+          display: block;
+          margin-block-start: 0.83em;
+          margin-inline-start: 0px;
+          margin-inline-end: 0px;
+          font-weight: bold;
+          }     
+        }
+      }
+    }
+  }
