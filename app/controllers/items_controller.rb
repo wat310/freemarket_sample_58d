@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @image = Item_images.new
     #セレクトボックスの初期値(配列)
     @category_parent_array = ["---"]
     #categoriesテーブルから親カテゴリーのみを抽出、配列に格納
@@ -46,7 +47,7 @@ class ItemsController < ApplicationController
   private
   def item_params
     # サイズによって条件分岐必要？
-    # params.require(:item).permit(:name, :price, :explanation, :user_id, :category_id)
+    params.require(:item).permit(:name, :price, :explanation, :user_id, :category_id)
   end
 
 end

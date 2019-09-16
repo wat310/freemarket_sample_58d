@@ -24,7 +24,7 @@ man_jacket = man.children.create(name: "ジャケット/アウター")
 # man_shoes = man.children.create(name: "靴")
 
 #メンズの孫カテゴリ
-man_tops.children.create([{name: "トップス"}, {name: "アウター"}, {name: "その他"}])
+man_tops.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"}, {name: "Tシャツ/カットソー(七分/長袖)"}, {name: "その他"}])
 man_jacket.children.create([{name: "コート"}, {name: "ジャケット/上着"}, {name: "トップス(その他)"}])
 # man_shoes.children.create([{name: "スニーカー"}, {name: "サンダル"}, {name: "その他"}])
 
