@@ -13,24 +13,21 @@
   text-decoration: inherit;
   vertical-align: inherit; 
 }
-
 ::selection {
   color: currentColor;
   background-color: #b3d4fc;
   color: #fff;
   text-shadow: none;
 }
-
 body {
   position: relative;
   min-height: 100%;
-  background: #f5f5f5;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   font-size: 14px;
-  color: #333;
+  color: rgb(51, 51, 51);
   line-height: 1;
+  background: rgb(245, 245, 245);
 }
-
 :root {
   cursor: auto;
   background-color: #fff;
@@ -40,23 +37,19 @@ body {
   cursor: default;
   font: 66.66667% sans-serif;
 }
-
 html {
   height: 100%;
   overflow-y: auto;
 }
-
 h2 {
-   font-size: 22px;
-   line-height: 1.4;
-   font-weight: bold;
+    font-size: 22px;
+    line-height: 1.4;
+    font-weight: bold;
 }
-
 a {
   color: #0099e8;
   text-decoration: none;
 }
-
 img {
   vertical-align: middle;
 }
@@ -100,6 +93,7 @@ button {
   line-height: 1.5;
   font-size: 16px;
 }
+
 .login-captcha {
   -webkit-transform: scale(0.8);
   transform: scale(0.8);
@@ -121,22 +115,19 @@ button {
   // background: #eee;
   // color: #000;
 }
-
-.btn-mail .icon-mail {
-  // position: absolute;
-  // top: 50%;
-  // left: 16px;
-  // -webkit-transform: translate(0, -50%);
-  // transform: translate(0, -50%);
-  // color: #ccc;
-  // font-size: 16px;
+.btn-mail .fa-envelope {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  color: #ccc;
+  font-size: 16px;
   color: #fff;
 }
-
-.icon-mail:before {
-  content: '\e01d';
+.fa.fa-envelope:before {
+  color: white;
 }
-
 .btn-sns-facebook {
   margin: 16px 0 0;
   background: #385185;
@@ -144,22 +135,22 @@ button {
 }
 .btn-sns {
   position: relative;
+  & i{
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
 }
 .facebook{
   color: white;
 }
-
-
-
-
-
-
-
-
 .l-single-container {
   background: #fff;
+  width: 700px;
+  margin: 0 auto;
 }
-
 .l-single-head {
   padding: 24px 8px;
   font-size: 18px;
@@ -169,7 +160,6 @@ button {
   &.registration, .l-chapter-head.registration {
     padding: 16px;
   }
-
 }
 
 .l-single-inner {
@@ -180,7 +170,7 @@ button {
   }
   &.registration-form .l-single-content {
   max-width: 343px;
- }
+  }
 }
 
   .single-footer {
@@ -217,9 +207,7 @@ button {
       height: 65px;
       margin: 40px auto 0;
     }
-
   }
-  
   .clearfix:after {
     content: '';
     display: block;
@@ -232,8 +220,3 @@ button {
   border: #979797 solid 1px;
   color: #333;
 }
-
-
-
-
-

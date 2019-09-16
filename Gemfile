@@ -86,3 +86,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'pry-rails'
 end
+
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'mini_magick'
