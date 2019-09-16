@@ -14,8 +14,8 @@ class Item < ApplicationRecord
   enum shipping_date: [:one_two, :two_three, :four_seven]
 
   validates :name, presence: true, length: { in: 1..40 }
-  validates :price, presence: true
-  validates :explanation, presence: true, length { in: 1..1000 }
+  validates :price, presence: true, numerically: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+  validates :explanation, presence: true, length: { in: 1..1000 }
   validates :state, presence: true
   validates :postage, presence: true
   validates :shipping_method, presence: true
