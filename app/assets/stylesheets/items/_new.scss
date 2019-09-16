@@ -134,10 +134,33 @@
             line-height: 1.5;
           }
 
-          // ブランド名
-          .input-brand {
-            @include input-field;
+          //ブランド
+          #brand {
+            position: relative;
+
+            // ブランド名の入力フォーム
+            .input-brand {
+              @include input-field;
+              
+            }
+
+            // インクリメンタルサーチの結果
+            #search_brand_result {
+              overflow: auto;
+              position: absolute;
+              background-color: white;
+              width: 100%;
+              max-height: 280px;
+              font-size: 14px;
+              z-index: 10;
+              box-shadow: (0 0 4px 0 black);
+
+              .brand_list {
+                padding: 16px 8px;
+              }
+            }
           }
+          
 
         // 販売価格
           //価格

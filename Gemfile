@@ -72,6 +72,7 @@ gem 'font-awesome-rails', '4.7.0.5'
 gem 'active_hash'
 gem 'enum_help'
 gem 'jquery-rails'
+gem 'omniauth-facebook'
 
 group :production do
   gem 'unicorn', '5.4.1'
@@ -83,4 +84,5 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'pry-rails'
 end

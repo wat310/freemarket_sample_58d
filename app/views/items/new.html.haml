@@ -36,7 +36,7 @@
                 = f.label :カテゴリー, class: "label"
                 %span.form-require 必須
                 %br
-                //ここで記述しているのは親カテゴリのみ、子と孫のカテゴリはajaxで追加する。
+                //ここで記述しているのは親カテゴリのみ、子と孫のカテゴリとサイズ、ブランドはajaxで追加する。
                 = f.select :category, @category_parent_array, {}, {class: "select", id: "parent_category"}
                 -# = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select"
             .form-group#size
@@ -49,6 +49,8 @@
               %span.form-free 任意
               %br
               = f.text_field :brand, class: 'input-brand', placeholder: "例) シャネル"
+              //ここにインクリメンタルサーチの結果を表示する
+              %ul#search_brand_result
             .form-group
               =f.label :商品の状態, class: "label"
               %span.form-require 必須

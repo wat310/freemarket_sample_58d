@@ -28,6 +28,11 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+  #ブランドの取得
+  def brand_search
+    @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
+  end
+
   def create
     @item = Item.new(item_params)
     # if
