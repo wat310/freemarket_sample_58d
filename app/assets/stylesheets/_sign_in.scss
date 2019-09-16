@@ -12,6 +12,7 @@
   box-sizing: inherit;
   text-decoration: inherit;
   vertical-align: inherit; 
+  font-size: xx-large;
 }
 
 ::selection {
@@ -115,7 +116,7 @@ button {
 .single-container {
   padding:0 0 250px;
   
-   .single-header{
+    .single-header{
       text-align: center;
   
       h1 {
@@ -133,7 +134,7 @@ button {
         width: 120px;
         height: 33px;
       }
-   }
+    }
 
     main {
       display: block;
@@ -181,9 +182,11 @@ button {
         content: '\e014';
       }
     }
-   .facebook{
-     color: white;
-   }
+    .facebook{
+      color: white;
+    }
+
+
 
     .form-group{
       margin: 24px 0 0;
@@ -191,8 +194,7 @@ button {
       .input-default {
         margin: 0;
         width: 100%;
-        magin: 8px 0 0;
-        
+        margin: 8px 0 0;
       }
   
 
@@ -269,7 +271,8 @@ button {
   color: #333;
 }
 
-
 }
 
-
+.mercari-box{
+  margin-top: 20px;
+}

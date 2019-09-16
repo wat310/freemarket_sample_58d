@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_120828) do
+ActiveRecord::Schema.define(version: 2019_09_13_011538) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "postal_code", null: false
+    t.bigint "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "house_number", null: false
+    t.string "building"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -45,6 +55,23 @@ ActiveRecord::Schema.define(version: 2019_09_11_120828) do
     t.index ["price"], name: "index_items_on_price"
   end
 
+  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "family_name_kanji", null: false
+    t.string "first_name_kanji", null: false
+    t.string "family_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.date "birthday", null: false
+    t.string "phone_number", null: false
+    t.text "message"
+    t.integer "evaluation_good", null: false
+    t.integer "evaluation_normal", null: false
+    t.integer "evaluation_bad", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -59,4 +86,5 @@ ActiveRecord::Schema.define(version: 2019_09_11_120828) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "profiles", "users"
 end

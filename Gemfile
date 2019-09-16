@@ -69,6 +69,8 @@ gem 'ancestry'
 gem 'wicked'
 gem 'devise'
 gem 'font-awesome-rails', '4.7.0.5'
+gem 'active_hash'
+gem 'enum_help'
 
 group :production do
   gem 'unicorn', '5.4.1'
@@ -81,3 +83,8 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
 end
+
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'mini_magick'
+

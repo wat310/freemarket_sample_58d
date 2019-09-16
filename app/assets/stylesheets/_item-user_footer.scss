@@ -1,0 +1,27 @@
+.text-list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-text {
+  font-size: 12px;
+}
+
+.last-text {
+  margin-top: 8px;
+}
+
+.item-user_footer {
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 0;
+
+  .footer-logo {
+    margin: 40px auto 0;
+    display: block;
+
+  }
+}
+

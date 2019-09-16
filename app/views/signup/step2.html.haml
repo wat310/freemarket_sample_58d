@@ -1,0 +1,43 @@
+.single-container
+  = render partial:"devise/header"
+
+  %nav.progress-bar.signup-bar
+    %ol.clearfix
+      %li.through
+        会員登録
+        %div.progress-status
+      %li.active
+        電話番号認証
+        %div.progress-status
+      %li
+        お届け先住所入力
+        %div.progress-status
+      %li
+        支払い方法
+        %div.progress-status
+      %li
+        完了
+        %div.progress-status
+
+  %main.single-main
+    %section.l-single-container
+      %h2.l-single-head.registration 電話番号の登録
+      %form{action: "https://www.mercari.com/jp/signup/sms_confirmation/sms/", method: "POST", class:"l-single-inner registration-form", novalidate: "novalidate"}
+        %input{type: "hidden", name: "after_save_callback", value:""}
+
+        .l-single-content
+          .form-group
+            %label{for: "phone_number"} 携帯電話の番号
+            %input{type: "tel", name: "phone_number", value:"", placeholder:"携帯電話の番号を入力", class:"input-default"}
+          %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          %button{type: "submit", class: "btn-default btn-red"} SMSを送信する
+          %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+
+          .form-group.text-right
+          = link_to'', class: '',target:'_blank' do
+            電話番号の確認が必要な理由
+          %i.icon-arrow-right
+          %input{type: "hidden", name: "__csrf_valuer", value:"c34b4a6a5af7ae6b1d1cdf22727e249595d8853628a855f63b5074d4a2fb632c59a3336d23ab939e7dec47363861fb2b299ac24addafd2f01ed2e0ee648ecbfea"}
+          %input{type: "hidden", name: "id", value:"580656643"}
+
+  = render partial:"devise/footer"
