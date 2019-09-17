@@ -80,3 +80,26 @@
   font-size: 9px;
   line-height: 1.2;
 }
+
+@mixin side-item{
+  position: relative;
+  display: block;
+  padding: 16px;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  touch-action: manipulation;
+    &:hover {
+    background-color: #f5f5f5;
+    }
+}
+
+@mixin right-arrow{
+  color: #333;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: all ease-out .2s;
+}
+

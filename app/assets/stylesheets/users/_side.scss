@@ -1,0 +1,36 @@
+.side{
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+  .mypage-nav{
+    &__ul{
+      list-style: none;
+      &__li{
+        border-top: 1px solid #eee;
+        &__item{
+          background: #eee;
+          font-weight: 600;
+          @include side-item;
+          .fa-chevron-right{
+            @include right-arrow;
+          }
+        }
+      }
+      &__li {
+        border-top: 1px solid #eee;
+        &__item2{
+          background: #fff;
+          @include side-item;
+          .fa-chevron-right{
+            @include right-arrow;
+          }
+        }
+      }
+    }
+    .mypage-nav__head {
+      margin: 40px 0 0;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+}
