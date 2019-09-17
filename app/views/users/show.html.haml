@@ -28,57 +28,9 @@
           .tab-content
             %ul.mypage-item
               %li.mypage-item__list
-                =link_to "#", class: "mypage-item--ul__li__a" do
-                  %figure.mypage-item--ul__li__a__figure
-                    %i.fa.fa-history
-                  .list__body
-                    .mypage-item--text 事務局から個別通知メッセージ「ログイン通知」
-                    %time.mypage-item__body__time
-                      %i.mypage-item--body__time__icon.fas.fa-history
-                      %span 1 時間前
-                  %i.fa.fa-chevron-right
-              %li.mypage-item--ul__li
-                =link_to "#", class: "mypage-item--ul__li__a" do
-                  %figure.mypage-item--ul__li__a__figure
-                    %img
-                  .mypage-item__body
-                    .mypage-item__body__text 事務局から個別メッセージ「ログイン通知」
-                    %time.mypage-item__body__time
-                      %i.mypage-item__body__time__icon.fas.fa-history
-                      %span 2 時間前
-                  %i.fa.fa-chevron-right
-              %li.mypage-item--ul__li
-                =link_to "#", class: "mypage-item--ul__li__a" do
-                  %figure.mypage-item--ul__li__a__figure
-                    %i.mypage-item--ul__li__a__figure__icon.fa.fa-history
-                  .mypage-item--body
-                    .mypage-item--text 事務局から個別通知メッセージ「ログイン通知」
-                    %time.mypage-item--body__time
-                      %i.mypage-item--body__time__icon.fas.fa-history
-                      %span 1 時間前
-                  %i.fa.fa-chevron-right 
-              %li.mypage-item--ul__li
-                =link_to "#", class: "mypage-item--ul__li__a" do
-                  %figure.mypage-item--ul__li__a__figure
-                    %i.mypage-item--ul__li__a__figure__icon.fa.fa-history
-                  .mypage-item--body
-                    .mypage-item--text 事務局から個別通知メッセージ「ログイン通知」
-                    %time.mypage-item--body__time
-                      %i.mypage-item--body__time__icon.fas.fa-history
-                      %span 1 時間前
-                  %i.fa.fa-chevron-right  
-              %li.mypage-item--ul__li
-                =link_to "#", class: "mypage-item--ul__li__a" do
-                  %figure.mypage-item--ul__li__a__figure
-                    %i.mypage-item--ul__li__a__figure__icon.fa.fa-history
-                  .mypage-item--body
-                    .mypage-item--text 事務局から個別通知メッセージ「ログイン通知」
-                    %time.mypage-item--body__time
-                      %i.mypage-item--body__time__icon.fas.fa-history
-                      %span 1 時間前
-                  %i.fa.fa-chevron-right 
-              %li.mypage--go--list
-                =link_to "#", class: "go" do
+              = render partial:"shared/mypage-list"
+              .mypage-go
+                =link_to "#", class: "mypage-go__body" do
                   一覧を見る
           .mypage-tab__container
             %h2.mypage-tab__head 購入した商品
@@ -92,58 +44,13 @@
                   =link_to "#", class: "mypage-tabs__inactive__h3__a" do
                     過去の取引
             .tab-content
-              %ul.mypage-item__list
-                %li.list__found 取引中の商品がありません
-              
-      = render partial:"shared/side" #インデントずらさないこと
-  
+              .tab-icon
+                .tab-icon__body
+                  .tab-icon__text 取引中の商品がありません
+                
+      .side-bar
+      = render partial:"shared/side" 
+
     = render partial:"shared/aside"
-    = render partial:"shared/footer"    
-
-
-
-
+    = render partial:"shared/footer"
        
--# - 5.times do
--#   = link_to '#', class: 'tag-box__list__content' do
--#     = image_tag 'common/mercari_profile.png', alt: 'icon', class: 'tag-box__list__content__icon', height: '48', width: '48'
--#     .tag-box__list__content__body
--#       -# TODO:コレクション対応
--#       .tag-box__list__content__body__text= body[:text]
--#       .tag-box__list__content__body__time
--#         %i.far.fa-clock
--#         -# TODO:コレクション対応
--#         %span 2 日前
--#     %i.fas.fa-chevron-right.right
-
-      
-    
-
--# .tag-box
--#   .tag-box__tab
--#     %h3.tag-box__tab--left.tab-active= left_head
--#     %h3.tag-box__tab--right= right_head
-
--#   .tag-box__list
--#     - if left_content.present?
--#       = render partial: "mypage/mypage-tab-list", collection: left_content, as: :body
--#       .tag-box__list--bottom
--#         = link_to '一覧を見る', '#'
--#     - else
--#       .tag-box__list__none
--#         - if left_head.match(/.*取引.*/)
--#           .tag-box__list__none__body= "#{left_head}の商品がありません"
--#         - else
--#           .tag-box__list__none__body= "現在、#{left_head}はありません"
-
--#   .tag-box__list
--#     - if right_content.present?
--#       = render partial: "mypage/mypage-tab-list", collection: right_content, as: :body
--#       .tag-box__list--bottom
--#         = link_to '一覧を見る', '#'
--#     - else
--#       .tag-box__list__none
--#         - if right_head.match(/.*取引.*/)
--#           .tag-box__list__none__body= "#{right_head}はありません"
--#         - else
--#           .tag-box__list__none__body= "現在、#{right_head}はありません"
