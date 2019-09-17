@@ -6,13 +6,13 @@ class SignupController < ApplicationController
     params.require(:user).permit(
       :nickname, 
       :email, 
-      :password, 
-      :password_confirmation, 
+      :encrypted_password, 
+      :reset_password, 
       :last_name, 
       :first_name, 
       :last_name_kana, 
       :first_name_kana, 
-  )
+    )
   end
 
 
@@ -24,8 +24,8 @@ class SignupController < ApplicationController
     # step1で入力された値をsessionに保存
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
-    session[:password] = user_params[:password]
-    session[:password_confirmation] = user_params[:password_confirmation]
+    session[:encrypted_password] = user_params[:encrypted_password]
+    session[:reset_password] = user_params[:reset_password]
     @user = User.new # 新規インスタンス作成
   end
 
@@ -46,6 +46,7 @@ class SignupController < ApplicationController
     session[:last_name_kana] = user_params[:last_name_kana]
     session[:first_name_kana] = user_params[:first_name_kana]
     @user = User.new # 新規インスタンス作成
+    @address = Address.new
   end
 
   def step5
@@ -55,6 +56,7 @@ class SignupController < ApplicationController
     session[:last_name_kana] = user_params[:last_name_kana]
     session[:first_name_kana] = user_params[:first_name_kana]
     @user = User.new # 新規インスタンス作成
+
   end
 
   def step6
@@ -71,12 +73,12 @@ class SignupController < ApplicationController
   # if @user.save
   #   # ログインするための情報を保管
   #         session[:id] = @user.id
-  #         redirect_to done_signup_index_path
+  #         redirect_to step6_signup_index_path
   #       else
   #         render '/signup/registration'
   #       end
 
-  #       def done
+  #       def step6
   #         sign_in User.find(session[:id]) unless user_signed_in?
   #       end
 

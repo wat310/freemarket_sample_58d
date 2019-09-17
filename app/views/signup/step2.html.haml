@@ -22,6 +22,7 @@
   %main.single-main
     %section.l-single-container
       %h2.l-single-head.registration 電話番号の登録
+        = form_with model:@phone,url:phone_number_authorization_index_path,class:'l-single-inner registration-form' do |f|
       %form{action: "https://www.mercari.com/jp/signup/sms_confirmation/sms/", method: "POST", class:"l-single-inner registration-form", novalidate: "novalidate"}
         %input{type: "hidden", name: "after_save_callback", value:""}
 
@@ -30,7 +31,8 @@
             %label{for: "phone_number"} 携帯電話の番号
             %input{type: "tel", name: "phone_number", value:"", placeholder:"携帯電話の番号を入力", class:"input-default"}
           %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-          %button{type: "submit", class: "btn-default btn-red"} SMSを送信する
+          -# %button{type: "submit", class: "btn-default btn-red"} SMSを送信する
+          = link_to "SMSを送信する",'/signup/step3', class: "btn-default btn-red"
           %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
 
           .form-group.text-right

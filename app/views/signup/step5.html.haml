@@ -55,6 +55,6 @@
             = link_to'', class: '.securty', target: "_blank" do
               カード裏面の番号とは？
 
-          %button{type: "submit", class: "btn-default btn-red" }次へ進む
+          = link_to "次へ進む",'/signup/step6', class: "btn-default btn-red"
 
   = render partial:"devise/footer"

@@ -23,45 +23,52 @@
   %main.single-main
     %section.l-single-container
       %h2.l-single-head.registration 会員情報入力
-      %form{action: "https://www.mercari.com/jp/signup/sms_confirmation/?after_save_callback=/jp/", method: "POST", class:"l-single-inner registration-form", novalidate: "novalidate"}
-        %input{type: "hidden", name: "__csrf_value", value:"1e07299d9cc4685dd7d8fddc752091c92c45911326c730f8703e5ed95a7811cab7a365a8421cdd97d1d1c61169c41f13f84de4769787f09dd8e9832fc038c8ca6"}
-        
+      = form_with model: @user, url: user_registration_path, class: 'registration__content', local: true do |f|
+        %input{name: "__csrf_value", type: "hidden", value: ""}/
+
         .l-single-content
           .form-group
-            %label{for: "nickname"} ニックネーム
+            = f.label "ニックネーム"
             %span.form-require 必須
-            %input{type: "text", name: "nickname", value:"", placeholder:"例) さとうワタワタ", class:"input-default"}
+            .field-input              
+              = f.text_field :nickname, autofocus: true,class:"input-default",placeholder: "例) 佐藤 ワタワタ"
+
           .form-group
-            %label{for: "email"} メールアドレス
+            = f.label "メールアドレス"
             %span.form-require 必須
-            %input{type: "email", name: "email", value:"", placeholder:"PC・携帯どちらでも可", class:"input-default"}
-            %input{type: "hidden", name: "login_type", value:""}     
+            = f.email_field :email, autofocus: true, class: "input-default", placeholder:"PC・携帯どちらでも可"
+            
           .form-group
-            %label{for: "password"} パスワード
+            = f.label "パスワード"
             %span.form-require 必須
-            %input{type: "password", name: "password", value:"", placeholder:"7文字以上", class:"input-default"}            
+            = f.password_field :password, autocomplete: "off", class: "input-default", placeholder:"7文字以上"           
           .form-group
-            %label{for: "password"} パスワード (確認)
+
+            = f.label "パスワード(確認用)"
             %span.form-require 必須
-            %input{type: "password", name: "password2", value:"", placeholder:"7文字以上", class:"input-default"}   
+            = f.password_field :password2, autocomplete: "off", class: "input-default", placeholder:"7文字以上"
+
           .form-group
             %h3.text-left.l-chapter-sub-head 本人確認
             %p.l-single-text
             安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
           .form-group
             %div
-              %label お名前(全角)
+              = f.label "お名前(全角)"
               %span.form-require 必須
-            %input{type: "text", name: "family_name_kanji", value:"", placeholder:"例) 佐藤", class:"input-default half"}
-            %input{type: "text", name: "first_name_kanji", value:"", placeholder:"例) 航", class:"input-default half"}
+            = f.text_field :family_name_kanji, autofocus: true,class:"input-default half",placeholder: "例) 佐藤"
+            = f.text_field :first_name_kanji, autofocus: true,class:"input-default half",placeholder: "例) 航"
+
           .form-group
             %div
-              %label{for: "family_name_kanji"} お名前カナ(全角)
+              = f.label "お名前カナ(全角)"
               %span.form-require 必須
-            %input{type: "text", name: "family_name_kana", value:"", placeholder:"例) サトウ", class:"input-default half"}
-            %input{type: "text", name: "first_name_kana", value:"", placeholder:"例) ワタル", class:"input-default half"}
+            = f.text_field :family_name_kana, autofocus: true,class:"input-default half",placeholder: "例) サトウ"
+            = f.text_field :first_name_kana, autofocus: true,class:"input-default half",placeholder: "例) ワタル"
+
           .form-group
-            %label{for: "birthday"} 生年月日
+            = f.label "生年月日"
             %span.form-require 必須
             %div.birthday-select-wrap
               %div.select-wrap
@@ -69,6 +76,7 @@
                 = form_with model: @profile, local: true do |f|
                   != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
                   %input{type: "hidden", name: "birthday", value:""}
+                  
             %div.clearfix
           %p.form-info-text
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
@@ -86,7 +94,8 @@
             = link_to'', class: '',target:'_blank' do
               利用規約
             に同意したものとみなします
-          %button{type: "submit", class: "btn-default btn-red" }次へ進む
+          = link_to "次へ進む",'/signup/step2', class: "btn-default btn-red"
+
           .form-group.text-right
             %p
             = link_to'', class: '',target:'_blank' do

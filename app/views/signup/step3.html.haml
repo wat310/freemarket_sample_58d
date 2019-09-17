@@ -30,7 +30,7 @@
             %label{for: "captcha"} 認証番号
             %input{type: "number", name: "captcha", value:"", placeholder:"認証番号を入力", class:"input-default"}
           %p.l-single-text SMSで届いた認証番号を入力してください
-          %button{type: "submit", class: "btn-default btn-red"} 認証して完了
+          = link_to "認証して完了",'/signup/step4', class: "btn-default btn-red"
           %input{type: "hidden", name: "__csrf_value", value:"c34b4a6a5af7ae6b1d1cdf22727e249595d8853628a855f63b5074d4a2fb632c59a3336d23ab939e7dec47363861fb2b299ac24addafd2f01ed2e0ee648ecbfea"}
           %input{type: "hidden", name: "id", value:"580656643"}
 
@@ -46,7 +46,7 @@
           %h3.l-chapter-sub-head 30秒たっても認証番号が届かない方へ
           %p.l-single-text 電話で認証番号を聞くこともできます。
           %button{type: "submit", class: "btn-default btn-red"} 電話で認証番号を聞く（通話無料）        
-        %input{type: "hidden", name: "__csrf_value", value:"c34b4a6a5af7ae6b1d1cdf22727e249595d8853628a855f63b5074d4a2fb632c59a3336d23ab939e7dec47363861fb2b299ac24addafd2f01ed2e0ee648ecbfea"}
+        %input{type: "hidden", name: "__csrf_value", value:""}
         %input{type: "hidden", name: "id", value:"580656643"}
 
       .l-single-inner.registration-form

@@ -9,9 +9,10 @@
       .l-single-inner.registration-form
         .l-single-content
           %button{ class: "btn-default btn-mail", href: "/signup/step1" }
-            = link_to'step1_signup_index', class: 'mail' do
+            = link_to'/signup/step1', class: 'mail' do
               = fa_icon "envelope"
             メールアドレスで登録する
+
           %button{id: "facebook-login", class: "btn-default btn-sns btn-sns-facebook" }
             = link_to' ', class: 'facebook' do
               = fa_icon "facebook-square"
@@ -23,6 +24,6 @@
             Googleでログイン
 
       
-      %form{action: "https://www.mercari.com/jp/login/", method: "POST", novalidate: "novalidate"}
-  
+      %form{action: "", method: "POST", novalidate: "novalidate"}
+      
   = render partial:"devise/footer"

@@ -45,7 +45,8 @@
           .form-group
             %label{for: "prefecture_id"} 都道府県
             %span.form-require 必須
-            -# %input{type: "bigint", name: "prefecture_id", value:"", placeholder:"北海道", class:"input-default"}
+            -# = form_for @address, url:step4_ do |f|
+              -# = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt:"--", class: "input-default"
             %select{type: "bigint", name:"prefecture_id", class:"input-default" }
               %option{value:"北海道"} 北海道
               %option{value:"青森県"} 青森県
@@ -114,8 +115,7 @@
             %label{for: "phone_number"} 電話番号
             %span.form-require.any 任意
             %input{type: "string", name: "building", value:"", placeholder:"例)08012345678", class:"input-default"} 
-
-          %button{type: "submit", class: "btn-default btn-red" }次へ進む
+          = link_to "次へ進む",'/signup/step5', class: "btn-default btn-red"
 
 
   = render partial:"devise/footer"

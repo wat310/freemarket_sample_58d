@@ -29,6 +29,6 @@
           .form-group
           %p.comment ありがとうございます。
           %p.comment 会員登録が完了しました。
-          %button{type: "submit", class: "btn-default btn-red" }メルカリを始める
+          = link_to 'メルカリを始める', root_path, class:'btn-default btn-red'
       = render partial:"shared/aside"
   = render partial:"devise/footer"

@@ -20,7 +20,7 @@
             =image_tag '/google.svg', alt: '', height: '45', width: '60',class: "google-logo"
           Googleでログイン
 
-      %form{action: "https://www.mercari.com/jp/login/", method: "POST", novalidate: "novalidate"}
+      %form{action: "", method: "POST", novalidate: "novalidate"}
         .login-form-inner
           .form-group
             %input{type: "email", name: "email", placeholder: "メールアドレス", class: "login-input-text input-default"}
@@ -37,5 +37,5 @@
           %input{type: "hidden", name: "__csrf_value", value: "664e3912b7f684cc372db43cef311b0a95828e0f17f24fae1c3d8b6a5c4601df767bfbfec724e01eae9830e77c72e9d2dce80326b53eb5aa9c32fe623cc7c96c6"}
           = link_to'', class: '' do
             パスワードをお忘れの方
-  
+            
   = render partial:"devise/footer"
