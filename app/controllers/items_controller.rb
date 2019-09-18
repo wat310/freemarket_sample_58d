@@ -55,6 +55,7 @@ class ItemsController < ApplicationController
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
+
   private
   def item_params
     params.require(:item).permit(

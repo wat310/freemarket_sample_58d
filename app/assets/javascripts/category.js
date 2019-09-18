@@ -89,7 +89,7 @@ $(document).on('turbolinks:load', function() {
         })
         .done(function(grandchildren) { //成功したら
           if (grandchildren.length != 0) {
-            $('#grandchildren').remove();//子が変更された時に孫、ブランド、サイズを隠す
+            $('#grandchildren').remove(); //子が変更された時に孫、ブランド、サイズを隠す
             // $('#brand').remove();
             // $('#size').remove();
   
@@ -113,7 +113,8 @@ $(document).on('turbolinks:load', function() {
 
     //孫カテゴリー選択後に発生するイベント
     $('category-forms').on('chabge', '#grandchild_category', function() {
-      var grandchildId = $('#grandchild_category option:selected').data('category'); //孫要素のidを取得
+      // var grandchildId = $('#grandchild_category option:selected').data('category'); //孫要素のidを取得
+
     });
 
   });
