@@ -1,6 +1,12 @@
 ja:
   enums:
     item:
+      state:
+        news: 新品
+        no_dirty: 目立った傷や汚れなし
+        little_dirty: やや傷や汚れあり,
+        dirty: 傷や汚れあり
+        bad: 全体的に状態が悪い
       size:
         XXS: XXS以下
         xs: XS(SS)
@@ -26,7 +32,7 @@ ja:
         one_two: 1~2日で発送
         two_three: 2~3日で発送
         four_seven: 4~7日で発送
-ja:
+
   date:
     formats:
       default: "%Y/%m/%d"

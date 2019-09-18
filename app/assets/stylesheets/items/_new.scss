@@ -13,13 +13,11 @@
   padding: 16px;
   height: 48px;
   margin-top: 8px;
-
-  
 }
 .form-group {
   margin-top: 40px;
 }
-.form-require{
+.form-requires{
   @include form-require;
 }
 .form-free {
@@ -59,6 +57,7 @@
     }
   }
 
+  //入力部
   .main {
     width: 100vw;
     height: calc(100% - 348px);
@@ -76,6 +75,7 @@
         border-bottom: $BorderBottom;
       }
 
+      //出品画像
       .sell-upload-box {
           min-height: 303px;
           padding: $ItemFormPadding;
@@ -96,6 +96,7 @@
             font-size: 12px;
           }
 
+          //画像投稿フォーム
           .image-drop-box {
             width:100%;
             height: 162px;
@@ -106,11 +107,24 @@
             border:  1px dashed #ccc;
             position: relative;
 
-            .image-drop-text {
-              @include pos-trans-center;
-              display: block;
-              line-height: 1.5;
-              font-size: 14px;
+            &__form {
+              position: absolute;
+              
+
+              //画像投稿フォーム(隠す)
+              .hidden_form {
+                // display: none;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+              }
+
+              .image-drop-text {
+                @include pos-trans-center;
+                display: block;
+                line-height: 1.5;
+                font-size: 14px;
+              }
             }
           }
         }
@@ -220,6 +234,9 @@
             color: white;
             margin-top: 40px;
             line-height: 48px;
+            text-align: center;
+            font-size: 14px;
+            border-style: none;
           }
 
           //もどるボタン

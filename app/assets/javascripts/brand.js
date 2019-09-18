@@ -39,7 +39,11 @@ $(document).on('turbolinks:load', function() {
 
     //インクリメンタルサーチの結果をクリックした時
     $('#brand').on('click', '.brand_list', function(){
+    // $(document).on('click', '.brand_list', function(){
       var name = $(this).text();
+      var id = $(this).attr('id');
+      var brand_id = $('.input-brand').attr('id', id);
+      // debugger
       $('.input-brand').val(name);
       $('.brand_list').remove();
     })

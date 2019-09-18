@@ -7,13 +7,34 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @image = Item_images.new
+    @item.item_images.build
+    # アソシエーションを組んだモデル用にbuildを使用
+    # 5.times { @item.item_images.build }
+
     #セレクトボックスの初期値(配列)
     @category_parent_array = ["---"]
     #categoriesテーブルから親カテゴリーのみを抽出、配列に格納
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
+  end
+
+  def create
+    @item = Item.new(item_params)
+    binding.pry
+    # respond_to do |format|
+      if @item.save
+        # params[:item_images][:image].each do |image|
+        #   @item.item_images.create(image: image, item_id: @item_id)
+        # end
+        redirect_to root_path
+        # format.html{redirect_to root_path}
+      else
+        # @item.item_images.build
+        # format.html{render action: 'new'}
+        redirect_to new_item_path
+      end
+    # end
   end
 
   #カテゴリーの子と孫はjsonで処理(routes.rbで記述済)
@@ -34,20 +55,24 @@ class ItemsController < ApplicationController
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
-  def create
-    @item = Item.new(item_params)
-    # if
-    #   redirect_to root_path
-    # else
-    #   redirect_to new_item_path
-    # end
-
-  end
-
   private
   def item_params
-    # サイズによって条件分岐必要？
-    params.require(:item).permit(:name, :price, :explanation, :user_id, :category_id)
+    params.require(:item).permit(
+      :name,
+      :price,
+      :explanation,
+      :category_id,
+      :brand_id,
+      :size,
+      :state,
+      :postage,
+      :shipping_method,
+      :prefecture_id,
+      :shipping_date,
+      # :business_status,
+      item_images_attributes: {image: []}
+      )
+      # .merge(user_id: current_user.id)
   end
 
 end
