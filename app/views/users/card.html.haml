@@ -1,0 +1,33 @@
+.wrapper
+  = render partial: 'shared/header2'
+  .body
+    -# %nav.bread-crumbs
+    .container
+      .content
+        // ②支払い方法
+        %main.mypage.clearfix
+        .mypage__content2
+          %section.identification.mypage-identification
+            %h2.identification__head 支払い方法
+          .identification
+            %form.identification__description
+              %ul.settings-payment
+                %p.settings-payment__sub-title
+                  クレジットカード一覧
+                %li.settings-payment__list
+                  %figure.settings-payment__list__card-image
+                  =image_tag "master-card.svg", alt: "card", class: "card-image",size: "30x45"
+                  .settings-payment__list__num ************3103
+                  .settings-payment__list__num 07 / 24
+                  %button.remove-butten{type: "submit"} 削除する
+
+            .text-right
+              %a{href: "/jp/help_center/article/423/", target: "_blank"}
+                支払い方法について
+                %i.icon-arrow-right
+
+      .side-bar
+      = render partial:"shared/side" 
+
+    = render partial:"shared/aside"
+    = render partial:"shared/footer"

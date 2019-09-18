@@ -5,9 +5,12 @@ Rails.application.routes.draw do
 
   root "items#index"
   resources :users, only: [:index, :new, :create, :show, :edit, :update] do
+    
+    # todo:ユーザーページのrootとcontroller要相談
     member do 
       get'logout'
       get'identification'
+      get'card'
     end
   end
   resources :items

@@ -25,6 +25,8 @@ end
 def identification
 end
 
+def card
+end
 
 
 private
