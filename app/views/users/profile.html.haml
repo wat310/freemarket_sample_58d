@@ -4,18 +4,33 @@
     -# %nav.bread-crumbs
     .container
       .content
-        // ②支払い方法
+        -# ③プロフィール
         %main.mypage.clearfix
         .mypage__content2
           %section.identification.mypage-identification
             %h2.identification__head プロフィール
-        .profile-edit
-          = link_to '変更する', destroy_user_session_path, method: :get, class: 'profile-edit__link'
-        %hoge
+        .user
+          = link_to '#', class: 'user__link' do
+            = image_tag 'user-icon.png', alt: 'icon', class: 'user__link__icon', height: '60', width: '60'
+            %h2.user__link__nickname= 'nickname'
+            .user__link__review
+              %div
+                評価
+                %span 0
+              %div
+                出品数
+                %span 0
+        .profile
+          .profile__text-box
+            .form-group
+            = text_area_tag :introduction, "", class: 'textarea', placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+          .profile__edit
+            = link_to '変更する', root_path, method: :get, class: 'profile__edit__link'
 
       .side-bar
       = render partial:"shared/side" 
 
     = render partial:"shared/aside"
     = render partial:"shared/footer"
+       
        

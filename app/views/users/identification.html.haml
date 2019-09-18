@@ -36,7 +36,7 @@
                   .identification__form__field__label
                     %label{for: "zip_code"} 郵便番号
                     %span.identification__form__field__option 任意
-                    %input.input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}/
+                    %input.input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}
                 .identification__form__field
                   .identification__form__field__label
                     %label{for: "prefecture"} 都道府県
@@ -48,24 +48,24 @@
                   .identification__form__field__label
                     %label{for: "city"} 市区町村
                     %span.identification__form__field__option 任意
-                    %input.input-default{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}/
+                    %input.input-default{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}
                 .identification__form__field
                   .identification__form__field__label
                     %label{for: "address1_label"} 番地
                     %span.identification__form__field__option 任意
-                    %input.input-default{name: "address1", placeholder: "例) 青山1−1−1", type: "text", value: ""}/
+                    %input.input-default{name: "address1", placeholder: "例) 青山1−1−1", type: "text", value: ""}
                 .identification__form__field
                   .identification__form__field__label
                     %label{for: "address2_label"} 建物名
                     %span.identification__form__field__option 任意
-                    %input.input-default{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}/
+                    %input.input-default{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}
                   %button.identification__form__actions{type: "submit"} 登録する
                   .form-group.text-right
                     %p
                       %a{href: "/", target: "_blank"}
                         本人情報の登録について
                         %i.icon-arrow-right
-                  %input{name: "__csrf_value", type: "hidden", value: ""}/
+                  %input{name: "__csrf_value", type: "hidden", value: ""}
 
       .side-bar
       = render partial:"shared/side" 
