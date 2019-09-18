@@ -22,6 +22,11 @@ end
 def logout
 end
 
+def identification
+end
+
+
+
 private
 
 def user_params
