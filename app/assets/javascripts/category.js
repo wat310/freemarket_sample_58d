@@ -1,16 +1,17 @@
 $(document).on('turbolinks:load', function() {
   $(function() {
     function appendOption(category) {
-      var html =`<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+      // var html =`<option value="${category.name}" data-category="${category.id}" class="select_category">${category.name}</option>`;
+      var html =`<option value="${category.name}" data-category="${category.id}" id="${category.id}" class="a">${category.name}</option>`;
       return html;
     }
 
     //子カテゴリーの表示
     function appendChildrenBox(insertHTML) {
       var childSelectHtml = '';
-      childSelectHtml= `<div class = 'form_group' id = 'children'>
-                          <select class = 'select' id = 'child_category' name = 'category_id'>
-                            <option value = '---' data-category = '---'>---</option>
+      childSelectHtml= `<div class='form_group' id='children'>
+                          <select class='select' id='child_category' name='child_category'>
+                            <option value='---' data-category='---'>---</option>
                             ${insertHTML}
                           </select>
                         </div>`;
@@ -20,9 +21,9 @@ $(document).on('turbolinks:load', function() {
     //孫カテゴリーの表示
     function appendGrandchildrenBox(insertHTML) {
       var grandchildSelectHtml = '';
-      grandchildSelectHtml = `<div class = 'form_group' id = 'grandchildren'>
-                                <select class = 'select' id = 'grandchild_category' name = 'category_id'>
-                                  <option value = '---' data-category = '---'>---</option>
+      grandchildSelectHtml = `<div class='form_group' id='grandchildren'>
+                                <select class='select' id='grandchild_category' name='grandchild_category'>
+                                  <option value='---' data-category='---'>---</option>
                                   ${insertHTML}
                                 </select>
                               </div>`;
@@ -32,16 +33,16 @@ $(document).on('turbolinks:load', function() {
     //サイズの表示
 
     //ブランドの表示
-    function appendBrandBox(insertHTML) {
-    var brandHtml = '';
-    brandHtml = `<div class = 'form_group' id = 'brand'>
-                  <label class = 'label'>ブランド</label>
-                  <span class = 'form-free'>任意</span>
-                  <br>
-                  <input type = 'text' name = "brand" class = 'input-brand' placeholder = '例) シャネル'>
-                </div>`;
-    $('.sell-form-box').append(brandHtml);
-    }
+    // function appendBrandBox(insertHTML) {
+    // var brandHtml = '';
+    // brandHtml = `<div class = 'form_group' id = 'brand'>
+    //               <label class = 'label'>ブランド</label>
+    //               <span class = 'form-free'>任意</span>
+    //               <br>
+    //               <input type = 'text' name = "brand" class = 'input-brand' placeholder = '例) シャネル'>
+    //             </div>`;
+    // $('.sell-form-box').append(brandHtml);
+    // }
 
     //親カテゴリー選択後に発生するイベント
     $('#parent_category').on('change', function() {
@@ -112,10 +113,10 @@ $(document).on('turbolinks:load', function() {
     });
 
     //孫カテゴリー選択後に発生するイベント
-    $('category-forms').on('chabge', '#grandchild_category', function() {
+    $(document).on('change', '#grandchild_category', function() {
+      var gc_id = $('#grandchild_category option:selected').attr('id');
+      $('#grand_child_result_id').val(gc_id);
       // var grandchildId = $('#grandchild_category option:selected').data('category'); //孫要素のidを取得
-
     });
-
   });
 });

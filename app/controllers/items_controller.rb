@@ -71,7 +71,7 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :shipping_date,
       # :business_status,
-      item_images_attributes: {image: []}
+      # item_images_attributes: {image: []}
       )
       # .merge(user_id: current_user.id)
   end
