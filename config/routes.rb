@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get'logout'
       get'identification'
       get'card'
+      get'profile'
     end
   end
   resources :items

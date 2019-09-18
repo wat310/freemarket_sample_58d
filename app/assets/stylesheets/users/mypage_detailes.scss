@@ -160,7 +160,7 @@
       .error {
         width: 100%;
         margin-top: 8px;
-        color: #ea352d;;
+        color: $RedColor;;
         font-size: 14px;
         display: flex;
         // @include flex-horizontal-center;
@@ -170,7 +170,7 @@
     &__actions {
       width: 100%;
       margin-top: 40px;
-      background-color: #ea352d;
+      background-color: $RedColor;
       width: 100%;
       height: 50px;
       color: white;
@@ -253,8 +253,8 @@ p{
             top: 200px;
             padding: 4px 6px;
             border-radius: 3px;
-            border: 1px solid #ea352d;
-            color: #ea352d;
+            border: 1px solid $RedColor;
+            color: $RedColor;
           }
 
         }
@@ -263,3 +263,33 @@ p{
   }
 }
 
+// ③プロフィール詳細
+.wrapper{
+  padding-top: 10px;
+  .body{
+    color: #f5f5f5;
+    padding-top: 10px;
+      .container
+       .content {
+         width: 700px;
+         height: 179px;
+         .profile-edit{
+          width: 100%;
+          padding: 64px;
+          background-color: #fff;
+          text-align: center;
+            &__link {
+              padding-top: 15px;
+              width: 100%;
+              height: 50px;
+              margin: 0 auto;
+              background-color:$RedColor;
+              color: #fff;
+              font-size: 16px;
+              display: inline-block;
+              text-align: center;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.wrapper
+  = render partial: 'shared/header2'
+  .body
+    -# %nav.bread-crumbs
+    .container
+      .content
+        // ②支払い方法
+        %main.mypage.clearfix
+        .mypage__content2
+          %section.identification.mypage-identification
+            %h2.identification__head プロフィール
+        .profile-edit
+          = link_to '変更する', destroy_user_session_path, method: :get, class: 'profile-edit__link'
+        %hoge
+
+      .side-bar
+      = render partial:"shared/side" 
+
+    = render partial:"shared/aside"
+    = render partial:"shared/footer"
+       

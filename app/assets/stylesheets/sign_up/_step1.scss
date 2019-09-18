@@ -104,7 +104,7 @@ label {
   cursor: default;
 }
 .form-require {
-  background: #ea352d;
+  background: $RedColor;
   margin: 0 0 0 8px;
   padding: 2px 4px;
   border-radius: 2px;
@@ -190,7 +190,7 @@ button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local
         }
         & li.active {
           font-weight: 600;
-          color: #ea352d;
+          color: $RedColor;
         }
         & li {
           position: relative;
@@ -202,7 +202,7 @@ button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local
           color: #888;
         }
         & li.active .progress-status {
-          background: #ea352d;
+          background: $RedColor;
         }
   .progress-status {
     width: 12px;

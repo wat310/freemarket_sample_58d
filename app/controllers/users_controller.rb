@@ -28,6 +28,8 @@ end
 def card
 end
 
+def profile
+end
 
 private
 
