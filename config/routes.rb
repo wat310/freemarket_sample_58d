@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :create, :show, :edit, :update] do
     member do 
       get'logout'
+      get'identification'
     end
   end
   resources :items

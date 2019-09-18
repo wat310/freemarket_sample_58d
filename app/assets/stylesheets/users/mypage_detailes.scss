@@ -1,7 +1,8 @@
 // ①本人登録画面
-.mypage__content {
+.mypage__content.identification-hight {
   width: 100%;
   background-color: white;
+  height: 1400px;
 
 .identification {
   padding: 64px;
@@ -48,7 +49,7 @@
         vertical-align: bottom;
       }
     
-// 任意
+      // 任意
       &__option {
         margin-left: 8px;
         padding: 3px 4px;
