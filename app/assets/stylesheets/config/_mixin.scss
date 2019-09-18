@@ -103,3 +103,10 @@
   transition: all ease-out .2s;
 }
 
+@mixin hover{
+  &:hover {
+    text-decoration-line: underline;
+    opacity: 0.7;
+  }
+}
+
