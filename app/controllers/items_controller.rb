@@ -21,8 +21,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    binding.pry
     # respond_to do |format|
+    # binding.pry
       if @item.save
         # params[:item_images][:image].each do |image|
         #   @item.item_images.create(image: image, item_id: @item_id)
@@ -55,7 +55,6 @@ class ItemsController < ApplicationController
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
-
   private
   def item_params
     params.require(:item).permit(
@@ -70,8 +69,10 @@ class ItemsController < ApplicationController
       :shipping_method,
       :prefecture_id,
       :shipping_date,
-      # :business_status,
-      # item_images_attributes: {image: []}
+      :business_status,
+      :user_id,
+      item_images_attributes: {image: []}
+      # item_images_attributes: [:image]
       )
       # .merge(user_id: current_user.id)
   end

@@ -13,7 +13,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :shipping_method, null: false
       t.bigint :prefecture_id, null: false, foreign_key: true
       t.integer :shipping_date, null: false
-      t.integer :business_status, null: false
+      t.integer :business_status, null: false, default: 0
       t.bigint :buyer_id, foreign_key: true, to_table: :users
       t.timestamps
     end

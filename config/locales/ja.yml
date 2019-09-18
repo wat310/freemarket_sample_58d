@@ -32,6 +32,10 @@ ja:
         one_two: 1~2日で発送
         two_three: 2~3日で発送
         four_seven: 4~7日で発送
+      business_status:
+        sell: 販売中
+        nagotiation: 交渉中
+        sale: 売却済
 
   date:
     formats:
