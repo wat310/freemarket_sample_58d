@@ -6,17 +6,18 @@
       %h2.main__item-box__head 商品の情報を入力
       = form_for @item do |f|
         -# この下のuser_idはユーザー機能の実装後すぐに消すこと!!
-        = f.text_field :user_id, value: "1", type: 'hidden' 
+        = f.text_field :user_id, value: "1", type: 'hidden'
         .sell-upload-box
           %h3.sell-upload-head
             .image-text 出品画像
             %span.form-requires 必須
           %p.picture-limit 最大10枚までアップロードできます
-          = f.fields_for :item_images do |image|
-            .image-drop-box
-              = image.label :image, class: 'image-drop-box__form'
-              = image.file_field :image, class: 'hidden_form', multiple: true
-              %pre.image-drop-text ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+          = f.fields_for :item_images do |i|
+            .image-box
+              -# = i.file_field :image, class: 'hidden_form', multiple: true
+              = i.file_field :image, class: 'hidden_form', name: 'item_images[image][]', multiple: true
+              .image-box__drop
+                %pre.image-drop-text ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
 
         -# 商品名と商品の説明
         .sell-content
@@ -118,12 +119,12 @@
                 .fee-form__left
                   販売手数料 (10%)
                 .fee-form__right
-                  %figure -
+                  %div.fee-form__right__text -
               %li.profit-form
                 .profit-form__left
                   販売利益
                 .profit-form__right
-                  %figure -
+                  %div.profit-form__right__text -
 
         -# 出品ボタン
         .sell-content.clearfix
