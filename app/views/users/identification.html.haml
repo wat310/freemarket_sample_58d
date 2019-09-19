@@ -5,10 +5,10 @@
     .container
       .content
         -# ①本人登録画面
-        %main.mypage.clearfix
+        .mypage.clearfix
           .mypage__content.identification-hight
             %section.identification.mypage-identification
-              %h2.identification__head 本人情報の登録
+              .identification__head 本人情報の登録
             .identification
               %form.identification__description
                 %div
@@ -17,9 +17,8 @@
                     %br>/
                     登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
                   %p.text-right
-                    %a{href: "/jp/help_center/article/495/", target: "_blank"}
-                      本人確認書類のアップロードについて
-                      %i.icon-arrow-right
+                    = link_to '本人確認書類のアップロードについて', root_path, method: :get, class: 'text-right'
+                    %i.icon-arrow-right
                 .identification__form__field
                   .identification__form__field__label
                     %label お名前
@@ -60,11 +59,9 @@
                     %span.identification__form__field__option 任意
                     %input.input-default{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}
                   %button.identification__form__actions{type: "submit"} 登録する
-                  .form-group.text-right
-                    %p
-                      %a{href: "/", target: "_blank"}
-                        本人情報の登録について
-                        %i.icon-arrow-right
+                .text-right
+                  = link_to '本人情報の登録について', root_path, method: :get, class: 'text-right'
+                  %i.icon-arrow-right
                   %input{name: "__csrf_value", type: "hidden", value: ""}
 
       .side-bar
