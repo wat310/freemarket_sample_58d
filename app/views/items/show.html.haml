@@ -71,7 +71,7 @@
   
   .comment
     %p.comment__note 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    = form_tag '/', method: :get, class: 'comment__form' do
+    = form_tag 'root_path', method: :get, class: 'comment__form' do
       = text_area :item, :description, value: '', class: 'comment__form__body'
       = submit_tag "コメントする", class: 'comment__form__action'
   
