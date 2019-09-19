@@ -1,6 +1,7 @@
 .wrapper
   = render partial: 'shared/header2'
   .body
+    -# todo:パンくず
     -# %nav.bread-crumbs
     .container
       .content
@@ -8,11 +9,11 @@
         %main.mypage.clearfix
         .mypage__content2
           %section.identification.mypage-identification
-            %h2.identification__head 支払い方法
+            .identification__head 支払い方法
           .identification
-            %form.identification__description
+            .identification__description
               %ul.settings-payment
-                %p.settings-payment__sub-title
+                .settings-payment__sub-title
                   クレジットカード一覧
                 %li.settings-payment__list
                   %button.remove-butten{type: "submit"} 削除する
@@ -22,9 +23,8 @@
                   .settings-payment__list__num 07 / 24
 
             .text-right
-              %a{href: "/jp/help_center/article/423/", target: "_blank"}
-                支払い方法について
-                %i.icon-arrow-right
+              = link_to '支払い方法について', root_path, method: :get, class: 'text-right'
+              %i.fa.fa-chevron-right
 
       .side-bar
       = render partial:"shared/side" 

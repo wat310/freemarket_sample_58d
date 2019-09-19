@@ -16,7 +16,6 @@
     color: black;
     font-size: 24px;
     font-weight: bold;
-    // @include flex-center;
   }
 
   &__description {
@@ -66,11 +65,10 @@
         margin-top: 8px;
         padding: 10px 16px 8px;
         border-radius: 4px;
-        border: 1px solid #ccc;
+        border: $BoderGray;
         background-color: white;
         font-size: 16px;
         display: flex;
-        // @include focus-field;
       }
 
       &__prefecture {
@@ -84,7 +82,7 @@
           margin-top: 8px;
           padding: 0 16px;
           border-radius: 4px;
-          border: 1px solid #ccc;
+          border: $BoderGray;
           background-color: white;
           font-size: 16px;
           cursor: pointer;
@@ -92,7 +90,6 @@
           -moz-appearance: none;
           appearance: none;
           display: flex;
-          // @include focus-field;
         }
 
         i {
@@ -121,7 +118,7 @@
             margin-top: 8px;
             padding: 0 16px;
             border-radius: 4px;
-            border: 1px solid #ccc;
+            border: $BoderGray;
             background-color: white;
             font-size: 14px;
             cursor: pointer;
@@ -129,7 +126,6 @@
             -moz-appearance: none;
             appearance: none;
             display: flex;
-            // @include focus-field;
           }
 
           i {
@@ -163,7 +159,6 @@
         color: $RedColor;;
         font-size: 14px;
         display: flex;
-        // @include flex-horizontal-center;
       }
     }
 
@@ -176,7 +171,6 @@
       color: white;
       font-size: 14px;
       display: block;
-      // @include flex-center;
     }
 
     &__link {
@@ -223,7 +217,6 @@ p{
       color: black;
       font-size: 24px;
       font-weight: bold;
-      // @include flex-center;
     }
   
     &__description {
@@ -312,7 +305,7 @@ p{
 textarea {
   min-width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: $BoderGray;
   background: #fff;
   font-size: 16px;
   line-height: 1.5;
