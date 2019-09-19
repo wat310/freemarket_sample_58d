@@ -1,0 +1,316 @@
+// ①本人登録画面
+.mypage__content.identification-hight {
+  width: 100%;
+  background-color: white;
+  height: 1300px;
+
+.identification {
+  padding: 30px;
+
+  &__head {
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid #f5f5f5;
+    width: 100%;
+    height: 50px;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  &__description {
+    width: 100%;
+    height: 14px;
+    color: black;
+    font-size: 14px;
+    line-height: 1;
+    text-align: left;
+  }
+
+  &__form {
+    width: 100%;
+    padding: 64px;
+
+    &__field {
+      width: 100%;
+      margin-top: 40px;
+      font-size: 0;
+
+      &:nth-of-type(1) {
+        margin-top: 0;
+      }
+
+      &__label {
+        color: black;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1;
+        vertical-align: bottom;
+      }
+    
+      // 任意
+      &__option {
+        margin-left: 8px;
+        padding: 3px 4px;
+        background-color: #ccc;
+        border-radius: 2px;
+        color: white;
+        font-size: 12px;
+        vertical-align: top;
+      }
+
+      input {
+        width: 100%;
+        height: 48px;
+        margin-top: 8px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: $BoderGray;
+        background-color: white;
+        font-size: 16px;
+        display: flex;
+      }
+
+      &__prefecture {
+        position: relative;
+        width: 100%;
+
+        &__body {
+          display: block;
+          width: 100%;
+          height: 48px;
+          margin-top: 8px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: $BoderGray;
+          background-color: white;
+          font-size: 16px;
+          cursor: pointer;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          display: flex;
+        }
+
+        i {
+          position: absolute;
+          top: 50%;
+          right: 16px;
+          transform: translateY(-50%);
+          color: #888;
+          font-size: 18px;
+          z-index: 5;
+        }
+      }
+
+      &__birth {
+        width: 100%;
+
+        &__box {
+          position: relative;
+          display: inline-block;
+          width: 140px;
+
+          &__body {
+            display: block;
+            width: 100%;
+            height: 48px;
+            margin-top: 8px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: $BoderGray;
+            background-color: white;
+            font-size: 14px;
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            display: flex;
+          }
+
+          i {
+            position: absolute;
+            top: 55%;
+            right: 16px;
+            transform: translateY(-45%);
+            color: #888;
+            font-size: 18px;
+            z-index: 5;
+          }
+        }
+
+        span {
+          margin: 0 10px;
+          color: black;
+          font-size: 14px;
+        }
+      }
+
+      &__notice {
+        margin-top: 8px;
+        color: #888;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .error {
+        width: 100%;
+        margin-top: 8px;
+        color: $RedColor;;
+        font-size: 14px;
+        display: flex;
+      }
+    }
+
+    &__actions {
+      width: 100%;
+      margin-top: 40px;
+      background-color: $RedColor;
+      width: 100%;
+      height: 50px;
+      color: white;
+      font-size: 14px;
+      display: block;
+    }
+
+    &__link {
+      display: block;
+      margin-top: 40px;
+      text-align: right;
+
+        span, i {
+          font-size: 14px;
+        }
+    }
+  }
+}
+}
+
+a {
+  color: #0099e8;
+  text-decoration: none;
+}
+.text-right{
+  text-align: right;
+  padding: 40px 0px 40px 40px;
+
+}
+
+p{
+  font-size: 14px;
+}
+
+
+// ②支払い方法
+.mypage__content2 {
+  width: 100%;
+  background-color: white;
+
+  .identification {
+    padding: auto;
+
+    &__head {
+      display: block;
+      text-align: center;
+      border-bottom: 1px solid #f5f5f5;
+      width: 100%;
+      height: 50px;
+      color: black;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  
+    &__description {
+      width: 100%;
+      height: 14px;
+      color: black;
+      font-size: 14px;
+      line-height: 1;
+      text-align: left;
+      padding: 70px;
+
+      .settings-payment {
+        list-style: none;
+        border-bottom: 1px solid #f5f5f5;
+
+        &__sub-title {
+          font-weight: bold;
+          font-size: 16px;
+        }
+
+        &__list{
+          margin: auto;
+
+          .remove-butten{
+            float: right;
+            right: 0;
+            top: 200px;
+            padding: 4px 6px;
+            border-radius: 3px;
+            border: 1px solid $RedColor;
+            color: $RedColor;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+// ③プロフィール詳細
+.wrapper{
+  padding-top: 10px;
+  .body{
+    color: #f5f5f5;
+    padding-top: 10px;
+      .container
+       .content {
+         width: 700px;
+         height: 179px;
+
+         .profile{
+
+          &__text-box{
+            padding: 10px;
+            background: #fff;
+            font-size: 16px;
+            line-height: 1.5;
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            min-height: 216px;
+          }
+
+          &__edit{
+            width: 100%;
+            padding: 64px;
+            background-color: #fff;
+            text-align: center;
+              &__link {
+                padding-top: 15px;
+                width: 100%;
+                height: 50px;
+                margin: 0 auto;
+                background-color:$RedColor;
+                color: #fff;
+                font-size: 16px;
+                display: inline-block;
+                text-align: center;
+            }
+          }
+       }
+    }
+  }
+}
+
+textarea {
+  min-width: 100%;
+  padding: 10px;
+  border: $BoderGray;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  display: block;
+  max-width: 100%;
+  min-height: 216px;
+}

@@ -58,7 +58,7 @@
                 height: 32px;
                 line-height: 32px;
                 &__icon{
-                  color: #ea352d;
+                  color: $RedColor;
                   font-size: 12px;
                   margin-right: 4px;
                   font:20px FontAwesome;
@@ -105,8 +105,8 @@
                   line-height:32px;
                 }
                 &--text-red{
-                  background: #ea352d;
-                  border: 1px solid #ea352d;
+                  background: $RedColor;
+                  border: 1px solid $RedColor;
                   color: #fff;
                   float: left;
                   margin: 0 0 0 8px;
