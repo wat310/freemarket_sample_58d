@@ -108,29 +108,35 @@
               .review {
                 margin-top: 9px;
                 font-size: 0;
+                display: flex;
+                justify-content: space-between;
 
-                i {
+                &__image {
                   color: #fba933;
                   font-size: 16px;
                   line-height: 1;
                   vertical-align: middle;
                   font-weight: bold;
+                  display: inline-block;
 
                   &:first-of-type {
                     color: #ef5185;
+                    display: inline-block;
                   }
 
                   &:last-of-type {
                     color: #6ab5d8;
+                    display: inline-block;
                   }
                 }
 
-                span {
+                &__number {
                   margin: 0 16px 0 4px;
                   color: black;
                   font-size: 14px;
                   line-height: 1;
                   vertical-align: middle;
+                  display: inline-block;
                 }
               }
           }
@@ -298,16 +304,19 @@
 
   &--left, &--right {
     color: #5d9dc9;
-    font-size: 14px;
+    font-size: 16px;
     @include hover;
   }
 
   &--left {
     float: left;
+    width:50%;
   }
 
   &--right {
     float: right;
+    text-align: right;
+    width: 50%;
   }
 }
 

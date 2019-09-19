@@ -1,3 +1,5 @@
+.wrapper
+= render partial:"shared/header2"
 .container
   .detail
     %h2.detail__head= "@item.name"
@@ -16,12 +18,18 @@
               -# = link_to "#{@item.user.nickname}", '#'
               .review
                 -# TODO 顔の表示
-                %i.fa-laugh
-                %span 2
-                %i.fas.fa-meh
-                %span 1
-                %i.fas.fa-frown
-                %span 0
+                .review__image
+                  = image_tag("")
+                  = fa_icon "smile-o"
+                %span.review__number 5
+                .review__image
+                  = image_tag("")
+                  = fa_icon "meh-o"
+                %span.review__number 2
+                .review__image
+                  = image_tag("")
+                  = fa_icon "frown-o"
+                %span.review__number 1
           %tr
             %th カテゴリー
             %td= ""
@@ -70,9 +78,11 @@
   
   .prev-next
     .prev-next--left
-    %i.fas.fa-chevron-left
+      %i.fa.fa-chevron-left
+      %span.next-item 新品未使用ジーンズ
     .prev-next--right
-    %i.fas.fa-chevron-right
+      %span.next-item ブランドバッグ
+      %i.fa.fa-chevron-right
   
   .sns-box
     = link_to '#', class: 'sns-box__link' do
@@ -87,4 +97,8 @@
     .other-items__box
   .other-items
     = link_to "その他の出品", '#', class: "other-items__head"
-    .other-items__box
+  .other-items__box
+
+= render partial:"shared/aside"
+= render partial:"shared/footer"
+= render partial:"shared/camera"
