@@ -1,6 +1,5 @@
 .item-main
   = render partial:"shared/item-header"
-
   %main.main
     %section.main__item-box
       %h2.main__item-box__head 商品の情報を入力
@@ -14,8 +13,8 @@
           %p.picture-limit 最大10枚までアップロードできます
           = f.fields_for :item_images do |i|
             .image-box
-              -# = i.file_field :image, class: 'hidden_form', multiple: true
-              = i.file_field :image, class: 'hidden_form', name: 'item_images[image][]', multiple: true
+              = i.file_field :image, class: 'hidden_form', multiple: true
+              -# = i.file_field :image, class: 'hidden_form', name: 'item_images[image][]', multiple: true
               .image-box__drop
                 %pre.image-drop-text ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
 

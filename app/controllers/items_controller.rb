@@ -71,8 +71,8 @@ class ItemsController < ApplicationController
       :shipping_date,
       :business_status,
       :user_id, #このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
-      # item_images_attributes: {image: []}
-      item_images_attributes: [:image]
+      item_images_attributes: {image: []}
+      # item_images_attributes: [:image]
       )
       # .merge(user_id: current_user.id)
   end

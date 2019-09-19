@@ -19,14 +19,14 @@ class Item < ApplicationRecord
   enum shipping_date: { one_two: 0, two_three: 1, four_seven: 2 }
   enum business_status: { sell: 0, negotiation: 1, sale: 2 }
 
-  # validates :name, presence: true, length: { in: 1..40 }
-  # validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
-  # validates :explanation, presence: true, length: { in: 1..1000 }
-  # validates :state, presence: true
-  # validates :postage, presence: true
-  # validates :shipping_method, presence: true
-  # validates :shipping_date, presence: true
-  # validates :business_status, presence: true
+  validates :name, presence: true, length: { in: 1..40 }
+  validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+  validates :explanation, presence: true, length: { in: 1..1000 }
+  validates :state, presence: true
+  validates :postage, presence: true
+  validates :shipping_method, presence: true
+  validates :shipping_date, presence: true
+  validates :business_status, presence: true
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture

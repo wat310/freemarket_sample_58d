@@ -12,8 +12,6 @@ $(document).on('turbolinks:load', function() {
 
         $('.fee-form__right__text').text("¥" + fee);
         $('.profit-form__right__text').text("¥" + profit);
-        console.log(fee);
-        console.log(profit);
       }
       else { //範囲外の数値が入力されたら、表示をデフォルトに戻す
         $('.fee-form__right__text').text("-");
