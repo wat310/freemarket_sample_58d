@@ -1,0 +1,56 @@
+.wrapper
+  = render partial: 'shared/header2'
+  .body
+    -# %nav.bread-crumbs
+    .container
+      .content
+        .user
+          =link_to '#', class: 'user__link' do
+            = image_tag 'user-icon.png', alt: 'icon', class: 'user__link__icon', height: '60', width: '60'
+            %h2.user__link__nickname= 'nickname'
+            .user__link__review
+              %div
+                評価
+                %span 0
+              %div
+                出品数
+                %span 0
+        %section.mypage-tab-container-todo
+          %ul.mypage-tabs
+            %li.mypage-tabs__active
+              %h3.mypage-tabs__active__h3
+                =link_to "#", class: "mypage-tabs__active__h3__a" do
+                  お知らせ
+            %li.mypage-tabs__inactive
+              %h3.inactive__h3
+                =link_to "#", class: "mypage-tabs__inactive__h3__a" do
+                  やることリスト
+          .tab-content
+            %ul.mypage-item
+              %li.mypage-item__list
+              = render partial:"shared/mypage-list"
+              .mypage-go
+                =link_to "#", class: "mypage-go__body" do
+                  一覧を見る
+          .mypage-tab__container
+            %h2.mypage-tab__head 購入した商品
+            %ul.mypage-tabs
+              %li.mypage-tabs__active
+                %h3.active__h3
+                  =link_to "#", class: "mypage-tabs__active__h3__a" do
+                    取引中
+              %li.mypage-tabs__inactive
+                %h3.inactive__h3
+                  =link_to "#", class: "mypage-tabs__inactive__h3__a" do
+                    過去の取引
+            .tab-content
+              .tab-icon
+                .tab-icon__body
+                  .tab-icon__text 取引中の商品がありません
+                
+      .side-bar
+      = render partial:"shared/side" 
+
+    = render partial:"shared/aside"
+    = render partial:"shared/footer"
+       

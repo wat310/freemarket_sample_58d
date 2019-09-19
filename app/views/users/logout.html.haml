@@ -1,0 +1,16 @@
+.wrapper
+  = render partial: 'shared/header2'
+  .body
+    -# todo:パンくず
+    -# %nav.bread-crumbs
+    .container
+      .content
+        .logout
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout__link'
+
+      .side-bar
+      = render partial:"shared/side" 
+
+    = render partial:"shared/aside"
+    = render partial:"shared/footer"
+       

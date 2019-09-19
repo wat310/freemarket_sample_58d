@@ -1,0 +1,33 @@
+.wrapper
+  = render partial: 'shared/header2'
+  .body
+    -# todo:パンくず
+    -# %nav.bread-crumbs
+    .container
+      .content
+        -# ②支払い方法
+        %main.mypage.clearfix
+        .mypage__content2
+          %section.identification.mypage-identification
+            .identification__head 支払い方法
+          .identification
+            .identification__description
+              %ul.settings-payment
+                .settings-payment__sub-title
+                  クレジットカード一覧
+                %li.settings-payment__list
+                  %button.remove-butten{type: "submit"} 削除する
+                  %figure.settings-payment__list__card-image
+                  =image_tag "master-card.svg", alt: "card", class: "card-image",size: "30x45"
+                  .settings-payment__list__num ************3103
+                  .settings-payment__list__num 07 / 24
+
+            .text-right
+              = link_to '支払い方法について', root_path, method: :get, class: 'text-right'
+              %i.fa.fa-chevron-right
+
+      .side-bar
+      = render partial:"shared/side" 
+
+    = render partial:"shared/aside"
+    = render partial:"shared/footer"
