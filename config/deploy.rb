@@ -19,7 +19,7 @@ set :default_env, {
 }
 
 #secrets.ymlではリリースバージョン間でシンボリックリンクにして共有→masterkeyに置き換え
-# append :linked_files, 'config/database.yml', 'config/master.key'
+append :linked_files, 'config/database.yml', 'config/master.key'
 
 # after 'deploy:publishing', 'deploy:restart'
 # namespace :deploy do
