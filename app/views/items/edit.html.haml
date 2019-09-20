@@ -2,60 +2,76 @@
 .wrapper
   .header
     = image_tag 'buy-logo.svg', alt: 'メルカリロゴ', height: '49', width: '185', class: 'header__icon'
-  .payment
-    %h2.payment__head 購入内容の確認
-    
-    .section-buy
-      .section-buy__main
-        .section-buy__main__content-item
-          .section-buy__main__content-item__photo
-            -# = image_tag @item.image.url, alt: "商品写真", class: "item-photo"
-          .section-buy__main__content-item__name
-            = '@item.name'
-          .section-buy__main__content-item__price-fee-box
-            .section-buy__main__content-item__price-fee-box__price
-              = '¥'
-            .section-buy__main__content-item__price-fee-box__shipping-fee 送料込み
-        .section-buy__main__point
-          .section-buy__main__point__display
-            .section-buy__main__point__display__box  ポイントはありません
-        .section-buy__main__price
-          .section-buy__main__price__display
-            .section-buy__main__price__display__text
-              支払い金額
-          .section-buy__main__price__display
-            .section-buy__main__price__display__fee
-              = '@item.price'
-        %p.error-text 配送先と支払い方法の入力を完了してください。    
-        %button.gray_btn 購入する
+  .body
+    .payment
+      %h2.payment__head 購入内容の確認
+      
+      .section-buy
+        .section-buy__main
+          .section-buy__main__content-item
+            .section-buy__main__content-item__photo
+                -#TODO アイテム写真表示
+            .section-buy__main__content-item__name
+              = '@item.name'
+            .section-buy__main__content-item__price-fee-box
+              .section-buy__main__content-item__price-fee-box__price
+                = '¥'
+              .section-buy__main__content-item__price-fee-box__shipping-fee 送料込み
+          .section-buy__main__point
+            .section-buy__main__point__display
+              .section-buy__main__point__display__box  ポイントはありません
+          .section-buy__main__price
+            .section-buy__main__price__display
+              .section-buy__main__price__display__text
+                支払い金額
+            .section-buy__main__price__display
+              .section-buy__main__price__display__fee
+                = '@item.price'
+          %p.error-text 配送先と支払い方法の入力を完了してください。    
+          %button.gray_btn 購入する
 
-      .section-shipping
-        .section-shipping__adress
-          .section-shipping__adress__box
-            配送先
-          .section-shipping__adress__details
-            〒
-            %br/
-            
-            %br/
-            
-          .section-shipping__adress__change
-            .section-shipping__adress__change__icon
+        .section-shipping
+          .section-shipping__adress
+            .section-shipping__adress__box
+              配送先
+            .section-shipping__adress__details
+              〒
+              %br/
+              
+              %br/
+              
+            .section-shipping__adress__change
+              .section-shipping__adress__change__icon
+                =link_to "#", class:"link-to-change" do
+                  変更する
+                %i.fa.fa-chevron-right
+        .section-bottom
+          .section-bottom__purchase
+            .section-bottom__purchase__way
+              支払い方法
+            .section-bottom__purchase__card-number
+              
+              %br/
+              
+            .section-bottom__purchase__card-company
+              
+            .section-bottom__purchase__change
+              .section-bottom__purchase__change
               =link_to "#", class:"link-to-change" do
                 変更する
-              %i.fa.fa-chevron-right
-      .section-bottom
-        .section-bottom__purchase
-          .section-bottom__purchase__way
-            支払い方法
-          .section-bottom__purchase__card-number
-            
-            %br/
-            
-          .section-bottom__purchase__card-company
-            
-          .section-bottom__purchase__change
-            .section-bottom__purchase__change
-            =link_to "#", class:"link-to-change" do
-              変更する
-              %i.fa.fa-chevron-right
+                %i.fa.fa-chevron-right
+
+  .footer-buy
+    .footer-buy__menu
+      =link_to "#", class:"link-to-bottom-icon" do
+        プライバシーポリシー
+      =link_to "#", class:"link-to-bottom-icon" do
+        メルカリ利用規約
+      =link_to "#", class:"link-to-bottom-icon" do
+        特定商取引に関する表記
+    .footer-buy__logo
+      .footer-buy__logo__mercari
+      =link_to "#", class:"link-to-bottom-mercari-icon" do
+        = image_tag "footer_logo.svg", size: "130x65", alt: "フッターロゴ", class: "footer-logo"
+    .footer-buy__copyright
+      © 2019 Mercari
