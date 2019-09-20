@@ -1,0 +1,64 @@
+-# 購入確定ページ
+.body
+  .header
+    = image_tag 'buy-logo.svg', alt: 'メルカリロゴ', height: '49', width: '185', class: 'header__icon'
+  .payment
+    %h2.payment__head 購入内容の確認
+    
+    .section-buy
+      .section-buy__main
+        .section-buy__main__content-item
+          .section-buy__main__content-item__photo
+            -# = image_tag @item.image.url, alt: "商品写真", class: "item-photo"
+          .section-buy__main__content-item__name
+            = '@item.name'
+          .section-buy__main__content-item__price-fee-box
+            .section-buy__main__content-item__price-fee-box__price
+              = '¥'
+            .section-buy__main__content-item__price-fee-box__shipping-fee 送料込み
+        .section-buy__main__point
+          .section-buy__main__point__display
+            .section-buy__main__point__display__box  ポイントはありません
+        .section-buy__main__price
+          .section-buy__main__price__display
+            .section-buy__main__price__display__text
+              支払い金額
+          .section-buy__main__price__display
+            .section-buy__main__price__display__fee
+              = '@item.price'
+        %p.error-text 配送先と支払い方法の入力を完了してください。    
+        %button.gray_btn 購入する
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  -# .single-main
+  -#   .single-container
+  -#     %h2.single-head 購入内容の確認
+  -#     %section.buy-content
+  -#       .buy-content__inner
+  -#        %h3.item-image
+  -#         .item-name @item.name
