@@ -1,5 +1,5 @@
 -# 購入確定ページ
-.body
+.wrapper
   .header
     = image_tag 'buy-logo.svg', alt: 'メルカリロゴ', height: '49', width: '185', class: 'header__icon'
   .payment
@@ -29,36 +29,33 @@
         %p.error-text 配送先と支払い方法の入力を完了してください。    
         %button.gray_btn 購入する
 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  -# .single-main
-  -#   .single-container
-  -#     %h2.single-head 購入内容の確認
-  -#     %section.buy-content
-  -#       .buy-content__inner
-  -#        %h3.item-image
-  -#         .item-name @item.name
+      .section-shipping
+        .section-shipping__adress
+          .section-shipping__adress__box
+            配送先
+          .section-shipping__adress__details
+            〒
+            %br/
+            
+            %br/
+            
+          .section-shipping__adress__change
+            .section-shipping__adress__change__icon
+              =link_to "#", class:"link-to-change" do
+                変更する
+              %i.fa.fa-chevron-right
+      .section-bottom
+        .section-bottom__purchase
+          .section-bottom__purchase__way
+            支払い方法
+          .section-bottom__purchase__card-number
+            
+            %br/
+            
+          .section-bottom__purchase__card-company
+            
+          .section-bottom__purchase__change
+            .section-bottom__purchase__change
+            =link_to "#", class:"link-to-change" do
+              変更する
+              %i.fa.fa-chevron-right
