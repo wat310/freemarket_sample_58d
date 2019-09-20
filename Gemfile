@@ -84,6 +84,9 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
+	
+gem 'aws-sdk-s3', '~> 1'
+
 # gem 'carrierwave'
 # gem 'fog-aws'
 # gem 'mini_magick'
