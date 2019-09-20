@@ -1,9 +1,12 @@
 class Item < ApplicationRecord
   belongs_to :user, optional: true #optional: trueはあとで消す!!
   belongs_to :category
+  belongs_to :brand, optional: true
   has_many :comments
-  has_many :item_images, dependent: :destroy
-  accepts_nested_attributes_for :item_images
+  has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images
+
+  # accepts_nested_attributes_for :images, allow_destroy: true
 
   # enum state: [:news, :no_dirty, :little_dirty, :dirty, :bad]
   enum state: { news: 0, no_dirty: 1, little_dirty: 2, dirty: 3, bad: 4 }
@@ -30,5 +33,4 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-  belongs_to_active_hash :brand, optional: true
 end

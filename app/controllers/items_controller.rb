@@ -7,9 +7,8 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.item_images.build
-    # アソシエーションを組んだモデル用にbuildを使用
-    # 5.times { @item.item_images.build }
+    # @item.images.new
+    @item.images.build
 
     #セレクトボックスの初期値(配列)
     @category_parent_array = ["---"]
@@ -21,20 +20,23 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # respond_to do |format|
+    # binding.pry
+    # params[:item][:images_attributes].each do |i|
+    #   binding.pry
+    #   #createだとエラーが出た
+    #   @item.images.build(image: i["image"][], item_id: @item.id)
+    # end
+    params[:images][:image].each do |i|
+      # binding.pry
+      #createだとエラーが出た
+      @item.images.build(image: i, item_id: @item.id)
+    end
     # binding.pry
       if @item.save
-        # params[:item_images][:image].each do |image|
-        #   @item.item_images.create(image: image, item_id: @item_id)
-        # end
         redirect_to root_path
-        # format.html{redirect_to root_path}
       else
-        # @item.item_images.build
-        # format.html{render action: 'new'}
         redirect_to new_item_path
       end
-    # end
   end
 
   #カテゴリーの子と孫はjsonで処理(routes.rbで記述済)
@@ -71,8 +73,8 @@ class ItemsController < ApplicationController
       :shipping_date,
       :business_status,
       :user_id, #このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
-      item_images_attributes: {image: []}
-      # item_images_attributes: [:image]
+      # images_attributes: {images: []}
+      images_attributes: [:image]
       )
       # .merge(user_id: current_user.id)
   end
