@@ -87,6 +87,6 @@ end
 	
 gem 'aws-sdk-s3', '~> 1'
 
-# gem 'carrierwave'
-# gem 'fog-aws'
-# gem 'mini_magick'
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'mini_magick'
