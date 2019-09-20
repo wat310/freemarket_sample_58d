@@ -18,13 +18,6 @@ set :default_env, {
   # BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
 }
 
-# after 'deploy:publishing', 'deploy:restart'
-# namespace :deploy do
-#   task :restart do
-#     invoke 'unicorn:restart'
-#   end
-# end
-
 #restartコード
 # after 'deploy:publishing', 'deploy:restart'
 # namespace :deploy do
