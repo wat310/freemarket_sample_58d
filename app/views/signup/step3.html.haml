@@ -22,42 +22,44 @@
   %main.single-main
     %section.l-single-container
       %h2.l-single-head.registration 電話番号認証
-      %form{action: "https://www.mercari.com/jp/signup/address/", method: "POST", class:"l-single-inner registration-form", novalidate: "novalidate"}
+      = form_with model: @user, url:step4_signup_index_path, method: :get, class: 'l-single-inner registration-form', local: true do |f|
+        = hidden_field_tag :current_step, 'step2'
         %input{type: "hidden", name: "after_save_callback", value:""}
 
-        .l-single-content
-          .form-group
-            %label{for: "captcha"} 認証番号
-            %input{type: "number", name: "captcha", value:"", placeholder:"認証番号を入力", class:"input-default"}
-          %p.l-single-text SMSで届いた認証番号を入力してください
-          = link_to "認証して完了",'/signup/step4', class: "btn-default btn-red"
-          %input{type: "hidden", name: "__csrf_value", value:"c34b4a6a5af7ae6b1d1cdf22727e249595d8853628a855f63b5074d4a2fb632c59a3336d23ab939e7dec47363861fb2b299ac24addafd2f01ed2e0ee648ecbfea"}
+        = f.fields_for :profile do |f|
+          .l-single-content
+            .form-group
+              = f.label "認証番号"
+              = f.text_field :phone_number ,class:'input-default',placeholder:'認証番号を入力'
+
+            %p.l-single-text SMSで届いた認証番号を入力してください
+            = f.submit "認証して完了", class: "btn-default btn-red"
+            -# %input{type: "hidden", name: "__csrf_value", value:""}
+            -# %input{type: "hidden", name: "id", value:""}
+
+            .form-group.text-right
+            %i.icon-arrow-right
+            -# %input{type: "hidden", name: "__csrf_valuer", value:"c34b4a6a5af7ae6b1d1cdf22727e249595d8853628a855f63b5074d4a2fb632c59a3336d23ab939e7dec47363861fb2b299ac24addafd2f01ed2e0ee648ecbfea"}
+            -# %input{type: "hidden", name: "id", value:"580656643"}
+
+          %input{type: "hidden", name: "after_save_callback", value:""}
+          
+          .l-single-content
+            %h3.l-chapter-sub-head 30秒たっても認証番号が届かない方へ
+            %p.l-single-text 電話で認証番号を聞くこともできます。
+            %button{type: "submit", class: "btn-default btn-red"} 電話で認証番号を聞く（通話無料）        
+          %input{type: "hidden", name: "__csrf_value", value:""}
           %input{type: "hidden", name: "id", value:"580656643"}
 
-          .form-group.text-right
-          %i.icon-arrow-right
-          %input{type: "hidden", name: "__csrf_valuer", value:"c34b4a6a5af7ae6b1d1cdf22727e249595d8853628a855f63b5074d4a2fb632c59a3336d23ab939e7dec47363861fb2b299ac24addafd2f01ed2e0ee648ecbfea"}
-          %input{type: "hidden", name: "id", value:"580656643"}
-
-      %form{action: "https://www.mercari.com/jp/signup/sms_confirmation/phone/", method: "POST", class:"l-single-inner registration-form", novalidate: "novalidate"}
-        %input{type: "hidden", name: "after_save_callback", value:""}
-        
-        .l-single-content
-          %h3.l-chapter-sub-head 30秒たっても認証番号が届かない方へ
-          %p.l-single-text 電話で認証番号を聞くこともできます。
-          %button{type: "submit", class: "btn-default btn-red"} 電話で認証番号を聞く（通話無料）        
-        %input{type: "hidden", name: "__csrf_value", value:""}
-        %input{type: "hidden", name: "id", value:"580656643"}
-
-      .l-single-inner.registration-form
-        .l-single-content
-          %h3.l-chapter-sub-head 認証番号を再送することもできます。もう一度電話番号を入力して下さい。
-          %p
-            = link_to'', class: '' do 
-              電話番号を再度入力する
-          %p.l-single-text
-          ※SMSが届かない場合は
-          = link_to'', class: '',target:'_blank' do
-            SMS受信設定を確認して、もう一度電話番号を入力してください。
+        .l-single-inner.registration-form
+          .l-single-content
+            %h3.l-chapter-sub-head 認証番号を再送することもできます。もう一度電話番号を入力して下さい。
+            %p
+              = link_to'', class: '' do 
+                電話番号を再度入力する
+            %p.l-single-text
+            ※SMSが届かない場合は
+            = link_to'', class: '',target:'_blank' do
+              SMS受信設定を確認して、もう一度電話番号を入力してください。
 
   = render partial:"devise/footer"

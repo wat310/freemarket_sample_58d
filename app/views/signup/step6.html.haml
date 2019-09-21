@@ -22,8 +22,8 @@
   %main.single-main
     %section.l-single-container
       %h2.l-single-head.registration 会員登録完了
-      %form{action: "https://www.mercari.com/jp/signup/sms_confirmation/?after_save_callback=/jp/", method: "POST", class:"l-single-inner registration-form", novalidate: "novalidate"}
-        %input{type: "hidden", name: "__csrf_value", value:"1e07299d9cc4685dd7d8fddc752091c92c45911326c730f8703e5ed95a7811cab7a365a8421cdd97d1d1c61169c41f13f84de4769787f09dd8e9832fc038c8ca6"}
+      = form_with model: @user, url: signup_index_path, class: 'l-single-inner registration-form', local: true do |f|
+        %input{type: "hidden", name: "__csrf_value", value:""}
         
         .l-single-content
           .form-group
