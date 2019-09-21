@@ -13,9 +13,7 @@
           %p.picture-limit 最大10枚までアップロードできます
           = f.fields_for :images do |i|
             .image-box
-              = i.label :image
-              -# = i.file_field :image, class: 'hidden_form'
-              -# = i.file_field :image, multiple: true, class: 'hidden_form'
+              -# = i.label :image
               = i.file_field :image, multiple: true, name: 'images[image][]', class: 'hidden_form'
               .image-box__drop
                 %pre.image-drop-text ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード

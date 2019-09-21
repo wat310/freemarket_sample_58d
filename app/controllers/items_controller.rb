@@ -20,12 +20,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # binding.pry
-    # params[:item][:images_attributes].each do |i|
-    #   binding.pry
-    #   #createだとエラーが出た
-    #   @item.images.build(image: i["image"][], item_id: @item.id)
-    # end
     params[:images][:image].each do |i|
       # binding.pry
       #createだとエラーが出た
@@ -78,5 +72,4 @@ class ItemsController < ApplicationController
       )
       # .merge(user_id: current_user.id)
   end
-
 end
