@@ -1,24 +1,18 @@
 class MypageController < ApplicationController
 
-def index
-end
+  def index
+  end
 
-def edit
-end
+  def logout
+  end
 
-def update
-end
+  def identification
+  end
 
-def logout
-end
+  def card
+  end
 
-def identification
-end
-
-def card
-end
-
-def profile
-end 
+  def profile
+  end 
 
 end

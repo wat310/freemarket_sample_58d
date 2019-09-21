@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :items
 
   # マイページ
-  resources :mypage do
+  resources :mypage, onluy: [:index] do
      member do
       get :card
       get :profile
