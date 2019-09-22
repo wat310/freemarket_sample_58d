@@ -70,4 +70,8 @@ class ItemsController < ApplicationController
       )
       # .merge(user_id: current_user.id)
   end
+
+  def show
+  end
+
 end

@@ -88,6 +88,11 @@ group :development, :test do
   gem 'pry-rails'
 end
 
+# 画像アップロード 
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
+gem 'aws-sdk-s3', '~> 1'
+
+# パンくず
+gem "gretel"

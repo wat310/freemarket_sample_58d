@@ -13,6 +13,7 @@
 @import "items/new";
 @import "items/header2";
 @import "item-user_footer";
+@import "items/edit";
 
 // signin,sginup
 @import "sign_up/sign_in";
@@ -25,7 +26,12 @@
 @import "sign_up/step6";
 
 // users
-@import "users/show";
+
+// mypage
+@import "mypage/index";
 @import "users/side";
 @import "users/logout";
+@import "items/show";
+@import "camera";
 @import "users/mypage_detailes"
+

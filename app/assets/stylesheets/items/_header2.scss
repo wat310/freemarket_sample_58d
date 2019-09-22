@@ -9,10 +9,10 @@
   background-color:white;
   box-shadow: 5px 0px 4px;
   box-sizing:border-box;
+  min-width: 1000px;
   &__box{
-    width: 1020px;
     margin: 0 auto;
-    padding: 8px 0;
+    padding: 8px 300px;
     background-color:white;
     &__top{
       display: flex;
