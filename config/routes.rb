@@ -23,4 +23,17 @@ resources :signup do
     get 'step5'# 登録完了後のページ
   end
 end
+
+#クレジットカードページ
+get "credit_card", to: "credit_card#index"
+resources :credit_card, only: [:new, :create, :show, :edit] do
+  collection do
+    post 'delete', to: 'credit_card#delete'
+    post 'show'
+  end
+  member do
+    get 'confirmation'
+  end
+end 
+
 end

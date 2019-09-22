@@ -35,10 +35,6 @@ class User < ApplicationRecord
         #   length: { maximum: 11, message: "11文字で入力して下さい" },
         #   uniqueness: { message: "この電話番号は既に登録されています。" },
         #   format: { with: /\A\d{11}\z/, message: "この電話番号は登録できません" }
-        # validates :credit_cards_number,
-        #   presence: true,
-        #   uniqueness: true,
-        #   length: { minimum: 10}
         # validates :birth_year,
         #   presence: true
         # validates :birth_month,

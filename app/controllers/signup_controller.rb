@@ -43,10 +43,10 @@ class SignupController < ApplicationController
 
   def step5
     # step4で入力された値をsessionに保存
-    user_params[:credit_cards_number]
-    user_params[:credit_cards_limit_year]
-    user_params[:credit_cards_limit_month]
-    user_params[:security_code]
+    # credit_card_params[:number]
+    # credit_card_params[:limit_year]
+    # credit_card_params[:limit_month]
+    # credit_card_params[:security_code]
   end
   
   def create
@@ -67,10 +67,10 @@ class SignupController < ApplicationController
       city: session[:city],
       house_number: session[:house_number],
       building: session[:building],
-      credit_cards_number: user_params[:credit_cards_number],
-      credit_cards_limit_year: user_params[:credit_cards_limit_year],
-      credit_cards_limit_month: user_params[:credit_cards_limit_month],
-      security_code: user_params[:security_code],
+      # number: credit_card_params[:number],
+      # limit_year: credit_card_params[:limit_year],
+      # limit_month: credit_card_params[:limit_month],
+      # security_code: credit_card_params[:security_code],
     )
 
     if @user.save
@@ -108,10 +108,10 @@ class SignupController < ApplicationController
         :city,
         :house_number,
         :building,
-        :credit_cards_number,
-        :credit_cards_limit_year,
-        :credit_cards_limit_month,
-        :security_code,
+        # :number,
+        # :limit_year,
+        # :limit_month,
+        # :security_code,
       )
     end
 end

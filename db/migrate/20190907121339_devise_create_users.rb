@@ -2,7 +2,7 @@
 
 class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
-    create_table :users, id: :integer do |t|
+    create_table :users do |t|
       ## Database authenticatable
       t.string :nickname,           null: false, unique: true, index: true
       t.string :email,              null: false, default: ""
@@ -20,10 +20,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :city, null: false
       t.string :house_number, null: false
       t.string :building
-      t.string :credit_cards_number, null: false
-      t.string :credit_cards_limit_year, null: false
-      t.string :credit_cards_limit_month, null: false
-      t.string :security_code, null: false
       t.text :message
       t.integer :evaluation_good
       t.integer :evaluation_normal
