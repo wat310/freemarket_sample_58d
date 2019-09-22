@@ -1,7 +1,7 @@
   class ItemsController < ApplicationController
 
   def index
-    # @items = @items.where
+    
   end
 
   def new
@@ -9,6 +9,9 @@
   end
 
   def show
+  end
+
+  def card
   end
 
 end

@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   root "items#index"
   resources :users, only: [:index, :new, :create, :show, :edit, :update] 
-  resources :items
+  resources :items do
+     member do
+      get :card
+     end
+    end
 
   # マイページ
   resources :mypage, onluy: [:index] do
