@@ -9,8 +9,7 @@ Rails.application.routes.draw do
 
   
   root "items#index"
-  resources :users, only: [:index, :new, :create, :show, :edit, :update]
-  resources :items
+
 
   #新規登録ページ
   get "signup", to: "signup#index"
@@ -21,6 +20,37 @@ resources :signup do
     get 'step3'
     get 'step4' # ここで、入力の全て完了
     get 'step5'# 登録完了後のページ
+
+  resources :items do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'get_size', defaults: { format: 'json' }
+      get 'brand_search', defaults: { format: 'json' }
+    end
+  end
+
+  resources :users, only: [:index, :new, :create, :show, :edit, :update] do
+    
+    # todo:ユーザーページのrootとcontroller要相談
+    member do
+      get'logout'
+      get'identification'
+      get'card'
+      get'profile'
+    end
+  end
+
+  # マイページ
+  resources :mypage, onluy: [:index] do
+     member do
+      get :card
+      get :profile
+      get :logout
+      get :identification
+    end
+  end
+
   end
 end
 

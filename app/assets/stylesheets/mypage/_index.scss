@@ -2,6 +2,7 @@
   padding-top: 10px;
   .body{
     color: #f5f5f5;
+    padding-top: 10px;
     .container{
       margin: 40px auto 50px;
       width: 1020px;
@@ -85,7 +86,7 @@
                 font-weight: bold;
                 font-size: 22px;
                 a {
-                  border-top: 2px solid #ea352d;
+                  border-top: 2px solid $RedColor;
                   position: relative;
                   display: block;
                   color: #333;

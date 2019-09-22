@@ -6,6 +6,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
+
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
 
@@ -56,5 +57,10 @@ class User < ApplicationRecord
         extend ActiveHash::Associations::ActiveRecordExtensions
         belongs_to_active_hash :prefecture
         
+
+
+         :recoverable, :rememberable, :validatable
+
+  has_many :items
 
 end

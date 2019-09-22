@@ -1,0 +1,72 @@
+.wrapper
+  = render partial: 'shared/header2'
+  .body
+    -# %nav.bread-crumbs
+    .container
+      .content
+        -# ①本人登録画面
+        .mypage.clearfix
+          .mypage__content.identification-hight
+            %section.identification.mypage-identification
+              .identification__head 本人情報の登録
+            .identification
+              %form.identification__description
+                %div
+                  %p
+                    お客さまの本人情報をご登録ください。
+                    %br>/
+                    登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+                  %p.text-right
+                    = link_to '本人確認書類のアップロードについて', root_path, method: :get, class: 'text-right'
+                    %i.icon-arrow-right
+                .identification__form__field
+                  .identification__form__field__label
+                    %label お名前
+                    %p 佐藤 わたわた
+                .identification__form__field
+                  .identification__form__field__label
+                    %label お名前カナ
+                    %p サトウ  ワタワタ
+                .identification__form__field
+                  .identification__form__field__label
+                    %label{for: "birthday"} 生年月日
+                    %p 2019/3/10
+                .identification__form__field
+                  .identification__form__field__label
+                    %label{for: "zip_code"} 郵便番号
+                    %span.identification__form__field__option 任意
+                    %input.input-default{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}
+                .identification__form__field
+                  .identification__form__field__label
+                    %label{for: "prefecture"} 都道府県
+                    %span.identification__form__field__option 任意
+                    .identification__form__field__prefecture
+                      %i.icon-arrow-bottom
+                      %select.identification__form__field__prefecture{name: "prefecture"}
+                .identification__form__field
+                  .identification__form__field__label
+                    %label{for: "city"} 市区町村
+                    %span.identification__form__field__option 任意
+                    %input.input-default{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}
+                .identification__form__field
+                  .identification__form__field__label
+                    %label{for: "address1_label"} 番地
+                    %span.identification__form__field__option 任意
+                    %input.input-default{name: "address1", placeholder: "例) 青山1−1−1", type: "text", value: ""}
+                .identification__form__field
+                  .identification__form__field__label
+                    %label{for: "address2_label"} 建物名
+                    %span.identification__form__field__option 任意
+                    %input.input-default{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}
+                  %button.identification__form__actions{type: "submit"} 登録する
+                .text-right
+                  = link_to '本人情報の登録について', root_path, method: :get, class: 'text-right'
+                  %i.icon-arrow-right
+                  %input{name: "__csrf_value", type: "hidden", value: ""}
+
+      .side-bar
+      = render partial:"shared/side" 
+
+    = render partial:"shared/aside"
+    = render partial:"shared/footer"
+       

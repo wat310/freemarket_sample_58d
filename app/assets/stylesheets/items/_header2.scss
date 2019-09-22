@@ -9,10 +9,10 @@
   background-color:white;
   box-shadow: 5px 0px 4px;
   box-sizing:border-box;
+  min-width: 1000px;
   &__box{
-    width: 1020px;
     margin: 0 auto;
-    padding: 8px 0;
+    padding: 8px 300px;
     background-color:white;
     &__top{
       display: flex;
@@ -29,7 +29,7 @@
           width:134px;
           z-index:10;
           &__image{
-            vertical-align: middle; 
+            vertical-align: middle;
           }
         }
       }
@@ -58,7 +58,7 @@
                 height: 32px;
                 line-height: 32px;
                 &__icon{
-                  color: #ea352d;
+                  color: $RedColor;
                   font-size: 12px;
                   margin-right: 4px;
                   font:20px FontAwesome;
@@ -105,8 +105,8 @@
                   line-height:32px;
                 }
                 &--text-red{
-                  background: #ea352d;
-                  border: 1px solid #ea352d;
+                  background: $RedColor;
+                  border: 1px solid $RedColor;
                   color: #fff;
                   float: left;
                   margin: 0 0 0 8px;

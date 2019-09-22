@@ -1,21 +1,37 @@
+// setting
 @import "reset";
 @import "font-awesome";
 @import "config/variable";
 @import "config/mixin";
-@import "items/new";
+
+// index
 @import "index";
 @import "aside";
 @import "footer";
+
+// items
+@import "items/new";
 @import "items/header2";
-@import "sign_in";
-@import "sign_up";
-@import "users/show";
-@import "users/side";
-@import "step1";
-@import "step2";
-@import "step3";
-@import "step4";
-@import "step5";
 @import "item-user_footer";
-@import "step6";
+@import "items/edit";
+
+// signin,sginup
+@import "sign_up/sign_in";
+@import "sign_up/sign_up";
+@import "sign_up/step1";
+@import "sign_up/step2";
+@import "sign_up/step3";
+@import "sign_up/step4";
+@import "sign_up/step5";
+@import "sign_up/step6";
+
+// users
+
+// mypage
+@import "mypage/index";
+@import "users/side";
+@import "users/logout";
+@import "items/show";
+@import "camera";
+@import "users/mypage_detailes"
 

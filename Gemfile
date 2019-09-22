@@ -42,6 +42,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -73,6 +74,8 @@ gem 'active_hash'
 gem 'enum_help'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'jquery-rails'
+
 
 group :production do
   gem 'unicorn', '5.4.1'
@@ -84,10 +87,16 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'pry-rails'
 end
 
+# 画像アップロード 
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'payjp'
+gem 'aws-sdk-s3', '~> 1'
+
+# パンくず
+gem "gretel"
