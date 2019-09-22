@@ -1,8 +1,11 @@
 .card{
   height: 265px;
   width: 188px;
-  border: 1px solid black;
+  box-shadow: 2px 2px 4px #DDDDDD; 
   background-color: #fff;
+  :hover{
+    border-color: rgb(51, 184, 255);
+  }
 
 
   .item{
@@ -19,7 +22,6 @@
         text-align: center;
         height: 188px;
         width: 185px;
-        // margin: 5px 7px;
         object-fit: cover;
       }
 
@@ -77,13 +79,8 @@
         i{
           padding-right: 6px;
           color: gray;
-
         }
-        span{
-          
-
       }
-    }
     }
   }
 }

@@ -1,0 +1,14 @@
+- 10.times do
+  .card
+    =link_to '#', class: 'item' do
+      .item__datail
+        .item__datail__image
+          =image_tag "//cdn-ak.f.st-hatena.com/images/fotolife/o/o_tomox/20131127/20131127133001.jpg", height:'188', width:'185'
+          -# ＃TODO 画像if文分岐"sold"
+        .item__datail__price
+          %span= 'item.price'
+      .item__explanation
+        %span= "aaaaaaaaaaaaaaaaaassa"
+        .item__explanation__review
+          %i.fa.fa-heart
+          %span 2
