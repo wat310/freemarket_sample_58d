@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    # @user = User.new(params[:id])
     params[:images][:image].each do |i|
       # binding.pry
       #createだとエラーが出た
@@ -67,9 +68,9 @@ class ItemsController < ApplicationController
       :shipping_date,
       :business_status,
       :user_id, #このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
-      # images_attributes: {images: []}
       images_attributes: [:image]
       )
+      # .merge(user_id: current_user.id)
       # .merge(user_id: current_user.id)
   end
 end
