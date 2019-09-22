@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    # @item.images.new
     @item.images.build
 
     #セレクトボックスの初期値(配列)
@@ -20,13 +19,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # @user = User.new(params[:id])
+    # binding.pry
     params[:images][:image].each do |i|
-      # binding.pry
       #createだとエラーが出た
       @item.images.build(image: i, item_id: @item.id)
     end
-    # binding.pry
       if @item.save
         redirect_to root_path
       else
@@ -53,6 +50,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params
     params.require(:item).permit(
       :name,
@@ -70,7 +68,6 @@ class ItemsController < ApplicationController
       :user_id, #このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
       images_attributes: [:image]
       )
-      # .merge(user_id: current_user.id)
       # .merge(user_id: current_user.id)
   end
 end
