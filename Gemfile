@@ -84,9 +84,11 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
-	
-gem 'aws-sdk-s3', '~> 1'
-
+# 画像アップロード 
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
+gem 'aws-sdk-s3', '~> 1'
+
+# パンくず
+gem "gretel"
