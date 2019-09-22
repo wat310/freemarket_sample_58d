@@ -22,16 +22,13 @@
   %main.single-main
     %section.l-single-container
       %h2.l-single-head.registration 電話番号の登録
-      = form_with model: @user, url:signup_index_path, method: :post, class: 'l-single-inner registration-form', local: true do |f|
-        = hidden_field_tag :current_step, 'step2'
+      = form_with model: @user, url:step3_signup_index_path, method: :get, class: 'l-single-inner registration-form', local: true do |f|
         %input{type: "hidden", name: "after_save_callback", value:""}
 
-        = f.fields_for :profiles do |f|
           .l-single-content
             .form-group
               = f.label "携帯電話の番号" 
-              = f.text_field :phone_number ,name: 'phone_number', class:'input-default',placeholder:'携帯電話の番号を入力'
-              -# = f.text_field :phone_number ,class:'input-default',placeholder:'携帯電話の番号を入力'
+              = f.text_field :phone_number, autofocus: true,class:"input-default",placeholder: "携帯電話の番号を入力" 
             %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
             = f.submit "SMSを送信する", class: "btn-default btn-red"
             %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。

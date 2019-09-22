@@ -19,9 +19,8 @@ resources :signup do
     get 'step1'
     get 'step2'
     get 'step3'
-    get 'step4'
-    get 'step5' # ここで、入力の全て完了
-    get 'step6' # 登録完了後のページ
+    get 'step4' # ここで、入力の全て完了
+    get 'step5'# 登録完了後のページ
   end
 end
 end
