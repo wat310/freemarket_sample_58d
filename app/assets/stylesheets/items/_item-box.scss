@@ -1,18 +1,17 @@
 .card{
   height: 265px;
   width: 188px;
-  box-shadow: 2px 2px 4px #DDDDDD; 
+  box-shadow: 2px 2px 4px #DDDDDD;
   background-color: #fff;
   :hover{
     border-color: rgb(51, 184, 255);
   }
 
-
   .item{
 
     &__datail{
       height: 188px;
-      width: 185px; 
+      width: 185px;
       position: relative;
       align-items: center;
 
