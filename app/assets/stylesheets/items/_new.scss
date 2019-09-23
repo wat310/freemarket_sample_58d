@@ -3,6 +3,14 @@
   text-decoration: none;
 }
 
+// .hidden_form {
+//   
+//   height: 100%;
+//   width: 100%;
+//   position: absolute;
+//   background-color: rebeccapurple;
+// }
+
 .label {
   @include text-form;
 }
@@ -13,13 +21,11 @@
   padding: 16px;
   height: 48px;
   margin-top: 8px;
-
-  
 }
 .form-group {
   margin-top: 40px;
 }
-.form-require{
+.form-requires{
   @include form-require;
 }
 .form-free {
@@ -53,12 +59,13 @@
     height: 128px;
     width: 100vw;
 
-    h1 {
+    &__h1 {
       padding: 40px 0 0;
       text-align: center;
     }
   }
 
+  //入力部
   .main {
     width: 100vw;
     height: calc(100% - 348px);
@@ -76,6 +83,7 @@
         border-bottom: $BorderBottom;
       }
 
+      //出品画像
       .sell-upload-box {
           min-height: 303px;
           padding: $ItemFormPadding;
@@ -96,21 +104,40 @@
             font-size: 12px;
           }
 
-          .image-drop-box {
-            width:100%;
-            height: 162px;
-            background-color: #f5f5f5;
-            padding: $ItemFormPadding;
-            margin-top: 10px;
-            text-align: center;
-            border:  1px dashed #ccc;
+          .image-box {
             position: relative;
 
-            .image-drop-text {
-              @include pos-trans-center;
+            //画像投稿フォーム
+            &__drop {
+              width:100%;
+              height: 162px;
+              background-color: #f5f5f5;
+              padding: $ItemFormPadding;
+              margin-top: 10px;
+              text-align: center;
+              border:  1px dashed #ccc;
               display: block;
               line-height: 1.5;
               font-size: 14px;
+
+              // &__form {
+
+              // }
+              .image-drop-text {
+                @include pos-trans-center;
+                display: block;
+                line-height: 1.5;
+                font-size: 14px;
+              }
+            }
+            //画像投稿フォーム(隠す)
+            .hidden_form {
+              opacity: 0;
+              height: 100%;
+              width: 100%;
+              position: absolute;
+              z-index: 3;
+              cursor: pointer;
             }
           }
         }
@@ -134,10 +161,32 @@
             line-height: 1.5;
           }
 
-          // ブランド名
-          .input-brand {
-            @include input-field;
+          //ブランド
+          #brand {
+            position: relative;
+
+            // ブランド名の入力フォーム
+            .input-brand {
+              @include input-field;
+            }
+
+            // インクリメンタルサーチの結果
+            #search_brand_result {
+              overflow: auto;
+              position: absolute;
+              background-color: white;
+              width: 100%;
+              max-height: 280px;
+              font-size: 14px;
+              z-index: 10;
+              box-shadow: (0 0 4px 0 black);
+
+              .brand_list {
+                padding: 16px 8px;
+              }
+            }
           }
+          
 
         // 販売価格
           //価格
@@ -198,6 +247,9 @@
             color: white;
             margin-top: 40px;
             line-height: 48px;
+            text-align: center;
+            font-size: 14px;
+            border-style: none;
           }
 
           //もどるボタン
