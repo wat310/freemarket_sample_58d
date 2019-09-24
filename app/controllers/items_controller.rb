@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   # before_action :authenticate_user!, only: [:new, :edit] # TODO これはあとで使う予定
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     # @items = @items.where
@@ -80,6 +81,10 @@ class ItemsController < ApplicationController
       images_attributes: [:image]
       )
       # .merge(user_id: current_user.id) #TODO これはあとで使う予定
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end
