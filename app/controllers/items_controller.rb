@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   # before_action :authenticate_user!, only: [:new, :edit]
 
   def index
+    @ladies =Item.update_desc.where(category_id: 1)
+    
     
   end
 
