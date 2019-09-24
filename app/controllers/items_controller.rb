@@ -19,12 +19,14 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # binding.pry
+    # if params[:images][:image].count != 0
     params[:images][:image].each do |i|
       #createだとエラーが出た
       @item.images.build(image: i, item_id: @item.id)
     end
+    # end
       if @item.save
+        binding.pry
         redirect_to root_path
       else
         redirect_to new_item_path
@@ -49,7 +51,14 @@ class ItemsController < ApplicationController
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
-  
+  def edit
+  end
+
+  def update
+  end
+
+  def show
+  end
 
   private
 
@@ -71,9 +80,6 @@ class ItemsController < ApplicationController
       images_attributes: [:image]
       )
       # .merge(user_id: current_user.id) #TODO これはあとで使う予定
-  end
-
-  def show
   end
 
 end
