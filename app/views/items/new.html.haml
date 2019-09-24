@@ -1,74 +1,60 @@
 .item-main
   = render partial:"shared/item-header"
+
   %main.main
     %section.main__item-box
       %h2.main__item-box__head 商品の情報を入力
       = form_for @item do |f|
-        -# この下のuser_idはユーザー機能の実装後すぐに消すこと!!
-        = f.text_field :user_id, value: "1", type: 'hidden'
         .sell-upload-box
           %h3.sell-upload-head
             .image-text 出品画像
-            %span.form-requires 必須
+            %span.form-require 必須
           %p.picture-limit 最大10枚までアップロードできます
-          = f.fields_for :images do |i|
-            .image-box
-              -# = i.label :image
-              = i.file_field :image, multiple: true, name: 'images[image][]', class: 'hidden_form'
-              .image-box__drop
-                %pre.image-drop-text ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+          .image-drop-box
+            %pre.image-drop-text ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
 
         -# 商品名と商品の説明
         .sell-content
           .form-group-top
-            = f.label :商品名, class: "label" do
-              商品名
-              %span.form-requires 必須
+            .text-require
+              = f.label  :商品名, class: "label"
+              %span.form-require 必須
             = f.text_field :name, class: 'input-name', placeholder: "商品名 (必須40文字まで)"
 
           .form-group
-            = f.label :商品の説明, class: "label" do
-              商品の説明
-              %span.form-requires 必須
+            .text-require
+              = f.label :商品の説明, class: "label"
+              %span.form-require 必須
             = f.text_area :explanation, class: 'input-explanation', placeholder: "商品の説明 (必須1,000文字以内)　(色、素材、重さ、定価、注意点など)　例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: 5
 
         -# カテゴリー、ブランド、商品の状態
         .sell-content.clearfix
           %h3.sell-gray-text 商品の詳細
           .sell-form-box
-            .category-forms
-              .form-group-top
-                = f.label :カテゴリー, class: "label" do
-                  カテゴリー
-                  %span.form-requires 必須
-                %br
-                //ここで記述しているのは親カテゴリのみ、子と孫のカテゴリとサイズ、ブランドはajaxで追加する。
-                = f.select :category, @category_parent_array, {}, {class: "select", id: "parent_category"}
-                = f.text_field :category_id, id: 'grand_child_result_id' ,type: 'hidden'
-                -# = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select"
-            .form-group#size
-              = f.label :サイズ, class: "label" do
-                サイズ
-                %span.form-requires 必須
+            .form-group-top
+              = f.label :カテゴリー, class: "label"
+              %span.form-require 必須
+              %br
+              -# まだ修正必要(ブランド(テキストボックス)、サイズ等の追加必要)
+              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select"
+              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select"
+              = f.collection_select :category_id, Category.all, :id, :name, { prompt: "---" }, class: "select"
+              -# =fa_icon 'angle-down'
+            .form-group
+              = f.label :ブランド, class: "label"
+              %span.form-free 任意
+              %br
+              = f.text_field :brand, class: 'input-brand', placeholder: "例) シャネル"
+            .form-group
+              = f.label :サイズ, class: "label"
+              %span.form-require 必須
               %br
               = f.select :size, Item.sizes_i18n.invert, { prompt: "---" }, class: "select"
-            .form-group#brand
-              = f.label :ブランド, class: "label" do
-                ブランド
-                %span.form-free 任意
-              %br
-              //これは名前を表示させるためだけのボックス(コントローラーへの値の受け渡しはしない)
-              = f.text_field :brand, class: 'input-brand', placeholder: "例) シャネル"
-              //ここのvalue値をコントローラーに渡す(type: hiddenで隠している)
-              = f.text_field :brand_id, id: 'brand_result_id' ,type: 'hidden'
-              //ここにインクリメンタルサーチの結果を表示する
-              %ul#search_brand_result
             .form-group
-              =f.label :商品の状態, class: "label" do
-                商品の状態
-                %span.form-requires 必須
+              =f.label :商品の状態, class: "label"
+              %span.form-require 必須
               %br
-              = f.select :state, Item.states_i18n.invert, { prompt: "---" }, class: "select"
+              = f.select :state, Item.states, { prompt: "---" }, class: "select"
 
         -# 配送について
         .sell-content.clearfix
@@ -76,27 +62,18 @@
           %figure.question ?
           .sell-form-box
             .form-group-top
-              = f.label :発送料の負担, class: "label" do
-                発送料の負担
-                %span.form-requires 必須
+              = f.label :発送料の負担, class: "label"
+              %span.form-require 必須
               %br
               = f.select :postage, Item.postages_i18n.invert, { prompt: "---" }, class: "select"
             .form-group
-              =f.label :配送の方法, class: "label" do
-                配送の方法
-                %span.form-requires 必須
+              =f.label :発送元の地域, class: "label"
+              %span.form-require 必須
               %br
-              = f.select :shipping_method, Item.shipping_methods_i18n.invert, { prompt: "---" }, class: "select"
+              -# = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "---" }, class: "select"
             .form-group
-              =f.label :発送元の地域, class: "label" do
-                発送元の地域
-                %span.form-requires 必須
-              %br
-              = f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "---" }, class: "select"
-            .form-group
-              =f.label :発送までの日数, class: "label" do
-                発送までの日数
-                %span.form-requires 必須
+              =f.label :発送までの日数, class: "label"
+              %span.form-require 必須
               %br
               = f.select :shipping_date, Item.shipping_dates_i18n.invert, { prompt: "---" }, class: "select"
 
@@ -108,9 +85,8 @@
             %ul
               %li.price-form
                 .price-left
-                  = f.label :価格, class: "label" do
-                    価格
-                    %span.form-requires 必須
+                  = f.label :価格, class: "label"
+                  %span.form-require 必須
                 .price-right
                   ¥
                   = f.text_field :price, class: 'input-price', placeholder: "例) 300"
@@ -118,12 +94,12 @@
                 .fee-form__left
                   販売手数料 (10%)
                 .fee-form__right
-                  %div.fee-form__right__text -
+                  %figure -
               %li.profit-form
                 .profit-form__left
                   販売利益
                 .profit-form__right
-                  %div.profit-form__right__text -
+                  %figure -
 
         -# 出品ボタン
         .sell-content.clearfix

@@ -1,38 +1,6 @@
 ja:
-  errors:
-    messages:
-      accepted: を受諾してください
-      blank: を入力してください
-      confirmation: と%{attribute}の入力が一致しません
-      empty: を入力してください
-      equal_to: は%{count}にしてください
-      even: は偶数にしてください
-      exclusion: は予約されています
-      greater_than: は%{count}より大きい値にしてください
-      greater_than_or_equal_to: は%{count}以上の値にしてください
-      inclusion: は一覧にありません
-      invalid: は不正な値です
-      less_than: は%{count}より小さい値にしてください
-      less_than_or_equal_to: は%{count}以下の値にしてください
-      model_invalid: 'バリデーションに失敗しました: %{errors}'
-      not_a_number: は数値で入力してください
-      not_an_integer: は整数で入力してください
-      odd: は奇数にしてください
-      other_than: は%{count}以外の値にしてください
-      present: は入力しないでください
-      required: を入力してください
-      taken: はすでに存在します
-      too_long: は%{count}文字以内で入力してください
-      too_short: は%{count}文字以上で入力してください
-      wrong_length: は%{count}文字で入力してください
   enums:
     item:
-      state:
-        news: 新品
-        no_dirty: 目立った傷や汚れなし
-        little_dirty: やや傷や汚れあり
-        dirty: 傷や汚れあり
-        bad: 全体的に状態が悪い
       size:
         XXS: XXS以下
         xs: XS(SS)
@@ -44,25 +12,11 @@ ja:
       postage:
         seller: 送料込み(出品者負担)
         buyer: 着払い(購入者負担)
-      shipping_method:
-        no_method: 未定
-        mer: らくらくメルカリ便
-        yu_m: ゆうメール
-        letter: レターパック
-        normal: 普通郵便(定形、定形外)
-        yamato: クロネコヤマト
-        yu_pack: ゆうパック
-        c_post: クリックポスト
-        yu_packet: ゆうパケット
       shipping_date:
         one_two: 1~2日で発送
         two_three: 2~3日で発送
         four_seven: 4~7日で発送
-      business_status:
-        sell: 販売中
-        nagotiation: 交渉中
-        sale: 売却済
-
+ja:
   date:
     formats:
       default: "%Y/%m/%d"
