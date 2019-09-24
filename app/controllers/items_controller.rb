@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  # before_action :authenticate_user!, only: [:new, :edit]
+  # before_action :authenticate_user!, only: [:new, :edit] #これはあとで使う予定
 
   def index
     # @items = @items.where
@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
       :user_id, #このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
       images_attributes: [:image]
       )
-      # .merge(user_id: current_user.id)
+      # .merge(user_id: current_user.id) #これはあとで使う予定
   end
 
   def show
