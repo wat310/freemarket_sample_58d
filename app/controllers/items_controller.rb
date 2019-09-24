@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  # before_action :authenticate_user!, only: [:new, :edit] #これはあとで使う予定
+  # before_action :authenticate_user!, only: [:new, :edit] # TODO これはあとで使う予定
 
   def index
     # @items = @items.where
@@ -49,6 +49,8 @@ class ItemsController < ApplicationController
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
+  
+
   private
 
   def item_params
@@ -65,10 +67,10 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :shipping_date,
       :business_status,
-      :user_id, #このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
+      :user_id, # TODO このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
       images_attributes: [:image]
       )
-      # .merge(user_id: current_user.id) #これはあとで使う予定
+      # .merge(user_id: current_user.id) #TODO これはあとで使う予定
   end
 
   def show
