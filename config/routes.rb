@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       get 'get_size', defaults: { format: 'json' }
       get 'brand_search', defaults: { format: 'json' }
     end
+    member do # itemのidと紐づけるためにmemberを使用
+      get :buy
+    end
   end
 
   resources :users, only: [:index, :new, :create, :show, :edit, :update] do

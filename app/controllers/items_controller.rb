@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   # before_action :authenticate_user!, only: [:new, :edit] # TODO これはあとで使う予定
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :buy]
 
   def index
     # @items = @items.where
@@ -59,6 +59,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+  end
+
+  def buy
   end
 
   private
