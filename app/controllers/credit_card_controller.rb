@@ -1,4 +1,6 @@
 class CreditCardController < ApplicationController
+  
+  # まだクレジットカードの実装をしていないため、credit_card_controllerを一旦コメントアウトしておきます。
 
   # before_action :get_user_params, only: [:edit, :confirmation, :show]
   # before_action :get_payjp_info, only: [:new_create, :create, :delete, :show]
