@@ -22,7 +22,7 @@
   %main.single-main
     %section.l-single-container
       %h2.l-single-head.registration 支払い方法
-      = form_with model: @credit_card, url:signup_index_path, method: :post, class: 'l-single-inner registration-form', local: true do |f|
+      = form_with model: @credit_card, url:step5_signup_index_path, method: :get, class: 'l-single-inner registration-form', local: true do |f|
         %input{type: "hidden", name: "__csrf_value", value:""}
         
         .l-single-content

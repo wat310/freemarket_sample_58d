@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
-  devise_for :profiles
-  devise_for :users
+  # profilesテーブルは消去の為使わない。
+  # devise_for :profiles
+  devise_for :users, :controllers => {
+    :omniauth_callbacks =>  "users/omniauth_callbacks"}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  
   root "items#index"
+
+
+  #新規登録ページ
+  get "signup", to: "signup#index"
+resources :signup do
+  collection do
+    get 'step1'
+    get 'step2'
+    get 'step3'
+    get 'step4' # ここで、入力の全て完了
+    get 'step5'# 登録完了後のページ
 
   resources :items do
     collection do
@@ -26,7 +40,7 @@ Rails.application.routes.draw do
   end
 
   # マイページ
-  resources :mypage, onluy: [:index] do
+  resources :mypage, only: [:index] do
      member do
       get :card
       get :profile
@@ -35,17 +49,19 @@ Rails.application.routes.draw do
     end
   end
 
-  # 新規登録ページ
-  resources :signup do
-    collection do
-      get :step1
-      get :step2
-      get :step3
-      get :step4
-      get :step5
-      get :step6 # ここで、入力の全て完了
-      get :done # 登録完了後のページ
-    end
   end
 end
 
+#クレジットカードページ
+get "credit_card", to: "credit_card#index"
+resources :credit_card, only: [:new, :create, :show, :edit] do
+  collection do
+    post 'delete', to: 'credit_card#delete'
+    post 'show'
+  end
+  member do
+    get 'confirmation'
+  end
+end 
+
+end
