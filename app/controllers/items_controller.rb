@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   # before_action :authenticate_user!, only: [:new, :edit]
 
   def index
-    @ladies =Item.update_desc.where(category_id: 1)
+    @ladies =Item.update_desc.where(category_id: 1).limit(10)
     
     
   end

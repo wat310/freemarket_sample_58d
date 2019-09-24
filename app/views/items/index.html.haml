@@ -24,7 +24,8 @@
         =link_to 'もっと見る ＞', "#"
         .pickup__item__content 
           .pickup__item__content__box
-            = render partial:"shared/item-box"
+            - @ladies.each do |item|
+              = render partial:"shared/item-box",locals: {item: item}
 
     .pickup
       .pickup__item
