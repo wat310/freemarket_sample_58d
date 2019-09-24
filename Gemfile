@@ -42,7 +42,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'faker'
 end
 
 group :development do
@@ -72,8 +71,6 @@ gem 'devise'
 gem 'font-awesome-rails', '4.7.0.5'
 gem 'active_hash'
 gem 'enum_help'
-gem 'jquery-rails'
-gem 'omniauth-facebook'
 
 group :production do
   gem 'unicorn', '5.4.1'
@@ -85,7 +82,6 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  gem 'pry-rails'
 end
 
 # 画像アップロード 
