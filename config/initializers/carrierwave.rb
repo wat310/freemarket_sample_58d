@@ -3,14 +3,15 @@ require 'carrierwave/storage/abstract'
 require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
+# 保存先の分岐
 CarrierWave.configure do |config|
   if Rails.env.production? # 本番:AWS使用
     config.storage = :fog
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
       provider: 'AWS',
-      aws_access_key_id: Rails.application.credentials.aws_access_key_id,
-      aws_secret_access_key: Rails.application.credentials.aws_secret_access_key,
+      aws_access_key_id: Rails.application.credentials.aws[:access_key_id],
+      aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
       region: 'ap-northeast-1'
     }
   else
@@ -18,6 +19,18 @@ CarrierWave.configure do |config|
     config.enable_processing = false if Rails.env.test? #test:処理をスキップ
   end
 
+# # 自動デプロイできていたところまで戻るため検証中
+#   CarrierWave.configure do |config|
+#     config.storage = :fog
+#     config.fog_provider = 'fog/aws'
+#     config.fog_credentials = {
+#       provider: 'AWS',
+#       aws_access_key_id: Rails.application.credentials.aws[:access_key_id],
+#       aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
+#       region: 'ap-northeast-1' #tokyo
+#     }
+  
   config.fog_directory  = 'freemarket-d'
   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket-d'
+  
 end

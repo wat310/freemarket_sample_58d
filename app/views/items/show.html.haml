@@ -1,0 +1,102 @@
+.wrapper
+= render partial:"shared/header2"
+.container
+  .detail
+    %h2.detail__head= "@item.name"
+    .detail__box
+      .detail__box__item
+        .detail__box__item__image--large
+          -# = image_tag @images.url, alt: '商品画像'
+        .detail__box__item__image--small
+          -# - @images.each do |image|
+          -#   = image_tag image.url, alt: '商品画像'
+      %table.detail__box__item
+        %tbody.detail__box__item__table
+          %tr
+            %th 出品者
+            %td
+              -# = link_to "#{@item.user.nickname}", '#'
+              .review
+                .review__image
+                  = image_tag("")
+                  = fa_icon "smile-o"
+                %span.review__number 5
+                .review__image
+                  = image_tag("")
+                  = fa_icon "meh-o"
+                %span.review__number 2
+                .review__image
+                  = image_tag("")
+                  = fa_icon "frown-o"
+                %span.review__number 1
+          %tr
+            %th カテゴリー
+            %td= ""
+          %tr
+            %th ブランド
+            %td= ""
+          %tr
+            %th 商品の状態
+            %td= ""
+          %tr
+            %th 配送料の負担
+            %td= ""
+          %tr
+            %th 配送の方法
+            %td= ""
+          %tr
+            %th 発送元地域
+            %td=""
+          %tr
+            %th 発送日の目安
+            %td= ""
+    .detail__price
+      %span= "¥"
+      %span （税込）
+      %span 送料込み
+    .detail__purchase
+      = link_to '購入画面に進む', '#'
+    .detail__explanation= '@item.explanation'
+    .detail__others
+      = button_tag type: 'like!', class: 'detail__others--left' do
+        %i.fa.fa-heart.like
+        %span いいね!
+        %span 2
+      = link_to '#', class: 'detail__others--left' do
+        %i.fa.fa-flag
+        %span 不適切な商品の報告
+      = link_to '#', class: 'detail__others--right' do
+        %i.fa.fa-lock
+        %span あんしん・あんぜんへの取り組み
+  
+  .comment
+    %p.comment__note 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    = form_tag 'root_path', method: :get, class: 'comment__form' do
+      = text_area :item, :description, value: '', class: 'comment__form__body'
+      = submit_tag "コメントする", class: 'comment__form__action'
+  
+  .prev-next
+    .prev-next--left
+      %i.fa.fa-chevron-left
+      %span.next-item 新品未使用ジーンズ
+    .prev-next--right
+      %span.next-item ブランドバッグ
+      %i.fa.fa-chevron-right
+  
+  .sns-box
+    = link_to '#', class: 'sns-box__link' do
+      %i.fa.fa-facebook-square.sns-box__link__facebook
+    = link_to '#', class: 'sns-box__link' do
+      %i.fa.fa-twitter-square.sns-box__link__twitter
+    = link_to '#', class: 'sns-box__link' do
+      %i.fa.fa-pinterest-square.sns-box__link__pinterest
+  
+  .other-items
+    = link_to "さんのその他の出品", '#', class: "other-items__head"
+    .other-items__box
+  .other-items
+    = link_to "その他の出品", '#', class: "other-items__head"
+  .other-items__box
+
+= render partial:"shared/aside"
+= render partial:"shared/footer"
