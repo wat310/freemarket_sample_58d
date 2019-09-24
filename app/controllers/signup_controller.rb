@@ -67,11 +67,8 @@ class SignupController < ApplicationController
       city: user_params[:city],
       house_number: user_params[:house_number],
       building: user_params[:building],
-      
-      
-      
-      
-      
+
+      # クレジットカード登録で使用する可能性あり
       # number: credit_card_params[:number],
       # limit_year: credit_card_params[:limit_year],
       # limit_month: credit_card_params[:limit_month],
@@ -91,8 +88,7 @@ class SignupController < ApplicationController
     sign_in User.find(session[:id]) unless user_signed_in?
   end
 
-
-
+  
   private
     def user_params
       params.require(:user).permit(

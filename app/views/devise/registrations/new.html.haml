@@ -22,9 +22,7 @@
             = link_to' ', class: 'google' do
               =image_tag '/google.svg', alt: '', height: '45', width: '60',class: "google-logo"
             Googleでログイン
-
-      
+          = render "devise/shared/links"      
       %form{action: "", method: "POST", novalidate: "novalidate"}
 
-    = render "devise/shared/links"
   = render partial:"devise/footer"
