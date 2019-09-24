@@ -53,6 +53,12 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    #セレクトボックスの初期値(配列)
+    @category_parent_array = ["---"]
+    #categoriesテーブルから親カテゴリーのみを抽出、配列に格納
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   def update
