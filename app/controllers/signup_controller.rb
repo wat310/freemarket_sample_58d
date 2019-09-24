@@ -28,15 +28,15 @@ class SignupController < ApplicationController
 
   def step4
     # step3で入力された値をsessionに保存
-    session[:family_name_kanji] = user_params[:family_name_kanji]
-    session[:first_name_kanji] = user_params[:first_name_kanji]
-    session[:family_name_kana] = user_params[:family_name_kana]
-    session[:first_name_kana] = user_params[:first_name_kana]
-    session[:postal_code] = user_params[:postal_code]
-    session[:prefecture_id] = user_params[:prefecture_id]
-    session[:city] = user_params[:city]
-    session[:house_number] = user_params[:house_number]
-    session[:building] = user_params[:building]
+    # session[:family_name_kanji] = user_params[:family_name_kanji]
+    # session[:first_name_kanji] = user_params[:first_name_kanji]
+    # session[:family_name_kana] = user_params[:family_name_kana]
+    # session[:first_name_kana] = user_params[:first_name_kana]
+    user_params[:postal_code]
+    user_params[:prefecture_id]
+    user_params[:city]
+    user_params[:house_number]
+    user_params[:building]
     session[:phone_number] = user_params[:phone_number]
     @user = User.new # 新規インスタンス作成
   end
@@ -62,11 +62,16 @@ class SignupController < ApplicationController
       birth_month: session[:birth_month],
       birth_day: session[:birth_day],
       phone_number: session[:phone_number],
-      postal_code: session[:postal_code],
-      prefecture_id: session[:prefecture_id],
-      city: session[:city],
-      house_number: session[:house_number],
-      building: session[:building],
+      postal_code: user_params[:postal_code],
+      prefecture_id: user_params[:prefecture_id],
+      city: user_params[:city],
+      house_number: user_params[:house_number],
+      building: user_params[:building],
+      
+      
+      
+      
+      
       # number: credit_card_params[:number],
       # limit_year: credit_card_params[:limit_year],
       # limit_month: credit_card_params[:limit_month],

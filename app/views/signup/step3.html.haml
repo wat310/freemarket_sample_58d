@@ -22,7 +22,7 @@
   %main.single-main
     %section.l-single-container
       %h2.l-single-head.registration 発送元・お届け先住所入力
-      = form_with model: @user, url:step4_signup_index_path, method: :get, class: 'l-single-inner registration-form', local: true do |f|
+      = form_with model: @user, url:signup_index_path, method: :post, class: 'l-single-inner registration-form', local: true do |f|
         = hidden_field_tag :current_step, 'step4'
         %input{type: "hidden", name: "__csrf_value", value:""}
     

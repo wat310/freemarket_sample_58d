@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :profiles
+  # profilesテーブルは消去の為使わない。
+  # devise_for :profiles
   devise_for :users, :controllers => {
-    :omniauth_callbacks =>  "users/omniauth_callbacks",
-    # :registrations => "users/registrations",
-    # sessions: 'users/sessions'
-  }
+    :omniauth_callbacks =>  "users/omniauth_callbacks"}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   
@@ -42,7 +40,7 @@ resources :signup do
   end
 
   # マイページ
-  resources :mypage, onluy: [:index] do
+  resources :mypage, only: [:index] do
      member do
       get :card
       get :profile

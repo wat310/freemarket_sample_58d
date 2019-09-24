@@ -43,6 +43,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'faker'
+  # SNS認証用
+  gem 'dotenv-rails'
 end
 
 group :development do
