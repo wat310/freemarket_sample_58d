@@ -11,7 +11,7 @@ class User < ApplicationRecord
           end
         end
 
-
+        # TODO: 後でバリデーション機能を追加・修正予定。（SNS認証機能追加後）
 
         # validates :nickname,
         #   presence: true,

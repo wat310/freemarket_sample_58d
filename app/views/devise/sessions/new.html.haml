@@ -6,6 +6,7 @@
     .login-panel
       .login-no-account
         %p アカウントをお持ちでない方はこちら
+        -# = form_with  model: @user, url:step2_signup_index_path, method: :get, class: 'l-single-inner registration-form', local: true do |f|
         = link_to'/users/sign_up', class: 'sign_up' do
           新規会員登録
       
