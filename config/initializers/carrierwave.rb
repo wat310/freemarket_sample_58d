@@ -14,6 +14,9 @@ CarrierWave.configure do |config|
       aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
       region: 'ap-northeast-1'
     }
+
+    config.fog_directory  = 'freemarket-d'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket-d'
   else
     config.storage :file # 開発:public/uploades下に保存
     config.enable_processing = false if Rails.env.test? #test:処理をスキップ
@@ -30,7 +33,6 @@ CarrierWave.configure do |config|
 #       region: 'ap-northeast-1' #tokyo
 #     }
   
-  config.fog_directory  = 'freemarket-d'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket-d'
-  
+  # config.fog_directory  = 'freemarket-d'
+  # config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket-d'
 end

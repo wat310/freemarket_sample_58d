@@ -5,7 +5,6 @@
     %section.main__item-box
       %h2.main__item-box__head 商品の情報を入力
       = form_for @item do |f|
-        = image_tag "#{@item.images.first.image}", alt: 'aaa', height: '100', width: '100'
         -# この下のuser_idはユーザー機能の実装後すぐに消すこと!!
         -# = f.text_field :user_id, value: "1", type: 'hidden'
         .sell-upload-box
@@ -46,8 +45,9 @@
                 %br
                 //ここで記述しているのは親カテゴリのみ、子と孫のカテゴリとサイズ、ブランドはajaxで追加する。
                 -# = f.select :category, @category_parent_array, {}, {class: "select", id: "parent_category"}
-                = f.select :category, @category_parent_array, {}, {class: "select", id: "parent_category", selcted: @item.category.name}
-                -# = f.select :category, @category_children_array, {}, {class: "select", id: "child_category", selcted: @item.category.name}
+                = f.select :category, @category_parent_array, {}, {class: "select", id: "parent_category", selcted: @item.category.parent.parent.name}
+                = f.select :category, @category_child_array, {}, {class: "select", id: "child_category", selcted: @item.category.parent.name}
+                = f.select :category, @category_grandchild_array, {}, {class: "select", id: "grandchild_category", selcted: @item.category.name}
                 -# = f.text_field :category_id, id: 'grand_child_result_id' ,type: 'hidden'
                 = f.text_field :category_id, id: 'grand_child_result_id'
             .form-group#size
@@ -122,7 +122,7 @@
                 .fee-form__left
                   販売手数料 (10%)
                 .fee-form__right
-                  %div.fee-form__right__text -
+                  %div.fee-form__right__text
               %li.profit-form
                 .profit-form__left
                   販売利益

@@ -58,11 +58,26 @@ class ItemsController < ApplicationController
     @category_child_array = []
     @category_grandchild_array = []
 
+    # itemに紐づいていいる孫カテゴリの親である子カテゴリが属している子カテゴリの一覧を配列で取得
+    child_category_array_origin = @item.category.parent.parent.children
+
+    # itemに紐づいていいる孫カテゴリが属している孫カテゴリの一覧を配列で取得
+    grandchild_category_array_origin = @item.category.parent.children
+
     # categoriesテーブルから親カテゴリーのみを抽出、配列に格納
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
     end
-    # @category_children_arraty = Category.find_by(name: , ancestry: nil).children
+
+    # 子カテゴリの配列を新規作成(名前を表示させるために)
+    child_category_array_origin.each do |child|
+      @category_child_array << child.name
+    end
+
+    # 孫カテゴリの配列を新規作成(名前を表示させるために)
+    grandchild_category_array_origin.each do |grandchild|
+      @category_grandchild_array << grandchild.name
+    end
 
   end
 
