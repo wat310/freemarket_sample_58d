@@ -44,6 +44,7 @@ class CardController < ApplicationController
         flash[:alert] = 'クレジットカード登録に失敗しました'
       end
     end
+  end
 
     #--------クレジット購入--------
     def buy 
