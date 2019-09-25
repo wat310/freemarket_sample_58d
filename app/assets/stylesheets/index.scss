@@ -83,12 +83,10 @@
         }
       }
       &__content {
-        // display: flex;
-        // justify-content: space-between;
         height: 580px;
+        
         &__box{
           width: 100%;
-          height: 580px;
           display: flex;
           justify-content: space-between;
           flex-wrap: wrap;
@@ -97,5 +95,4 @@
       }
     }
   }
-
 }
