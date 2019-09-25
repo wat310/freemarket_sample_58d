@@ -29,8 +29,8 @@ Rails.application.routes.draw do
   end
 
   # マイページ
-  resources :mypage, onluy: [:index] do
-     member do
+  resources :mypage, only: [:index] do
+    member do
       get :card
       get :profile
       get :logout
