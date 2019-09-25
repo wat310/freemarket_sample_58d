@@ -1,4 +1,4 @@
-# class Profile < ApplicationRecord
+class Profile < ApplicationRecord
 
 #   # プロフィールテーブルは使用しなくなり、profile.rbも使用しない為、全てコメントアウトしておきます。
 
@@ -14,4 +14,4 @@
 #         #  validates :birthday, presence: true
 
 #          belongs_to :user
-# end
+end
