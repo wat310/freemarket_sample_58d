@@ -2,10 +2,10 @@
   =link_to '#', class: 'item' do
     .item__datail
       .item__datail__image
-        -# =image_tag "#{item.images}", height:'188', width:'185'
+        = image_tag "#{item.images.first.image}", alt: '商品画像', height:'188', width:'185'
         -# ＃TODO 画像if文分岐"sold"
       .item__datail__price
-        %span= item.price
+        %span= "¥#{item.price}"
     .item__explanation
       %span= item.explanation
       .item__explanation__review
