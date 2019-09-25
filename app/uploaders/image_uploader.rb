@@ -6,9 +6,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # 環境ごとに保存先変更
   if Rails.env.development?
-    #検証中のため開発もS3へ一度保存
-    storage :fog
-    # storage :file
+    storage :file
   elsif Rails.env.test?
     storage :file
   else
