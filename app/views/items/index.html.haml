@@ -32,7 +32,10 @@
         %h3.pickup__item__head メンズ新着アイテム
         .pickup__item__head--link
         =link_to 'もっと見る ＞', "#"
-        .pickup__item__content picture
+        .pickup__item__content 
+          .pickup__item__content__box
+            - @mens.each do |item|
+              = render partial:"shared/item-box",locals: {item: item}
 
     .pickup
       .pickup__item

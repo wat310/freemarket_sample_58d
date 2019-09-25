@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
-  # before_action :authenticate_user!, only: [:new, :edit] #これはあとで使う予定
+  # before_action :authenticate_user!, only: [:new, :edit]
 
   def index
-    @ladies =Item.update_desc.where(category_id: 5).limit(10).includes(:images)
-    # binding.pry
+    @ladies =Item.update_desc.where(category_id:["5", "6", "7","8","9","10"] ).includes(:images)
+    @mens =Item.update_desc.where(category_id:["13", "14", "15","16","17","18"]).includes(:images)
     
   end
 
@@ -70,7 +70,7 @@ class ItemsController < ApplicationController
       :user_id, #このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
       images_attributes: [:image]
       )
-      # .merge(user_id: current_user.id) #これはあとで使う予定
+      # .merge(user_id: current_user.id)
   end
 
   def show
