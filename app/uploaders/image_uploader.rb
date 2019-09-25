@@ -5,9 +5,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   process resize_to_fit: [300, 300]
 
   # 環境ごとに保存先変更
-  if Rails.env.development?
-    storage :file
-  elsif Rails.env.test?
+  if Rails.env.development? || Rails.env.test?
     storage :file
   else
     storage :fog
