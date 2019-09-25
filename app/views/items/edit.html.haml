@@ -44,12 +44,12 @@
                   %span.form-requires 必須
                 %br
                 //ここで記述しているのは親カテゴリのみ、子と孫のカテゴリとサイズ、ブランドはajaxで追加する。
-                -# = f.select :category, @category_parent_array, {}, {class: "select", id: "parent_category"}
                 = f.select :category, @category_parent_array, {}, {class: "select", id: "parent_category", selcted: @item.category.parent.parent.name}
-                = f.select :category, @category_child_array, {}, {class: "select", id: "child_category", selcted: @item.category.parent.name}
-                = f.select :category, @category_grandchild_array, {}, {class: "select", id: "grandchild_category", selcted: @item.category.name}
-                -# = f.text_field :category_id, id: 'grand_child_result_id' ,type: 'hidden'
-                = f.text_field :category_id, id: 'grand_child_result_id'
+              .form_group#children
+                = f.select :category, options_for_select(@category_child_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.parent.name), {}, {class: 'select', id: 'child_category'}
+              .form_group#grandchildren
+                = f.select :category, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.name), {}, {class: 'select', id: 'grandchild_category'}
+              = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
             .form-group#size
               = f.label :サイズ, class: "label" do
                 サイズ
@@ -122,7 +122,7 @@
                 .fee-form__left
                   販売手数料 (10%)
                 .fee-form__right
-                  %div.fee-form__right__text
+                  %div.fee-form__right__text -
               %li.profit-form
                 .profit-form__left
                   販売利益
