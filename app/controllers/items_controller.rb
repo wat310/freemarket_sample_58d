@@ -1,10 +1,26 @@
 class ItemsController < ApplicationController
+  require "item.rb"
   # before_action :authenticate_user!, only: [:new, :edit]
 
   def index
-    @ladies =Item.update_desc.where(category_id:["5", "6", "7","8","9","10"] ).includes(:images)
-    @mens =Item.update_desc.where(category_id:["13", "14", "15","16","17","18"]).includes(:images)
-    
+
+  ladies_array = []
+  mens_array = []
+  ladies = Category.where(ancestry: 1)
+  mens = Category.where(ancestry: 2)
+  ladies.each do |lady|
+    ladies_array << lady.child_ids
+  end
+  @lady_id = ladies_array.flatten
+
+  mens.each do |man|
+    mens_array << man.child_ids
+  end
+  @man_id = mens_array.flatten
+
+    @ladies =Item.update_desc.where(category_id:@lady_id ).includes(:images)
+    @mens =Item.update_desc.where(category_id:@man_id ).includes(:images)
+    # TODO ブランド変数の作成
   end
 
   def new
