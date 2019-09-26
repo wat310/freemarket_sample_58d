@@ -1,62 +1,38 @@
-.single-main
-  %section.l-single-container
-    %h2.l-single-head.registration 支払い方法
-    .l-single-content
-      .form-group
-        .payment__list__content
-          %h3.form-signup クレジットカード一覧
-      .form-group
-        %form.card__payment__content
-        .card__list
-          .card__list__picture  
-        .card__number 
-          = "**** **** **** " + '@customer_card.last4'
-        .expire__date
-          - exp_month = @customer_card.exp_month.to_s
-          - exp_year = @customer_card.exp_year.to_s.slice(2,3)
-          = exp_month + " / " + exp_year
-        = form_tag(root_path, method: :delete, id: 'charge-form',  name: "inputForm") do
-          %input{ type: "hidden", name: "card_id", value: "" }
-          %button.form-require 削除する
-        -# = link_to delete_cards_path ,method: :delete,class:"customer-card__content--btn" do
-        -#   %button{type: "submit",class: "btn-red"}
-        -#     削除する
-      .form-group
-        %span 支払い方法について
+.wrapper
+  = render partial: 'shared/header2'
+  .body
+    -# todo:パンくず
+    -# %nav.bread-crumbs
+    .container
+      .content
+        -# ②支払い方法
+        %main.mypage.clearfix
+        .mypage__content2
+          %section.identification.mypage-identification
+            .identification__head 支払い方法
+          .identification
+            .identification__description
+              %ul.settings-payment
+                .settings-payment__sub-title クレジットカード一覧
+                %li.settings-payment__list
+                  %button.remove-butten{type: "submit"} 削除する
+                  %figure.settings-payment__list__card-image
+                  =image_tag "master-card.svg", alt: "card", class: "card-image",size: "30x45"
+                  .settings-payment__list__num
+                    = "**** **** **** " + @default_card_information.last4
+                  .settings-payment__list__num
+                    - exp_month = @default_card_information.exp_month.to_s
+                    - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                    = exp_month + " / " + exp_year
+                  = form_tag(root_path, method: :post, id: 'charge-form',  name: "inputForm") do
+                    %input{ type: "hidden", name: "card_id", value: "" }
 
--# --------------------------------------------
--# 元々のコード
-  -#  .main__content
-  -#   %section.chapter__container
-  -#     %h2.chapter__head 支払い方法
-  -#     .payment__main
-  -#       .payment__list
-  -#         .payment__list__content
-  -#           %h3.sub__head クレジットカード一覧
-  -#       .add__card
-  -#         .payment__list__content
-  -#           = link_to edit_credit_card_path(current_user), class: "red__btn", data: {"turbolinks" => false} do
-  -#             %i
-  -#             = icon('fas', 'credit-card', class: "card__icon")
-  -#             クレジットカードを追加する
-  -#       .not__regist
-  -#         %span 支払い方法について
+            .text-right
+              = link_to '支払い方法について', root_path, method: :get, class: 'text-right'
+              %i.fa.fa-chevron-right
 
--# --------------------------------------------
--# 参考にした記事から引っ張ったコード・クラス名注意
--# .user-card__content
--#    %h2 クレジットカード情報
--#    .customer-card__content
--#      %figure.form_space
--#      = image_tag"credit_cards/visa.svg",size: "50x30"
--#       .customer-card__content--number.form_space
--#         %h3
--#           = "**** **** **** " + @customer_card.last4
--#        .customer-card__content--expired.form_space
--#          - exp_month = @customer_card.exp_month.to_s
--#          - exp_year = @customer_card.exp_year.to_s.slice(2,3)
--#          %h3
--#            = exp_month + " / " + exp_year
--#         = link_to delete_cards_path ,method: :delete,class:"customer-card__content--btn" do
--#           %button{type: "submit",class: "btn-red"}
--#             削除する
+      .side-bar
+      = render partial:"shared/side" 
+
+    = render partial:"shared/aside"
+    = render partial:"shared/footer"
