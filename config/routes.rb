@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :new, :create, :show, :edit, :update] do
     
-    # todo:ユーザーページのrootとcontroller要相談
+  # todo:ユーザーページのrootとcontroller要相談
     member do
       get'logout'
       get'identification'
@@ -45,4 +45,24 @@ Rails.application.routes.draw do
       get :done # 登録完了後のページ
     end
   end
+
+  #クレジットカードページ
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
+  
+  # get :card, to: "card#index"
+  # resources :card, only: [:new, :create, :show, :edit] do
+  #   collection do
+  #     post :delete, to: 'card#delete'
+  #     post :show
+  #   end
+  #   member do
+  #     get :confirmation
+  #   end
+  # end 
 end

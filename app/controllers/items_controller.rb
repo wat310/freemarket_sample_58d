@@ -49,6 +49,13 @@ class ItemsController < ApplicationController
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
+  def buy
+  end
+
+  def show
+  end
+
+
   private
 
   def item_params
@@ -69,9 +76,6 @@ class ItemsController < ApplicationController
       images_attributes: [:image]
       )
       # .merge(user_id: current_user.id) #これはあとで使う予定
-  end
-
-  def show
   end
 
 end
