@@ -85,6 +85,17 @@
               padding: 0 7px;
               cursor: pointer;
               padding: 0 14px;
+              &__mypagelist {
+                color: #333;
+                float: left;
+                margin: 0 0 0 8px;
+                margin-left: 10px;
+                font-size: 10px;
+                padding: 0 10px;
+                line-height: 30px;
+                border-radius: 4px;
+                text-align: center;
+              }
               &__link{
                 position: relative;
                 display: block;
