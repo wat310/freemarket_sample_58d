@@ -2,7 +2,7 @@
   %nav.mypage-nav
     %ul.mypage-nav__ul
       %li.mypage-nav__ul__li
-        =link_to "#", class:"mypage-nav__ul__li__item" do
+        =link_to "/mypage", class:"mypage-nav__ul__li__item" do
           マイページ
           %i.fa.fa-chevron-right
       %li.mypage-nav__ul__li
@@ -18,7 +18,7 @@
           いいね！一覧
           %i.fa.fa-chevron-right
       %li.mypage-nav__ul__li
-        =link_to "#", class:"mypage-nav__ul__li__item2" do
+        =link_to "/items/new", class:"mypage-nav__ul__li__item2" do
           出品する
           %i.fa.fa-chevron-right
       %li.mypage-nav__ul__li
@@ -70,7 +70,7 @@
     %h3.mypage-nav__head 設定
     %ul.mypage-nav--list
       %li.mypage-nav__ul__li
-        =link_to "#", class:"mypage-nav__ul__li__item2" do
+        =link_to "/mypage/:id/profile", class:"mypage-nav__ul__li__item2" do
           プロフィール
           %i.fa.fa-chevron-right
       %li.mypage-nav__ul__li
@@ -87,7 +87,7 @@
           メール/パスワード
           %i.fa.fa-chevron-right
       %li.mypage-nav__ul__li
-        =link_to "#", class:"mypage-nav__ul__li__item2" do
+        =link_to "/mypage/:id/identification", class:"mypage-nav__ul__li__item2" do
           本人情報
           %i.fa.fa-chevron-right
       %li.mypage-nav__ul__li
@@ -95,6 +95,6 @@
           電話番号の確認
           %i.fa.fa-chevron-right
       %li.mypage--nav__ul__li
-        =link_to "#", class:"mypage-nav__ul__li__item2" do
+        =link_to "/mypage/:id/logout", class:"mypage-nav__ul__li__item2" do
           ログアウト
           %i.fa.fa-chevron-right
