@@ -2,20 +2,20 @@
 = render partial:"shared/header2"
 .container
   .detail
-    %h2.detail__head= @item.price
+    %h2.detail__head= "¥#{@item.price}"
     .detail__box
       .detail__box__item
         .detail__box__item__image--large
-          -# = image_tag @images.url, alt: '商品画像'
+          = image_tag "#{@images.first.image}", alt: '商品画像'
         .detail__box__item__image--small
-          -# - @images.each do |image|
-          -#   = image_tag image.url, alt: '商品画像'
+          - @images.each do |image|
+            = image_tag "#{image.image}", alt: '商品画像'
       %table.detail__box__item
         %tbody.detail__box__item__table
           %tr
             %th 出品者
             %td
-              -# = link_to "#{@item.user.nickname}", '#'
+              = link_to "#{@item.user.nickname}", '#'
               .review
                 .review__image
                   = image_tag("")
