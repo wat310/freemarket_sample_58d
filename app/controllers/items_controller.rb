@@ -53,6 +53,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    fee = @item.price * 0.1
+    @fee = fee.floor
+    @profit = @item.price - @fee
     # 親セレクトボックスの初期値(配列)
     @category_parent_array = []
     # categoriesテーブルから親カテゴリーのみを抽出、配列に格納

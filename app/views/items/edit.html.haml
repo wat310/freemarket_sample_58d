@@ -122,12 +122,18 @@
                 .fee-form__left
                   販売手数料 (10%)
                 .fee-form__right
-                  %div.fee-form__right__text -
+                  -# %div.fee-form__right__text -
+                  %div.fee-form__right__text
+                  ¥
+                  = @fee
               %li.profit-form
                 .profit-form__left
                   販売利益
                 .profit-form__right
-                  %div.profit-form__right__text -
+                  -# %div.profit-form__right__text -
+                  %div.profit-form__right__text
+                  ¥
+                  = @profit
 
         -# 変更するボタン
         .sell-content.clearfix
