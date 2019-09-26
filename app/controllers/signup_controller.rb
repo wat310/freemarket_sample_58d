@@ -28,10 +28,10 @@ class SignupController < ApplicationController
 
   def step4
     # step3で入力された値をsessionに保存
-    # session[:family_name_kanji] = user_params[:family_name_kanji]
-    # session[:first_name_kanji] = user_params[:first_name_kanji]
-    # session[:family_name_kana] = user_params[:family_name_kana]
-    # session[:first_name_kana] = user_params[:first_name_kana]
+    session[:family_name_kanji] = user_params[:family_name_kanji]
+    session[:first_name_kanji] = user_params[:first_name_kanji]
+    session[:family_name_kana] = user_params[:family_name_kana]
+    session[:first_name_kana] = user_params[:first_name_kana]
     user_params[:postal_code]
     user_params[:prefecture_id]
     user_params[:city]

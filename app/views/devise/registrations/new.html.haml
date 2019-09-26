@@ -3,26 +3,25 @@
   = render partial:"devise/header"
   
   %main.single-main
-    %section.l-single-container
-      %h2.l-single-head.registration 新規会員登録
-      
-      .l-single-inner.registration-form
-        .l-single-content
-          %button{ class: "btn-default btn-mail", href: "/signup/step1" }
-            = link_to'/signup/step1', class: 'mail' do
-              = fa_icon "envelope"
-            メールアドレスで登録する
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      %section.l-single-container
+        %h2.l-single-head.registration 新規会員登録
+        .l-single-inner.registration-form
+          .l-single-content
+            %button{ class: "btn-default btn-mail", href: "/signup/step1" }
+              = link_to'/signup/step1', class: 'mail' do
+                = fa_icon "envelope"
+                メールアドレスで登録する
 
-          %button{id: "facebook-login", class: "btn-default btn-sns btn-sns-facebook" }
-            = link_to' ', class: 'facebook' do
-              = fa_icon "facebook-square"
-              Facebookでログイン
+            %button{id: "facebook-login", class: "btn-default btn-sns btn-sns-facebook" }
+              = link_to'/users/auth/facebook',  method: :post, class: 'facebook' do
+                = fa_icon "facebook-square"
+                Facebookで登録する
 
-          %button{id: "google-login", class: "btn-default btn-sns btn-sns-google" }
-            = link_to' ', class: 'google' do
-              =image_tag '/google.svg', alt: '', height: '45', width: '60',class: "google-logo"
-            Googleでログイン
-          = render "devise/shared/links"      
-      %form{action: "", method: "POST", novalidate: "novalidate"}
+            %button{id: "google-login", class: "btn-default btn-sns btn-sns-google" }
+              = link_to'/users/auth/google_oauth2', method: :post, class: 'google' do
+                =image_tag '/google.svg', alt: '', height: '45', width: '60',class: "google-logo"
+                Googleで登録する
+            = render "devise/shared/links"      
 
   = render partial:"devise/footer"
