@@ -1,8 +1,26 @@
 class ItemsController < ApplicationController
-  # before_action :authenticate_user!, only: [:new, :edit] #これはあとで使う予定
+  require "item.rb"
+  # before_action :authenticate_user!, only: [:new, :edit]
 
   def index
-    # @items = @items.where
+
+  ladies_array = []
+  mens_array = []
+  ladies = Category.where(ancestry: 1)
+  mens = Category.where(ancestry: 2)
+  ladies.each do |lady|
+    ladies_array << lady.child_ids
+  end
+  @lady_id = ladies_array.flatten
+
+  mens.each do |man|
+    mens_array << man.child_ids
+  end
+  @man_id = mens_array.flatten
+
+    @ladies =Item.update_desc.where(category_id:@lady_id ).includes(:images)
+    @mens =Item.update_desc.where(category_id:@man_id ).includes(:images)
+    # TODO ブランド変数の作成
   end
 
   def new
@@ -68,10 +86,13 @@ class ItemsController < ApplicationController
       :user_id, #このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
       images_attributes: [:image]
       )
-      # .merge(user_id: current_user.id) #これはあとで使う予定
+      # .merge(user_id: current_user.id)
   end
 
   def show
+  end
+
+  def card
   end
 
 end
