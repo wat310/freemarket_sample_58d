@@ -69,8 +69,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    # @next_item = Item.show_next_item
-    # @prev_item = Item.show_prev_item
+    @next_item = Item.where("id > ?", @item.id).order("id ASC").first
+    @prev_item = Item.where("id < ?", @item.id).order("id DESC").first
     @images = @item.images
 
 

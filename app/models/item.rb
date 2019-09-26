@@ -28,4 +28,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   scope :update_desc, ->{order("updated_at DESC").limit(10)}
+  # scope :next_item, ->{}
+  # scope :prev_item, ->{where("id < ?", @item.id).order("id DESC").first}
 end

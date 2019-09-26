@@ -45,6 +45,9 @@
             %th ブランド
             %td=  @item.brand&.name
           %tr
+            %th 商品のサイズ
+            %td=  @item&.size
+          %tr
             %th 商品の状態
             %td= @item.state_i18n
           %tr
@@ -63,8 +66,11 @@
       %span= "¥ #{number_with_delimiter(@item.price)}"
       %span （税込）
       %span= (@item.postage==0) ? "送料込み" : "着払い"
-    .detail__purchase
-      = link_to '購入画面に進む', buy_item_path(@item)
+    -if user_signed_in?
+      = link_to '購入画面に進む', buy_item_path(@item), class: 'detail__purchase' unless current_user_id == @item.user_id
+    -else
+      = link_to '購入画面に進む', new_user_session_path, class: 'detail__purchase'
+      
     .detail__explanation= @item.explanation
     .detail__others
       = button_tag type: 'like!', class: 'detail__others--left' do
@@ -86,11 +92,14 @@
       = submit_tag "コメントする", class: 'comment__form__action'
   
   .prev-next
+  -if @prev_item.present?
     .prev-next--left
       %i.fa.fa-chevron-left
-      %span.next-item 新品未使用ジーンズ
+      =link_to "#{@prev_item.name}", item_path(@prev_item)
+      
+  -if @next_item.present?
     .prev-next--right
-      %span.next-item ブランドバッグ
+      =link_to "#{@next_item.name}", item_path(@next_item)
       %i.fa.fa-chevron-right
   
   .sns-box
