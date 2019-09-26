@@ -28,5 +28,4 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   scope :update_desc, ->{order("updated_at DESC").limit(10)}
-  
 end
