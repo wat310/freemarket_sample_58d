@@ -2,7 +2,7 @@
 = render partial:"shared/header2"
 .container
   .detail
-    %h2.detail__head= "¥#{@item.price}"
+    %h2.detail__head= @item.name
     .detail__box
       .detail__box__item
         .detail__box__item__image--large
@@ -15,7 +15,7 @@
           %tr
             %th 出品者
             %td
-              = link_to "#{@item.user.nickname}", '#'
+              = link_to @item.user.nickname, '#'
               .review
                 .review__image
                   = image_tag("")
@@ -29,37 +29,47 @@
                   = image_tag("")
                   = fa_icon "frown-o"
                 %span.review__number 1
+                -# TODO レビュー数表示
           %tr
             %th カテゴリー
-            %td= ""
+            %td 
+              = link_to '#' do
+                %span= @item.category.parent.parent.name
+              = link_to '#' do
+                %i.fa.fa-chevron-right
+                %span= @item.category.parent.name
+              = link_to '#' do
+                %i.fa.fa-chevron-right
+                %span= @item.category.name
           %tr
             %th ブランド
-            %td= ""
+            %td=  @item.brand&.name
           %tr
             %th 商品の状態
-            %td= ""
+            %td= @item.state_i18n
           %tr
             %th 配送料の負担
-            %td= ""
+            %td= @item.postage_i18n
           %tr
             %th 配送の方法
-            %td= ""
+            %td= @item.shipping_method_i18n
           %tr
             %th 発送元地域
             %td=""
           %tr
             %th 発送日の目安
-            %td= ""
+            %td= @item.shipping_date_i18n
     .detail__price
-      %span= "¥"
+      %span= "¥ #{number_with_delimiter(@item.price)}"
       %span （税込）
-      %span 送料込み
+      %span= (@item.postage==0) ? "送料込み" : "着払い"
     .detail__purchase
-      = link_to '購入画面に進む', '#'
-    .detail__explanation= '@item.explanation'
+      = link_to '購入画面に進む', buy_item_path(@item)
+    .detail__explanation= @item.explanation
     .detail__others
       = button_tag type: 'like!', class: 'detail__others--left' do
         %i.fa.fa-heart.like
+          -# TODO like数取得
         %span いいね!
         %span 2
       = link_to '#', class: 'detail__others--left' do
