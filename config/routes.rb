@@ -48,21 +48,12 @@ Rails.application.routes.draw do
   #クレジットカード登録・一覧・削除
   resources :card, only: [:index, :new, :show] do
     collection do
-      post 'show',   to: 'card#show'
-      post 'pay',    to: 'card#pay'
-      post 'delete', to: 'card#delete'
-      get 'index',   to: 'purchase#index'
-      post 'pay',    to: 'purchase#pay'
-      get 'done',    to: 'purchase#done'
+      post :show,   to: 'card#show'
+      post :pay,    to: 'card#pay'
+      post :delete, to: 'card#delete'
+      get :index,   to: 'purchase#index'
+      post :pay,    to: 'purchase#pay'
+      get :done,    to: 'purchase#done'
     end
   end
 end
-  #クレジットカード決済・購入完了
-#   resources :purchase, only: [:index] do
-#     collection do
-#       get 'index', to: 'purchase#index'
-#       post 'pay', to: 'purchase#pay'
-#       get 'done', to: 'purchase#done'
-#     end
-#   end
-# end

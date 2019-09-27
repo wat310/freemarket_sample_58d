@@ -2,6 +2,17 @@ class CardController < ApplicationController
   # WIP:クレジットカード実装中
   require "payjp"
 
+  def index
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+      redirect_to controller: "card", action: "new"
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+  end
+
   def new
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
@@ -36,6 +47,7 @@ class CardController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
+    # binding.pry
     end
       redirect_to action: "new"
   end
@@ -48,31 +60,17 @@ class CardController < ApplicationController
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
+
     end
   end
 
-  def index
-    card = Card.where(user_id: current_user.id).first
-    #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
-    if card.blank?
-      #登録された情報がない場合にカード登録画面に移動
-      redirect_to controller: "card", action: "new"
-    else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      #保管した顧客IDでpayjpから情報取得
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
-      @default_card_information = customer.cards.retrieve(card.card_id)
-    end
-  end
-
-  def pay
+  def buy
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-    :amount => 13500, #支払金額を入力（itemテーブル等に紐づけても良い）
-    :customer => card.customer_id, #顧客ID
-    :currency => 'jpy', #日本円
+    amount: 13500, #支払金額を入力（itemテーブル等に紐づけ?）
+    customer: card.customer_id, #顧客ID
+    currency: 'jpy', #日本円
   )
   redirect_to action: 'done' #完了画面に移動
   end
