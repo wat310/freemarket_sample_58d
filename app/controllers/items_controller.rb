@@ -75,8 +75,6 @@ class ItemsController < ApplicationController
     @user_item = Item.update_desc.where(user_id: @item.user_id).limit(6)
     @category_item = Item.update_desc.where(category_id: @item.category_id).limit(6)
 
-
-    # binding.pry
   end
 
   private
