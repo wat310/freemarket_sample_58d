@@ -20,14 +20,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # if params[:images][:image].count != 0
     params[:images][:image].each do |i|
       #createだとエラーが出た
       @item.images.build(image: i, item_id: @item.id)
     end
-    # end
       if @item.save
-        binding.pry
         redirect_to root_path
       else
         redirect_to new_item_path
@@ -71,6 +68,16 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item.update(item_params)
+    params[:images][:image].each do |i|
+      #createだとエラーが出た
+      @item.images.build(image: i, item_id: @item.id)
+    end
+      if @item.save
+        redirect_to root_path
+      else
+        redirect_to edit_item_path
+      end
   end
 
   def show

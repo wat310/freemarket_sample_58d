@@ -44,7 +44,7 @@ $(document).on('turbolinks:load', function() {
       var input_count = $(this).val();
 
       if (input_count >= 300 && input_count <= 9999999 ) {
-        $('.fee-form__right').remove();
+        $('.fee-form__right').remove(); //edit画面ではデフォルトで値をインスタンス変数で入れているので、フォームごと削除してから値を入れ直すように変更
         $('.profit-form__right').remove();
         var cal_fee = input_count * 0.1;
         var fee = Math.floor(cal_fee);
@@ -56,7 +56,7 @@ $(document).on('turbolinks:load', function() {
         $('.profit-form__right__text').text("¥" + profit);
       }
       else { //範囲外の数値が入力されたら、表示をデフォルトに戻す
-        $('.fee-form__right').remove();
+        $('.fee-form__right').remove(); //edit画面ではデフォルトで値をインスタンス変数で入れているので、フォームごと削除してから値を入れ直すように変更
         $('.profit-form__right').remove();
         var empty_text = "---";
         addFeeAndProfitForm(empty_text);
