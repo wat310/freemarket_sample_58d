@@ -13,8 +13,8 @@ crumb :logout do
 end
 
 crumb :identification do
-  link "本人情報の確認"
-  parent :user_mypage
+  link "本人情報の確認",　identification_mypage_path
+  parent :mypage
 end
 
 crumb :item_show do |item|
