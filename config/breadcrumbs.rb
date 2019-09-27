@@ -17,40 +17,6 @@ crumb :identification do
   parent :mypage
 end
 
-crumb :item_show do |item|
-  link item.name, item_path(item.id)
-  parent :root
-end
-
-crumb :wallet do
-  link "支払い方法" 
-  parent :user_mypage
-end
-
-crumb :wallet_paying do
-  link "支払い方法" 
-  parent :user_mypage
-end
-
-crumb :wallet_show do
-  link "支払い方法" 
-  parent :user_mypage
-end
-
-crumb :profile do
-  link "プロフィール" 
-  parent :user_mypage
-end
-
-crumb :search do |q|
-  link q.name_cont
-  parent :root
-end
-
-crumb :sell_item do |q|
-  link "出品した商品"
-  parent :user_mypage
-end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
