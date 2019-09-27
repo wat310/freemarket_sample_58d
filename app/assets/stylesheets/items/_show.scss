@@ -366,8 +366,12 @@
     display: flex;
     justify-content: flex-start;
     width: 100%;
-    padding-bottom: 20px;
-    height: 700px;
+    padding-bottom: 5px;
+    height: 550px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
 
   }
 

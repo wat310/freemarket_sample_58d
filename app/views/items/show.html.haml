@@ -58,7 +58,7 @@
             %td= @item.shipping_method_i18n
           %tr
             %th 発送元地域
-            %td=""
+            %td=@item.prefecture.name
           %tr
             %th 発送日の目安
             %td= @item.shipping_date_i18n
@@ -111,11 +111,16 @@
       %i.fa.fa-pinterest-square.sns-box__link__pinterest
   
   .other-items
-    = link_to "さんのその他の出品", '#', class: "other-items__head"
+    = link_to "#{@item.user.nickname}さんのその他の出品", '#', class: "other-items__head"
     .other-items__box
+      - @user_item.each do |item|
+        = render partial:"shared/item-box",locals: {item: item}
+
   .other-items
-    = link_to "その他の出品", '#', class: "other-items__head"
-  .other-items__box
+    = link_to "#{@item.category.name}のその他の出品", '#', class: "other-items__head"
+    .other-items__box
+      - @category_item.each do |item|
+        = render partial:"shared/item-box",locals: {item: item}
 
 = render partial:"shared/aside"
 = render partial:"shared/footer"

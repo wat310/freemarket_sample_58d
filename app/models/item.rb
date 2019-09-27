@@ -27,7 +27,6 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 
-  scope :update_desc, ->{order("updated_at DESC").limit(10)}
-  # scope :next_item, ->{}
-  # scope :prev_item, ->{where("id < ?", @item.id).order("id DESC").first}
+  scope :update_desc, ->{order("updated_at DESC")}
+
 end

@@ -18,8 +18,8 @@ class ItemsController < ApplicationController
   end
   @man_id = mens_array.flatten
 
-    @ladies =Item.update_desc.where(category_id:@lady_id ).includes(:images)
-    @mens =Item.update_desc.limit(10).where(category_id:@man_id ).includes(:images)
+    @ladies =Item.update_desc.limit(10).where(category_id:@lady_id )
+    @mens =Item.update_desc.limit(10).where(category_id:@man_id )
     # TODO ブランド変数の作成
   end
 
@@ -72,6 +72,8 @@ class ItemsController < ApplicationController
     @next_item = Item.where("id > ?", @item.id).order("id ASC").first
     @prev_item = Item.where("id < ?", @item.id).order("id DESC").first
     @images = @item.images
+    @user_item = Item.update_desc.where(user_id: @item.user_id).limit(6)
+    @category_item = Item.update_desc.where(category_id: @item.category_id).limit(6)
 
 
     # binding.pry
