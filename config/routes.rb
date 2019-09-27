@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'purchase/index'
+  get 'purchase/done'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "items#index"
@@ -45,23 +47,24 @@ Rails.application.routes.draw do
     end
   end
 
-  #クレジットカードページ
-  resources :card, only: [:new, :show] do
+  #クレジットカード登録・一覧・削除
+  resources :card, only: [:index, :new, :show] do
     collection do
-      post 'show', to: 'card#show'
-      post 'pay', to: 'card#pay'
+      post 'show',   to: 'card#show'
+      post 'pay',    to: 'card#pay'
       post 'delete', to: 'card#delete'
+      get 'index',   to: 'purchase#index'
+      post 'pay',    to: 'purchase#pay'
+      get 'done',    to: 'purchase#done'
     end
   end
-  
-  # get :card, to: "card#index"
-  # resources :card, only: [:new, :create, :show, :edit] do
-  #   collection do
-  #     post :delete, to: 'card#delete'
-  #     post :show
-  #   end
-  #   member do
-  #     get :confirmation
-  #   end
-  # end 
 end
+  #クレジットカード決済・購入完了
+#   resources :purchase, only: [:index] do
+#     collection do
+#       get 'index', to: 'purchase#index'
+#       post 'pay', to: 'purchase#pay'
+#       get 'done', to: 'purchase#done'
+#     end
+#   end
+# end

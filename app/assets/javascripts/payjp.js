@@ -1,9 +1,8 @@
-// 参考その２
 document.addEventListener(
   "DOMContentLoaded", e => {
-    if (document.getElementById("token_submit") != null) { //token_submitというidがnullの場合、下記コードを実行しない
-      Payjp.setPublicKey("pk_test_1e8e6918e2d54a6b56d6ca29"); //ここに公開鍵を直書き
-      let btn = document.getElementById("token_submit"); //IDがtoken_submitの場合に取得
+    if (document.getElementById("token_submit") != null) { //token_submit(id)がnullの場合、下記実行しない
+      Payjp.setPublicKey("pk_test_1e8e6918e2d54a6b56d6ca29"); //ここに公開鍵(直書き)
+      let btn = document.getElementById("token_submit"); //IDがtoken_submitの場合取得
       btn.addEventListener("click", e => { //ボタンが押されたときに作動
         e.preventDefault(); //ボタンを一旦無効化
         let card = {
@@ -75,36 +74,3 @@ document.addEventListener(
 // });
 
 // --------------------------------------------
-// payjp処理・記事参考に流れ記載
-// var form = $("#card__form");
-//   Payjp.setPublicKey("pk_test_1e8e6918e2d54a6b56d6ca29");
-//     //↑テスト公開鍵
-//   $("#submit_btn").on("click",function(e){
-//     e.preventDefault();
-//     //↑railsの処理を止めてjsの処理を行う
-//     var card = {
-//       number: $("#card_number").val(),
-//       cvc: $("#card_cvc").val(),
-//       exp_month: $("#card_month").val(),
-//       exp_year: $("#card_year").val()
-//     };
-//     //↑Pay.jpに登録するデータを準備
-//     Payjp.createToken(card,function(status,response){
-//     //↑先ほどのcard情報がトークンという暗号化したものとして返ってくる
-//       form.find("input[type=submit]").prop("disabled", true);
-//       if(status == 200){ //←成功は200
-//         $("#card_number").removeAttr("name");
-//         $("#card_cvc").removeAttr("name");
-//         $("#card_month").removeAttr("name");
-//         $("#card_year").removeAttr("name");
-//         //↑removeAttr("name")でデータを保持しないように消す
-//         var payjphtml = `<input type="hidden" name="payjpToken" value=${response.id}>`
-//         form.append(payjphtml);
-//         //↑dbにトークンを保存するのでjsで作ったトークンをセット
-//         document.inputForm.submit();
-//         //↑ここでsubmit！railsのアクションへ。上でトークンをセットしているのでparamsの中には{payjpToken="トークン"}という情報が入っている
-//       }else{
-//         alert("カード情報が正しくありません。");
-//       }
-//     });
-//   });
