@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
   #親カテゴリー選択後に発生
   def get_category_children
     # 選択された親カテゴリーの子カテゴリーの配列を取得
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Category.find_by(name: "#{params[:parent_info]}", ancestry: nil).children
   end
 
   #子カテゴリー選択後に発生
@@ -54,7 +54,7 @@ class ItemsController < ApplicationController
     @fee = fee.floor
     @profit = @item.price - @fee
     # 親セレクトボックスの初期値(配列)
-    @category_parent_array = []
+    @category_parent_array = ["---"]
     # categoriesテーブルから親カテゴリーのみを抽出、配列に格納
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name

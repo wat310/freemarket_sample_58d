@@ -51,7 +51,7 @@ $(document).on('turbolinks:load', function() {
           url: '/items/get_category_children', //routes.rbに記載
           type: 'GET',
           dataType: 'json',
-          data: {parent_name: parentCategory} //リクエストで一緒に送るデータ
+          data: {parent_info: parentCategory} //リクエストで一緒に送るデータ
         })
         .done(function(children) { //成功したら
           $('#children').remove(); //親が変更された時に子、孫、ブランド、サイズを隠す
