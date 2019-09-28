@@ -23,12 +23,6 @@ $(document).on('turbolinks:load', function(){
       reader.readAsDataURL(file);
       images.push(img);
 
-      // if(images.length >= 1) {
-      //   var data_image_number = images.length - 1
-      //   dropzone.find(`data-image=${data_image_number}`).css({
-      //     'display': 'none'
-      //   })
-      // }
       if(images.length <= 5){
           $('#preview').empty();
           $.each(images, function(index, image) {
@@ -56,8 +50,6 @@ $(document).on('turbolinks:load', function(){
       }
       var new_image = $(`<input multiple= "multiple" name="images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
       input_area.prepend(new_image);
-      
-
     });
 
     // 削除動作
@@ -105,6 +97,5 @@ $(document).on('turbolinks:load', function(){
         dropzone.find('i').replaceWith('<pre class="image-drop-text">ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード</pre>')
       }
     })
-
   });
 });
