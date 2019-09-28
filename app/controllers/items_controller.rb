@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
+  # before_action :authenticate_user!, only: [:new, :edit] # TODO これはあとで使う予定
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :buy]
   require "item.rb"
-  # before_action :authenticate_user!, only: [:new, :edit]
-
+  
   def index
 
   ladies_array = []
@@ -37,7 +38,9 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # binding.pry
+    if params[:images] == nil # 画像が投稿されない時は出品ページに返す
+      redirect_to new_item_path
+    elsif params[:images][:image] != nil
     params[:images][:image].each do |i|
       #createだとエラーが出た
       @item.images.build(image: i, item_id: @item.id)
@@ -47,13 +50,14 @@ class ItemsController < ApplicationController
       else
         redirect_to new_item_path
       end
+    end
   end
 
   #カテゴリーの子と孫はjsonで処理(routes.rbで記述済)
   #親カテゴリー選択後に発生
   def get_category_children
     # 選択された親カテゴリーの子カテゴリーの配列を取得
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Category.find_by(name: "#{params[:parent_info]}", ancestry: nil).children
   end
 
   #子カテゴリー選択後に発生
@@ -67,6 +71,46 @@ class ItemsController < ApplicationController
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
+
+  def edit
+    fee = @item.price * 0.1
+    @fee = fee.floor
+    @profit = @item.price - @fee
+
+    # 親セレクトボックスの初期値(配列)
+    @category_parent_array = ["---"]
+    # categoriesテーブルから親カテゴリーのみを抽出、配列に格納
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    # itemに紐づいていいる孫カテゴリーの親である子カテゴリが属している子カテゴリーの一覧を配列で取得
+    @category_child_array = @item.category.parent.parent.children
+
+    # itemに紐づいていいる孫カテゴリーが属している孫カテゴリーの一覧を配列で取得
+    @category_grandchild_array = @item.category.parent.children
+  end
+
+  def update
+    if params[:images] == nil # 画像に変更を加えていない時は、画像以外のパラメーターを更新する
+      @item.update(item_update_params)
+    elsif params[:images][:image] != nil
+      @item.update(item_params)
+      @item.images.destroy_all # 元々の画像を全て削除する
+      params[:images][:image].each do |i|
+        @item.images.build(image: i, item_id: @item.id)
+      end
+    end
+      if @item.save
+        redirect_to root_path
+      else
+        redirect_to edit_item_path
+      end
+  end
+
+  def buy
+  end
+
   def show
     @item = Item.find(params[:id])
     @next_item = Item.find_by("id > ?", @item.id)
@@ -74,7 +118,6 @@ class ItemsController < ApplicationController
     @images = @item.images
     @user_item = Item.update_desc.where(user_id: @item.user_id).limit(6)
     @category_item = Item.update_desc.where(category_id: @item.category_id).limit(6)
-
   end
 
   private
@@ -93,15 +136,33 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :shipping_date,
       :business_status,
-      :user_id, #このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
+      :user_id, # TODO このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
       images_attributes: [:image]
       )
-      # .merge(user_id: current_user.id)
+      # .merge(user_id: current_user.id) #TODO これはあとで使う予定
   end
 
+  def item_update_params # 画像に変更を加えない時のパラメーター
+    params.require(:item).permit(
+      :name,
+      :price,
+      :explanation,
+      :category_id,
+      :brand_id,
+      :size,
+      :state,
+      :postage,
+      :shipping_method,
+      :prefecture_id,
+      :shipping_date,
+      :business_status,
+      :user_id, # TODO このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
+      )
+      # .merge(user_id: current_user.id) #TODO これはあとで使う予定
+  end
 
-
-  def card
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end

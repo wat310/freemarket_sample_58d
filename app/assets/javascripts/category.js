@@ -48,10 +48,10 @@ $(document).on('turbolinks:load', function() {
       var parentCategory = $('#parent_category').val(); //親カテゴリーの名前を取得
       if (parentCategory != "---") { //親カテゴリーが初期値でないなら
         $.ajax({ //ajax通信を実行
-          url: 'get_category_children', //routes.rbに記載
+          url: '/items/get_category_children', //routes.rbに記載
           type: 'GET',
           dataType: 'json',
-          data: {parent_name: parentCategory} //リクエストで一緒に送るデータ
+          data: {parent_info: parentCategory} //リクエストで一緒に送るデータ
         })
         .done(function(children) { //成功したら
           $('#children').remove(); //親が変更された時に子、孫、ブランド、サイズを隠す
@@ -82,7 +82,7 @@ $(document).on('turbolinks:load', function() {
       var childId = $('#child_category option:selected').data('category'); //子要素のidを取得
       if (childId != "---") { //子カテゴリーが初期値でなければ
         $.ajax({ //ajax通信を実行
-          url: 'get_category_grandchildren', //routes.rbに記載
+          url: '/items/get_category_grandchildren', //routes.rbに記載
           type: 'GET',
           dataType: 'json',
           data: {child_id: childId} //リクエストで一緒に送るデータ
