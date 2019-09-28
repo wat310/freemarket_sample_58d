@@ -1,7 +1,8 @@
 .wrapper
-  = render partial: 'shared/header2'
+  = render partial: 'shared/header3'
+  - breadcrumb :mypage
+  = render "shared/breadcrumbs"
   .body
-    -# %nav.bread-crumbs
     .container
       .content
         .user

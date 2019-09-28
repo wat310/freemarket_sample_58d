@@ -1,5 +1,5 @@
 .wrapper
-  = render partial:"shared/header2"
+  = render partial:"shared/header3"
   .top
     .main
       .slider
@@ -22,21 +22,27 @@
         %h3.pickup__item__head レディース新着アイテム
         .pickup__item__head--link
         =link_to 'もっと見る ＞', "#"
-        .pickup__item__content picture
+        .pickup__item__content 
+          .pickup__item__content__box
+            - @ladies.each do |item|
+              = render partial:"shared/item-box",locals: {item: item}
 
     .pickup
       .pickup__item
         %h3.pickup__item__head メンズ新着アイテム
         .pickup__item__head--link
         =link_to 'もっと見る ＞', "#"
-        .pickup__item__content picture
+        .pickup__item__content 
+          .pickup__item__content__box
+            - @mens.each do |item|
+              = render partial:"shared/item-box",locals: {item: item}
 
     .pickup
       .pickup__item
         %h3.pickup__item__head 家電・スマホ・カメラ新着アイテム
         .pickup__item__head--link
         =link_to 'もっと見る ＞', "#"
-        .pickup__item__content picture
+        .pickup__item__content 
 
     .pickup
       .pickup__item
@@ -87,4 +93,3 @@
   = render partial:"shared/aside"
   = render partial:"shared/footer"
   = render partial:"shared/camera"
-

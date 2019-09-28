@@ -43,6 +43,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'faker'
+  # SNS認証用
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -72,8 +74,11 @@ gem 'devise'
 gem 'font-awesome-rails', '4.7.0.5'
 gem 'active_hash'
 gem 'enum_help'
-gem 'jquery-rails'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
+gem 'jquery-rails'
+
 
 group :production do
   gem 'unicorn', '5.4.1'
@@ -92,6 +97,8 @@ end
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
+gem 'pry-rails'
+gem 'payjp'
 gem 'aws-sdk-s3', '~> 1'
 
 # パンくず

@@ -1,3 +1,4 @@
+// 全体に反映用に記述
 * {
   background-repeat: no-repeat;
   margin: 0;
@@ -109,9 +110,11 @@ button {
   color: #fff;
   margin-bottom: 40px;
 }
+.fa-facebook-square:before {
+  font-size: 40px;
+}
 
-
-
+// ここから下はクラス単位で記述
 .single-container {
   padding:0 0 250px;
   
@@ -160,8 +163,8 @@ button {
         
         }
       }
-
     }
+
 
 
   .login-form-inner {
@@ -176,7 +179,6 @@ button {
     .fab.fa-facebook-square{
       font-family: 'icon-font';
       font-size: 26px;
-      // color: white;
       &:before {
         content: '\e014';
       }
@@ -184,8 +186,6 @@ button {
     .facebook{
       color: white;
     }
-
-
 
     .form-group{
       margin: 24px 0 0;

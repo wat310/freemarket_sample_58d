@@ -8,12 +8,14 @@
 @import "index";
 @import "aside";
 @import "footer";
+@import "breadcrumbs";
 
 // items
 @import "items/new";
 @import "items/header2";
 @import "item-user_footer";
 @import "items/edit";
+@import "items/item-box";
 
 // signin,sginup
 @import "sign_up/sign_in";
