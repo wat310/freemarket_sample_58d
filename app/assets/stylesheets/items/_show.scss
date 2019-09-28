@@ -247,7 +247,21 @@
     }
   }
 }
-
+.seller-edit{
+  padding: 8px 30px;
+  &__link{
+    width: 100%;
+    height: 60px;
+    margin-top: 16px;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
 .comment {
   width: 100%;
   padding: 24px;
