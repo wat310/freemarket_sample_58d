@@ -102,7 +102,7 @@ class ItemsController < ApplicationController
       end
     end
       if @item.save
-        redirect_to root_path
+        redirect_to action: 'show'
       else
         redirect_to edit_item_path
       end
