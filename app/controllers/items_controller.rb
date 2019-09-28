@@ -18,8 +18,8 @@ class ItemsController < ApplicationController
   end
   @man_id = mens_array.flatten
 
-    @ladies =Item.update_desc.where(category_id:@lady_id ).includes(:images)
-    @mens =Item.update_desc.where(category_id:@man_id ).includes(:images)
+    @ladies =Item.update_desc.limit(10).where(category_id:@lady_id )
+    @mens =Item.update_desc.limit(10).where(category_id:@man_id )
     # TODO ブランド変数の作成
   end
 
@@ -67,6 +67,16 @@ class ItemsController < ApplicationController
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
+  def show
+    @item = Item.find(params[:id])
+    @next_item = Item.find_by("id > ?", @item.id)
+    @prev_item = Item.find(@item.id - 1) unless @item.id == 1
+    @images = @item.images
+    @user_item = Item.update_desc.where(user_id: @item.user_id).limit(6)
+    @category_item = Item.update_desc.where(category_id: @item.category_id).limit(6)
+
+  end
+
   private
 
   def item_params
@@ -89,8 +99,7 @@ class ItemsController < ApplicationController
       # .merge(user_id: current_user.id)
   end
 
-  def show
-  end
+
 
   def card
   end
