@@ -4,6 +4,7 @@
   %main.main
     %section.main__item-box
       %h2.main__item-box__head 商品の情報を入力
+      -# = image_tag "#{@item.images.first.image}"
       = form_for @item do |f|
         -# この下のuser_idはユーザー機能の実装後すぐに消すこと!!
         = f.text_field :user_id, value: "1", type: 'hidden'
@@ -12,7 +13,7 @@
             .image-text 出品画像
             %span.form-requires 必須
           %p.picture-limit 最大10枚までアップロードできます
-          = f.fields_for :images do |i|
+          = f.fields_for :upload_images do |i|
             .dropzone-container.clearfix
               .preview#preview
               .dropzone-area
@@ -63,9 +64,11 @@
                 ブランド
                 %span.form-free 任意
               %br
-              //これは名前を表示させるためだけのボックス(コントローラーへの値の受け渡しはしない)
-              -# = f.text_field :brand, value: @item.brand.name, class: 'input-brand', placeholder: "例) シャネル"
-              = f.text_field :brand, class: 'input-brand', placeholder: "例) シャネル"
+              // ブランド名が空の時と表示の条件を分ける
+              -if @item.brand != nil
+                = f.text_field :brand, class: 'input-brand', placeholder: "例) シャネル", value: @item.brand.name
+              -else
+                = f.text_field :brand, class: 'input-brand', placeholder: "例) シャネル"
               //ここのvalue値をコントローラーに渡す(type: hiddenで隠している)
               = f.text_field :brand_id, id: 'brand_result_id' ,type: 'hidden'
               //ここにインクリメンタルサーチの結果を表示する

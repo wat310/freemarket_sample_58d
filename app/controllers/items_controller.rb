@@ -20,6 +20,9 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    if params[:images] == nil # 画像が投稿されない時は出品ページに返す
+      redirect_to new_item_path
+    elsif params[:images][:image] != nil
     params[:images][:image].each do |i|
       #createだとエラーが出た
       @item.images.build(image: i, item_id: @item.id)
@@ -29,6 +32,7 @@ class ItemsController < ApplicationController
       else
         redirect_to new_item_path
       end
+    end
   end
 
   #カテゴリーの子と孫はjsonで処理(routes.rbで記述済)
@@ -53,6 +57,7 @@ class ItemsController < ApplicationController
     fee = @item.price * 0.1
     @fee = fee.floor
     @profit = @item.price - @fee
+
     # 親セレクトボックスの初期値(配列)
     @category_parent_array = ["---"]
     # categoriesテーブルから親カテゴリーのみを抽出、配列に格納
@@ -68,10 +73,14 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params)
-    params[:images][:image].each do |i|
-      #createだとエラーが出た
-      @item.images.build(image: i, item_id: @item.id)
+    if params[:images] == nil # 画像に変更を加えていない時は、画像以外のパラメーターを更新する
+      @item.update(item_update_params)
+    elsif params[:images][:image] != nil
+      @item.update(item_params)
+      @item.images.destroy_all # 元々の画像を全て削除する
+      params[:images][:image].each do |i|
+        @item.images.build(image: i, item_id: @item.id)
+      end
     end
       if @item.save
         redirect_to root_path
@@ -104,6 +113,25 @@ class ItemsController < ApplicationController
       :business_status,
       :user_id, # TODO このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
       images_attributes: [:image]
+      )
+      # .merge(user_id: current_user.id) #TODO これはあとで使う予定
+  end
+
+  def item_update_params # 画像に変更を加えない時のパラメーター
+    params.require(:item).permit(
+      :name,
+      :price,
+      :explanation,
+      :category_id,
+      :brand_id,
+      :size,
+      :state,
+      :postage,
+      :shipping_method,
+      :prefecture_id,
+      :shipping_date,
+      :business_status,
+      :user_id, # TODO このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
       )
       # .merge(user_id: current_user.id) #TODO これはあとで使う予定
   end

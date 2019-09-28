@@ -14,7 +14,7 @@ $(document).on('turbolinks:load', function(){
       inputs.push($(this));
       var img = $(`<div class= "img_view"><img class="preview" width="114px" height="114px"></div>`);
       reader.onload = function(e) {
-        var btn_wrapper = $('<div class="btn_wrapper"><div class="btn delete">削除</div></div>');
+        var btn_wrapper = $('<div class="btn_wrapper"><div class="delete">削除</div></div>');
         img.append(btn_wrapper);
         img.find('img').attr({
           src: e.target.result
@@ -56,6 +56,7 @@ $(document).on('turbolinks:load', function(){
       }
       var new_image = $(`<input multiple= "multiple" name="images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
       input_area.prepend(new_image);
+      
 
     });
 
