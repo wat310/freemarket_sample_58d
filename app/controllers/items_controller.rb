@@ -1,9 +1,27 @@
 class ItemsController < ApplicationController
   # before_action :authenticate_user!, only: [:new, :edit] # TODO これはあとで使う予定
   before_action :set_item, only: [:show, :edit, :update, :destroy, :buy]
-
+  require "item.rb"
+  
   def index
-    # @items = @items.where
+
+  ladies_array = []
+  mens_array = []
+  ladies = Category.where(ancestry: 1)
+  mens = Category.where(ancestry: 2)
+  ladies.each do |lady|
+    ladies_array << lady.child_ids
+  end
+  @lady_id = ladies_array.flatten
+
+  mens.each do |man|
+    mens_array << man.child_ids
+  end
+  @man_id = mens_array.flatten
+
+    @ladies =Item.update_desc.limit(10).where(category_id:@lady_id )
+    @mens =Item.update_desc.limit(10).where(category_id:@man_id )
+    # TODO ブランド変数の作成
   end
 
   def new
@@ -53,6 +71,7 @@ class ItemsController < ApplicationController
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
+
   def edit
     fee = @item.price * 0.1
     @fee = fee.floor
@@ -89,10 +108,16 @@ class ItemsController < ApplicationController
       end
   end
 
-  def show
+  def buy
   end
 
-  def buy
+  def show
+    @item = Item.find(params[:id])
+    @next_item = Item.find_by("id > ?", @item.id)
+    @prev_item = Item.find(@item.id - 1) unless @item.id == 1
+    @images = @item.images
+    @user_item = Item.update_desc.where(user_id: @item.user_id).limit(6)
+    @category_item = Item.update_desc.where(category_id: @item.category_id).limit(6)
   end
 
   private
