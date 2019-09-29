@@ -42,6 +42,7 @@ class SignupController < ApplicationController
   end
 
   def step5
+    # message: クレジットカード登録で使用する可能性あり
     # step4で入力された値をsessionに保存
     # credit_card_params[:number]
     # credit_card_params[:limit_year]
@@ -95,23 +96,6 @@ class SignupController < ApplicationController
         building: user_params[:building],
         )
       end
-      # nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
-      # email: session[:email],
-      # password: session[:password],
-      # family_name_kanji: session[:family_name_kanji], 
-      # first_name_kanji: session[:first_name_kanji], 
-      # family_name_kana: session[:family_name_kana], 
-      # first_name_kana: session[:first_name_kana], 
-      # birth_year: session[:birth_year],
-      # birth_month: session[:birth_month],
-      # birth_day: session[:birth_day],
-      # phone_number: session[:phone_number],
-      # postal_code: user_params[:postal_code],
-      # prefecture_id: user_params[:prefecture_id],
-      # city: user_params[:city],
-      # house_number: user_params[:house_number],
-      # building: user_params[:building],
-
 
       # クレジットカード登録で使用する可能性あり
       # number: credit_card_params[:number],
@@ -121,7 +105,6 @@ class SignupController < ApplicationController
 
     if @user.save
     # ログインするための情報を保管
-    # @sns = SnsCredential.where(uid: @user.uid)
       session[:id] = @user.id
       redirect_to  "/signup/step5"
     else
@@ -153,6 +136,7 @@ end
         :city,
         :house_number,
         :building,
+        # クレジットカード登録で使用する可能性あり
         # :number,
         # :limit_year,
         # :limit_month,
