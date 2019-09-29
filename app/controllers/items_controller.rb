@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update] # TODO これはあとで使う予定
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy, :buy]
   require "item.rb"
   
@@ -138,7 +138,7 @@ class ItemsController < ApplicationController
       :business_status,
       images_attributes: [:image]
       )
-      .merge(user_id: current_user.id) #TODO これはあとで使う予定
+      .merge(user_id: current_user.id)
   end
 
   def item_update_params # 画像に変更を加えない時のパラメーター
@@ -156,7 +156,7 @@ class ItemsController < ApplicationController
       :shipping_date,
       :business_status,
       )
-      .merge(user_id: current_user.id) #TODO これはあとで使う予定
+      .merge(user_id: current_user.id)
   end
 
   def set_item
