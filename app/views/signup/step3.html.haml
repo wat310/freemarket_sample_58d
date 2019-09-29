@@ -30,18 +30,18 @@
           .form-group
             = f.label "お名前" 
             %span.form-require 必須
-            = f.text_field :family_name_kanji, autofocus: true,class:"input-default",placeholder: "森田"
-            = f.text_field :first_name_kanji, autofocus: true,class:"input-default",placeholder: "大陽"
+            = f.text_field :family_name_kanji, class:"input-default",placeholder: "森田"
+            = f.text_field :first_name_kanji, class:"input-default",placeholder: "大陽"
 
             = f.label "お名前カナ"
             %span.form-require 必須
-            = f.text_field :family_name_kana, autofocus: true,class:"input-default",placeholder: "モリタ"
-            = f.text_field :first_name_kana, autofocus: true,class:"input-default",placeholder: "ヒロアキ"
+            = f.text_field :family_name_kana, class:"input-default",placeholder: "モリタ"
+            = f.text_field :first_name_kana, class:"input-default",placeholder: "ヒロアキ"
 
           .form-group
             = f.label "郵便番号"
             %span.form-require 必須
-            = f.text_field :postal_code, autofocus: true,class:"input-default",placeholder: "例)123-4567"
+            = f.text_field :postal_code, autofocus: true, class:"input-default",placeholder: "例)123-4567"
   
           .form-group
             = f.label "都道府県"
@@ -51,7 +51,7 @@
             .form-group
               = f.label "市区町村"
               %span.form-require 必須
-              = f.text_field :city, autofocus: true,class:"input-default",placeholder: "例)埼玉県久喜市" 
+              = f.text_field :city, autofocus: true, class:"input-default", placeholder: "例)埼玉県久喜市" 
 
             .form-group
               = f.label "番地"
@@ -61,7 +61,7 @@
             .form-group
               = f.label "建物名"
               %span.form-require.any 任意
-              = f.text_field :building, autofocus: true,class:"input-default",placeholder: "例)森ビル3103"  
+              = f.text_field :building, autofocus: true, class:"input-default", placeholder: "例)森ビル3103"  
 
             .form-group
               = f.label "電話番号"
