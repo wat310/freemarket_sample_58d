@@ -4,10 +4,7 @@
   %main.main
     %section.main__item-box
       %h2.main__item-box__head 商品の情報を入力
-      -# = image_tag "#{@item.images.first.image}"
       = form_for @item do |f|
-        -# この下のuser_idはユーザー機能の実装後すぐに消すこと!!
-        = f.text_field :user_id, value: "1", type: 'hidden'
         .sell-upload-box
           %h3.sell-upload-head
             .image-text 出品画像

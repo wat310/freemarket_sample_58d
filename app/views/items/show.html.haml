@@ -67,7 +67,7 @@
       %span （税込）
       %span= (@item.postage==0) ? "送料込み" : "着払い"
     -if user_signed_in?
-      = link_to '購入画面に進む', buy_item_path(@item), class: 'detail__purchase' unless current_user_id == @item.user_id
+      = link_to '購入画面に進む', buy_item_path(@item), class: 'detail__purchase' unless current_user.id == @item.user_id
     -else
       = link_to '購入画面に進む', new_user_session_path, class: 'detail__purchase'
       
