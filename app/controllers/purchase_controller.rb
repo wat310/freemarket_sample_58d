@@ -1,6 +1,7 @@
 class PurchaseController < ApplicationController
 
-# クレジット購入機能
+# クレジット購入
+# TODO:ルーティング要修正。下記、商品購入ページ実装前のため仮置きページに偏移する仕様。
   require 'payjp'
   def index
     card = Card.find_by(user_id: current_user.id)
@@ -23,5 +24,4 @@ class PurchaseController < ApplicationController
   )
   redirect_to action: 'done' #完了画面に移動
   end
-
 end

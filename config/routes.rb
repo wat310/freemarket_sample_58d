@@ -46,11 +46,6 @@ Rails.application.routes.draw do
   
   #クレジットカード
   resources :card, only: [:new, :show, :create, :destroy] do
-    # member do
-    #   post :show,      to: 'card#show'
-    #   post :pay,       to: 'card#pay'
-    #   delete :delete,  to: 'card#destroy'
-    # end
   end
   resources :purchase, only: [:index] do
     member do
