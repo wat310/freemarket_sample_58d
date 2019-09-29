@@ -11,7 +11,7 @@ class CardController < ApplicationController
   end
 
   #----カード作成(payjpとCardのデータベース作成)
-  def pay
+  def create
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       # binding.pry
@@ -43,7 +43,7 @@ class CardController < ApplicationController
   end
   
   #----カード削除
-  def delete
+  def destroy
     card = Card.find_by(user_id: current_user.id)
     # card = current_user.credit_card
     if card.blank?
@@ -53,11 +53,12 @@ class CardController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete #payjpから削除
       card.delete #テーブルから削除
+      # customer.destroy #payjpから削除
+      # card.destroy #テーブルから削除
     end
-      redirect_to '/card/new'
+      redirect_to mypage_index_path
     # redirect_to action: "new"
   end
-
 end
 
 #   private

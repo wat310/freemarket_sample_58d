@@ -21,14 +21,13 @@ Rails.application.routes.draw do
     member do
       get :logout
       get :identification
-      get :card
+      # get :card
       get :profile
     end
   end
   # マイページ
   resources :mypage, only: [:index] do
     member do
-      get :card
       get :profile
       get :logout
       get :identification
@@ -44,34 +43,20 @@ Rails.application.routes.draw do
       get :step5 # 登録完了後のページ
     end
   end
-
+  
   #クレジットカード
-  # resources :card, only: [:index, :new, :show] do
-  #   collection do
-  #     post :show,     to: 'card#show'
-  #     post :create,   to: 'card#create'
-  #     delete :delete, to: 'card#destroy'
-  #     post :pay,      to: 'card#pay'
-  #     get  :index,    to: 'card#index'
-  #     get  :done,     to: 'card#done'
-  #   end
-  # end
-
-
-  #クレジットカード
-  resources :card, only: [:new, :show] do
-    collection do
-      post :show,      to: 'card#show'
-      post :pay,       to: 'card#pay'
-      delete :delete,  to: 'card#delete'
-    end
+  resources :card, only: [:new, :show, :create, :destroy] do
+    # member do
+    #   post :show,      to: 'card#show'
+    #   post :pay,       to: 'card#pay'
+    #   delete :delete,  to: 'card#destroy'
+    # end
   end
   resources :purchase, only: [:index] do
-    collection do
+    member do
       get :index,  to: 'purchase#index'
       post :pay,   to: 'purchase#pay'
       get :done,   to: 'purchase#done'
     end
   end
-
 end
