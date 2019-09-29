@@ -27,6 +27,6 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 
-  scope :update_desc, ->{order("updated_at DESC").limit(10)}
-  
+  scope :update_desc, ->{order("updated_at DESC")}
+
 end

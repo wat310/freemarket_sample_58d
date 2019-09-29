@@ -1,21 +1,21 @@
 .wrapper
-= render partial:"shared/header2"
+= render partial:"shared/header3"
 .container
   .detail
-    %h2.detail__head= "@item.name"
+    %h2.detail__head= @item.name
     .detail__box
       .detail__box__item
         .detail__box__item__image--large
-          -# = image_tag @images.url, alt: '商品画像'
+          = image_tag "#{@images.first.image}", alt: '商品画像'
         .detail__box__item__image--small
-          -# - @images.each do |image|
-          -#   = image_tag image.url, alt: '商品画像'
+          - @images.each do |image|
+            = image_tag "#{image.image}", alt: '商品画像'
       %table.detail__box__item
         %tbody.detail__box__item__table
           %tr
             %th 出品者
             %td
-              -# = link_to "#{@item.user.nickname}", '#'
+              = link_to @item.user.nickname, '#'
               .review
                 .review__image
                   = image_tag("")
@@ -29,37 +29,56 @@
                   = image_tag("")
                   = fa_icon "frown-o"
                 %span.review__number 1
+                -# TODO レビュー数表示
           %tr
             %th カテゴリー
-            %td= ""
+            %td 
+              = link_to '#' do
+                %span= @item.category.parent.parent.name
+              = link_to '#' do
+                %i.fa.fa-chevron-right
+                %span= @item.category.parent.name
+              = link_to '#' do
+                %i.fa.fa-chevron-right
+                %span= @item.category.name
           %tr
             %th ブランド
-            %td= ""
+            %td=  @item.brand&.name
+          %tr
+            %th 商品のサイズ
+            %td=  @item&.size
           %tr
             %th 商品の状態
-            %td= ""
+            %td= @item.state_i18n
           %tr
             %th 配送料の負担
-            %td= ""
+            %td= @item.postage_i18n
           %tr
             %th 配送の方法
-            %td= ""
+            %td= @item.shipping_method_i18n
           %tr
             %th 発送元地域
-            %td=""
+            %td=@item.prefecture.name
           %tr
             %th 発送日の目安
-            %td= ""
+            %td= @item.shipping_date_i18n
     .detail__price
-      %span= "¥"
+      %span= "¥ #{number_with_delimiter(@item.price)}"
       %span （税込）
-      %span 送料込み
-    .detail__purchase
-      = link_to '購入画面に進む', '#'
-    .detail__explanation= '@item.explanation'
+      %span= (@item.postage==0) ? "送料込み" : "着払い"
+    
+    -if user_signed_in? && current_user.id == @item.user_id
+      =link_to '商品を編集する', edit_item_path(@item), class: 'detail__purchase'
+    -elsif user_signed_in?
+      = link_to '購入画面に進む', buy_item_path(@item), class: 'detail__purchase'
+    -else
+      = link_to '購入画面に進む', new_user_session_path, class: 'detail__purchase'
+      
+    .detail__explanation= @item.explanation
     .detail__others
       = button_tag type: 'like!', class: 'detail__others--left' do
         %i.fa.fa-heart.like
+          -# TODO like数取得
         %span いいね!
         %span 2
       = link_to '#', class: 'detail__others--left' do
@@ -68,6 +87,10 @@
       = link_to '#', class: 'detail__others--right' do
         %i.fa.fa-lock
         %span あんしん・あんぜんへの取り組み
+
+  -if user_signed_in? && current_user.id == @item.user_id
+    .seller-edit
+    =link_to 'この商品を削除する', item_path, method: :delete, class: 'seller-edit__link'
   
   .comment
     %p.comment__note 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -76,11 +99,14 @@
       = submit_tag "コメントする", class: 'comment__form__action'
   
   .prev-next
+  -if @prev_item.present?
     .prev-next--left
       %i.fa.fa-chevron-left
-      %span.next-item 新品未使用ジーンズ
+      =link_to "#{@prev_item.name}", item_path(@prev_item)
+      
+  -if @next_item.present?
     .prev-next--right
-      %span.next-item ブランドバッグ
+      =link_to "#{@next_item.name}", item_path(@next_item)
       %i.fa.fa-chevron-right
   
   .sns-box
@@ -92,11 +118,16 @@
       %i.fa.fa-pinterest-square.sns-box__link__pinterest
   
   .other-items
-    = link_to "さんのその他の出品", '#', class: "other-items__head"
+    = link_to "#{@item.user.nickname}さんのその他の出品", '#', class: "other-items__head"
     .other-items__box
+      - @user_item.each do |item|
+        = render partial:"shared/item-box",locals: {item: item}
+
   .other-items
-    = link_to "その他の出品", '#', class: "other-items__head"
-  .other-items__box
+    = link_to "#{@item.category.name}のその他の出品", '#', class: "other-items__head"
+    .other-items__box
+      - @category_item.each do |item|
+        = render partial:"shared/item-box",locals: {item: item}
 
 = render partial:"shared/aside"
 = render partial:"shared/footer"

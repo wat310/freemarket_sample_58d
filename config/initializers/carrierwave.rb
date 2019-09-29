@@ -16,9 +16,10 @@ CarrierWave.configure do |config|
     }
     config.fog_directory  = 'freemarket-d'
     config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket-d'
-
+    
   else
     config.storage :file # 開発:public/uploades下に保存
     config.enable_processing = false if Rails.env.test? #test:処理をスキップ
   end
+
 end
