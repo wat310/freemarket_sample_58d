@@ -15,7 +15,10 @@
               %ul.settings-payment
                 .settings-payment__sub-title クレジットカード一覧
                 %li.settings-payment__list
-                  -# %button.remove-butten{type: "submit"} 削除する
+                  = form_tag( "/card/:id", method: :delete, id: 'charge-form',  name: "inputForm") do
+                    %input{ type: "hidden", name: "card_id", value: "" }
+                    %button.remove-butten{type: "submit"} 削除する
+
                   %figure.settings-payment__list__card-image
                   =image_tag "master-card.svg", alt: "card", class: "card-image",size: "30x45"
                   .settings-payment__list__num
@@ -24,9 +27,6 @@
                     - exp_month = @default_card_information.exp_month.to_s
                     - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
                     = exp_month + " / " + exp_year
-                  = form_tag( '/card/:id/delete', method: :delete, id: 'charge-form',  name: "inputForm") do
-                    %input{ type: "hidden", name: "card_id", value: "" }
-                    %button.remove-butten{type: "submit"} 削除する
 
             .text-right
               = link_to '支払い方法について', root_path, method: :get, class: 'text-right'
