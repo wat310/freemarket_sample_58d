@@ -1,26 +1,29 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
-  callback for facebook
   def facebook
     callback_for(:facebook)
   end
 
-  callback for google
   def google_oauth2
-    callback_for(:google)
+    callback_for(:google_oauth2)
   end
 
   def callback_for(provider)
-    info = User.find_oauth(request.env["omniauth.auth"]) #usersモデルのメソッド
-    @user = info[:user]
-    sns_id = info[:sns_id]
+    @omniauth =request.env["omniauth.auth"]
+    auth = User.find_oauth(request.env["omniauth.auth"]) #usersモデルのメソッド
+    @user = auth[:user]
+    @sns = auth[:sns]
 
     if @user.persisted? #userが存在したら
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else #userが存在しなかったら
-      session["devise.sns_id"] = sns_id #sns_credentialのid devise.他のアクションに持ち越せる(少し難)
-      render template: "users/registrations/new" #redirect_to だと更新してしまうのでrenderで
+      # session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
+      session[:provider] = @sns[:provider]
+      session[:uid] = @sns[:uid]
+
+      # session user #sns_credentialのid devise.他のアクションに持ち越せる(少し難)
+      render template: "signup/step1" #redirect_to だと更新してしまうのでrenderで
     end
   end
   

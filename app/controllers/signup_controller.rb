@@ -50,7 +50,9 @@ class SignupController < ApplicationController
   end
   
   def create
-    @user = User.new(
+    if session[:uid].present? && session[:provider].present?
+      password = Devise.friendly_token.first(7)
+      @user = User.create(
       nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
       email: session[:email],
       password: session[:password],
@@ -67,18 +69,61 @@ class SignupController < ApplicationController
       city: user_params[:city],
       house_number: user_params[:house_number],
       building: user_params[:building],
+      )
+      @sns = SnsCredential.create(
+        uid: session[:uid],
+        provider: session[:provider],
+        user_id: @user.id
+      )
+    else
+      @user = User.new(
+        nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
+        email: session[:email],
+        password: session[:password],
+        family_name_kanji: session[:family_name_kanji], 
+        first_name_kanji: session[:first_name_kanji], 
+        family_name_kana: session[:family_name_kana], 
+        first_name_kana: session[:first_name_kana], 
+        birth_year: session[:birth_year],
+        birth_month: session[:birth_month],
+        birth_day: session[:birth_day],
+        phone_number: session[:phone_number],
+        postal_code: user_params[:postal_code],
+        prefecture_id: user_params[:prefecture_id],
+        city: user_params[:city],
+        house_number: user_params[:house_number],
+        building: user_params[:building],
+        )
+      end
+      # nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
+      # email: session[:email],
+      # password: session[:password],
+      # family_name_kanji: session[:family_name_kanji], 
+      # first_name_kanji: session[:first_name_kanji], 
+      # family_name_kana: session[:family_name_kana], 
+      # first_name_kana: session[:first_name_kana], 
+      # birth_year: session[:birth_year],
+      # birth_month: session[:birth_month],
+      # birth_day: session[:birth_day],
+      # phone_number: session[:phone_number],
+      # postal_code: user_params[:postal_code],
+      # prefecture_id: user_params[:prefecture_id],
+      # city: user_params[:city],
+      # house_number: user_params[:house_number],
+      # building: user_params[:building],
+
 
       # クレジットカード登録で使用する可能性あり
       # number: credit_card_params[:number],
       # limit_year: credit_card_params[:limit_year],
       # limit_month: credit_card_params[:limit_month],
       # security_code: credit_card_params[:security_code],
-    )
 
     if @user.save
     # ログインするための情報を保管
+    # @sns = SnsCredential.where(uid: @user.uid)
       session[:id] = @user.id
-      redirect_to step5_signup_index_path
+      redirect_to  "/signup/step5"
     else
       render '/signup/step1'
     end
@@ -86,8 +131,7 @@ class SignupController < ApplicationController
 
   def step5
     sign_in User.find(session[:id]) unless user_signed_in?
-  end
-
+end
   
   private
     def user_params
