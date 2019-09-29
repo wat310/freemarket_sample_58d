@@ -16,7 +16,7 @@ $(document).on('turbolinks:load', function() {
       if (count != 0) { //入力文字数が1文字以上ならインクリメンタルサーチ実行
         $.ajax({
           type: 'GET',
-          url: 'brand_search',
+          url: '/items/brand_search',
           data: { keyword: input },
           dataType: 'json'
         })
