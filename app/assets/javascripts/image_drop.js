@@ -50,6 +50,11 @@ $(document).on('turbolinks:load', function(){
       }
       var new_image = $(`<input multiple= "multiple" name="images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
       input_area.prepend(new_image);
+      // 透明化している画像フォームを触れないようにする
+      var before_image = images.length - 1;
+      $(`input[data-image= "${before_image}"]`).css({
+        'visibility': `hidden`
+      })
     });
 
     // 削除動作
@@ -96,6 +101,10 @@ $(document).on('turbolinks:load', function(){
       if(images.length == 2) {
         dropzone.find('i').replaceWith('<pre class="image-drop-text">ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード</pre>')
       }
+      // 画像フォームを再度触れるようにする
+      $(`input[data-image= "${images.length}"]`).css({
+        'visibility': `visible`
+      })
     })
   });
 });
