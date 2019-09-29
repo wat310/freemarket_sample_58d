@@ -4,16 +4,14 @@
 }
 
 .header{
-  width:100%;
-  position: relative;
+  width: 100%;
   background-color:white;
-  box-shadow: 5px 0px 4px;
   box-sizing:border-box;
-  min-width: 1000px;
   &__box{
     margin: 0 auto;
     padding: 8px 300px;
     background-color:white;
+    height: 100px;
     &__top{
       display: flex;
       align-items: center;
@@ -74,17 +72,18 @@
         }
       }
         &__right{
-          float: right;
+          // float: right;
           line-height:32px;
-          display:block;
+          // display:inline-block;
           &__content{
             list-style: none;
             &__list{
               position: relative;
-              display: inline-block;
-              padding: 0 7px;
+              // display: inline-block;
+              // padding: 0 7px;
               cursor: pointer;
-              padding: 0 14px;
+              list-style: none;
+              // padding: 0 14px;
               &__mypagelist {
                 color: #333;
                 float: left;
@@ -98,7 +97,7 @@
               }
               &__link{
                 position: relative;
-                display: block;
+                display: inline-block;
                 height: 32px;
                 line-height: 32px;
                 font-size: 0;
