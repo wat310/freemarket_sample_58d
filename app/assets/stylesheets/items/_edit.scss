@@ -88,7 +88,7 @@
           }
           &__price {
             margin: 0 auto;
-            width: 650px;
+            width: 350px;
             color: black;
             line-height: 59px;
             display: inline-block;
@@ -123,11 +123,23 @@
             height: 50px;
             text-decoration: none;
           }
+          .red_btn {
+            margin: 0 auto;
+            font-weight: bold;
+            width: 320px;
+            background-color:$RedColor;
+            margin-top: 10px;
+            font-size: 15px; 
+            line-height: 50%;
+            color: #fff;
+            height: 50px;
+            text-decoration: none;
+          }
+
         }
       
       .section-shipping {
         width: 700px;
-        margin: 0 auto;
         height: 120px;
         background-color: #FFF;
         padding-top: 19px;
@@ -150,8 +162,6 @@
             font-size: 14px;
             color: #00bfff;
             text-decoration: none;
-            .link-to-change {
-            }
           }
         }
       }
@@ -161,7 +171,6 @@
         margin: 0 auto;
         height: 120px;
         background-color: #FFF;
-        padding-: 19px 0 20px;
         &__purchase {
           margin:0 auto;
           height: 105px;
@@ -176,14 +185,12 @@
           &__card-number {
             font-size: 13px;
             margin-top: 5px;
-            height: 50px;
+            height: 20px;
           }
           &__change {
             text-align: right;
             font-size: 14px;
             color: #00bfff;
-            .link-to-change {
-            }
           }
         }
       }

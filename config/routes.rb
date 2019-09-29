@@ -48,8 +48,7 @@ Rails.application.routes.draw do
   resources :card, only: [:new, :show, :create, :destroy] do
   end
   resources :purchase, only: [:index] do
-    member do
-      get :index,  to: 'purchase#index'
+    collection do
       post :pay,   to: 'purchase#pay'
       get :done,   to: 'purchase#done'
     end
