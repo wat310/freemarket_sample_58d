@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   require "item.rb"
-  # before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_item, only: [:show, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
 
@@ -68,7 +69,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @next_item = Item.find_by("id > ?", @item.id)
     @prev_item = Item.where("id < ?", @item.id).first
     @images = @item.images
@@ -77,9 +77,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    if item.user_id == current_user.id
-      item.destroy
+    if @item.user_id == current_user.id
+      @item.destroy
       redirect_to root_path
     end
   end
@@ -107,9 +106,10 @@ class ItemsController < ApplicationController
       # .merge(user_id: current_user.id)
   end
 
-
-
-  def card
+  def set_item
+    @item = Item.find(params[:id])
   end
+
+
 
 end
