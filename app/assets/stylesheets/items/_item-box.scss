@@ -5,16 +5,14 @@
   background-color: #fff;
   margin: 0 15px 20px 0 ;
   border: solid 1px #f5f5f5;
-  
-   
-  .item{
-    a{
-      :hover{
-      outline: solid 1px rgb(51, 184, 255);
-      }
+  &:hover{
+    outline: solid 2px rgb(51, 184, 255);
     }
+}
 
-    &__datail{
+  .item{
+
+    &__detail{
       height: 188px;
       width: 185px;
       position: relative;
@@ -86,5 +84,5 @@
       }
     }
   }
-}
+
 
