@@ -66,8 +66,10 @@
       %span= "¥ #{number_with_delimiter(@item.price)}"
       %span （税込）
       %span= (@item.postage==0) ? "送料込み" : "着払い"
-    -if user_signed_in?
-      = link_to '購入画面に進む', buy_item_path(@item), class: 'detail__purchase' unless current_user.id == @item.user_id
+    -if user_signed_in? && current_user.id == @item.user_id
+      =link_to '商品を編集する', edit_item_path(@item), class: 'detail__purchase'
+    -elsif user_signed_in?
+      = link_to '購入画面に進む', buy_item_path(@item), class: 'detail__purchase'
     -else
       = link_to '購入画面に進む', new_user_session_path, class: 'detail__purchase'
       
@@ -84,6 +86,10 @@
       = link_to '#', class: 'detail__others--right' do
         %i.fa.fa-lock
         %span あんしん・あんぜんへの取り組み
+
+  -if user_signed_in? && current_user.id == @item.user_id
+    .seller-edit
+    =link_to 'この商品を削除する', item_path, method: :delete, class: 'seller-edit__link'
   
   .comment
     %p.comment__note 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。

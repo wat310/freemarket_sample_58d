@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :set_item, only: [:show, :edit, :update, :destroy, :buy]
   require "item.rb"
-  
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :buy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def index
 
   ladies_array = []
@@ -112,13 +112,20 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @next_item = Item.find_by("id > ?", @item.id)
-    @prev_item = Item.find(@item.id - 1) unless @item.id == 1
+    @prev_item = Item.where("id < ?", @item.id).first
     @images = @item.images
     @user_item = Item.update_desc.where(user_id: @item.user_id).limit(6)
     @category_item = Item.update_desc.where(category_id: @item.category_id).limit(6)
   end
+
+  def destroy
+    if @item.user_id == current_user.id
+      @item.destroy
+      redirect_to root_path
+    end
+  end
+
 
   private
 
@@ -141,6 +148,10 @@ class ItemsController < ApplicationController
       .merge(user_id: current_user.id)
   end
 
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
   def item_update_params # 画像に変更を加えない時のパラメーター
     params.require(:item).permit(
       :name,
@@ -159,8 +170,5 @@ class ItemsController < ApplicationController
       .merge(user_id: current_user.id)
   end
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
 
 end
