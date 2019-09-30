@@ -4,6 +4,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
+  @search = Item.search(params[:q])
+  @items = @search.result
 
   ladies_array = []
   mens_array = []
@@ -124,6 +126,10 @@ class ItemsController < ApplicationController
       @item.destroy
       redirect_to root_path
     end
+  end
+
+  def search
+
   end
 
 
