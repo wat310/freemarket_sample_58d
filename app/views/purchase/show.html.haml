@@ -30,7 +30,9 @@
           -# TODO:登録情報がない場合の分岐
           -# %p.error-text 配送先と支払い方法の入力を完了してください。    
           -# %button.gray_btn 購入する
-          = form_tag(action: :pay, method: :post) do
+          .section-buy__main__price
+          -# = link_to done_purchase_path(@item), action: :create, method: :post, class: 'red_btn' do
+          = form_tag(action: :create, method: :post) do
             %button.red_btn 購入する
 
         .section-shipping

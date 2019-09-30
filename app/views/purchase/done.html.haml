@@ -5,20 +5,19 @@
     = image_tag 'buy-logo.svg', alt: 'メルカリロゴ', height: '49', width: '185', class: 'header__icon'
   .body
     .payment
-      %h2.payment__head 購入が完了しました
-      
+      %h2.payment__head 購入が完了しました 
       .section-buy
         .section-buy__main
           .section-buy__main__content-item
-            .section-buy__main__content-item__photo
-              -#TODO アイテム写真表示
-            .section-buy__main__content-item__name
-              = '@item.name'
-            .section-buy__main__content-item__price-fee-box
+            .section-buy__main__content-item__photo-done
+              = image_tag "#{@images.first.image}", height: '100', width: '80'
+            .section-buy__main__content-item__name-done
+              = @item.name
+            .section-buy__main__content-item__price-fee-box.price-fee-box-done
               .section-buy__main__content-item__price-fee-box__price
-                = '¥1,111@items.price'
-              .section-buy__main__content-item__price-fee-box__shipping-fee 送料込み
-
+                = "¥ #{number_with_delimiter(@item.price)}"
+              .section-buy__main__content-item__price-fee-box__shipping-fee
+                = '送料込み'
         .section-shipping
           .section-shipping__adress
             .section-shipping__adress__box
@@ -57,6 +56,9 @@
                 = fa_icon "frown-o"
             .complete_comment
               商品を受け取ったら<br>出品者の評価をしましょう。<br>購入代金が出品者に振り込まれます。<br>評価後に取引は完了です。
+            .complete_comment
+              = link_to '/', class:"link-to-change" do
+                マイページへ戻る
 
   .footer-buy
     .footer-buy__menu
