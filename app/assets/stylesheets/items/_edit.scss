@@ -30,16 +30,18 @@
       .section-buy {
         width: 700px;
         margin: 0 auto;
-        height: 432px;
+        height: 440px;
         background-color: #FFF;
-        padding-top: 19px;
+        padding-top: 20px;
         &__main {
           text-align: center;
           padding-bottom: 10px;
           &__content-item {
             @include clear;
             &__photo {
-              margin-top: 3px;
+              margin-top: 5px;
+              margin-bottom: 10px;
+              margin-left: 180px;
               height: 128px;
               width: 128px;
               float: left;
@@ -50,25 +52,43 @@
             }
             &__name {
               font-weight: 600;
-              margin: 0 auto;
+              margin-right: 180px;
               color: black;
-              width: 314px;
-              height: 48px;
+              width: 200px;
+              height: 128px;
               margin-top: 3px;
               font-size: 16px;
-              float: right;
-              padding-right: 300px;
+              float: left;
+            }
+            &__photo-done {
+              margin: auto;
+              float: auto;
+              .item-photo{
+                height:128px;
+                width:128px;
+              }
+            }
+            &__name-done {
+              font-weight: 600;
+              margin-right: 180px;
+              color: black;
+              width: 300px;
+              height: 40px;
+              padding: 10px;
+              margin: auto;
+              font-size: 16px;
+              float: auto;
             }
             &__price-fee-box {
               margin-top: 9px;
               color: black;
               clear: both;
               display: flex;
+              justify-content: center;
               &__price {
                 font-weight: 600;
                 font-size: 20px;
                 margin-right: 15px;
-                padding-left: 250px;
               }
               &__shipping-fee {
                 font-size: 14px;
@@ -91,8 +111,9 @@
             width: 350px;
             color: black;
             line-height: 59px;
-            display: inline-block;
+            float: left;
             padding-left: 20px;
+            padding-right: 20px;
             &__display {
               font-weight: bold;
               &__text {
@@ -105,6 +126,7 @@
               }
             }
           }
+
           .error-text {
             color: #ea352d;
             line-height: 1.5;
