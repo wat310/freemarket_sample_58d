@@ -29,21 +29,6 @@ $(document).on('turbolinks:load', function() {
       $('.category-forms').append(grandchildSelectHtml);
     }
 
-    //サイズの表示
-    function appendSizeBox() {
-      var sizeHtml = '';
-      sizeHtml = `<div class = 'form-group' id = 'size'>
-                    <label class = 'label'>
-                    サイズ
-                      <span class = 'form-requires'>必須</span>
-                    </label>
-                    <br>
-                    <select class='select' name='item[size]' id='item_size'>
-                    </select>
-                  </div>`
-      $('.category-forms').after(sizeHtml);
-    }
-
     //ブランドの表示
     function appendBrandBox() {
     var brandHtml = '';
@@ -57,7 +42,7 @@ $(document).on('turbolinks:load', function() {
                   <input type = 'hidden' name = "item[brand_id]" id = 'brand_result_id'>
                   <ul id = 'search_brand_result'></ul>
                 </div>`;
-    $('.category-forms').after(brandHtml);
+    $('#state').before(brandHtml);
     }
 
     //親カテゴリー選択後に発生するイベント
@@ -75,6 +60,12 @@ $(document).on('turbolinks:load', function() {
           $('#grandchildren').remove();
           $('#brand').remove();
           // $('#size').remove();
+          $('#size').css({
+            'display': 'none'
+          });
+          $('#size_edit').css({
+            'display': 'none'
+          });
 
           var insertHTML = '';
           children.forEach(function(child) {
@@ -90,7 +81,12 @@ $(document).on('turbolinks:load', function() {
         $('#children').remove();
         $('#grandchildren').remove();
         $('#brand').remove();
-        // $('#size').remove();
+        $('#size').css({
+          'display': 'none'
+        });
+        $('#size_edit').css({
+          'display': 'none'
+        });
       }
     });
 
@@ -108,7 +104,12 @@ $(document).on('turbolinks:load', function() {
           if (grandchildren.length != 0) {
             $('#grandchildren').remove(); //子が変更された時に孫、ブランド、サイズを隠す
             $('#brand').remove();
-            // $('#size').remove();
+            $('#size').css({
+              'display': 'none'
+            });
+            $('#size_edit').css({
+              'display': 'none'
+            });
   
             var insertHTML = '';
             grandchildren.forEach(function(grandchild) {
@@ -124,26 +125,46 @@ $(document).on('turbolinks:load', function() {
       else {
         $('#grandchildren').remove(); //子カテゴリーが初期値だったら、孫以下は隠す
             $('#brand').remove();
-            $('#size').remove();
+            $('#size').css({
+              'display': 'none'
+            });
+            $('#size_edit').css({
+              'display': 'none'
+            });
       }
     });
 
     //孫カテゴリー選択後に発生するイベント
     $(document).on('change', '#grandchild_category', function() {
       $('#brand').remove();
-      $('#size').remove();
+      $('#size').css({
+        'display': 'none'
+      });
+      $('#size_select').val("");
+      $('#size_edit').css({
+        'display': 'none'
+      });
+      $('#size_edit').val("");
 
       var gc_id = $('#grandchild_category option:selected').attr('id');
       $('#grand_child_result_id').val(gc_id);
-      // var grandchildId = $('#grandchild_category option:selected').data('category'); //孫要素のidを取得
       var parent_name = $('#parent_category').val(); //親のテキストを取得
       var child_name = $('#child_category').val();
+
+      // サイズの出現
+      if (parent_name == "レディース" || parent_name == "メンズ") {
+        $('#size').css({
+          'display': 'block'
+        });
+        $('#size_edit').css({
+          'display': 'block'
+        });
+      }
+
+      // ブランドの出現
       if (parent_name == "レディース" || parent_name == "メンズ" || parent_name == "家電・スマホ・カメラ" || child_name == "飲料/酒") {
         appendBrandBox();
       }
-      // if (parent_name == "レディース" || parent_name == "メンズ") {
-      //   appendSizeBox();
-      // }
     });
   });
 });

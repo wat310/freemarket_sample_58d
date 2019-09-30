@@ -1,17 +1,12 @@
 $(document).on('turbolinks:load', function() {
   $(function() {
 
-    // var search_list = $('#search_brand_result');
-
     function appendBrand(brand, search_list) {
       var html = `<li class = 'brand_list' id = '${brand.id}'>${brand.name}</li>`;
       search_list.append(html);
-      // $('ul').append(html);
     }
 
     //ブランドのインクリメンタルサーチ
-    // $('.input-brand').on('keyup', function() {
-    // $('.input-brand').on('keyup', '#item_brand', function() {
       $(document).on('keyup', '#item_brand', function() {
       var input = $('.input-brand').val();
       var count = String(input.length); //入力された文字数をカウントする変数
