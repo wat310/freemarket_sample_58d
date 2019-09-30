@@ -106,3 +106,7 @@ gem 'aws-sdk-s3', '~> 1'
 
 # パンくず
 gem "gretel"
+
+# 検索関連
+gem 'kaminari', '~> 0.17.0'
+gem 'ransack'
