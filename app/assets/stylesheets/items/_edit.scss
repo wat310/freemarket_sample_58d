@@ -108,12 +108,11 @@
           }
           &__price {
             margin: 0 auto;
-            width: 350px;
+            width: 100%;
+            padding: 0px 190px;
             color: black;
             line-height: 59px;
             float: left;
-            padding-left: 20px;
-            padding-right: 20px;
             &__display {
               font-weight: bold;
               &__text {
