@@ -53,17 +53,6 @@
                 %span.form-requires 必須
               %br
               = f.select :size, Item.sizes_i18n.invert, { prompt: "---" }, class: "select"
-            .form-group#brand
-              = f.label :ブランド, class: "label" do
-                ブランド
-                %span.form-free 任意
-              %br
-              //これは名前を表示させるためだけのボックス(コントローラーへの値の受け渡しはしない)
-              = f.text_field :brand, class: 'input-brand', placeholder: "例) シャネル"
-              //ここのvalue値をコントローラーに渡す(type: hiddenで隠している)
-              = f.text_field :brand_id, id: 'brand_result_id' ,type: 'hidden'
-              //ここにインクリメンタルサーチの結果を表示する
-              %ul#search_brand_result
             .form-group
               =f.label :商品の状態, class: "label" do
                 商品の状態

@@ -30,18 +30,35 @@ $(document).on('turbolinks:load', function() {
     }
 
     //サイズの表示
+    function appendSizeBox() {
+      var sizeHtml = '';
+      sizeHtml = `<div class = 'form-group' id = 'size'>
+                    <label class = 'label'>
+                    サイズ
+                      <span class = 'form-requires'>必須</span>
+                    </label>
+                    <br>
+                    <select class='select' name='item[size]' id='item_size'>
+                    </select>
+                  </div>`
+      $('.category-forms').after(sizeHtml);
+    }
 
     //ブランドの表示
-    // function appendBrandBox(insertHTML) {
-    // var brandHtml = '';
-    // brandHtml = `<div class = 'form_group' id = 'brand'>
-    //               <label class = 'label'>ブランド</label>
-    //               <span class = 'form-free'>任意</span>
-    //               <br>
-    //               <input type = 'text' name = "brand" class = 'input-brand' placeholder = '例) シャネル'>
-    //             </div>`;
-    // $('.sell-form-box').append(brandHtml);
-    // }
+    function appendBrandBox() {
+    var brandHtml = '';
+    brandHtml = `<div class = 'form-group' id = 'brand'>
+                  <label class = 'label'>
+                    ブランド
+                    <span class = 'form-free'>任意</span>
+                  </label>
+                  <br>
+                  <input type = 'text' name = "item[brand]" class = 'input-brand' id ='item_brand' placeholder = '例) シャネル'>
+                  <input type = 'hidden' name = "item[brand_id]" id = 'brand_result_id'>
+                  <ul id = 'search_brand_result'></ul>
+                </div>`;
+    $('.category-forms').after(brandHtml);
+    }
 
     //親カテゴリー選択後に発生するイベント
     $('#parent_category').on('change', function() {
@@ -56,7 +73,7 @@ $(document).on('turbolinks:load', function() {
         .done(function(children) { //成功したら
           $('#children').remove(); //親が変更された時に子、孫、ブランド、サイズを隠す
           $('#grandchildren').remove();
-          // $('#brand').remove();
+          $('#brand').remove();
           // $('#size').remove();
 
           var insertHTML = '';
@@ -72,7 +89,7 @@ $(document).on('turbolinks:load', function() {
       else { //親カテゴリーが初期値だったら、子以下は隠す
         $('#children').remove();
         $('#grandchildren').remove();
-        // $('#brand').remove();
+        $('#brand').remove();
         // $('#size').remove();
       }
     });
@@ -90,7 +107,7 @@ $(document).on('turbolinks:load', function() {
         .done(function(grandchildren) { //成功したら
           if (grandchildren.length != 0) {
             $('#grandchildren').remove(); //子が変更された時に孫、ブランド、サイズを隠す
-            // $('#brand').remove();
+            $('#brand').remove();
             // $('#size').remove();
   
             var insertHTML = '';
@@ -106,16 +123,27 @@ $(document).on('turbolinks:load', function() {
       }
       else {
         $('#grandchildren').remove(); //子カテゴリーが初期値だったら、孫以下は隠す
-            // $('#brand').remove();
-            // $('#size').remove();
+            $('#brand').remove();
+            $('#size').remove();
       }
     });
 
     //孫カテゴリー選択後に発生するイベント
     $(document).on('change', '#grandchild_category', function() {
+      $('#brand').remove();
+      $('#size').remove();
+
       var gc_id = $('#grandchild_category option:selected').attr('id');
       $('#grand_child_result_id').val(gc_id);
       // var grandchildId = $('#grandchild_category option:selected').data('category'); //孫要素のidを取得
+      var parent_name = $('#parent_category').val(); //親のテキストを取得
+      var child_name = $('#child_category').val();
+      if (parent_name == "レディース" || parent_name == "メンズ" || parent_name == "家電・スマホ・カメラ" || child_name == "飲料/酒") {
+        appendBrandBox();
+      }
+      // if (parent_name == "レディース" || parent_name == "メンズ") {
+      //   appendSizeBox();
+      // }
     });
   });
 });
