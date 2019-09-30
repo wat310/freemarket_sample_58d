@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   #クレジットカード
   resources :card, only: [:new, :show, :create, :destroy] do
   end
-  resources :purchase, only: [:index] do
+  resources :purchase, only: [:show] do
     collection do
       post :pay,   to: 'purchase#pay'
       get :done,   to: 'purchase#done'
