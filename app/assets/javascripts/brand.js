@@ -1,17 +1,16 @@
 $(document).on('turbolinks:load', function() {
   $(function() {
 
-    var search_list = $('#search_brand_result');
-
-    function appendBrand(brand) {
+    function appendBrand(brand, search_list) {
       var html = `<li class = 'brand_list' id = '${brand.id}'>${brand.name}</li>`;
       search_list.append(html);
     }
 
     //ブランドのインクリメンタルサーチ
-    $('.input-brand').on('keyup', function() {
+      $(document).on('keyup', '#item_brand', function() {
       var input = $('.input-brand').val();
       var count = String(input.length); //入力された文字数をカウントする変数
+      var search_list = $('#search_brand_result');
 
       if (count != 0) { //入力文字数が1文字以上ならインクリメンタルサーチ実行
         $.ajax({
@@ -21,11 +20,12 @@ $(document).on('turbolinks:load', function() {
           dataType: 'json'
         })
         .done(function(brands) {
-          // var html = "";
           $('#search_brand_result').empty(); //キー入力のたびにリストを削除する
-  
+          console.log(input);
+          console.log(count);
           brands.forEach(function(brand) {
-            appendBrand(brand);
+            appendBrand(brand, search_list);
+            console.log(brand);
           });
         })
         .fail(function() {
@@ -38,7 +38,7 @@ $(document).on('turbolinks:load', function() {
     });
 
     //インクリメンタルサーチの結果をクリックした時
-    $('#brand').on('click', '.brand_list', function(){
+    $(document).on('click', '.brand_list', function(){
       var name = $(this).text();
       var id = $(this).attr('id');
       $('.input-brand').val(name);

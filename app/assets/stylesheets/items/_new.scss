@@ -195,7 +195,11 @@
               }
             }
           }
-          
+
+          #size { //最初は隠しておく
+            display: none;
+            // visibility: hidden;
+          }
 
         // 販売価格
           //価格
