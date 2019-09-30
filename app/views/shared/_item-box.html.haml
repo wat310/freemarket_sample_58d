@@ -4,11 +4,15 @@
     .item__detail
       .item__detail__image
         = image_tag "#{item.images.first.image}", alt: '商品画像', height:'188', width:'185'
-        -# ＃TODO 画像if文分岐"sold"
+      // business_statusが2(購入済)ならSOLDを表示する
+      - if item.business_status == "sale"
+        .triangle_box
+          .triangle_box__sold_triangle
+            .triangle_box__sold_triangle__text SOLD
       .item__detail__price
         %span= "¥ #{number_with_delimiter(item.price)}"
     .item__explanation
       %span= item.explanation
       .item__explanation__review
         %i.fa.fa-heart
-        %span 
+        %span

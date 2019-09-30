@@ -43,6 +43,25 @@
         z-index: 2;
         color: #fff;
       }
+
+      .triangle_box {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &__sold_triangle {
+          @include triangle;
+          border-width: 80px 80px 0 0;
+  
+          &__text {
+            top: 18px;
+            font-size: 20px;
+            @include triangle_text;
+          }
+        }
+      }
+
+      
     }
   
     &__explanation{

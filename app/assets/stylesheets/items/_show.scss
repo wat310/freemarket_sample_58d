@@ -26,6 +26,7 @@
     &__item {
       width: 300px;
       background-color: #fafafa;
+      position: relative;
 
       &__image--large {
         width: 300px;
@@ -40,6 +41,23 @@
 
           &:first-of-type {
             display: block;
+          }
+        }
+      }
+
+      .triangle_box { //SOLDの三角形
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        &__sold_triangle {
+          @include triangle;
+          border-width: 120px 120px 0 0;
+  
+          &__text {
+            top: 24px;
+            font-size: 28px;
+            @include triangle_text;
           }
         }
       }
