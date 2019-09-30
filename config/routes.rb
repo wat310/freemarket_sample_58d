@@ -21,7 +21,6 @@ Rails.application.routes.draw do
     member do
       get :logout
       get :identification
-      # get :card
       get :profile
     end
   end
@@ -47,10 +46,12 @@ Rails.application.routes.draw do
   #クレジットカード
   resources :card, only: [:new, :show, :create, :destroy] do
   end
-  resources :purchase, only: [:show] do
-    collection do
-      post :pay,   to: 'purchase#pay'
-      get :done,   to: 'purchase#done'
+  resources :purchase, only: [:show, :create] do
+    # collection do
+    #   post :done,   to: 'purchase#done'
+    # end
+    member do
+      post :done,   to: 'purchase#done'
     end
   end
 end
