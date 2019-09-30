@@ -128,18 +128,13 @@
       //   }
       // }
         &__right{
-          // float: right;
           line-height:32px;
-          // display:inline-block;
           &__content{
             list-style: none;
             &__list{
               position: relative;
-              // display: inline-block;
-              // padding: 0 7px;
               cursor: pointer;
               list-style: none;
-              // padding: 0 14px;
               &__mypagelist {
                 color: #333;
                 float: left;
@@ -152,8 +147,6 @@
                 text-align: center;
               }
               &__link{
-                // position: relative;
-                // display: inline-block;
                 height: 32px;
                 line-height: 32px;
                 font-size: 0;
@@ -238,7 +231,6 @@
     padding-right:400px;
   }
   .search-label {
-    // position: relative;
     left: 45%;
     bottom: 40px;
     opacity: 0.5;
