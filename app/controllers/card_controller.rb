@@ -1,7 +1,8 @@
 class CardController < ApplicationController
-
 #クレジット登録・一覧・削除
+
   require "payjp"
+  before_action :get_payjp_info
 
   def new
     card = Card.where(user_id: current_user.id)
@@ -56,15 +57,14 @@ class CardController < ApplicationController
     end
       redirect_to mypage_index_path
   end
-end
 
-# TODO:ローカルのみでの操作にするため。購入も確認出来次第仕上げる。
-#   private
-#   def get_payjp_info
-#     # if Rails.env == 'development'
-#     #   Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-#     # else
-#     #   Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
-#     # end
-#   end
-# end
+  private
+  def get_payjp_info
+    if Rails.env == 'development'
+       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+    end
+  end
+
+end
