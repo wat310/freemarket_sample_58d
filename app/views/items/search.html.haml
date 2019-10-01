@@ -1,9 +1,8 @@
 .search-result
-  = render partial: 'shared/header3'
   .result-content
     .search-sidebar
       .search
-        = search_form_for#TODOフォームパスの指定
+        = search_form_for(@q,url: search_result_path ) do |f|
           .search_sort
             = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
           .search_form
@@ -13,7 +12,21 @@
               .search__group--label
                 = fa_icon "search"
                 %p キーワードを追加する
-              = f.search_field :name_cont, class: "detail_search__group--form", placeholder: "例）値下げ"
+              = f.search_field :name_cont, class: "search__group--form", placeholder: "例）値下げ"
 
+            .search__group
+              .search__group--label
+                = fa_icon "search"
+                %p カテゴリーを選択する
+              = f.collection_select :category_id_in, @categories, :id, :name, {include_blank: "---"}, {class: "search__group--form", id: "category_parent", name: "q[category_id_in][]" }
+              .display_none
+                %select.search__group--form#category_children{name: "q[category_id_in][]"}
+              .search__category_group
+
+            .search__group
+              .search__group--label
+                = fa_icon "search"
+                %p ブランド名から探す
+              = f.search_field :brand_name_cont, class: "search__group--form", placeholder: "例）シャネル"
 
     .item-box-container
