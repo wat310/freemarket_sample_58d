@@ -3,12 +3,10 @@ class PurchaseController < ApplicationController
 
   require 'payjp'
   before_action :get_payjp_info
+  before_action :get_items_info, only: [:done, :show]
 
   def show
-    @item = Item.find(params[:id])
-    @images = @item.images
     card = Card.find_by(user_id: current_user.id)
-
     if card.blank?
       redirect_to controller: "card", action: "new"
     else
@@ -19,9 +17,6 @@ class PurchaseController < ApplicationController
   end
 
   def done
-    @item = Item.find(params[:id])
-    @images = @item.images
-
     card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     customer = Payjp::Customer.retrieve(card.customer_id)
@@ -30,7 +25,6 @@ class PurchaseController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    # binding.pry
     card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
@@ -55,6 +49,11 @@ class PurchaseController < ApplicationController
     else
       Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
     end
+  end
+
+  def get_items_info
+    @item = Item.find(params[:id])
+    @images = @item.images
   end
 
 end
