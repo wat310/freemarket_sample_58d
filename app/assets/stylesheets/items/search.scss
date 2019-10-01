@@ -8,16 +8,62 @@
     align-items: stretch;
     margin: 0 auto;
     .search-sidebar{
-      .l-side{
+      .search{
         width: 280px;
-        height: 300px;
-        margin-right: 40px;
+        margin: 0 40px 0 0;
+        height:1315px;
+        .search_sort{
+          opacity: 1;
+          position: static;
+          width: 100%;
+          top: 0;
+          left: 0;
+          z-index: 100;
+          margin: 0 auto;
+          select{
+            width: 100%;
+            background: #fff;
+            text-align: left;
+            height: 48px;
+            padding: 0 16px;
+            border: 1px solid #ccc;
+          }
         }
+        .search_form{
+          margin: 40px 0 0;
+          position: static;
+          display: block;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          padding: 16px;
+          background-color:#ffffff;
+          h3{
+            font-size: 16px;
+            font-weight: bold;
+          }
+          .search__group{
+            margin: 24px 0 0;
+            &--label{
+              display: flex;
+              i{
+                position: relative;
+                top: -1px;
+                margin: 0 4px 0 0;
+                color: #888;
+                font-size: 16px;
+                vertical-align: middle;
+              }
+              p{
+                font-size: 14px;
+                font-weight:bold;
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+      }
     }
     .item-box-container{
       width: 700px;
-    
-
-
     }
   }
