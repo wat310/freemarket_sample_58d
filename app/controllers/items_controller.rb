@@ -71,7 +71,6 @@ class ItemsController < ApplicationController
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
-
   def edit
     fee = @item.price * 0.1
     @fee = fee.floor
@@ -169,6 +168,4 @@ class ItemsController < ApplicationController
       )
       .merge(user_id: current_user.id)
   end
-
-
 end
