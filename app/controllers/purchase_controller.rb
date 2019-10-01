@@ -55,5 +55,4 @@ class PurchaseController < ApplicationController
     @item = Item.find(params[:id])
     @images = @item.images
   end
-
 end
