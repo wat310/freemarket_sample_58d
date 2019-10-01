@@ -14,7 +14,7 @@
                 メールアドレスで登録する
 
             %button{id: "facebook-login", class: "btn-default btn-sns btn-sns-facebook" }
-              = link_to'/users/auth/facebook',  method: :post, class: 'facebook' do
+              = link_to user_facebook_omniauth_authorize_path,  method: :post, class: 'facebook' do
                 = fa_icon "facebook-square"
                 Facebookで登録する
 
@@ -22,6 +22,6 @@
               = link_to'/users/auth/google_oauth2', method: :post, class: 'google' do
                 =image_tag '/google.svg', alt: '', height: '45', width: '60',class: "google-logo"
                 Googleで登録する
-            = render "devise/shared/links"      
+            = render "devise/shared/links"
 
   = render partial:"devise/footer"

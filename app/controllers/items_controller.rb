@@ -101,7 +101,7 @@ class ItemsController < ApplicationController
       end
     end
       if @item.save
-        redirect_to root_path
+        redirect_to action: 'show'
       else
         redirect_to edit_item_path
       end
@@ -142,10 +142,9 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :shipping_date,
       :business_status,
-      :user_id, # TODO このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
       images_attributes: [:image]
       )
-      # .merge(user_id: current_user.id) #TODO これはあとで使う予定
+      .merge(user_id: current_user.id)
   end
 
   def set_item
@@ -166,8 +165,7 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :shipping_date,
       :business_status,
-      :user_id, # TODO このuser_idは仮置き、あとで消すこと!!、hamlにも仮のuser_idの記載あり!!
       )
-      # .merge(user_id: current_user.id) #TODO これはあとで使う予定
+      .merge(user_id: current_user.id)
   end
 end

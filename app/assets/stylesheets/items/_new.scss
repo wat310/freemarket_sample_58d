@@ -129,7 +129,7 @@
                       opacity: 0;
                       height: 100%;
                       width: 100%;
-                      // position: absolute;
+                      position: relative;
                       z-index: 10;
                       cursor: pointer;
                     }
@@ -139,9 +139,12 @@
                     text-align: center;
                     @include pos-trans-center;
                     // display: block;
+                    position: absolute;
                     line-height: 1.5;
                     font-size: 14px;
                     z-index: 0;
+                    white-space: pre-wrap;
+                    word-wrap: break-word;
                   }
                 }
               }
@@ -192,7 +195,11 @@
               }
             }
           }
-          
+
+          #size { //最初は隠しておく
+            display: none;
+            // visibility: hidden;
+          }
 
         // 販売価格
           //価格

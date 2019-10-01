@@ -74,6 +74,7 @@ gem 'devise'
 gem 'font-awesome-rails', '4.7.0.5'
 gem 'active_hash'
 gem 'enum_help'
+gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
@@ -98,8 +99,14 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'pry-rails'
+gem 'pry-byebug'
+gem 'pry-doc'
 gem 'payjp'
 gem 'aws-sdk-s3', '~> 1'
 
 # パンくず
 gem "gretel"
+
+# 検索関連
+gem 'kaminari', '~> 0.17.0'
+gem 'ransack'

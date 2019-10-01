@@ -32,22 +32,22 @@
             = f.label "ニックネーム"
             %span.form-require 必須
             .field-input              
-              = f.text_field :nickname, autofocus: true,class:"input-default",placeholder: "例) 佐藤 ワタワタ"
+              = f.text_field :nickname, autofocus: true, autocomplete: "nickname",class:"input-default",placeholder: "例) 佐藤 ワタワタ"
 
           .form-group
             = f.label "メールアドレス"
             %span.form-require 必須
-            = f.email_field :email, autofocus: true, class: "input-default", placeholder:"PC・携帯どちらでも可"
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-default", placeholder:"PC・携帯どちらでも可"
             
           .form-group
             = f.label "パスワード"
             %span.form-require 必須
-            = f.password_field :password, autocomplete: "off", class: "input-default", placeholder:"7文字以上"
+            = f.password_field :password, autofocus: true, autocomplete: "password", class: "input-default", placeholder:"7文字以上"
           .form-group
 
             = f.label "パスワード(確認用)"
             %span.form-require 必須
-            = f.password_field :password_confirmation, autocomplete: "off", class: "input-default", placeholder:"7文字以上"
+            = f.password_field :password_confirmation, autofocus: true, autocomplete: "password_confirmation", class: "input-default", placeholder:"7文字以上"
 
           .form-group
             %h3.text-left.l-chapter-sub-head 本人確認
@@ -59,8 +59,8 @@
             %div
               = f.label "お名前(全角)"
               %span.form-require 必須
-            = f.text_field :family_name_kanji, autofocus: true,class:"input-default half",placeholder: "例) 佐藤"
-            = f.text_field :first_name_kanji, autofocus: true,class:"input-default half",placeholder: "例) 航"
+            = f.text_field :family_name_kanji, autofocus: true, class:"input-default half",placeholder: "例) 佐藤"
+            = f.text_field :first_name_kanji, autofocus: true, class:"input-default half",placeholder: "例) 航"
 
 
           .form-group

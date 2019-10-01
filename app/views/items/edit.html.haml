@@ -3,10 +3,7 @@
   %main.main
     %section.main__item-box
       %h2.main__item-box__head 商品の情報を入力
-      -# = image_tag "#{@item.images.first.image}"
       = form_for @item do |f|
-        -# この下のuser_idはユーザー機能の実装後すぐに消すこと!!
-        = f.text_field :user_id, value: "1", type: 'hidden'
         .sell-upload-box
           %h3.sell-upload-head
             .image-text 出品画像
@@ -52,7 +49,7 @@
               .form_group#grandchildren
                 = f.select :category, options_for_select(@category_grandchild_array.map{|c|[c[:name], c[:id], {'data-category'=>c[:id], 'id'=>c[:id]}]}, @item.category.id), {}, {class: 'select', id: 'grandchild_category'}
               = f.text_field :category_id, id: 'grand_child_result_id', type: 'hidden'
-            .form-group#size
+            .form-group#size_edit
               = f.label :サイズ, class: "label" do
                 サイズ
                 %span.form-requires 必須
@@ -72,7 +69,7 @@
               = f.text_field :brand_id, id: 'brand_result_id' ,type: 'hidden'
               //ここにインクリメンタルサーチの結果を表示する
               %ul#search_brand_result
-            .form-group
+            .form-group#state
               =f.label :商品の状態, class: "label" do
                 商品の状態
                 %span.form-requires 必須
@@ -127,7 +124,6 @@
                 .fee-form__left
                   販売手数料 (10%)
                 .fee-form__right
-                  -# %div.fee-form__right__text -
                   %div.fee-form__right__text
                   ¥
                   = @fee
@@ -135,7 +131,6 @@
                 .profit-form__left
                   販売利益
                 .profit-form__right
-                  -# %div.profit-form__right__text -
                   %div.profit-form__right__text
                   ¥
                   = @profit
