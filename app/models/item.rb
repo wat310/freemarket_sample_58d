@@ -29,4 +29,9 @@ class Item < ApplicationRecord
 
   scope :update_desc, ->{order("updated_at DESC")}
 
+  def self.search(search)
+    return Item.all unless search
+    Item.where(['name LIKE ?', "%#{search}%"])
+  end
+
 end

@@ -1,12 +1,10 @@
 class ItemsController < ApplicationController
   require "item.rb"
   before_action :set_item, only: [:show, :edit, :update, :destroy, :buy]
+  before_action :set_search, only: [:search]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-  @search = Item.search(params[:q])
-  @items = @search.result
-
   ladies_array = []
   mens_array = []
   ladies = Category.where(ancestry: 1)
@@ -129,9 +127,8 @@ class ItemsController < ApplicationController
   end
 
   def search
-
+    @items = @q.result
   end
-
 
   private
 
@@ -174,6 +171,25 @@ class ItemsController < ApplicationController
       :business_status,
       )
       .merge(user_id: current_user.id)
+  end
+  def search_params
+    params.require(:q).permit(
+      :sorts,
+      :name_cont,
+      :brand_name_cont,
+      :price_gteq,
+      :price_lteq,
+      :state,
+      :postage,
+      {category_id_in: []},
+      {business_status_in: []},
+
+
+    )
+  end
+  
+  def set_search
+    @q = Item.ransack(params[:q])
   end
 
 
