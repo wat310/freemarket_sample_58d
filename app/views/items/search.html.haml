@@ -108,4 +108,8 @@
                   %label
                     = f.check_box :status_in, {multiple: true, class: "detail_checkbox"}, '1', nil
                     = '売却済み'
+                          .search__btns
+              .search__btn--grey
+                = link_to search_path, "クリア",type: "button", class: "search__btn"
+              = f.submit "完了", class: "search__btn  search__btn--red"
     .item-box-container
