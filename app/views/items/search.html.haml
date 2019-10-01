@@ -29,4 +29,83 @@
                 %p ブランド名から探す
               = f.search_field :brand_name_cont, class: "search__group--form", placeholder: "例）シャネル"
 
+            .search__group
+              .search__group--label
+                = fa_icon "search"
+                %p 価格
+              .search__group--forms
+                = f.search_field :price_gteq, class: "search__group--form detail_form-mini", placeholder: "¥ Min"
+                %p 〜
+                = f.search_field :price_lteq, class: "search__group--form detail_form-mini", placeholder: "¥ Max"
+    
+              .search__group
+                .search__group--label
+                  = fa_icon "search"
+                  %p 商品の状態
+                .search__group--checkbox
+                  %label
+                    %input{type: "checkbox", class: "detail_condition-all detail_checkbox"}
+                    = 'すべて'
+                .search__group--checkbox
+                  %label
+                    = f.check_box :state_in, {multiple: true, class: "detail_condition detail_checkbox"}, '1', nil
+                    = '新品、未使用'
+                .search__group--checkbox
+                  %label
+                    = f.check_box :state_in, {multiple: true, class: "detail_condition detail_checkbox"}, '2', nil
+                    = '未使用に近い'
+                .search__group--checkbox
+                  %label
+                    = f.check_box :state_in, {multiple: true, class: "detail_condition detail_checkbox"}, '3', nil
+                    = '目立った傷や汚れなし'
+                .search__group--checkbox
+                  %label
+                    = f.check_box :state_in, {multiple: true, class: "detail_condition detail_checkbox"}, '4', nil
+                    = '送料込み(出品者負担)'
+                .search__group--checkbox
+                  %label
+                    = f.check_box :state_in, {multiple: true, class: "detail_condition detail_checkbox"}, '5', nil
+                    = 'やや傷や汚れあり'
+                .search__group--checkbox
+                  %label
+                    = f.check_box :state_in, {multiple: true, class: "detail_condition detail_checkbox"}, '6', nil
+                    = '傷や汚れあり'
+                .search__group--checkbox
+                  %label
+                    = f.check_box :state_in, {multiple: true, class: "detail_condition detail_checkbox"}, '7', nil
+                    = '全体的に状態が悪い'
+
+              .search__group
+                .search__group--label
+                  = fa_icon "search"
+                  %p 配送料の負担
+                .search__group--checkbox
+                  %label
+                    %input{type: "checkbox", class: "detail_shipping_fee-all detail_checkbox"}
+                    = 'すべて'
+                .search__group--checkbox
+                  %label
+                    = f.check_box :fee_payer_in, {multiple: true, class: "detail_shipping_fee detail_checkbox"}, '1', nil
+                    = '送料込み(出品者負担)'
+                .search__group--checkbox
+                  %label
+                    = f.check_box :fee_payer_in, {multiple: true, class: "detail_shipping_fee detail_checkbox"}, '2', nil
+                    = '着払い(購入者負担)'
+                
+              .search__group
+                .search__group--label
+                  = fa_icon "search"
+                  %p 販売状況
+                .search__group--checkbox
+                  %label
+                    %input{type: "checkbox", class: "detail_checkbox"}
+                    = 'すべて'
+                .search__group--checkbox
+                  %label
+                    = f.check_box :status_in, {multiple: true, class: "detail_checkbox"}, '0', nil
+                    = '出品中'
+                .search__group--checkbox
+                  %label
+                    = f.check_box :status_in, {multiple: true, class: "detail_checkbox"}, '1', nil
+                    = '売却済み'
     .item-box-container
