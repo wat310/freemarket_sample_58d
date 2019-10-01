@@ -181,6 +181,7 @@ class ItemsController < ApplicationController
       :price_lteq,
       :state,
       :postage,
+      :size,
       {category_id_in: []},
       {business_status_in: []},
 
