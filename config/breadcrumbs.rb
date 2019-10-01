@@ -13,7 +13,7 @@ crumb :logout do
 end
 
 crumb :identification do
-  link "本人情報の確認",　identification_mypage_path
+  link "本人情報の確認", identification_mypage_path
   parent :mypage
 end
 

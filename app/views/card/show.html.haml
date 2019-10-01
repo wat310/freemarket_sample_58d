@@ -1,5 +1,5 @@
 .wrapper
-  = render partial: 'shared/header2'
+  = render partial: 'shared/header3'
   .body
     -# todo:パンくず
     -# %nav.bread-crumbs
@@ -13,14 +13,20 @@
           .identification
             .identification__description
               %ul.settings-payment
-                .settings-payment__sub-title
-                  クレジットカード一覧
+                .settings-payment__sub-title クレジットカード一覧
                 %li.settings-payment__list
-                  %button.remove-butten{type: "submit"} 削除する
+                  = form_tag( "/card/:id", method: :delete, id: 'charge-form',  name: "inputForm") do
+                    %input{ type: "hidden", name: "card_id", value: "" }
+                    %button.remove-butten{type: "submit"} 削除する
+
                   %figure.settings-payment__list__card-image
                   =image_tag "master-card.svg", alt: "card", class: "card-image",size: "30x45"
-                  .settings-payment__list__num ************3103
-                  .settings-payment__list__num 07 / 24
+                  .settings-payment__list__num
+                    = "**** **** **** " + @default_card_information.last4
+                  .settings-payment__list__num
+                    - exp_month = @default_card_information.exp_month.to_s
+                    - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                    = exp_month + " / " + exp_year
 
             .text-right
               = link_to '支払い方法について', root_path, method: :get, class: 'text-right'

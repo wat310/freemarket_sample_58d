@@ -77,11 +77,10 @@
         =link_to "#", class:"mypage-nav__ul__li__item2" do
           発送元・お届け先住所変更
           %i.fa.fa-chevron-right
-      
+     
       %li.mypage-nav__ul__li
-        = link_to "#", class:"mypage-nav__ul__li__item2" do
-          支払い方法
-          %i.fa.fa-chevron-right
+        = link_to '支払い方法', card_path(@card), class:"mypage-nav__ul__li__item2"
+        %i.fa.fa-chevron-right
       %li.mypage-nav__ul__li
         =link_to "#", class:"mypage-nav__ul__li__item2" do
           メール/パスワード

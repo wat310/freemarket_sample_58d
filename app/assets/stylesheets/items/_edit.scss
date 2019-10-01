@@ -30,16 +30,18 @@
       .section-buy {
         width: 700px;
         margin: 0 auto;
-        height: 432px;
+        height: 440px;
         background-color: #FFF;
-        padding-top: 19px;
+        padding-top: 20px;
         &__main {
           text-align: center;
           padding-bottom: 10px;
           &__content-item {
             @include clear;
             &__photo {
-              margin-top: 3px;
+              margin-top: 5px;
+              margin-bottom: 10px;
+              margin-left: 180px;
               height: 128px;
               width: 128px;
               float: left;
@@ -50,25 +52,43 @@
             }
             &__name {
               font-weight: 600;
-              margin: 0 auto;
+              margin-right: 180px;
               color: black;
-              width: 314px;
-              height: 48px;
+              width: 200px;
+              height: 128px;
               margin-top: 3px;
               font-size: 16px;
-              float: right;
-              padding-right: 300px;
+              float: left;
+            }
+            &__photo-done {
+              margin: auto;
+              float: auto;
+              .item-photo{
+                height:128px;
+                width:128px;
+              }
+            }
+            &__name-done {
+              font-weight: 600;
+              margin-right: 180px;
+              color: black;
+              width: 300px;
+              height: 40px;
+              padding: 10px;
+              margin: auto;
+              font-size: 16px;
+              float: auto;
             }
             &__price-fee-box {
               margin-top: 9px;
               color: black;
               clear: both;
               display: flex;
+              justify-content: center;
               &__price {
                 font-weight: 600;
                 font-size: 20px;
                 margin-right: 15px;
-                padding-left: 250px;
               }
               &__shipping-fee {
                 font-size: 14px;
@@ -88,11 +108,11 @@
           }
           &__price {
             margin: 0 auto;
-            width: 650px;
+            width: 100%;
+            padding: 0px 190px;
             color: black;
             line-height: 59px;
-            display: inline-block;
-            padding-left: 20px;
+            float: left;
             &__display {
               font-weight: bold;
               &__text {
@@ -105,6 +125,7 @@
               }
             }
           }
+
           .error-text {
             color: #ea352d;
             line-height: 1.5;
@@ -123,11 +144,23 @@
             height: 50px;
             text-decoration: none;
           }
+          .red_btn {
+            margin: 0 auto;
+            font-weight: bold;
+            width: 320px;
+            background-color:$RedColor;
+            margin-top: 10px;
+            font-size: 15px; 
+            line-height: 50%;
+            color: #fff;
+            height: 50px;
+            text-decoration: none;
+          }
+
         }
       
       .section-shipping {
         width: 700px;
-        margin: 0 auto;
         height: 120px;
         background-color: #FFF;
         padding-top: 19px;
@@ -150,8 +183,6 @@
             font-size: 14px;
             color: #00bfff;
             text-decoration: none;
-            .link-to-change {
-            }
           }
         }
       }
@@ -159,12 +190,10 @@
         width: 700px;
         border-bottom: solid 1px #f5f5f5;
         margin: 0 auto;
-        height: 120px;
+        height: 100%;
         background-color: #FFF;
-        padding-: 19px 0 20px;
         &__purchase {
           margin:0 auto;
-          height: 105px;
           width:350px;
           color: black;
           text-align: left;
@@ -176,14 +205,12 @@
           &__card-number {
             font-size: 13px;
             margin-top: 5px;
-            height: 50px;
+            height: 20px;
           }
           &__change {
             text-align: right;
             font-size: 14px;
             color: #00bfff;
-            .link-to-change {
-            }
           }
         }
       }

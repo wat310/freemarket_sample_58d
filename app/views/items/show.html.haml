@@ -7,6 +7,11 @@
       .detail__box__item
         .detail__box__item__image--large
           = image_tag "#{@images.first.image}", alt: '商品画像'
+        // business_statusが2(購入済)の時、SOLDを表示する
+        - if @item.business_status == "sale"
+          .triangle_box
+            .triangle_box__sold_triangle
+              .triangle_box__sold_triangle__text SOLD
         .detail__box__item__image--small
           - @images.each do |image|
             = image_tag "#{image.image}", alt: '商品画像'
@@ -69,7 +74,7 @@
     -if user_signed_in? && current_user.id == @item.user_id
       =link_to '商品を編集する', edit_item_path(@item), class: 'detail__purchase'
     -elsif user_signed_in?
-      = link_to '購入画面に進む', buy_item_path(@item), class: 'detail__purchase'
+      = link_to '購入画面に進む', purchase_path(@item), class: 'detail__purchase'
     -else
       = link_to '購入画面に進む', new_user_session_path, class: 'detail__purchase'
       

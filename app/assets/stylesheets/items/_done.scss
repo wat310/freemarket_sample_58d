@@ -1,0 +1,63 @@
+.review {
+  margin-top: 9px;
+  font-size: 0;
+  text-align: center;
+
+  &__image {
+    color: #fba933;
+    font-size: 16px;
+    line-height: 1;
+    vertical-align: middle;
+    font-weight: bold;
+    display: inline-block;
+
+    &:first-of-type {
+      color: #ef5185;
+      display: inline-block;
+    }
+
+    &:last-of-type {
+      color: #6ab5d8;
+      display: inline-block;
+    }
+  }
+}
+
+.section-bottom {
+  width: 700px;
+  border-bottom: solid 1px #f5f5f5;
+  margin: 0 auto;
+  height: 120px;
+  background-color: #FFF;
+  &__purchase {
+    margin:0 auto;
+    height: 105px;
+    width:350px;
+    color: black;
+    line-height: 16px;
+    &__complete {
+      text-align: center;
+      font-weight: bold;
+      font-size: 14px;
+    }
+  }
+}
+
+.section-complete {
+  width: 700px;
+  height: 150px;
+  background-color: #FFF;
+  padding-top: 19px;
+  border: solid 2px #f5f5f5;
+}
+.complete_comment{
+  text-align: center;
+}
+
+.price-fee-box-done {
+  margin-top: 9px;
+  color: black;
+  clear: both;
+  display: flex;
+  float: auto;
+}

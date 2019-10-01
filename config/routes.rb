@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
+
+devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "items#index"
   get  "search", to: "items#search"
@@ -16,18 +18,16 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :new, :create, :show, :edit, :update] do
     
-    # todo:ユーザーページのrootとcontroller要相談
+  # todo:ユーザーページのrootとcontroller要相談
     member do
-      get'logout'
-      get'identification'
-      get'card'
-      get'profile'
+      get :logout
+      get :identification
+      get :profile
     end
   end
   # マイページ
   resources :mypage, only: [:index] do
     member do
-      get :card
       get :profile
       get :logout
       get :identification
@@ -41,6 +41,14 @@ Rails.application.routes.draw do
       get :step3
       get :step4 # ここで、入力の全て完了
       get :step5 # 登録完了後のページ
+    end
+  end
+  
+  #クレジットカード
+  resources :card, only: [:new, :show, :create, :destroy]
+  resources :purchase, only: [:show, :create, :update] do
+    member do
+      get :done,   to: 'purchase#done'
     end
   end
 end

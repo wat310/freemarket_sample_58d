@@ -111,3 +111,20 @@
   }
 }
 
+@mixin triangle {
+  top: 0;
+  left: 0;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-color: $RedColor transparent transparent transparent;
+  z-index: 5;
+}
+
+@mixin triangle_text {
+  color: white;
+  position: absolute;
+  left: 0;
+  transform: rotate(-45deg);
+}
+

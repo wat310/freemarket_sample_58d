@@ -71,7 +71,6 @@ class ItemsController < ApplicationController
     @brands = Brand.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
-
   def edit
     fee = @item.price * 0.1
     @fee = fee.floor
@@ -172,6 +171,7 @@ class ItemsController < ApplicationController
       )
       .merge(user_id: current_user.id)
   end
+
   def search_params
     params.require(:q).permit(
       :sorts,
@@ -188,10 +188,9 @@ class ItemsController < ApplicationController
 
     )
   end
-  
+
   def set_search
     @q = Item.ransack(params[:q])
   end
-
 
 end
