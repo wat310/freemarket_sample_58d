@@ -1,6 +1,5 @@
-document.addEventListener(
-  "DOMContentLoaded", e => {
-    if (document.getElementById("token_submit") != null) { //token_submitがnullの場合実行しない
+$(document).on('turbolinks:load', function(){
+    if (document.getElementById("token_submit") != null) { //token_submitがnullは実行しない
       Payjp.setPublicKey("pk_test_1e8e6918e2d54a6b56d6ca29"); //test公開鍵
       let btn = document.getElementById("token_submit"); //IDがtoken_submitの場合取得
       btn.addEventListener("click", e => { //ボタンが押されたときに作動
@@ -29,8 +28,8 @@ document.addEventListener(
         });
       });
     }
-  },
   false
+}
 ); 
 
 // --------------------------------------------
