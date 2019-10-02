@@ -5,7 +5,7 @@
       %h1.common_header__box__top__logo
         = link_to root_path do
           = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3270184656", size: "134x36", alt: "メルカリロゴ", class: "common_header__box__top__image"
-      = form_with url: root_path, method: :get, local: true, class: 'item_search' do |f|
+      = form_with url: search_path, method: :get, local: true, class: 'item_search' do |f|
         .search_field
           = f.text_field :keyword, class: 'form_search', placeholder: '何かお探しですか？',name: 'keyword',type:'search'
           %label.search-label{for: "search-icon"}
