@@ -4,24 +4,43 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
+  items = Item.all
+  ladies, mens, electro, hobby, other = [], [], [], [], []
 
-  ladies_array = []
-  mens_array = []
-  ladies = Category.where(ancestry: 1)
-  mens = Category.where(ancestry: 2)
-  ladies.each do |lady|
-    ladies_array << lady.child_ids
+  items.each do |item|
+    if item.category.parent.parent.id == 1
+      ladies << item.category.id
+    elsif item.category.parent.parent.id == 2
+      mens << item.category.id
+    elsif item.category.parent.parent.id == 3
+      electro << item.category.id
+    elsif item.category.parent.parent.id == 4
+      hobby << item.category.id
+    elsif item.category.parent.parent.id == 5
+      other << item.category.id
+    end
   end
-  @lady_id = ladies_array.flatten
 
-  mens.each do |man|
-    mens_array << man.child_ids
-  end
-  @man_id = mens_array.flatten
+  # 重複している値を弾く
+  ladies_id = ladies.uniq
+  mens_id = mens.uniq
+  electro_id = electro.uniq
+  hobby_id = hobby.uniq
+  other_id = other.uniq
 
-    @ladies =Item.update_desc.limit(10).where(category_id:@lady_id )
-    @mens =Item.update_desc.limit(10).where(category_id:@man_id )
-    # TODO ブランド変数の作成
+  # カテゴリー変数の作成
+  @ladies =Item.update_desc.limit(10).where(category_id: ladies_id)
+  @mens =Item.update_desc.limit(10).where(category_id: mens_id)
+  @hobbies =Item.update_desc.limit(10).where(category_id: hobby_id)
+  @electros =Item.update_desc.limit(10).where(category_id: electro_id)
+  @others =Item.update_desc.limit(10).where(category_id: other_id)
+
+  # ブランド変数の作成
+  @chanel = Item.cha
+  @louis = Item.louis
+  @supreme = Item.sup
+  @nike = Item.nike
+
   end
 
   def new
