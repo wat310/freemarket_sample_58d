@@ -26,11 +26,6 @@
             = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-default", placeholder: "メールアドレス"
           .form-group
             = f.password_field :password, autocomplete: "password", class: "login-input-text input-default", placeholder: "パスワード"
-          .form-group
-            .g-recaptcha.login-captcha
-              %div(style='width: 304px; height: 78px;')
-                %div
-                %iframe(src="https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1566858990656&size=normal&cb=5g00cprq2rp" width="304" height="78" role="presentation" name="a-n3piekgusv8m" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox")
           = f.submit "ログイン", class: 'login-submit btn-default btn-red'
           = link_to'', class: '' do
             パスワードをお忘れの方
