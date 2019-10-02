@@ -28,8 +28,7 @@
               .section-buy__main__price__display__fee
                 = "¥ #{number_with_delimiter(@item.price)}"
           -# TODO:登録情報がない場合の分岐
-          -# %p.error-text 配送先と支払い方法の入力を完了してください。    
-          -# %button.gray_btn 購入する
+          -# %p.error-text 配送先と支払い方法の入力を完了してください
           .section-buy__main__price
           = form_for(@item, url: {controller: 'purchase', action: 'update'}) do |f|
             = f.button "購入する", class: "red_btn"
