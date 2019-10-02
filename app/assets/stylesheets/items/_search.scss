@@ -100,8 +100,14 @@
               background: #aaa;
               border: 1px solid #aaa;
               text-align: center;
-              a{
-                color: #fff;
+              button {
+                width: 45%;
+                height: 50px;
+                background-color: #aaa;
+                color: white;
+                font-size: 14px;
+                cursor: pointer;
+                outline: 0;
               }
             }
             .search__btn{
@@ -121,7 +127,34 @@
         }
       }
     }
-    .item-box-container{
+    .search__result{
       width: 700px;
+      &__head {
+        margin-bottom: 8px;
+        color: black;
+        font-size: 22px;
+        line-height: 1.4;
+      }
+      &__description {
+        margin-top: 16px;
+        color: black;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      &__new {
+        margin: 24px 0 8px;
+        color: black;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 1.4;
+      }
+
+      &__container {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        width: 100%;
+
+      }
     }
   }
