@@ -35,7 +35,7 @@ $(document).on('turbolinks:load', function(){
 // --------------------------------------------
 // 公式のpayjsnのコード
 // $(document).on('turbolinks:load',function() {
-//   Payjp.setPublicKey('pk_test_7e69455f3e701137c2af4142');
+//   Payjp.setPublicKey('keynom');
 //   var form = $("#charge-form"),
 //       number = form.find('input[name="number"]'),
 //       cvc = form.find('input[name="cvc"]'),
@@ -72,5 +72,4 @@ $(document).on('turbolinks:load', function(){
 //     });
 //   });
 // });
-
 // --------------------------------------------
