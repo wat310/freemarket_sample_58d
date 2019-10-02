@@ -21,11 +21,8 @@ $(document).on('turbolinks:load', function() {
         })
         .done(function(brands) {
           $('#search_brand_result').empty(); //キー入力のたびにリストを削除する
-          console.log(input);
-          console.log(count);
           brands.forEach(function(brand) {
             appendBrand(brand, search_list);
-            console.log(brand);
           });
         })
         .fail(function() {

@@ -32,7 +32,7 @@
         %h3.pickup__item__head メンズ新着アイテム
         .pickup__item__head--link
         =link_to 'もっと見る ＞', "#"
-        .pickup__item__content 
+        .pickup__item__content
           .pickup__item__content__box
             - @mens.each do |item|
               = render partial:"shared/item-box",locals: {item: item}
@@ -42,15 +42,20 @@
         %h3.pickup__item__head 家電・スマホ・カメラ新着アイテム
         .pickup__item__head--link
         =link_to 'もっと見る ＞', "#"
-        .pickup__item__content 
+        .pickup__item__content
+          .pickup__item__content__box
+            - @electros.each do |item|
+              = render partial:"shared/item-box",locals: {item: item}
 
     .pickup
       .pickup__item
         %h3.pickup__item__head おもちゃ・ホビー・グッズ新着アイテム
         .pickup__item__head--link
         =link_to 'もっと見る ＞', "#"
-        .pickup__item__content picture
-      
+        .pickup__item__content
+          .pickup__item__content__box
+            - @hobbies.each do |item|
+              = render partial:"shared/item-box",locals: {item: item}
     .category
       .category__bar
         %h2.category__bar__title 人気のブランド
@@ -66,28 +71,40 @@
         %h3.pickup__item__head シャネル新着アイテム
         .pickup__item__head--link
         =link_to 'もっと見る ＞', "#"
-        .pickup__item__content picture
+        .pickup__item__content
+          .pickup__item__content__box
+            - @chanel.each do |item|
+              = render partial:"shared/item-box",locals: {item: item}
 
     .pickup
       .pickup__item
         %h3.pickup__item__head ルイヴィトン新着アイテム
         .pickup__item__head--link
         =link_to 'もっと見る ＞', "#"
-        .pickup__item__content picture
+        .pickup__item__content
+          .pickup__item__content__box
+            - @louis.each do |item|
+              = render partial:"shared/item-box",locals: {item: item}
 
     .pickup
       .pickup__item
         %h3.pickup__item__head シュプリーム新着アイテム
         .pickup__item__head--link
         =link_to 'もっと見る ＞', "#"
-        .pickup__item__content picture
+        .pickup__item__content
+          .pickup__item__content__box
+            - @supreme.each do |item|
+              = render partial:"shared/item-box",locals: {item: item}
 
     .pickup
       .pickup__item
         %h3.pickup__item__head ナイキ新着アイテム
         .pickup__item__head--link
         =link_to 'もっと見る ＞', "#"
-        .pickup__item__content picture
+        .pickup__item__content
+          .pickup__item__content__box
+            - @nike.each do |item|
+              = render partial:"shared/item-box",locals: {item: item}
 
 
   = render partial:"shared/aside"

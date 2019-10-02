@@ -24,6 +24,11 @@ class Item < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :category_id, presence: true
 
+  scope :cha, -> { where(brand_id: 1) }
+  scope :louis, -> { where(brand_id: 3) }
+  scope :sup, -> { where(brand_id: 4) }
+  scope :nike, -> { where(brand_id: 2) }
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 

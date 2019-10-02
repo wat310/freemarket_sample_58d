@@ -59,5 +59,6 @@ class User < ApplicationRecord
         
   has_many :items, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
+  has_one :card
 
 end
