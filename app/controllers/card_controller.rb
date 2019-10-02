@@ -1,5 +1,6 @@
 class CardController < ApplicationController
 #クレジット登録・一覧・削除
+#TODO:新規登録画面での登録
 
   require "payjp"
   before_action :get_payjp_info
@@ -9,11 +10,9 @@ class CardController < ApplicationController
     redirect_to action: "show" if card.exists?
   end
 
- #TODO:新規登録画面での登録もできるようにする
   def step4
   end
 
-  #カード作成(payjpとCardのデータベース作成)
   def create
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
@@ -22,16 +21,15 @@ class CardController < ApplicationController
       customer = Payjp::Customer.create(
       card: params['payjp-token'],
       )
-      card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      if card.save
-        redirect_to "/card/show"
+      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      if @card.save
+        redirect_to card_path(@card)
       else
         redirect_to action: "create"
       end
     end
   end
 
-  #カード情報(Cardのデータpayjpに送り情報を取り出す)
   def show
     @card = Card.find_by(user_id: current_user.id)
     if @card.blank?
@@ -43,7 +41,6 @@ class CardController < ApplicationController
     end
   end
   
-  #カード削除
   def destroy
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
@@ -65,5 +62,4 @@ class CardController < ApplicationController
       Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
     end
   end
-
 end
