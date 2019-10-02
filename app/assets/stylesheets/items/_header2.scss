@@ -42,7 +42,7 @@
         float: left;
         width: 35%;
         height: 44px;
-        min-width: 170px;
+        min-width: 240px;
         position: relative;
         margin-right: 10px;
 
@@ -83,6 +83,7 @@
             top: 0;
             background-color: white;
             z-index: 100;
+            white-space: nowrap;
           }
         }
 
@@ -90,43 +91,6 @@
           display: none;
         }
       }
-      // # message: 本番環境でビュー崩れ等発生した際の為に元々のコードを一旦残している。
-      // &__left{
-      //   float: left;
-      //   line-height:32px;
-      //   display:block;
-      //   &__content{
-      //     list-style: none;
-      //     &__list{
-      //       padding-left: 0;
-      //       position: relative;
-      //       display: inline-block;
-      //       padding: 0 11px;
-      //       cursor: pointer;
-      //       &__heading{
-      //         font-size: 14px;
-      //         font-weight: 400;
-      //         &__link{
-      //           text-decoration: none;
-      //           position: relative;
-      //           height: 32px;
-      //           line-height: 32px;
-      //           &__icon{
-      //             color: $RedColor;
-      //             font-size: 12px;
-      //             margin-right: 4px;
-      //             font:20px FontAwesome;
-      //           }
-      //           &__text{
-      //             vertical-align: middle;
-      //             font-weight: bold;
-      //             color: black;
-      //           }
-      //         }
-      //       }
-      //     }
-      //   }
-      // }
         &__right{
           line-height:32px;
           &__content{
@@ -240,8 +204,6 @@
       display: none;
     }
   }
-// # message: 本番環境でビュー崩れ等発生した際の為に元々のコードを一旦残している。
-// }
 .login-user-box{
   float: left;
   border: 1px solid #0099e8;
