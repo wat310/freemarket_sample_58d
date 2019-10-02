@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   require "item.rb"
   before_action :set_item, only: [:show, :edit, :update, :destroy, :buy]
-  before_action :set_search, only: [:search, :index]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -149,7 +148,7 @@ class ItemsController < ApplicationController
 
   def search
     @items = @q.result
-    @new_items = Item.update_desc
+    @new_items = Item.update_desc.limit(24)
   end
 
   private
@@ -205,15 +204,24 @@ class ItemsController < ApplicationController
       :state,
       :postage,
       :size,
+      :category_name_cont,
+      :category_parent_name_cont,
       {category_id_in: []},
       {business_status_in: []},
-
-
     )
   end
 
   def set_search
     @q = Item.ransack(params[:q])
+    @keyword = :name_or_explanation_or_brand_name_or_category_name_cont
+    # @keyword = :name_or_explanation_or_brand_name_or_category_name_cont
+    # @cat = []
+    # category = Category.all
+    # category.each do |c|
+    #   @cat << c.name
+    # end
+
+    # @keyword.flatten!
   end
 
 end
