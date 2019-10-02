@@ -264,7 +264,7 @@
 // # message: 本番環境でビュー崩れ等発生した際の為に元々のコードを一旦残している。
 // }
 .login-user-box{
-  float: left;
+  float: right;
   border: 1px solid #0099e8;
   background: #fff;
   padding: 0 10px;
@@ -276,7 +276,7 @@
   }
 }
 .new-create-user{
-  float: left;
+  float: right;
   color: #fff;
   padding: 0 7px;
   background: #ea352d;
@@ -285,5 +285,5 @@
   padding: 0 10px;
   line-height: 30px;
   border-radius: 4px;
-  margin-right: 10px;
+  margin-left: 10px;
 }
