@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   require "item.rb"
   before_action :set_item, only: [:show, :edit, :update, :destroy, :buy]
-  before_action :set_search, only: [:search]
+  before_action :set_search, only: [:search, :index]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
@@ -149,6 +149,7 @@ class ItemsController < ApplicationController
 
   def search
     @items = @q.result
+    @new_items = Item.update_desc
   end
 
   private
