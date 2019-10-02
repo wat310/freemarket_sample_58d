@@ -1,4 +1,4 @@
-.search-result
+.search-listing
   =render partial: 'shared/header3'
   .result-content
     .search-sidebar
@@ -121,6 +121,19 @@
                     = '売却済み'
             .search__btns
               .search__btn--grey
-                = link_to "クリア", root_path,type: "button", class: "search__btn"
+              = f.button "クリア", type: "reset", class: "search__btn"
               = f.submit "完了", class: "search__btn  search__btn--red"
+    
     .item-box-container
+      .search__result
+        - if @items.present?
+          %h2.search__result__head= "検索結果 1-#{@items.length} 件"
+        - else
+          %h2.search__result__head 検索結果 0件
+          %p.search__result__description 該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。
+          %h2.search__result__new 新着商品
+        .search__result__container
+          - if @items.present?
+            = render partial: 'partial/item_box', collection: @items, as: 'item'
+          - else
+            = render partial: 'partial/item_box', collection: @new_items, as: 'item'
