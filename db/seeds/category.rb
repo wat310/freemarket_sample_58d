@@ -51,9 +51,9 @@ electro_accessory.children.create([{name: "Android用ケース"}, {name: "iPhone
 electro_pc.children.create([{name: "タブレット"}, {name: "ノートPC"}, {name: "デスクトップ型PC"}, {name: "ディスプレイ"}, {name: "PC周辺機器"}, {name: "その他"}])
 
 #おもちゃの子カテゴリ
-hobby_hobby = electro.children.create(name: "おもちゃ")
-hobby_comic = electro.children.create(name: "コミック/アニメグッズ")
-hobby_other = electro.children.create(name: "その他")
+hobby_hobby = hobby.children.create(name: "おもちゃ")
+hobby_comic = hobby.children.create(name: "コミック/アニメグッズ")
+hobby_other = hobby.children.create(name: "その他")
 
 #おもちゃの孫カテゴリ
 hobby_hobby.children.create([{name: "キャラクターグッズ"}, {name: "ぬいぐるみ"}, {name: "小物/アクセサリー"}, {name: "その他"}])
