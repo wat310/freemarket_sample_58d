@@ -4,9 +4,9 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # 画像調整
   process resize_to_fit: [800, 800]
-  def extension_white_list
-    %w(jpg jpeg png)
-  end
+  # def extension_white_list
+  #   %w(jpg jpeg png)
+  # end
 
   # 環境ごとに保存先変更
   if Rails.env.development? || Rails.env.test?
