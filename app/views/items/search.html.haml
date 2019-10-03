@@ -3,7 +3,7 @@
   .result-content
     .search-sidebar
       .search
-        = search_form_for(@q,url: search_path ) do |f|
+        = search_form_for(@q,url: search_items_path ) do |f|
           .search_sort
             = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
           .search_form
@@ -19,7 +19,6 @@
               .search__group--label
                 = fa_icon "list"
                 %p カテゴリーを選択する
-              -# = f.collection_select :category_id_eq, @categories, :id, :name, {include_blank: "---"}, class: "search__group--form"
               = f.collection_select :category_id_eq, @category, :id, :name, {include_blank: "---"}, class: "search__group--form"
               -# TODO カテゴリー検索機能実装・カテゴリー項目・子要素、孫要素の振り分け
               -# .display_none
@@ -36,7 +35,9 @@
               .search__group--label
                 = fa_icon "search"
                 %p サイズを指定する
+                -# TODO サイズ選択検索(現状表示のみ)
               = f.select :size, Item.sizes_i18n.invert, {include_blank: "---"}, class: "search__group--form"
+
 
             .search__group
               .search__group--label
