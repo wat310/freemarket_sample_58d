@@ -7,10 +7,10 @@
     align-items: stretch;
     margin: 40px auto 0;
     .search-sidebar{
+      height: 1330px;
       .search{
         width: 280px;
         margin: 0 40px 0 0;
-        height:1315px;
         .search_sort{
           opacity: 1;
           position: static;
@@ -75,9 +75,9 @@
               width: 45%;
               vertical-align: middle;
               word-break: break-word;
-              margin: 16px 0 0;
+              margin: 7px 0 0;
               font-size:14px;
-              padding-bottom: 5px;
+              padding-bottom: 3px;
             }
             .search__group--forms{
               display: flex;
@@ -120,7 +120,8 @@
                 background: #ea352d;
                 border: 1px solid #ea352d;
                 color: #fff;
-                text-align: center
+                text-align: center;
+                cursor: pointer;
                 }
             }
           }

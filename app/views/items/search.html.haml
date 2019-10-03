@@ -21,8 +21,6 @@
                 %p カテゴリーを選択する
               = f.collection_select :category_id_eq, @category, :id, :name, {include_blank: "---"}, class: "search__group--form"
               -# TODO カテゴリー検索機能実装・カテゴリー項目・子要素、孫要素の振り分け
-              -# .display_none
-              -#   %select.search__group--form#category_children{name: "q[category_id_in][]"}
               .search__category_group
 
             .search__group
@@ -35,10 +33,50 @@
               .search__group--label
                 = fa_icon "search"
                 %p サイズを指定する
-                -# TODO サイズ選択検索(現状表示のみ)
-              = f.select :size, Item.sizes_i18n.invert, {include_blank: "---"}, class: "search__group--form"
-
-
+              .search__group--checkbox
+                %label
+                  %input{type: "checkbox", class: "detail_condition-all detail_checkbox"}
+                  = 'すべて'
+              .search__group--checkbox
+                %label
+                  = f.check_box :size_in, {multiple: true, class: "detail_condition detail_checkbox"}, '0', nil
+                  = 'XXS以下'
+              .search__group--checkbox
+                %label
+                  = f.check_box :size_in, {multiple: true, class: "detail_condition detail_checkbox"}, '1', nil
+                  = 'XS'
+              .search__group--checkbox
+                %label
+                  = f.check_box :size_in, {multiple: true, class: "detail_condition detail_checkbox"}, '2', nil
+                  = 'S'
+              .search__group--checkbox
+                %label
+                  = f.check_box :size_in, {multiple: true, class: "detail_condition detail_checkbox"}, '3', nil
+                  = 'M'
+              .search__group--checkbox
+                %label
+                  = f.check_box :size_in, {multiple: true, class: "detail_condition detail_checkbox"}, '4', nil
+                  = 'L'
+              .search__group--checkbox
+                %label
+                  = f.check_box :size_in, {multiple: true, class: "detail_condition detail_checkbox"}, '5', nil
+                  = 'XL'
+              .search__group--checkbox
+                %label
+                  = f.check_box :size_in, {multiple: true, class: "detail_condition detail_checkbox"}, '6', nil
+                  = 'xxl'
+              .search__group--checkbox
+                %label
+                  = f.check_box :size_in, {multiple: true, class: "detail_condition detail_checkbox"}, '7', nil
+                  = 'xxxl'
+              .search__group--checkbox
+                %label
+                  = f.check_box :size_in, {multiple: true, class: "detail_condition detail_checkbox"}, '8', nil
+                  = 'xxxxl以上'
+              .search__group--checkbox
+                %label
+                  = f.check_box :size_in, {multiple: true, class: "detail_condition detail_checkbox"}, '9', nil
+                  = 'free'
             .search__group
               .search__group--label
                 = fa_icon "search"
