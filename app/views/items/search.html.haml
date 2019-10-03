@@ -37,6 +37,7 @@
                 %label
                   %input{type: "checkbox", class: "detail_condition-all detail_checkbox"}
                   = 'すべて'
+                  -#TODO全て一斉チェック
               .search__group--checkbox
                 %label
                   = f.check_box :size_in, {multiple: true, class: "detail_condition detail_checkbox"}, '0', nil
@@ -94,6 +95,7 @@
                   %label
                     %input{type: "checkbox", class: "detail_condition-all detail_checkbox"}
                     = 'すべて'
+                    -#TODO全て一斉チェック
                 .search__group--checkbox
                   %label
                     = f.check_box :state_in, {multiple: true, class: "detail_condition detail_checkbox"}, '0', nil
@@ -127,6 +129,7 @@
                   %label
                     %input{type: "checkbox", class: "detail_postage-all detail_checkbox"}
                     = 'すべて'
+                    -#TODO全て一斉チェック
                 .search__group--checkbox
                   %label
                     = f.check_box :postage_in, {multiple: true, class: "detail_postage detail_checkbox"}, '0', nil
@@ -140,10 +143,11 @@
                 .search__group--label
                   = fa_icon "search"
                   %p 販売状況
-                .search__group--checkbox
+                .search__group--checkbox#all
                   %label
-                    %input{type: "checkbox", class: "detail_checkbox"}
+                    %input{type: "checkbox", class: "detail_checkbox", name: "chk[]"}
                     = 'すべて'
+                    -#TODO全て一斉チェック
                 .search__group--checkbox
                   %label
                     = f.check_box :business_status_in, {multiple: true, class: "detail_checkbox"}, '0', nil
@@ -153,8 +157,7 @@
                     = f.check_box :business_status_in, {multiple: true, class: "detail_checkbox"}, '2', nil
                     = '売却済み'
             .search__btns
-              .search__btn--grey
-              = f.button "クリア", type: "reset"
+              = f.button "クリア", type: "reset", id: 'button'
               = f.submit "完了", class: "search__btn  search__btn--red"
     
     .item-box-container
