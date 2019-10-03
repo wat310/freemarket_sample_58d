@@ -150,14 +150,7 @@ class ItemsController < ApplicationController
     @items = @q.result
     @new_items = Item.update_desc.limit(24)
     @category = Category.all
-    
-    # @category_parent_array = []
-    # Category.where(ancestry: nil).each do |parent|
-    #   @category_parent_array << parent
-    # end
-    # @categories = categories.parent.name
-    # @cate = @categories.parent
-    # binding.pry
+    # TODO カテゴリー・親要素・子要素の振り分け
   end
 
   private
@@ -215,7 +208,6 @@ class ItemsController < ApplicationController
       :postage,
       :size,
       :category_name_cont,
-      :category_parent_name_cont,
       :category_id_eq,
       {business_status_in: []},
     )
@@ -224,14 +216,7 @@ class ItemsController < ApplicationController
   def set_search
     @q = Item.ransack(params[:q])
     @keyword = :name_or_explanation_or_brand_name_or_category_name_cont
-    # @keyword = :name_or_explanation_or_brand_name_or_category_name_cont
-    # @cat = []
-    # category = Category.all
-    # category.each do |c|
-    #   @cat << c.name
-    # end
-
-    # @keyword.flatten!
+    # TODO 親カテゴリーのname取得
   end
 
 end
