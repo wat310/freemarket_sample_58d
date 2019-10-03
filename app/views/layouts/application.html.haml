@@ -1,13 +1,25 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FreemarketSample58d
-    -# pay.jsの読み込み
     %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    -# MEMO:スライダー※簡易プラグイン使用var.
+    %link{href: "https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css", rel: "stylesheet"}/
+    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
+    %script{src: "https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"}
+    :javascript
+      $(document).on('turbolinks:load', function(){
+          $('#slider').bxSlider({
+              auto: true,
+              pause: 5000,
+          });
+      });
+
   %body
     = yield

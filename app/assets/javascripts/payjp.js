@@ -1,6 +1,5 @@
-document.addEventListener(
-  "DOMContentLoaded", e => {
-    if (document.getElementById("token_submit") != null) { //token_submitがnullの場合実行しない
+$(document).on('turbolinks:load', function(){
+    if (document.getElementById("token_submit") != null) { //token_submitがnullは実行しない
       Payjp.setPublicKey("pk_test_1e8e6918e2d54a6b56d6ca29"); //test公開鍵
       let btn = document.getElementById("token_submit"); //IDがtoken_submitの場合取得
       btn.addEventListener("click", e => { //ボタンが押されたときに作動
@@ -29,14 +28,14 @@ document.addEventListener(
         });
       });
     }
-  },
   false
+}
 ); 
 
 // --------------------------------------------
 // 公式のpayjsnのコード
 // $(document).on('turbolinks:load',function() {
-//   Payjp.setPublicKey('pk_test_7e69455f3e701137c2af4142');
+//   Payjp.setPublicKey('keynom');
 //   var form = $("#charge-form"),
 //       number = form.find('input[name="number"]'),
 //       cvc = form.find('input[name="cvc"]'),
@@ -73,5 +72,4 @@ document.addEventListener(
 //     });
 //   });
 // });
-
 // --------------------------------------------

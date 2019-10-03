@@ -53,7 +53,7 @@ $(document).on('turbolinks:load', function(){
       // 透明化している画像フォームを触れないようにする
       var before_image = images.length - 1;
       $(`input[data-image= "${before_image}"]`).css({
-        'visibility': `hidden`
+        'display': `none`
       })
     });
 
@@ -103,7 +103,7 @@ $(document).on('turbolinks:load', function(){
       }
       // 画像フォームを再度触れるようにする
       $(`input[data-image= "${images.length}"]`).css({
-        'visibility': `visible`
+        'display': `block`
       })
     })
   });
