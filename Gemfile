@@ -103,7 +103,7 @@ gem 'pry-rails'
 gem 'pry-byebug'
 gem 'pry-doc'
 gem 'payjp'
-gem 'aws-sdk-s3', '~> 1'
+gem 'aws-sdk-s3', '1.48.0'
 
 # パンくず
 gem "gretel"
