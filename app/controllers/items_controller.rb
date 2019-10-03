@@ -149,6 +149,15 @@ class ItemsController < ApplicationController
   def search
     @items = @q.result
     @new_items = Item.update_desc.limit(24)
+    @category = Category.all
+    
+    # @category_parent_array = []
+    # Category.where(ancestry: nil).each do |parent|
+    #   @category_parent_array << parent
+    # end
+    # @categories = categories.parent.name
+    # @cate = @categories.parent
+    # binding.pry
   end
 
   private
@@ -174,6 +183,7 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+    @category = :category_id_eq_any
   end
 
   def item_update_params # 画像に変更を加えない時のパラメーター
@@ -206,7 +216,7 @@ class ItemsController < ApplicationController
       :size,
       :category_name_cont,
       :category_parent_name_cont,
-      {category_id_in: []},
+      :category_id_eq,
       {business_status_in: []},
     )
   end
