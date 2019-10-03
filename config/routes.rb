@@ -4,14 +4,13 @@ devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callb
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "items#index"
-  get  "search", to: "items#search"
   resources :items do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_size', defaults: { format: 'json' }
       get 'brand_search', defaults: { format: 'json' }
-      match 'search' => 'items#search', via: [:get, :post]
+      match 'search', to: 'items#search', via: [:get, :post]
     end
     member do # itemのidと紐づけるためにmemberを使用
       get :buy
