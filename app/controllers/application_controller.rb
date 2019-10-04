@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   # Basic認証
   before_action :basic_auth, if: :production?
-  before_action :set_search
   protect_from_forgery with: :null_session
   
   # before_action :authenticate_user!  # ログイン済ユーザーのみにアクセスを許可
@@ -24,15 +23,5 @@ class ApplicationController < ActionController::Base
     authenticate_or_request_with_http_basic do |username, password|
       username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
     end
-  end
-  def set_search
-    @q = Item.ransack(params[:q])
-    @keyword = :name_or_explanation_or_brand_name_or_category_name__cont
-    # @keyword = :name_or_explanation_or_brand_name_or_category_name_cont
-    # @cat = []
-    # category = Category.all
-    # category.each do |c|
-    #   @cat << c.name
-    # end
   end
 end
