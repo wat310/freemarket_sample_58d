@@ -34,5 +34,4 @@ class Item < ApplicationRecord
 
   scope :update_desc, ->{order("updated_at DESC")}
 
-
 end

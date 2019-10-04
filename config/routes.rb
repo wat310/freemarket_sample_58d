@@ -10,7 +10,6 @@ devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callb
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_size', defaults: { format: 'json' }
       get 'brand_search', defaults: { format: 'json' }
-      match 'search', to: 'items#search', via: [:get, :post]
     end
     member do # itemのidと紐づけるためにmemberを使用
       get :buy
