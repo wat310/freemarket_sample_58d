@@ -25,7 +25,9 @@ set :linked_files, %w{config/master.key}
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
  task :restart do
-   invoke 'unicorn:restart'
+  #  invoke 'unicorn:restart'
+   invoke 'unicorn:stop' 
+   invoke 'unicorn:start'
  end
  desc 'upload master.key'
  task :upload do
@@ -41,6 +43,7 @@ namespace :deploy do
 end
 
 # 画像アップロード/環境変数をcapistranoでの自動デプロイで利用
+# エラー解決のため検証。クレデンシャル使用するのでこちらコメントアウト
 set :default_env, {
   rbenv_root: "/usr/local/rbenv",
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
