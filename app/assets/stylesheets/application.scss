@@ -8,14 +8,13 @@
 @import "index";
 @import "aside";
 @import "footer";
-@import "camera";
 @import "breadcrumbs";
 
 // items
 @import "items/new";
-@import "items/header";
+@import "items/header2";
 @import "item-user_footer";
-@import "items/purchase";
+@import "items/edit";
 @import "items/item-box";
 @import "items/done";
 
@@ -30,10 +29,13 @@
 @import "sign_up/step6";
 
 // users
+
 // mypage
 @import "mypage/index";
 @import "users/side";
 @import "users/logout";
 @import "items/show";
-@import "users/mypage_detailes";
+@import "camera";
+@import "users/mypage_detailes"
+
 
