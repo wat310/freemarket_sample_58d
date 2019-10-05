@@ -83,7 +83,7 @@ gem 'jquery-rails'
 
 
 group :production do
-  gem 'unicorn', '5.4.1'
+  gem 'unicorn', '5.5.0'
 end
 
 group :development, :test do
