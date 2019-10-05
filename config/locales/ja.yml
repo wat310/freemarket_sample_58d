@@ -28,7 +28,7 @@ ja:
   enums:
     item:
       state:
-        news: 新品
+        ne: 新品
         no_dirty: 目立った傷や汚れなし
         little_dirty: やや傷や汚れあり
         dirty: 傷や汚れあり

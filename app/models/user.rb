@@ -21,6 +21,10 @@ class User < ApplicationRecord
         validates :prefecture_id, presence: true
         validates :city, presence: true
         validates :house_number, presence: true
+        validates :shipping_family_name_kanji, presence: true, length: { maximum: 20 }
+        validates :shipping_first_name_kanji, presence: true, length: { maximum: 20 }
+        validates :shipping_family_name_kana, presence: true, length: { maximum: 20 }
+        validates :shipping_first_name_kana, presence: true, length: { maximum: 20 }
 
         # SNSログイン機能。facebookかgoogleからユーザー情報を引っ張り出してreturnする。
         # このときSNScredentialsテーブルにはuidとproviderを保存するが、User情報は保存しない。

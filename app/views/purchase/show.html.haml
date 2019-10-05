@@ -38,10 +38,12 @@
             .section-shipping__adress__box
               配送先
             .section-shipping__adress__details
-              〒
+              = "〒 #{@user.postal_code}"
               %br/
-              
+              = "#{@user.prefecture.name + @user.city + @user.house_number + @user.building}"
               %br/
+              = "#{@user.shipping_family_name_kanji}"
+              = "#{@user.shipping_first_name_kanji}"
               
             .section-shipping__adress__change
               .section-shipping__adress__change

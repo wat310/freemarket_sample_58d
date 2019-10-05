@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
 
-  enum state: { news: 0, no_dirty: 1, little_dirty: 2, dirty: 3, bad: 4 }
+  enum state: { ne: 0, no_dirty: 1, little_dirty: 2, dirty: 3, bad: 4 }, _suffix: true
   enum size: { XXS: 0, xs: 1, S: 2, M: 3, L: 4, XL: 5, xxl: 6, xxxl: 7, xxxxl: 8, free: 9 }
   enum postage: { seller: 0, buyer: 1 }
   enum shipping_method: { no_method: 0, mer: 1, yu_m: 2, letter: 3, normal: 4, yamato: 5, yu_pack: 6, c_post: 7, yu_packet: 8 }
