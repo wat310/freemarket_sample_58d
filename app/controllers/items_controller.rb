@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
+
   items = Item.all
   ladies, mens, electro, hobby, other = [], [], [], [], []
 
@@ -19,6 +20,7 @@ class ItemsController < ApplicationController
     elsif item.category.parent.parent.id == 5
       other << item.category.id
     end
+
   end
 
   # 重複している値を弾く
@@ -144,6 +146,12 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @items = @q.result
+    @new_items = Item.update_desc.limit(24)
+    @category = Category.all
+    # TODO カテゴリー・親要素・子要素の振り分け
+  end
 
   private
 
@@ -168,6 +176,7 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+    @category = :category_id_eq_any
   end
 
   def item_update_params # 画像に変更を加えない時のパラメーター
@@ -187,4 +196,27 @@ class ItemsController < ApplicationController
       )
       .merge(user_id: current_user.id)
   end
+
+  def search_params
+    params.require(:q).permit(
+      :sorts,
+      :name_cont,
+      :brand_name_cont,
+      :price_gteq,
+      :price_lteq,
+      :state,
+      :postage,
+      :size,
+      :category_name_cont,
+      :category_id_eq,
+      {business_status_in: []},
+    )
+  end
+
+  def set_search
+    @q = Item.ransack(params[:q])
+    @keyword = :name_or_explanation_or_brand_name_or_category_name_cont
+    # TODO 親カテゴリーのname取得
+  end
+
 end
