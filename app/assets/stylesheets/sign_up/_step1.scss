@@ -360,9 +360,13 @@ button, [type="button"], [type="date"], [type="datetime"], [type="datetime-local
 
 }
     .google-logo{
-      float: left;
-      margin-right: inherit;
+      // float: left;
+      // margin-right: inherit;
+      // position: absolute;
+      position: absolute;
+      left: 0;
     }
     .google{
-      margin: -60px;
+      // margin: -60px;
+      text-align: center;
     }

@@ -17,10 +17,9 @@
                 Facebookでログイン
             
           .form-group
-            %button{id: "google-login", class: "btn-default btn-sns btn-sns-google" }
-              = link_to'/users/auth/google_oauth2', method: :post, class: 'google' do
-                =image_tag '/google.svg', alt: '', height: '45', width: '60',class: "google-logo"
-                Googleでログイン
+            = link_to'/users/auth/google_oauth2', method: :post, class: 'btn-default btn-sns btn-sns-google', id: "google-login" do
+              =image_tag '/google.svg', alt: '', height: '45', width: '60',class: "google-logo"
+              %span.google Googleでログイン
         .login-form-inner
           .form-group
             = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-default", placeholder: "メールアドレス"
