@@ -24,15 +24,21 @@ class Item < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :category_id, presence: true
 
+  scope :incl, -> { includes(:images) }
+
+  scope :ladies,  -> { where(category_id: 8..13) }
+  scope :mens,  -> { where(category_id: 16..21) }
+  scope :electro,  -> { where(category_id: 25..42) }
+  scope :hobby,  -> { where(category_id: 46..62) }
+  scope :other,  -> { where(category_id: 65..70) }
+
   scope :cha, -> { where(brand_id: 1) }
   scope :louis, -> { where(brand_id: 3) }
   scope :sup, -> { where(brand_id: 4) }
   scope :nike, -> { where(brand_id: 2) }
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :prefecture
-
   scope :update_desc, ->{order("updated_at DESC")}
 
-
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 end
