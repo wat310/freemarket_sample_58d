@@ -3,7 +3,8 @@ app_path = File.expand_path('../../', __FILE__)
 
 #アプリケーションサーバの性能を決定する
 worker_processes 1
-working_directory "#{app_path}/current"
+# working_directory "#{app_path}/current"
+working_directory app_path
 
 # それぞれ、sharedの中を参照するよう変更
 # listen "#{app_path}/shared/tmp/sockets/unicorn.sock"
