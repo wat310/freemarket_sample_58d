@@ -106,7 +106,7 @@ class ItemsController < ApplicationController
 
   def show
     @next_item = Item.find_by("id > ?", @item.id)
-    @prev_item = Item.where("id < ?", @item.id).first
+    @prev_item = Item.where("id < ?", @item.id).last
     @images = @item.images
     @user_item = Item.update_desc.where(user_id: @item.user_id).limit(6)
     @category_item = Item.update_desc.where(category_id: @item.category_id).limit(6)
