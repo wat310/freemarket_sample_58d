@@ -108,12 +108,12 @@ button {
   max-width: 320px;
   margin: 0 auto;
 }
-#btn-mail {
+.btn-mail {
   color: #fff;
   background-color: $RedColor;
   position: relative;
 }
-#btn-mail .fa-envelope {
+.btn-mail .fa-envelope {
   position: absolute;
   top: 50%;
   left: 16px;
