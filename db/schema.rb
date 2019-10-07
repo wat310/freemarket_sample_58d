@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_26_052441) do
+ActiveRecord::Schema.define(version: 2019_10_05_115601) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2019_09_26_052441) do
     t.integer "birth_month", null: false
     t.integer "birth_day", null: false
     t.string "phone_number", null: false
-    t.integer "postal_code", null: false
+    t.string "postal_code", null: false
     t.bigint "prefecture_id", null: false
     t.string "city", null: false
     t.string "house_number", null: false
@@ -100,6 +100,10 @@ ActiveRecord::Schema.define(version: 2019_09_26_052441) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "shipping_family_name_kanji"
+    t.string "shipping_first_name_kanji"
+    t.string "shipping_family_name_kana"
+    t.string "shipping_first_name_kana"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["nickname"], name: "index_users_on_nickname"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

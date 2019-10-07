@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:shipping_family_name_kanji])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:shipping_first_name_kanji])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:shipping_family_name_kana])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:shipping_first_name_kana])
   end
 
   # Basic認証

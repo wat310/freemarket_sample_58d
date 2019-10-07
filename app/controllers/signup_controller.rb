@@ -28,10 +28,11 @@ class SignupController < ApplicationController
 
   def step4
     # step3で入力された値をsessionに保存
-    session[:family_name_kanji] = user_params[:family_name_kanji]
-    session[:first_name_kanji] = user_params[:first_name_kanji]
-    session[:family_name_kana] = user_params[:family_name_kana]
-    session[:first_name_kana] = user_params[:first_name_kana]
+    user_params[:shipping_family_name_kanji]
+    user_params[:shipping_first_name_kanji]
+    user_params[:shipping_family_name_kana]
+    user_params[:shipping_first_name_kana]
+
     user_params[:postal_code]
     user_params[:prefecture_id]
     user_params[:city]
@@ -57,10 +58,14 @@ class SignupController < ApplicationController
       nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
       email: session[:email],
       password: session[:password],
-      family_name_kanji: session[:family_name_kanji], 
-      first_name_kanji: session[:first_name_kanji], 
-      family_name_kana: session[:family_name_kana], 
-      first_name_kana: session[:first_name_kana], 
+      family_name_kanji: session[:family_name_kanji],
+      first_name_kanji: session[:first_name_kanji],
+      family_name_kana: session[:family_name_kana],
+      first_name_kana: session[:first_name_kana],
+      shipping_family_name_kanji: user_params[:shipping_family_name_kanji],
+      shipping_first_name_kanji: user_params[:shipping_first_name_kanji],
+      shipping_family_name_kana: user_params[:shipping_family_name_kana],
+      shipping_first_name_kana: suser_params[:shipping_first_name_kana],
       birth_year: session[:birth_year],
       birth_month: session[:birth_month],
       birth_day: session[:birth_day],
@@ -81,10 +86,14 @@ class SignupController < ApplicationController
         nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
         email: session[:email],
         password: session[:password],
-        family_name_kanji: session[:family_name_kanji], 
-        first_name_kanji: session[:first_name_kanji], 
-        family_name_kana: session[:family_name_kana], 
-        first_name_kana: session[:first_name_kana], 
+        family_name_kanji: session[:family_name_kanji],
+        first_name_kanji: session[:first_name_kanji],
+        family_name_kana: session[:family_name_kana],
+        first_name_kana: session[:first_name_kana],
+        shipping_family_name_kanji: user_params[:shipping_family_name_kanji],
+        shipping_first_name_kanji: user_params[:shipping_first_name_kanji],
+        shipping_family_name_kana: user_params[:shipping_family_name_kana],
+        shipping_first_name_kana: user_params[:shipping_first_name_kana],
         birth_year: session[:birth_year],
         birth_month: session[:birth_month],
         birth_day: session[:birth_day],
@@ -119,18 +128,22 @@ end
   private
     def user_params
       params.require(:user).permit(
-        :nickname, 
-        :email, 
+        :nickname,
+        :email,
         :password,
         :password_confirmation,
         :birth_year,
         :birth_month,
         :birth_day,
-        :family_name_kanji, 
+        :family_name_kanji,
         :first_name_kanji,
         :family_name_kana,
         :first_name_kana,
         :phone_number,
+        :shipping_family_name_kanji,
+        :shipping_first_name_kanji,
+        :shipping_family_name_kana,
+        :shipping_first_name_kana,
         :postal_code,
         :prefecture_id,
         :city,

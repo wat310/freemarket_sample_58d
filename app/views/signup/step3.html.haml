@@ -28,15 +28,19 @@
     
         .l-single-content
           .form-group
-            = f.label "お名前" 
+            = f.label "お名前"
             %span.form-require 必須
-            = f.text_field :family_name_kanji, class:"input-default",placeholder: "森田"
-            = f.text_field :first_name_kanji, class:"input-default",placeholder: "大陽"
+            -# = f.text_field :family_name_kanji, class:"input-default",placeholder: "森田"
+            -# = f.text_field :first_name_kanji, class:"input-default",placeholder: "大陽"
+            = f.text_field :shipping_family_name_kanji, class:"input-default",placeholder: "森田"
+            = f.text_field :shipping_first_name_kanji, class:"input-default",placeholder: "大陽"
 
             = f.label "お名前カナ"
             %span.form-require 必須
-            = f.text_field :family_name_kana, class:"input-default",placeholder: "モリタ"
-            = f.text_field :first_name_kana, class:"input-default",placeholder: "ヒロアキ"
+            -# = f.text_field :family_name_kana, class:"input-default",placeholder: "モリタ"
+            -# = f.text_field :first_name_kana, class:"input-default",placeholder: "ヒロアキ"
+            = f.text_field :shipping_family_name_kana, class:"input-default",placeholder: "モリタ"
+            = f.text_field :shipping_first_name_kana, class:"input-default",placeholder: "ヒロアキ"
 
           .form-group
             = f.label "郵便番号"

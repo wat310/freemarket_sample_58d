@@ -1,8 +1,10 @@
 -# TODO:購入完了画面。
 -# 購入確定ページ
 .wrapper
-  .header
-    = image_tag 'buy-logo.svg', alt: 'メルカリロゴ', height: '49', width: '185', class: 'header__icon'
+  .item-main
+    = render partial:"shared/item-header"
+  -# .header
+  -#   = image_tag 'buy-logo.svg', alt: 'メルカリロゴ', height: '49', width: '185', class: 'header__icon'
   .purchase-body
     .payment
       %h2.payment__head 購入が完了しました 
@@ -23,9 +25,12 @@
             .section-shipping__adress__box
               配送先
             .section-shipping__adress__details
-              〒
+              = "〒 #{@user.postal_code}"
               %br/
+              = "#{@user.prefecture.name + @user.city + @user.house_number + @user.building}"
               %br/
+              = "#{@user.shipping_family_name_kanji}"
+              = "#{@user.shipping_first_name_kanji}"
 
         .section-shipping
           .section-bottom__purchase

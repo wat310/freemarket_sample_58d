@@ -4,9 +4,10 @@ class PurchaseController < ApplicationController
   require 'payjp'
   before_action :get_payjp_info
   before_action :get_items_info, only: [:done, :show]
+  before_action :user_info, only: [:done, :show]
 
   def show
-    # if 
+    # if
       card = Card.find_by(user_id: current_user.id)
       if card.blank?
         redirect_to controller: "card", action: "new"
@@ -55,5 +56,9 @@ class PurchaseController < ApplicationController
   def get_items_info
     @item = Item.find(params[:id])
     @images = @item.images
+  end
+
+  def user_info
+    @user = User.find_by(id: current_user.id)
   end
 end
