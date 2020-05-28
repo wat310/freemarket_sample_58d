@@ -109,5 +109,5 @@ gem 'aws-sdk-s3', '1.48.0'
 gem "gretel"
 
 # 検索関連
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari', '~> 1.2.1'
 gem 'ransack'
